@@ -12,7 +12,7 @@ export default function Home() {
         height={500}
         className={styles.image}
       />
-      <h3>Site is under construction</h3>
+      <h3 className="text-8md font-bold">Site is under construction</h3>
     </div>
   );
 }
