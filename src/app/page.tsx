@@ -6,6 +6,9 @@ import underConstructionImage from "../../public/assets/underconstruction.webp";
 
 import HeroSection from "./components/HomePage/HeroSection";
 import Navbar from "./components/HomePage/Navbar";
+import ClientsCardComponent from "./components/HomePage/ClientsCardComponent";
+import Footer from "./components/Footer";
+import AboutUsComponent from "./components/HomePage/AboutUsComponent";
 
 
 export default function Home() {
@@ -15,6 +18,10 @@ export default function Home() {
       
 
       <HeroSection />
+
+      <ClientsCardComponent/>
+
+      <AboutUsComponent/>
 
       <div className={styles.underconstruction}>
         <Image
@@ -27,6 +34,8 @@ export default function Home() {
         <h3 className="text-8md font-bold">Site is under construction</h3>
 
       </div>
+
+      <Footer/>
     </>
 
   );
