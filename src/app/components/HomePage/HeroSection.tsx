@@ -3,8 +3,8 @@ import Navbar from './Navbar'
 
 function HeroSection() {
     return (
-        <div className="w-full h-[800px] md:h-[1000px] lg:h-[1200px] bg-cover bg-center"
-            style={{ backgroundImage: "url('/assets/Heroassets/Banner 1.png')" }}
+        <div className="w-full h-[800px] md:h-[1000px] lg:h-[900px] bg-cover bg-center"
+            style={{ backgroundImage: "url('/assets/Heroassets/Banner 2.png')" }}
         >
 
             <Navbar />

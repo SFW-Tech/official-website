@@ -10,7 +10,7 @@ function Navbar() {
     };
 
     return (
-        <div className="sticky top-0 z-50 flex gap-10 justify-between items-center px-6 md:px-18 py-4 text-white">
+        <div className="sticky top-0 z-50 flex gap-10 justify-between items-center px-6 lg:px-40 md:px-18 py-4 text-white">
 
 
             {/* Logo */}
@@ -23,9 +23,8 @@ function Navbar() {
             </div>
 
 
-            {/* Menu for md (tablet) and above */}
-            <div className="hidden md:flex gap-10 text-sm font-semibold items-center mx-auto">
-
+            {/* Menu for md and lg and above */}
+            <div className="hidden md:flex gap-10 text-sm font-semibold items-center mx-auto lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
                 <p className="cursor-pointer">Home</p>
                 <p className="cursor-pointer">Services</p>
                 <p className="cursor-pointer">About Us</p>
