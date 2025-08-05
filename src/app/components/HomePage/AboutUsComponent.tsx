@@ -7,7 +7,7 @@ function AboutUsComponent() {
             <div className='grid grid-cols-2'>
 
                 {/* Left Side */}
-                <div className='bg-cover bg-center p-30 text-white relative z-10'
+                <div className='bg-cover bg-center p-28 text-white relative z-10'
                     style={{ backgroundImage: "url('/assets/aboutusassets/aboutusbg.png')" }}
                 >
 
