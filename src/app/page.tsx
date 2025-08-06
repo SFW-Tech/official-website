@@ -13,6 +13,7 @@ import OurServices from "./components/HomePage/OurServices";
 import Calloutsection from "./components/HomePage/Calloutsection";
 import CaseStudiesSection from "./components/HomePage/CaseStudiesSection";
 import StaffAugmentation from "./components/HomePage/StaffAugmentation";
+import Latestposts from "./components/HomePage/Latestposts";
 
 
 export default function Home() {
@@ -34,6 +35,8 @@ export default function Home() {
       <CaseStudiesSection/>
 
       <StaffAugmentation/>
+
+      <Latestposts/>
 
       <div className={styles.underconstruction}>
         <Image

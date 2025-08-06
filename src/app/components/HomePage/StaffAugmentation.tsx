@@ -2,62 +2,19 @@ import React from 'react'
 
 function StaffAugmentation() {
     return (
-        <div className='mt-24 px-35 grid grid-cols-2 gap-8'>
+        <div className='mt-4 px-35 grid grid-cols-2 gap-8 lg:px-35 md:px-8'>
 
 
 
-            <div className="flex justify-center items-center relative w-[500px] h-[500px] translate-x-[70px]">
+            <div className="flex justify-center items-center w-[700px] h-[500px] lg:w-[700px] lg:h-[500px] md:h-[500px] md:w-[500px]">
 
+                <img src="/assets/Staffaugmentationassets/Grouplogo.png" alt="" />
 
-                {/* Center Circle */}
-                <div className="w-[250px] h-[250px] rounded-full flex justify-center items-center shadow-lg z-10 bg-white">
-                    <img
-                        src="/assets/Staffaugmentationassets/logo staff aug.png"
-                        alt="center"
-                        className="w-full h-full object-contain"
-                    />
-                </div>
-
-                {/* Top Left */}
-                <div className="absolute top-[-190px] left-[-190px]">
-                    <img
-                        src="/assets/Staffaugmentationassets/staff aug 1.png"
-                        alt="1"
-                        className="w-[500px]"
-                    />
-                </div>
-
-                {/* Top Right */}
-                <div className="absolute top-[-190px] right-[-200px]">
-                    <img
-                        src="/assets/Staffaugmentationassets/staff aug 2.png"
-                        alt="2"
-                        className="w-[500px]"
-                    />
-                </div>
-
-                {/* Bottom Left */}
-                <div className="absolute bottom-[-190px] left-[-200px]">
-                    <img
-                        src="/assets/Staffaugmentationassets/staff aug 3.png"
-                        alt="3"
-                        className="w-[500px]"
-                    />
-                </div>
-
-                {/* Bottom Right */}
-                <div className="absolute bottom-[-190px] right-[-200px]">
-                    <img
-                        src="/assets/Staffaugmentationassets/staff aug 4.png"
-                        alt="4"
-                        className="w-[500px]"
-                    />
-                </div>
             </div>
 
 
 
-            <div className='flex flex-col gap-4 p-18 leading-relaxed justify-center'>
+            <div className='flex flex-col gap-4 p-18 leading-relaxed justify-center lg:p-18 md:p-4'>
 
                 <h3 className='text-3xl text-gray-700 font-bold'>Staff Augmentation Your Developers and Our Integration</h3>
 
