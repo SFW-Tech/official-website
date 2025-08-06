@@ -11,7 +11,7 @@ function ClientsCardComponent() {
 
       <div className="flex justify-center ">
         
-        <h3 className="text-md">Our Valuable Clients</h3>
+        <h3 className="text-md text-gray-700">Our Valuable Clients</h3>
 
 
       </div>

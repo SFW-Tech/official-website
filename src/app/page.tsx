@@ -9,6 +9,10 @@ import Navbar from "./components/HomePage/Navbar";
 import ClientsCardComponent from "./components/HomePage/ClientsCardComponent";
 import Footer from "./components/Footer";
 import AboutUsComponent from "./components/HomePage/AboutUsComponent";
+import OurServices from "./components/HomePage/OurServices";
+import Calloutsection from "./components/HomePage/Calloutsection";
+import CaseStudiesSection from "./components/HomePage/CaseStudiesSection";
+import StaffAugmentation from "./components/HomePage/StaffAugmentation";
 
 
 export default function Home() {
@@ -22,6 +26,14 @@ export default function Home() {
       <ClientsCardComponent/>
 
       <AboutUsComponent/>
+
+      <OurServices/>
+
+      <Calloutsection/>
+
+      <CaseStudiesSection/>
+
+      <StaffAugmentation/>
 
       <div className={styles.underconstruction}>
         <Image
