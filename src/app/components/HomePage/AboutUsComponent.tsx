@@ -27,7 +27,7 @@ function AboutUsComponent() {
 
                         <div className='flex gap-4'>
                             <img src="/assets/aboutusassets/about us icon 1.png" className='h-22 w-22' alt="" />
-                            <p>Our great team of more than 86 software experts, With 5+ years of experience.</p>
+                            <p>With a passionate team of software experts, we design, develop, and enhance digital products to accelerate your business success.</p>
                         </div>
 
                         <div className='flex gap-4'>
