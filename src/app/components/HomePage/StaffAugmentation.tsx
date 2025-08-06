@@ -2,19 +2,20 @@ import React from 'react'
 
 function StaffAugmentation() {
     return (
-        <div className='mt-4 px-35 grid grid-cols-2 gap-8 lg:px-35 md:px-8'>
+
+        <div className='mt-4 px-28  grid grid-cols-2 gap-x-8 lg:px-12 md:px-8'>
 
 
 
-            <div className="flex justify-center items-center w-[700px] h-[500px] lg:w-[700px] lg:h-[500px] md:h-[500px] md:w-[500px]">
+            <div className="flex justify-center items-center w-[700px] h-[500px] md:h-[500px] md:w-[500px] xl:w-[700px] xl:h-[500px] lg:h-[500px] lg:w-[500px] relative">
 
-                <img src="/assets/Staffaugmentationassets/Grouplogo.png" alt="" />
+                <img src="/assets/Staffaugmentationassets/Grouplogo.png"  alt="" />
 
             </div>
 
 
 
-            <div className='flex flex-col gap-4 p-18 leading-relaxed justify-center lg:p-18 md:p-4'>
+            <div className='flex flex-col gap-4 p-8 leading-relaxed justify-center xl:p-15 md:p-4 lg:p-10'>
 
                 <h3 className='text-3xl text-gray-700 font-bold'>Staff Augmentation Your Developers and Our Integration</h3>
 

@@ -49,7 +49,7 @@ function CaseStudiesSection() {
 
 
 
-                <div className="relative w-[650px] h-[360px] md:w-[400px] md:h-[360px] lg:w-[650px] lg:h-[360px] mx-auto flex justify-center gap-6">
+                <div className="relative w-[650px] h-[360px] md:w-[400px] md:h-[360px] lg:w-[350px] lg:h-[365px] xl:w-[650px] xl:h-[360px] mx-auto flex justify-center gap-6">
                     <img
                         src="/assets/Casestudyassets/case study 1.png"
                         alt="Image 1"
