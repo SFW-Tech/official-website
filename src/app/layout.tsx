@@ -24,10 +24,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap"
+        />
+      </head>
+      <body className="font-[var(--font-display)]">{children}</body>
+      {/* <body className={`${geistSans.variable} ${geistMono.variable}`}>
         
         {children}
-      </body>
+      </body> */}
     </html>
   );
 }
