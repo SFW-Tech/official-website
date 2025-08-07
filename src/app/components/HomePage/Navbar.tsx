@@ -64,7 +64,7 @@ function Navbar() {
                             <p className="cursor-pointer py-3 hover:bg-white/10 transition">Services</p>
                             <p className="cursor-pointer py-3 hover:bg-white/10 transition">About Us</p>
                             <p className="cursor-pointer py-3 hover:bg-white/10 transition">Careers</p>
-                            <p className="cursor-pointer py-3 hover:bg-white/10 transition">Contacts</p>
+                            <p className="cursor-pointer py-3 hover:bg-white/10 transition">Contact</p>
                         </div>
                     </div>
                 )}
