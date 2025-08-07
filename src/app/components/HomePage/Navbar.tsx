@@ -34,7 +34,7 @@ function Navbar() {
 
                 <p className="cursor-pointer">Service & Solution</p>
                 <p className="cursor-pointer">Blog</p>
-                <p className="cursor-pointer">Contacts</p>
+                <p className="cursor-pointer">Contact</p>
             </div>
 
 
