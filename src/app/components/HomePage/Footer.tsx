@@ -4,7 +4,7 @@ function Footer() {
     return (
         <div
             className='w-full bg-blue-950 bg-cover bg-center'
-            style={{ backgroundImage: "url('/assets/footerassets/footerbg.png')" }}
+            style={{ backgroundImage: "url('/assets/Home/footerassets/footerbg.png')" }}
         >
 
 
@@ -72,7 +72,7 @@ function Footer() {
                         <div className='flex gap-3 items-start'>
 
                             <div className='flex-shrink-0 mt-1'>
-                                <img src="/assets/footerassets/location.png" alt="Location" className="w-4 h-4" />
+                                <img src="/assets/Home/footerassets/location.png" alt="Location" className="w-4 h-4" />
                             </div>
 
                             <div className='flex-1'>
@@ -98,7 +98,7 @@ function Footer() {
                         <div className='flex gap-3 items-start'>
 
                             <div className='flex-shrink-0 mt-1'>
-                                <img src="/assets/footerassets/location.png" alt="Location" className="w-4 h-4" />
+                                <img src="/assets/Home/footerassets/location.png" alt="Location" className="w-4 h-4" />
                             </div>
 
                             <div className='flex-1'>
@@ -125,7 +125,7 @@ function Footer() {
                         <div className='flex gap-3 items-start'>
 
                             <div className='flex-shrink-0 mt-1'>
-                                <img src="/assets/footerassets/location.png" alt="Location" className="w-4 h-4" />
+                                <img src="/assets/Home/footerassets/location.png" alt="Location" className="w-4 h-4" />
                             </div>
 
                             <div className='flex-1'>
@@ -187,10 +187,10 @@ function Footer() {
                 {/* Right Side Logos */}
 
                 <div className='flex gap-4  items-center text-white'>
-                    <img src="/assets/footerassets/Insta.png" alt="Instagram" className="w-8 h-8 cursor-pointer hover:scale-110 transition" />
-                    <img src="/assets/footerassets/Linkedin.png" alt="LinkedIn" className="w-8 h-8 cursor-pointer hover:scale-110 transition" />
-                    <img src="/assets/footerassets/Twitter.png" alt="Twitter" className="w-8 h-8 cursor-pointer hover:scale-110 transition" />
-                    <img src="/assets/footerassets/Facebook.png" alt="Facebook" className="w-8 h-8 cursor-pointer hover:scale-110 transition" />
+                    <img src="/assets/Home/footerassets/Insta.png" alt="Instagram" className="w-8 h-8 cursor-pointer hover:scale-110 transition" />
+                    <img src="/assets/Home/footerassets/Linkedin.png" alt="LinkedIn" className="w-8 h-8 cursor-pointer hover:scale-110 transition" />
+                    <img src="/assets/Home/footerassets/Twitter.png" alt="Twitter" className="w-8 h-8 cursor-pointer hover:scale-110 transition" />
+                    <img src="/assets/Home/footerassets/Facebook.png" alt="Facebook" className="w-8 h-8 cursor-pointer hover:scale-110 transition" />
                 </div>
 
 

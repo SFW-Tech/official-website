@@ -18,7 +18,7 @@ function Latestposts() {
                     <div className="relative">
                         <img
                             className="rounded-lg h-52 w-full object-cover"
-                            src="/assets/Latestpostsassets/1.png"
+                            src="/assets/Home/Latestpostsassets/1.png"
                             alt=""
                         />
 
@@ -55,7 +55,7 @@ function Latestposts() {
                     <div className="relative">
                         <img
                             className="rounded-lg h-52 w-full object-cover"
-                            src="/assets/Latestpostsassets/2.png"
+                            src="/assets/Home/Latestpostsassets/2.png"
                             alt=""
                         />
 
@@ -93,7 +93,7 @@ function Latestposts() {
                     <div className="relative">
                         <img
                             className="rounded-lg h-52 w-full object-cover"
-                            src="/assets/Latestpostsassets/3.png"
+                            src="/assets/Home/Latestpostsassets/3.png"
                             alt=""
                         />
 
@@ -129,7 +129,7 @@ function Latestposts() {
                     <div className="relative">
                         <img
                             className="rounded-lg h-52 w-full object-cover"
-                            src="/assets/Latestpostsassets/4.png"
+                            src="/assets/Home/Latestpostsassets/4.png"
                             alt=""
                         />
 
