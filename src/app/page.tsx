@@ -26,7 +26,7 @@ export default function Home() {
 
       <ClientsCardComponent/>
 
-      <AboutUsComponent/>
+      <AboutUsComponent/>  
 
       <OurServices/>
 

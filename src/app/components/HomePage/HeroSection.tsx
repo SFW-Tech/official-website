@@ -9,7 +9,7 @@ function HeroSection() {
 
             <Navbar />
 
-            <div className='text-white flex justify-center px-4 md:px-14 lg:px-0 pt-2 md:pt-14 lg:pt-35 font-bold text-xl md:text-4xl lg:text-5xl text-center'>
+            <div className='text-white flex justify-center px-4 md:px-14 lg:px-0 pt-19 md:pt-14 lg:pt-35 font-bold text-xl md:text-4xl lg:text-5xl text-center'>
                 <h1>Building Smart Solutions for a Digital-First Future</h1>
             </div>
 
