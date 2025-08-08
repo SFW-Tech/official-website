@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import CompanyDropdownMenu from "./TopSection/CompanyDropdownMenu";
 
 function Navbar() {
     const [hamburgerlist, sethamburgerlist] = useState<boolean>(false);
@@ -26,12 +27,7 @@ function Navbar() {
             {/* Menu for md and lg and above */}
             <div className="hidden md:flex gap-10 text-sm font-semibold items-center mx-auto lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
                 <p className="cursor-pointer">Home</p>
-                <select
-
-                    className="cursor-pointer">
-                    <option value="">Company</option>
-                </select>
-
+                <CompanyDropdownMenu />
                 <p className="cursor-pointer">Service & Solution</p>
                 <p className="cursor-pointer">Blog</p>
                 <p className="cursor-pointer">Contact</p>
