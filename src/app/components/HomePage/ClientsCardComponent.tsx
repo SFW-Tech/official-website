@@ -20,7 +20,7 @@ function ClientsCardComponent() {
 
       <div className="px-24">
 
-        <img src="/assets/clientassets/clients.png" alt="" />
+        <img src="/assets/Home/clientassets/clients.png" alt="" />
 
 
 

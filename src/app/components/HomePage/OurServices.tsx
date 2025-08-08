@@ -23,27 +23,27 @@ function OurServices() {
                     <div className='flex flex-col rounded-lg overflow-hidden'>
 
                         <div className='flex items-center gap-4 p-4 bg-gradient-to-r from-pink-100 to-pink-200 cursor-pointer border-b border-gray-200'>
-                            <img src="/assets/Ourservicesassets/service 1 icon.png" alt="" />
+                            <img src="/assets/Home/Ourservicesassets/service 1 icon.png" alt="" />
                             <p className='font-semibold text-lg'>Custom Application</p>
                         </div>
 
                         <div className='flex gap-4 items-center p-4 border-b border-gray-200'>
-                            <img src="/assets/Ourservicesassets/service 2 icon.png" alt="" />
+                            <img src="/assets/Home/Ourservicesassets/service 2 icon.png" alt="" />
                             <p className='font-semibold text-lg' >Mobile Application</p>
                         </div>
 
                         <div className='flex gap-4 items-center p-4 border-b border-gray-200'>
-                            <img src="/assets/Ourservicesassets/service 3 icon.png" alt="" />
+                            <img src="/assets/Home/Ourservicesassets/service 3 icon.png" alt="" />
                             <p className='font-semibold text-lg'>Web Application</p>
                         </div>
 
                         <div className='flex gap-4 items-center p-4 border-b border-gray-200'>
-                            <img src="/assets/Ourservicesassets/service 4 icon.png" alt="" />
+                            <img src="/assets/Home/Ourservicesassets/service 4 icon.png" alt="" />
                             <p className='font-semibold text-lg'>Servicenow</p>
                         </div>
 
                         <div className='flex gap-4 items-center p-4 border-b border-gray-200'>
-                            <img src="/assets/Ourservicesassets/service 5 icon.png" alt="" />
+                            <img src="/assets/Home/Ourservicesassets/service 5 icon.png" alt="" />
                             <p className='font-semibold text-lg'>Staff Augmentation</p>
                         </div>
 
@@ -54,7 +54,7 @@ function OurServices() {
 
 
                     <div className='relative -mt-70'>
-                        <img src="/assets/Ourservicesassets/service 3.png" alt="Our services image" className="w-full h-auto object-contain" />
+                        <img src="/assets/Home/Ourservicesassets/service 3.png" alt="Our services image" className="w-full h-auto object-contain" />
                     </div>
 
 
