@@ -7,7 +7,7 @@ import underConstructionImage from "../../public/assets/underconstruction.webp";
 import HeroSection from "./components/HomePage/HeroSection";
 import Navbar from "./components/HomePage/Navbar";
 import ClientsCardComponent from "./components/HomePage/ClientsCardComponent";
-import Footer from "./components/Footer";
+import Footer from "./components/HomePage/Footer";
 import AboutUsComponent from "./components/HomePage/AboutUsComponent";
 import OurServices from "./components/HomePage/OurServices";
 import Calloutsection from "./components/HomePage/Calloutsection";

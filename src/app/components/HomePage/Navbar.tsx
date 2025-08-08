@@ -16,7 +16,7 @@ function Navbar() {
             {/* Logo */}
             <div className="flex items-center">
                 <img
-                    src="/assets/Navbarassets/logo.png"
+                    src="/assets/Home/Navbarassets/logo.png"
                     alt="Softworks Logo"
                     className="h-10 w-auto"
                 />

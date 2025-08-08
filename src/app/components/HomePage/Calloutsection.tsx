@@ -4,7 +4,7 @@ function Calloutsection() {
     return (
         <div
             className="w-full h-[155px] bg-contain bg-no-repeat bg-center flex items-center justify-between px-28"
-            style={{ backgroundImage: "url('/assets/Calloutassets/Callout section.png')" }}
+            style={{ backgroundImage: "url('/assets/Home/Calloutassets/Callout section.png')" }}
         >
             <div>
                 <h1 className="text-white font-semibold md:text-2xl">
