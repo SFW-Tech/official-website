@@ -14,7 +14,7 @@ function Techstack() {
 
       <div className='flex justify-center items-center mt-10'>
 
-        <img src="/assets/Aboutus/Techstackassets/1.png" className='h-[600px] w-auto' alt="" />
+        <img src="/assets/Aboutus/Techstackassets/2.png" className='h-[600px] w-auto' alt="" />
 
 
       </div>

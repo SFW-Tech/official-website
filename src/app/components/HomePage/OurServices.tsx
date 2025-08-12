@@ -3,20 +3,22 @@ import React from 'react'
 function OurServices() {
     return (
 
-        <div className='w-full mt-20 '>
+        <div className='w-full mt-10 md:mt-20 px-6 md:px-0'>
 
 
-            <div className='flex leading-relaxed flex-col gap-3  justify-center items-center'>
-                <h1 className='text-3xl font-bold text-gray-700'>Our Services</h1>
-                <p className='text-lg text-gray-500'>Transform your Business with Advanced technologies</p>
+            <div className='flex leading-relaxed flex-col gap-3 justify-center items-center'>
+                <h1 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold text-gray-700'>Our Services</h1>
+                <p className='text-center text-sm sm:text-base md:text-md lg:text-lg xl:text-base text-gray-500'>
+                    Transform your Business with Advanced technologies
+                </p>
             </div>
 
-            <div className='pl-28'>
+            <div className='md:pl-28'>
 
 
 
 
-                <div className="grid grid-cols-[1fr_1.6fr] mt-22">
+                <div className="grid grid-cols-1 md:grid-cols-[1fr_1.6fr] mt-8 md:mt-22">
 
                     {/* Left Side */}
 
@@ -53,9 +55,14 @@ function OurServices() {
 
 
 
-                    <div className='relative -mt-70'>
-                        <img src="/assets/Home/Ourservicesassets/service 3.png" alt="Our services image" className="w-full h-auto object-contain" />
+                    <div className='relative md:-mt-50 lg:-mt-50 xl:-mt-80 hidden md:block'>
+                        <img
+                            src="/assets/Home/Ourservicesassets/service 6.png"
+                            alt="Our services image"
+                            className="w-full h-[600px] lg:h-[700px] xl:h-[900px] object-contain"
+                        />
                     </div>
+
 
 
                 </div>
