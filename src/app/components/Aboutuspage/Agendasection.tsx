@@ -1,12 +1,14 @@
 "use client";
 
 import React from "react";
-import Slider, { CustomArrowProps } from "react-slick";
+// import Slider, { CustomArrowProps } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 // Next arrow component
-function NextArrow({ onClick }: CustomArrowProps) {
+function NextArrow({ onClick }: any
+  //  CustomArrowProps
+  ) {
   return (
     <button
       onClick={onClick}
@@ -27,7 +29,9 @@ function NextArrow({ onClick }: CustomArrowProps) {
 }
 
 // Previous arrow component
-function PrevArrow({ onClick }: CustomArrowProps) {
+function PrevArrow({ onClick }: any 
+  // CustomArrowProps
+) {
   return (
     <button
       onClick={onClick}
@@ -71,13 +75,13 @@ export default function Agendasection() {
 
   return (
 <div className="relative mt-8 px-2 sm:px-6 md:px-12 lg:px-20 xl:px-28">
-      <Slider {...settings}>
+      {/* <Slider {...settings}>
         {images.map((src, index) => (
           <div key={index}>
             <img src={src} alt={`Agenda slide ${index + 1}`} className="mx-auto h-[60px] w-[220px] md:h-[100px] md:w-[500px] lg:h-[130px] lg:w-[700px] xl:h-60 xl:w-[1200px]" />
           </div>
         ))}
-      </Slider>
+      </Slider> */}
     </div>
   );
 }
