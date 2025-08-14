@@ -1,4 +1,7 @@
+"use client"
+
 import React from 'react'
+import { useRouter } from "next/navigation";
 
 interface JobCardProps {
     title: string
@@ -9,14 +12,19 @@ interface JobCardProps {
     location: string
 }
 
+
+
 const Jobcard = ({ title, jobId, jobType, skills, experience, location }: JobCardProps) => {
+    const router = useRouter()
     return (
         <div className="rounded-2xl shadow-2xl p-4 md:p-5 lg:p-6 bg-white">
 
             {/* Top section */}
             <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2 gap-2">
                 <h1 className="text-base sm:text-lg md:text-xl font-bold">{title}</h1>
-                <button className="flex gap-2 items-center justify-center text-xs sm:text-sm tracking-tight rounded-md text-white bg-cyan-600 px-3 py-1.5 w-fit hover:bg-cyan-700 transition cursor-pointer">
+                <button className="flex gap-2 items-center justify-center text-xs sm:text-sm tracking-tight rounded-md text-white bg-cyan-600 px-3 py-1.5 w-fit hover:bg-cyan-700 transition cursor-pointer"
+                    onClick={() => router.push("/Jobdescription")}
+                >
                     Apply Here
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

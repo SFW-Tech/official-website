@@ -1,3 +1,4 @@
+
 import React from 'react'
 import Herosection from '../components/Careerspage/Herosection'
 import Exploresection from '../components/Careerspage/Exploresection'
@@ -10,7 +11,7 @@ function page() {
         <Herosection/>
         <Exploresection/>
         <Jobsection/>
-        <Footer/>
+        
     </div>
   )
 }

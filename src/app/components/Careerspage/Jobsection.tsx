@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import Jobcard from './Jobcard';
 
@@ -16,7 +18,7 @@ function Jobsection() {
         title="Backend Developer"
         jobId="JD1024"
         jobType="Part-time"
-        skills={['Node.js', 'Express', 'MongoDB',"Python","Nextjs","Nest Js","SQL","NoSql"]}
+        skills={['Node.js', 'Express', 'MongoDB', "Python", "Nextjs", "Nest Js", "SQL", "NoSql"]}
         experience="3+ Years"
         location="Bangalore"
       />
