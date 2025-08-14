@@ -70,11 +70,11 @@ export default function Agendasection() {
   ];
 
   return (
-    <div className="relative mt-8 px-28">
+<div className="relative mt-8 px-2 sm:px-6 md:px-12 lg:px-20 xl:px-28">
       <Slider {...settings}>
         {images.map((src, index) => (
           <div key={index}>
-            <img src={src} alt={`Agenda slide ${index + 1}`} className="mx-auto h-60 w-300" />
+            <img src={src} alt={`Agenda slide ${index + 1}`} className="mx-auto h-[60px] w-[220px] md:h-[100px] md:w-[500px] lg:h-[130px] lg:w-[700px] xl:h-60 xl:w-[1200px]" />
           </div>
         ))}
       </Slider>

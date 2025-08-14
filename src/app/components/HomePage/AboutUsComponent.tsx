@@ -2,7 +2,7 @@ import React from 'react'
 
 function AboutUsComponent() {
     return (
-        <div className='w-full pr-4 sm:pr-8 md:pr-16 lg:pr-20 xl:pr-[120px] relative mt-16'>
+        <div className='w-full pr-4 sm:pr-8 md:pr-16 lg:pr-20 xl:pr-[120px] relative '>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-2'>
 
@@ -30,21 +30,21 @@ function AboutUsComponent() {
 
                         <div className='flex gap-4'>
                             <img src="/assets/Home/aboutusassets/about us icon 1.png" className='h-22 w-22' alt="" />
-                            <p className="text-sm sm:text-base md:text-md lg:text-lg xl:text-base">
+                            <p className="text-xs sm:text-base md:text-md lg:text-lg xl:text-base flex items-center leading-relaxed text-gray-950">
                                 With a passionate team of software experts, we design, develop, and enhance digital products to accelerate your business success.
                             </p>
                         </div>
 
                         <div className='flex gap-4'>
                             <img src="/assets/Home/aboutusassets/about us icon 2.png" className='h-22 w-22' alt="" />
-                            <p className="text-sm sm:text-base md:text-md lg:text-lg xl:text-base">
+                            <p className="text-xs sm:text-base md:text-md lg:text-lg xl:text-base flex items-center leading-relaxed text-gray-950">
                                 We'll help you test bold new ideas while sharing yours.
                             </p>
                         </div>
 
                         <div className='flex gap-4'>
                             <img src="/assets/Home/aboutusassets/about us icon 3.png" className='h-22 w-22' alt="" />
-                            <p className="text-sm sm:text-base md:text-md lg:text-lg xl:text-base">
+                            <p className="text-xs sm:text-base md:text-md lg:text-lg xl:text-base flex items-center leading-relaxed text-gray-950">
                                 We excel in providing tailored IT solutions, from web and mobile development to cloud and support services.
                             </p>
                         </div>
