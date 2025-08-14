@@ -10,7 +10,9 @@ function page() {
 
         <Contactussection/>
 
-        <Footer/>
+        
+
+        
     </div>
   )
 }

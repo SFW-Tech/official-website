@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import React, { useState } from "react";
 import CompanyDropdownMenu from "./TopSection/CompanyDropdownMenu";
@@ -25,12 +26,13 @@ function Navbar() {
 
 
             {/* Menu for md and lg and above */}
+
             <div className="hidden md:flex gap-10 text-sm font-semibold items-center mx-auto lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
-                <p className="cursor-pointer pt-3 pb-3 rounded-sm hover:bg-violet-600 navbar-menu-button">Home</p>
+                <Link href="/" className="cursor-pointer pt-3 pb-3 rounded-sm hover:bg-violet-600 navbar-menu-button">Home</Link>
                 <CompanyDropdownMenu />
-                <p className="cursor-pointer">Service & Solution</p>
-                <p className="cursor-pointer">Blog</p>
-                <p className="cursor-pointer">Contact</p>
+                <Link href="/services" className="cursor-pointer">Service & Solution</Link>
+                <Link href="/blog" className="cursor-pointer">Blog</Link>
+                <Link href="/Contact" className="cursor-pointer">Contact</Link>
             </div>
 
 
