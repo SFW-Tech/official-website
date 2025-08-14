@@ -1,12 +1,89 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
+import { useSnackbar } from 'notistack';
 
 function Contactussection() {
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [message, setMessage] = useState("");
+
+    const { enqueueSnackbar } = useSnackbar();
+
+
+    const [errors, setErrors] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+    });
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        const newErrors = { name: "", email: "", phone: "", message: "" };
+
+        if (!name.trim()) newErrors.name = "Please enter your name";
+        if (!email.trim()) newErrors.email = "Please enter your email";
+        else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = "Invalid email";
+        if (!phone.trim()) newErrors.phone = "Please enter your phone number";
+        if (!message.trim()) newErrors.message = "Please enter your message";
+
+        setErrors(newErrors);
+
+        if (newErrors.name || newErrors.email || newErrors.phone || newErrors.message) {
+
+            return;
+        }
+
+        const templateParams = {
+            name,
+            email,
+            phone,
+            message,
+        };
+
+        try {
+            const response = await emailjs.send(
+                "service_nw9y07d",
+                "template_4do41qh",
+                templateParams,
+                "8J-QHGkIceS0qyv5x"
+            );
+
+            console.log("SUCCESS!", response.status, response.text);
+
+            enqueueSnackbar("Contact Form Submitted successfully", {
+                variant: "success",
+                anchorOrigin: { vertical: "top", horizontal: "center" },
+                autoHideDuration: 3000,
+            });
+
+
+            setName("");
+            setEmail("");
+            setPhone("");
+            setMessage("");
+            setErrors({ name: "", email: "", phone: "", message: "" });
+        } catch (err) {
+            console.error("FAILED...", err);
+            enqueueSnackbar("Failed to send message. Please try again later.", {
+                variant: "error",
+                anchorOrigin: { vertical: "top", horizontal: "center" },
+                autoHideDuration: 3000,
+            });
+        }
+    };
+
+
     return (
         <div className='w-full mt-15 mb-4'>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-20 xl:gap-24 px-6 sm:px-10 md:px-16 lg:px-24 xl:px-28'>
 
-        {/* Left Side */}
+                {/* Left Side */}
 
                 <div className='flex flex-col gap-10 lg:gap-12'>
 
@@ -101,54 +178,91 @@ function Contactussection() {
 
                 </div>
 
-                
+
 
                 {/* Right Side */}
 
                 <div className='h-full'>
-                    <form action="" className='rounded-2xl h-full w-full bg-violet-50'>
-                        <h2 className='pt-8 flex justify-center text-2xl md:text-3xl font-semibold text-gray-800'>
+                    <form onSubmit={handleSubmit} className="rounded-2xl h-full w-full bg-violet-50">
+                        <h2 className="pt-8 flex justify-center text-2xl md:text-3xl font-semibold text-gray-800">
                             Ready to Get Started?
                         </h2>
-                        <p className='flex justify-center pt-2 text-gray-800 text-sm md:text-base px-4 text-center'>
+                        <p className="flex justify-center pt-2 text-gray-800 text-sm md:text-base px-4 text-center">
                             Your email address will not be published. Required fields are marked *
                         </p>
 
-                        <div className='flex-col flex gap-5 md:gap-6 px-6 md:px-10 lg:px-12 xl:px-13 py-5'>
+                        <div className="flex-col flex gap-5 md:gap-6 px-6 md:px-10 lg:px-12 xl:px-13 py-5">
+                            {/* Name */}
+                            <div>
+                                <input
+                                    type="text"
+                                    className="bg-white rounded-md p-4 focus:outline-none focus:ring focus:ring-gray-400 w-full"
+                                    placeholder="Name *"
+                                    value={name}
+                                    onChange={(e) => {
+                                        setName(e.target.value);
+                                        setErrors(prev => ({ ...prev, name: "" }));
+                                    }}
+                                />
+                                {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+                            </div>
 
-                            <input
-                                type="text"
-                                className='bg-white rounded-md p-4 focus:outline-none focus:ring focus:ring-gray-400'
-                                placeholder='Name *'
-                                required
-                            />
-                            <input
-                                type="email"
-                                className='bg-white rounded-md p-4 focus:outline-none focus:ring focus:ring-gray-400'
-                                placeholder='Email Address *'
-                                required
-                            />
-                            <input
-                                type="text"
-                                className='bg-white rounded-md p-4 focus:outline-none focus:ring focus:ring-gray-400'
-                                placeholder='Phone/Mobile number *'
-                                required
-                            />
+                            {/* Email */}
+                            <div>
+                                <input
+                                    type="email"
+                                    className="bg-white rounded-md p-4 focus:outline-none focus:ring focus:ring-gray-400 w-full"
+                                    placeholder="Email Address *"
+                                    value={email}
+                                    onChange={(e) => {
+                                        setEmail(e.target.value);
+                                        setErrors(prev => ({ ...prev, email: "" }));
+                                    }}
+                                />
+                                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                            </div>
 
-                            <textarea
-                                className='bg-white rounded-md p-4 h-32 focus:outline-none focus:ring focus:ring-gray-400'
-                                placeholder='Please describe your requirement'
-                                required
-                            />
+                            {/* Phone */}
+                            <div>
+                                <input
+                                    type="text"
+                                    className="bg-white rounded-md p-4 focus:outline-none focus:ring focus:ring-gray-400 w-full"
+                                    placeholder="Phone/Mobile number *"
+                                    value={phone}
+                                    onChange={(e) => {
+                                        setPhone(e.target.value);
+                                        setErrors(prev => ({ ...prev, phone: "" }));
+                                    }}
+                                />
+                                {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+                            </div>
 
+                            {/* Message */}
+                            <div>
+                                <textarea
+                                    className="bg-white rounded-md p-4 h-32 focus:outline-none focus:ring focus:ring-gray-400 w-full"
+                                    placeholder="Please describe your requirement *"
+                                    value={message}
+                                    onChange={(e) => {
+                                        setMessage(e.target.value);
+                                        setErrors(prev => ({ ...prev, message: "" }));
+                                    }}
+                                />
+                                {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+                            </div>
+
+                            {/* Submit */}
                             <div className="flex justify-end py-3">
-                                <button className="bg-gradient-to-r from-orange-500 to-purple-600 hover:from-orange-600 hover:to-purple-700 text-white font-semibold px-6 py-3 md:px-8 md:py-4 lg:px-6 lg:py-3 rounded-2xl shadow-lg cursor-pointer text-sm md:text-base transition-all duration-300">
+                                <button
+                                    type="submit"
+                                    className="bg-gradient-to-r from-orange-500 to-purple-600 hover:from-orange-600 hover:to-purple-700 text-white font-semibold px-6 py-3 md:px-8 md:py-4 lg:px-6 lg:py-3 rounded-2xl shadow-lg cursor-pointer text-sm md:text-base transition-all duration-300"
+                                >
                                     Submit
                                 </button>
                             </div>
-
                         </div>
                     </form>
+
                 </div>
 
             </div>

@@ -22,7 +22,7 @@ function page() {
     <Techstack/>
     <Jointeamsection/>
 
-    <Footer/>
+    
     
 
     </>
