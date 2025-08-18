@@ -32,7 +32,7 @@ function Navbar() {
                 <CompanyDropdownMenu />
                 <Link href="/services" className="cursor-pointer">Service & Solution</Link>
                 <Link href="/blog" className="cursor-pointer">Blog</Link>
-                <Link href="/Contact" className="cursor-pointer">Contact</Link>
+                <Link href="/contact" className="cursor-pointer">Contact</Link>
             </div>
 
 
@@ -58,11 +58,21 @@ function Navbar() {
                 {hamburgerlist && (
                     <div className="absolute top-16 left-0 right-0 bg-white/10 backdrop-blur-lg text-white px-6 py-4 border-t z-40 rounded-b-xl shadow-xl border border-white/10">
                         <div className="flex flex-col divide-y divide-white/20 overflow-hidden rounded-lg">
-                            <p className="cursor-pointer py-3 hover:bg-white/10 transition">Home</p>
-                            <p className="cursor-pointer py-3 hover:bg-white/10 transition">Services</p>
-                            <p className="cursor-pointer py-3 hover:bg-white/10 transition">About Us</p>
-                            <p className="cursor-pointer py-3 hover:bg-white/10 transition">Careers</p>
-                            <p className="cursor-pointer py-3 hover:bg-white/10 transition">Contact</p>
+                            <Link href="/" className="cursor-pointer py-3 hover:bg-white/10 transition">
+                                Home
+                            </Link>
+                            <Link href="/services" className="cursor-pointer py-3 hover:bg-white/10 transition">
+                                Services
+                            </Link>
+                            <Link href="/aboutus" className="cursor-pointer py-3 hover:bg-white/10 transition">
+                                About Us
+                            </Link>
+                            <Link href="/careers" className="cursor-pointer py-3 hover:bg-white/10 transition">
+                                Careers
+                            </Link>
+                            <Link href="/contact" className="cursor-pointer py-3 hover:bg-white/10 transition">
+                                Contact
+                            </Link>
                         </div>
                     </div>
                 )}

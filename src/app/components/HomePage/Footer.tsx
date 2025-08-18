@@ -1,4 +1,6 @@
 import React from 'react'
+import Link from 'next/link';
+
 
 function Footer() {
     return (
@@ -9,7 +11,7 @@ function Footer() {
             {/* Top Section */}
             <div className='px-4 sm:px-6 md:px-12 lg:px-20 xl:px-46 py-5'>
 
-                
+
                 {/* Flex Section */}
                 <div className='flex flex-col sm:flex-row justify-between text-white items-start sm:items-center gap-4'>
                     <h3 className='text-lg sm:text-xl text-center sm:text-left'>
@@ -29,16 +31,15 @@ function Footer() {
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-6 mt-10 text-sm'>
 
 
-                    
+
                     {/* Quick Links */}
                     <div className='flex flex-col text-white gap-3'>
                         <h2 className='font-semibold'>Quick Links</h2>
                         <hr className="border-gray-400 opacity-40" />
-                        <p>About Us</p>
-                        <p>Services</p>
-                        <p>Career</p>
-                        <p>Blog</p>
-                        <p>Contact Us</p>
+                        <Link href="/services">Services</Link>
+                        <Link href="/careers">Career</Link>
+                        <Link href="/blog">Blog</Link>
+                        <Link href="/contact">Contact Us</Link>
                     </div>
 
                     {/* Services */}
@@ -64,9 +65,9 @@ function Footer() {
                         <p>Mailbox: info@sfwtechnologies.com</p>
                     </div>
 
-                    
-                    
-                    
+
+
+
                     {/* Address */}
                     <div className='flex flex-col text-white gap-3'>
                         <h2 className='font-semibold'>Find us at</h2>
