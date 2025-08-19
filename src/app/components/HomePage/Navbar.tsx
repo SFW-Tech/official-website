@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import React, { useState } from "react";
 import CompanyDropdownMenu from "./TopSection/CompanyDropdownMenu";
+import Servicesdropdownmenu from "./TopSection/Servicesdropdownmenu";
 
 function Navbar() {
     const [hamburgerlist, sethamburgerlist] = useState<boolean>(false);
@@ -16,13 +17,15 @@ function Navbar() {
 
 
             {/* Logo */}
-            <div className="flex items-center">
-                <img
-                    src="/assets/Home/Navbarassets/logo.png"
-                    alt="Softworks Logo"
-                    className="h-10 w-auto"
-                />
-            </div>
+            <Link href="/">
+                <div className="flex items-center">
+                    <img
+                        src="/assets/Home/Navbarassets/logo.png"
+                        alt="Softworks Logo"
+                        className="h-10 w-auto"
+                    />
+                </div>
+            </Link>
 
 
             {/* Menu for md and lg and above */}
@@ -30,7 +33,8 @@ function Navbar() {
             <div className="hidden md:flex gap-10 text-sm font-semibold items-center mx-auto lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
                 <Link href="/" className="cursor-pointer pt-3 pb-3 rounded-sm hover:bg-violet-600 navbar-menu-button">Home</Link>
                 <CompanyDropdownMenu />
-                <Link href="/services" className="cursor-pointer">Service & Solution</Link>
+                <Servicesdropdownmenu />
+
                 <Link href="/blog" className="cursor-pointer">Blog</Link>
                 <Link href="/contact" className="cursor-pointer">Contact</Link>
             </div>
