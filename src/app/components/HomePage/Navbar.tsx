@@ -31,7 +31,7 @@ function Navbar() {
             {/* Menu for md and lg and above */}
 
             <div className="hidden md:flex gap-10 text-sm font-semibold items-center mx-auto lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
-                <Link href="/" className="cursor-pointer">Home</Link>
+                <Link href="/" className="cursor-pointer pt-3 pb-3 rounded-sm hover:bg-violet-600 navbar-menu-button">Home</Link>
                 <CompanyDropdownMenu />
                 <Servicesdropdownmenu />
 
