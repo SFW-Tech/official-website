@@ -1,65 +1,13 @@
 "use client";
 
-import React from "react";
-import Slider, { CustomArrowProps } from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-// Next arrow component
-function NextArrow({ onClick }: CustomArrowProps) {
-  return (
-    <button
-      onClick={onClick}
-      className="absolute right-4 top-1/2 -translate-y-1/2 z-10 rounded-full bg-white/80 p-2 shadow-lg backdrop-blur-md transition hover:bg-white"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={2}
-        stroke="currentColor"
-        className="h-5 w-5 text-gray-700"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
-  );
-}
-
-// Previous arrow component
-function PrevArrow({ onClick }: CustomArrowProps) {
-  return (
-    <button
-      onClick={onClick}
-      className="absolute left-4 top-1/2 -translate-y-1/2 z-10 rounded-full bg-white/80 p-2 shadow-lg backdrop-blur-md transition hover:bg-white"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={2}
-        stroke="currentColor"
-        className="h-5 w-5 text-gray-700"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-      </svg>
-    </button>
-  );
-}
+import React, { useCallback, useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 export default function Agendasection() {
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    pauseOnHover: false,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-  };
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 4000, stopOnInteraction: false }),
+  ]);
 
   const images = [
     "/assets/Aboutus/Agendaassets/1.png",
@@ -69,15 +17,73 @@ export default function Agendasection() {
     "/assets/Aboutus/Agendaassets/5.png",
   ];
 
+  // Next button
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  // Prev button
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
   return (
-<div className="relative mt-8 px-2 sm:px-6 md:px-12 lg:px-20 xl:px-28">
-      <Slider {...settings}>
-        {images.map((src, index) => (
-          <div key={index}>
-            <img src={src} alt={`Agenda slide ${index + 1}`} className="mx-auto h-[60px] w-[220px] md:h-[100px] md:w-[500px] lg:h-[130px] lg:w-[700px] xl:h-60 xl:w-[1200px]" />
-          </div>
-        ))}
-      </Slider>
+    <div className="relative mt-8 px-2 sm:px-6 md:px-12 lg:px-20 xl:px-28">
+      {/* Carousel */}
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex">
+          {images.map((src, index) => (
+            <div
+              className="min-w-full flex-[0_0_100%] flex justify-center"
+              key={index}
+            >
+              <img
+                src={src}
+                alt={`Agenda slide ${index + 1}`}
+                className="mx-auto h-[60px] w-[250px] md:h-[100px] md:w-[500px] lg:h-[130px] lg:w-[700px] xl:h-60 xl:w-[1200px]"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Prev Button */}
+      <button
+        onClick={scrollPrev}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-transparent p-2 shadow-none backdrop-blur-none transition hover:scale-110"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="currentColor"
+          className="h-6 w-6 text-gray-700"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+
+      {/* Next Button */}
+      <button
+        onClick={scrollNext}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-transparent p-2 shadow-none backdrop-blur-none transition hover:scale-110"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="currentColor"
+          className="h-6 w-6 text-gray-700"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+
+
     </div>
   );
 }
