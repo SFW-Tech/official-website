@@ -93,7 +93,7 @@ function Contactussection() {
 
                         <h1 className='text-2xl md:text-3xl font-bold text-gray-800'>Contact Us</h1>
 
-                        <p className='text-gray-600'>
+                        <p className='text-gray-600 text-base md:text-md lg:text-lg '>
                             Give us a call or drop by anytime, we endeavour to answer all enquiries within 24 hours on business days. We will be happy to answer your questions.
                         </p>
 
@@ -115,7 +115,7 @@ function Contactussection() {
 
                                 <div className='flex-1'>
                                     <h3 className='text-gray-900 font-medium'>Our Address</h3>
-                                    <p className='text-gray-600'>
+                                    <p className='text-gray-600 text-base md:text-md lg:text-lg'>
                                         7/2A, Shreesha Building, First Floor, Central Studio Road, Dhanalakshmi Puram South, Singanallur, Coimbatore, TamilNadu, 641005.
                                     </p>
                                 </div>
@@ -134,7 +134,7 @@ function Contactussection() {
                                 </div>
                                 <div className='flex-1'>
                                     <h3 className='text-gray-900 font-medium'>Our Mailbox</h3>
-                                    <p className='text-gray-600'>info@sfwtechnologies.com</p>
+                                    <p className='text-gray-600 text-base md:text-md lg:text-lg'>info@sfwtechnologies.com</p>
                                 </div>
                             </div>
 
@@ -151,7 +151,7 @@ function Contactussection() {
                                 </div>
                                 <div className='flex-1'>
                                     <h3 className='text-gray-900 font-medium'>Sales</h3>
-                                    <p className='text-gray-600'>Mobile/WhatsApp: +91 98941 13103 | 99943 17168</p>
+                                    <p className='text-gray-600 text-base md:text-md lg:text-lg'>Mobile/WhatsApp: +91 98941 13103 | 99943 17168</p>
                                 </div>
                             </div>
 
@@ -168,7 +168,7 @@ function Contactussection() {
                                 </div>
                                 <div className='flex-1'>
                                     <h3 className='text-gray-900 font-medium'>Career</h3>
-                                    <p className='text-gray-600'>Mobile: +91 73977 20330</p>
+                                    <p className='text-gray-600 text-base md:text-md lg:text-lg'>Mobile: +91 73977 20330</p>
                                 </div>
                             </div>
 

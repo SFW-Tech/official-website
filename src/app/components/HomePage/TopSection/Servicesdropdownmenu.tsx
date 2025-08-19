@@ -3,19 +3,18 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import Link from 'next/link'
 // import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
-function CompanyDropdownMenu() {
+function Servicesdropdownmenu() {
     return (
         <div>
             <Menu as="div" className="relative inline-block">
                 <MenuButton 
                   className="hidden md:flex gap-2 text-sm font-semibold">
-                    Company
+                    Services & Solution
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                     </svg>
                     {/* <ChevronDownIcon aria-hidden="true" className="-mr-1 size-5 text-gray-400" /> */}
                 </MenuButton>
-                
 
                 <MenuItems
                     transition
@@ -24,33 +23,19 @@ function CompanyDropdownMenu() {
                     <div className="py-1">
                         <MenuItem>
                             <Link
-                                href="/aboutus"
-                                className="block px-4 py-2 text-sm text-black data-focus:bg-cyan-300 data-focus:outline-hidden"
+                                href="/webapplications"
+                                className="block px-4 py-2 text-sm text-black  data-focus:bg-cyan-300 data-focus:outline-hidden"
                             >
-                                About Us
+                                Web Applications
                             </Link>
-                            
                         </MenuItem>
 
                         <hr className='text-black'/>
 
+                        
+                        
 
-                        {/* <MenuItem>
-                            <a
-                                href="#"
-                                className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden"
-                            >
-                                Why Softworks
-                            </a>
-                        </MenuItem> */}
-                        <MenuItem>
-                            <Link
-                                href="/careers"
-                                className="block px-4 py-2 text-sm text-black  data-focus:bg-cyan-300 data-focus:outline-hidden"
-                            >
-                                careers
-                            </Link>
-                        </MenuItem>
+
                     </div>
                 </MenuItems>
             </Menu>
@@ -58,4 +43,4 @@ function CompanyDropdownMenu() {
     )
 }
 
-export default CompanyDropdownMenu
+export default Servicesdropdownmenu
