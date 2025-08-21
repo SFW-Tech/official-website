@@ -5,6 +5,7 @@ import "./styles/hompage.css";
 import Footer from "./components/HomePage/Footer";
 import NotistackProvider from "./components/NotistackProvider";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({
       </head>
       <body className="font-[var(--font-display)]">
         <NotistackProvider>
+          
           {children}
           <Footer />
         </NotistackProvider>
