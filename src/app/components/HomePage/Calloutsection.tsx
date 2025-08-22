@@ -18,13 +18,18 @@ function Calloutsection() {
 
             {/* Right Button */}
             <div>
-                <button className="bg-gradient-to-r from-orange-500 to-purple-600 
-                                   hover:from-orange-600 hover:to-purple-700 text-white 
-                                   font-semibold px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 
-                                   rounded-2xl shadow-lg cursor-pointer text-xs sm:text-sm md:text-base 
-                                   transition-all duration-300">
-                    Connect With Us
-                </button>
+                 <button className="connectbutton">
+
+                            <span className="animatebutton"></span>
+
+
+                            <span className="buttonbg">
+                                Connect with us
+                            </span>
+
+
+                        </button>
+                        
             </div>
         </div>
     );

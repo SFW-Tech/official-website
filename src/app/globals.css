@@ -16,3 +16,47 @@
   --color-avocado-500: oklch(0.84 0.18 117.33);
   --color-avocado-600: oklch(0.53 0.12 118.34);
 } */
+
+
+
+.connectbutton{
+  @apply relative overflow-hidden rounded-2xl p-[2px]
+}
+
+.animatebutton{
+  @apply absolute inset-0 animate-[borderSpin_2.5s_linear_infinite] rounded-md
+}
+
+.buttonbg{
+  @apply relative z-10 block bg-gradient-to-r from-orange-500 to-purple-600 hover:from-orange-600 hover:to-purple-700  text-white font-semibold px-6 py-3 md:px-8 md:py-4 lg:px-6 lg:py-3 rounded-2xl shadow-lg cursor-pointer text-sm md:text-base transition-all duration-30
+}
+
+
+
+@keyframes borderSpin {
+  0% {
+    transform: rotate(0deg);
+    background: conic-gradient(#ff1493, transparent 40%);
+  }
+  50% {
+    transform: rotate(180deg);
+    background: conic-gradient(#ff1493, transparent 40%);
+    
+  }
+  50.0% {
+    background: conic-gradient(#ff1493, transparent 40%);
+    filter: brightness(1.4) drop-shadow(0 0 6px #00e5ff);
+  }
+  100% {
+    transform: rotate(360deg);
+    background: conic-gradient(#00e5ff, transparent 60%);
+    filter: brightness(1.4) drop-shadow(0 0 6px #00e5ff);
+  }
+}
+
+
+
+
+
+
+
