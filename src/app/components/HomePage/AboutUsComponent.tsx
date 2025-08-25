@@ -1,4 +1,6 @@
 import React from 'react'
+import { motion, AnimatePresence } from "framer-motion";
+
 
 function AboutUsComponent() {
     return (
@@ -7,6 +9,7 @@ function AboutUsComponent() {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-2'>
 
                 {/* Left Side */}
+                
                 <div className='bg-cover bg-center p-6 sm:p-10 md:p-16 lg:p-20 xl:p-28 text-white relative z-10'
                     style={{ backgroundImage: "url('/assets/Home/aboutusassets/aboutusbg.png')" }}
                 >
