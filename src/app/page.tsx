@@ -38,7 +38,7 @@ export default function Home() {
 
       <Latestposts/>
 
-      <div className={styles.underconstruction}>
+      {/* <div className={styles.underconstruction}>
         <Image
           src={underConstructionImage}
           alt="Under Construction"
@@ -48,7 +48,7 @@ export default function Home() {
         />
         <h3 className="text-8md font-bold">Site is under construction</h3>
 
-      </div>
+      </div> */}
 
       
     </>
