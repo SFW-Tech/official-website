@@ -38,9 +38,11 @@ function Leaderssection() {
                                 alt="Arun Jesuraj"
                                 className="h-60 md:h-72 rounded-xl"
                             />
-                            <div className="flex flex-col gap-3 text-center lg:text-left flex-grow">
+                            <div className="flex flex-col gap-3 text-center lg:text-left flex-grow lg:mt-2 justify-center">
                                 <h2 className="font-semibold text-xl md:text-2xl">Arun Jesuraj</h2>
                                 <p className="font-medium text-base md:text-lg">Chairman and Managing Director</p>
+                                <p className="font-medium text-base md:text-lg">Visionary Virtuoso</p>
+
                                 <p className="leading-relaxed text-sm md:text-base">
                                     With a digital compass always pointed north, our chairman – Arun Jesuraj is the
                                     driving force behind Software's meteoric rise. A maven of innovation with a
@@ -68,11 +70,16 @@ function Leaderssection() {
                                 alt="Vivin Richard Thomas"
                                 className="h-60 md:h-72 rounded-xl"
                             />
-                            <div className="flex flex-col gap-3 text-center lg:text-left flex-grow">
+                            <div className="flex flex-col gap-3 text-center lg:text-left flex-grow lg:mt-14 justify-center">
                                 <h2 className="font-semibold text-xl md:text-2xl">Vivin Richard Thomas</h2>
                                 <p className="font-medium text-base md:text-lg">
-                                    Co-Founder & Chief Executive Officer Architect of Digital Realm
+                                    Co-Founder & Chief Executive Officer 
                                 </p>
+                                <p className="font-medium text-base md:text-lg">
+                                    Architect of Digital Realm
+                                </p>
+
+
                                 <p className="leading-relaxed text-sm md:text-base">
                                     With a baton as sharp as a line of code, Vivin Richard orchestrates a harmonious
                                     melody of efficiency and effectiveness, ensuring every note resonates with
@@ -101,7 +108,7 @@ function Leaderssection() {
                                 alt="Deepa Ganesh"
                                 className="h-60 md:h-72 rounded-xl"
                             />
-                            <div className="flex flex-col gap-3 text-center lg:text-left flex-grow">
+                            <div className="flex flex-col gap-3 text-center lg:text-left flex-grow lg:mt-10 justify-center">
                                 <h2 className="font-semibold text-xl md:text-2xl">Deepa Ganesh</h2>
                                 <p className="font-medium text-base md:text-lg">Global HR Head</p>
                                 <p className="leading-relaxed text-sm md:text-base">
