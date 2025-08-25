@@ -24,7 +24,7 @@ const itemVariants: Variants = {
 
 const ClientsCardComponent: React.FC = () => {
   const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, [
-    Autoplay({ delay: 2500, stopOnInteraction: false }),
+    Autoplay({ delay: 3000, stopOnInteraction: false }),
   ]);
 
   const clients = [

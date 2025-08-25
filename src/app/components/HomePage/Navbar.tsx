@@ -4,9 +4,12 @@ import Link from "next/link";
 import React, { useState } from "react";
 import CompanyDropdownMenu from "./TopSection/CompanyDropdownMenu";
 import Servicesdropdownmenu from "./TopSection/Servicesdropdownmenu";
+import { usePathname } from "next/navigation";
 
 function Navbar() {
     const [hamburgerlist, sethamburgerlist] = useState<boolean>(false);
+
+    const pathname = usePathname()
 
     const handlehamburger = () => {
         sethamburgerlist((prev) => !prev);
@@ -30,13 +33,34 @@ function Navbar() {
 
             {/* Menu for md and lg and above */}
 
-            <div className="hidden md:flex gap-10 text-sm font-semibold items-center mx-auto lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
-                <Link href="/" className="cursor-pointer pt-3 pb-3 rounded-sm hover:bg-violet-600 navbar-menu-button">Home</Link>
+            <div className="hidden md:flex gap-12 text-sm font-semibold items-center mx-auto lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
+
+                <Link
+                    href="/"
+                    className={`cursor-pointer pt-3 pb-3 rounded-sm ${pathname === "/" ? "bg-[#59d7f7] text-black px-5 rounded-md" : ""}`}
+                >
+                    Home
+                </Link>
+
                 <CompanyDropdownMenu />
+
                 <Servicesdropdownmenu />
 
-                <Link href="/blog" className="cursor-pointer">Blog</Link>
-                <Link href="/contact" className="cursor-pointer">Contact</Link>
+
+                <Link
+                    href="/blog"
+                    className={`cursor-pointer pt-3 pb-3 rounded-sm ${pathname === "/blog" ? "bg-[#59d7f7] text-black px-5 rounded-md" : ""}`}
+                >
+                    Blog
+                </Link>
+
+                <Link
+                    href="/contact"
+                    className={`cursor-pointer pt-3 pb-3 rounded-sm ${pathname === "/contact" ? "bg-[#59d7f7] text-black px-5 rounded-md" : ""}`}
+                    >
+                    Contact
+                </Link>
+
             </div>
 
 
