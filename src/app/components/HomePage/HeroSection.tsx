@@ -7,8 +7,8 @@ import { useSnackbar } from 'notistack';
 
 const images = [
     "/assets/Home/Heroassets/banner1.png",
-    "/assets/Home/Heroassets/banner3.png",
     "/assets/Home/Heroassets/banner2.png",
+
 ];
 
 function HeroSection() {
@@ -94,12 +94,12 @@ function HeroSection() {
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((prev) => (prev + 1) % images.length);
-        }, 15000);
+        }, 8000);
         return () => clearInterval(interval);
     }, []);
 
     return (
-        <div className="relative w-full h-[800px] md:h-[1000px] lg:h-[900px] overflow-hidden px-4 md:px-0">
+        <div className="relative w-full h-[800px] md:h-[1000px] lg:h-[650px]  overflow-hidden px-4 md:px-0">
             <AnimatePresence>
                 <motion.div
                     key={index}
@@ -110,7 +110,10 @@ function HeroSection() {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 2, }}
                 />
+
+                
             </AnimatePresence>
+
 
             <div className="relative z-10">
                 <Navbar />
@@ -119,13 +122,13 @@ function HeroSection() {
                     key={index}
                     initial={{ opacity: 0, y: -70, }}
                     animate={{ opacity: 1, y: 0, x: 0 }}
-                    transition={{ duration: 2 }}
+                    transition={{ duration: 1.5 }}
                     className={
                         index === 0
-                            ? "absolute top-40 md:top-56 lg:top-54 left-1/2 -translate-x-1/2 text-center w-full"
+                            ? "absolute top-40 md:top-56 lg:top-37 left-1/2 -translate-x-1/2 text-center w-full"
                             : index === 1
-                                ? "absolute top-40 md:top-72 lg:top-100 left-0 md:left-20 text-center md:text-left max-w-xl"
-                                : "absolute top-40 md:top-72 lg:top-80 left-0 md:left-20 text-center md:text-right max-w-xl"
+                                ? "absolute top-40 md:top-72 lg:top-55 left-0 md:left-20 text-center md:text-left max-w-xl"
+                                : ""
                     }
                 >
                     {/* Heading */}
@@ -143,7 +146,7 @@ function HeroSection() {
                     <div className="mt-6">
 
 
-                        <button className="connectbutton" onClick={()=>setIsOpen(true)} >
+                        <button className="connectbutton" onClick={() => setIsOpen(true)} >
 
                             <span className="animatebutton"></span>
 
