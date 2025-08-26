@@ -12,6 +12,7 @@ function OurServices() {
         3: "bg-gradient-to-r from-[#F3F9F1] to-[#B2F2BB]",
         4: "bg-gradient-to-r from-[#FFF4E6] to-[#FFD8A8]",
         5: "bg-gradient-to-r from-[#F8F0FC] to-[#D0BFFF]",
+        6: "bg-gradient-to-r from-violet-100 to-violet-300",
     };
 
     return (
@@ -52,6 +53,14 @@ function OurServices() {
                             <p className='font-semibold text-lg'>Web Application</p>
                         </div>
 
+                          <div
+                            onClick={() => setSelected(6)}
+                            className={`flex items-center gap-4 p-4 cursor-pointer border-b border-gray-200 
+                            ${selected === 6 ? gradients[6] : ""}`}>
+                            <img src="/assets/Home/Ourservicesassets/service 5 icon.png" alt="" />
+                            <p className='font-semibold text-lg'>AI</p>
+                        </div>
+
                         <div
                             onClick={() => setSelected(4)}
                             className={`flex items-center gap-4 p-4 cursor-pointer border-b border-gray-200 
@@ -67,6 +76,8 @@ function OurServices() {
                             <img src="/assets/Home/Ourservicesassets/service 5 icon.png" alt="" />
                             <p className='font-semibold text-lg'>Staff Augmentation</p>
                         </div>
+
+                      
                     </div>
 
                     {/* Right Side */}

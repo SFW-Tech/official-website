@@ -28,9 +28,8 @@ const ClientsCardComponent: React.FC = () => {
   ]);
 
   const clients = [
-    "/assets/Home/clientassets/1.png",
+
     "/assets/Home/clientassets/2.png",
-    "/assets/Home/clientassets/3.png",
     "/assets/Home/clientassets/4.png",
     "/assets/Home/clientassets/5.png",
     "/assets/Home/clientassets/6.png",
