@@ -12,7 +12,7 @@ function Servicesdropdownmenu() {
         <div>
             <Menu as="div" className="relative inline-block">
                 <MenuButton
-                    className={`hidden md:flex gap-2 text-sm font-semibold py-3 ${pathname === "/webapplications" 
+                    className={`hidden md:flex gap-2 text-sm font-semibold py-3 ${pathname === "/webapplications"
                         ? "bg-[#59d7f7] text-black px-5 rounded-md"
                         : ""
                         }`}                   >
@@ -25,7 +25,10 @@ function Servicesdropdownmenu() {
 
                 <MenuItems
                     transition
-                    className="absolute right-0 z-10 mt-4 w-56 origin-top-right rounded-md bg-[#59d7f7] shadow-lg outline-1 outline-black/5 transition data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
+                    className="absolute left-1/2 transform -translate-x-1/2 z-10 mt-1 w-40 origin-top rounded-md bg-[#59d7f7] shadow-lg outline-1 outline-black/5 transition 
+                     data-closed:scale-95 data-closed:transform data-closed:opacity-0 
+                     data-enter:duration-100 data-enter:ease-out 
+                     data-leave:duration-75 data-leave:ease-in"
                 >
                     <div className="py-1">
                         <MenuItem>
