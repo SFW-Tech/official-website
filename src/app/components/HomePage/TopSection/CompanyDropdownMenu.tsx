@@ -25,16 +25,16 @@ function CompanyDropdownMenu() {
 
                 <MenuItems
                     transition
-                    className="absolute left-0 z-10 mt-4 w-56 origin-top-left rounded-md bg-[#59d7f7] shadow-lg outline-1 outline-black/5 transition 
-  data-closed:scale-95 data-closed:transform data-closed:opacity-0 
-  data-enter:duration-100 data-enter:ease-out 
-  data-leave:duration-75 data-leave:ease-in"
+                    className="absolute left-1/2 transform -translate-x-1/2 z-10 mt-1 w-30 origin-top rounded-md bg-[#59d7f7] shadow-lg outline-1 outline-black/5 transition 
+                    data-closed:scale-95 data-closed:transform data-closed:opacity-0 
+                    data-enter:duration-100 data-enter:ease-out 
+                    data-leave:duration-75 data-leave:ease-in"
                 >
                     <div className="py-1">
                         <MenuItem>
                             <Link
                                 href="/aboutus"
-                                className="block px-4 py-2 text-sm text-black data-focus:bg-cyan-300 data-focus:outline-hidden"
+                                className="block px-4 py-2 text-sm text-black text-center data-focus:bg-cyan-300 data-focus:outline-hidden"
                             >
                                 About Us
                             </Link>
@@ -45,7 +45,7 @@ function CompanyDropdownMenu() {
                         <MenuItem>
                             <Link
                                 href="/careers"
-                                className="block px-4 py-2 text-sm text-black data-focus:bg-cyan-300 data-focus:outline-hidden"
+                                className="block px-4 py-2 text-sm text-black text-center data-focus:bg-cyan-300 data-focus:outline-hidden"
                             >
                                 Careers
                             </Link>
