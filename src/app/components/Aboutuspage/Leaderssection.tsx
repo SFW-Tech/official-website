@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import Link from "next/link";
 
 function Leaderssection() {
     const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -53,11 +54,13 @@ function Leaderssection() {
                                 </p>
                                 <div className="flex-grow" />
                                 <hr className="text-gray-400 opacity-40 mt-auto" />
+                                <Link href="https://www.linkedin.com/in/arun-jesuraj-85840184/" target="blank">
                                 <img
                                     src="/assets/Home/footerassets/Linkedin.png"
                                     alt="Linkedin"
                                     className="w-8 h-8 cursor-pointer hover:scale-110 transition mt-2 lg:mx-0 mx-auto"
                                 />
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -91,11 +94,13 @@ function Leaderssection() {
                                 </p>
                                 <div className="flex-grow" />
                                 <hr className="text-gray-400 opacity-40 mt-auto" />
+                                <Link href = "https://www.linkedin.com/in/vivinrichardthomas-rajamanickam-5b91771b/" target="blank">
                                 <img
                                     src="/assets/Home/footerassets/Linkedin.png"
                                     alt="Linkedin"
                                     className="w-8 h-8 cursor-pointer hover:scale-110 transition mt-2 lg:mx-0 mx-auto"
                                 />
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -119,11 +124,13 @@ function Leaderssection() {
                                 </p>
                                 <div className="flex-grow" />
                                 <hr className="text-gray-400 opacity-40 mt-auto" />
+                                <Link href="https://www.linkedin.com/in/deepa-ganesh-04563070/" target="blank">
                                 <img
                                     src="/assets/Home/footerassets/Linkedin.png"
                                     alt="Linkedin"
                                     className="w-8 h-8 cursor-pointer hover:scale-110 transition mt-2 lg:mx-0 mx-auto"
                                 />
+                                </Link>
                             </div>
                         </div>
                     </div>
