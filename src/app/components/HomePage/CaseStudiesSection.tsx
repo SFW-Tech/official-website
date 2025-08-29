@@ -121,7 +121,7 @@ function CaseStudiesSection() {
               return (
                 <div
                   key={idx}
-                  className="absolute top-0 left-0 w-full h-full z-50"
+                  className="absolute top-0 left-0 w-full h-full z-5"
                 >
                   <img
                     src={img.src}
@@ -173,7 +173,7 @@ function CaseStudiesSection() {
                   style={{
                     bottom: `${pos * 24}px`,
                     width: `${100 - pos * 10}%`,
-                    zIndex: 50 - pos * 10,
+                    zIndex: 5 - pos * 10,
                   }}
                   className="absolute h-full"
                 >
