@@ -213,21 +213,16 @@ function OurServices() {
                         ))}
 
                         <motion.div
-                            className="flex gap-3 mt-4 items-center cursor-pointer underline"
-                            whileHover={{
-                                x: 10,
-                                transition: { type: "spring", stiffness: 300 }
-                            }}
-                            whileTap={{ scale: 0.95 }}
-                            variants={itemVariants}
+                            className="flex justify-end gap-3 mt-4 items-center cursor-pointer underline"
+                            
+
                         >
-                            <h2 className="font-bold text-black text-md">Learn More</h2>
+                            <h2 className="font-bold text-black text-md hover:text-gray-600">Learn More</h2>
                             <motion.img
                                 src="/assets/Home/Ourservicesassets/arrowicon.png"
                                 alt="arrow"
                                 className="h-6 w-6"
-                                whileHover={{ x: 5 }}
-                                transition={{ type: "spring", stiffness: 300 }}
+
                             />
                         </motion.div>
                     </motion.div>
@@ -273,6 +268,8 @@ function OurServices() {
                                             animate={{ opacity: 1 }}
                                             transition={{ delay: 0.3 }}
                                         >
+
+
                                             <motion.div
                                                 className={`bg-white rounded-lg p-8 max-w-md w-full ${activeService?.shadow}`}
                                                 initial={{ y: 50, opacity: 0 }}
@@ -287,17 +284,31 @@ function OurServices() {
                                                     transition: { type: "spring", stiffness: 300 }
                                                 }}
                                             >
-                                                <motion.div
-                                                    className="flex justify-between items-start mb-4"
-                                                    initial={{ opacity: 0, y: 20 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    transition={{ delay: 0.6 }}
-                                                >
-                                                    <h3 className="text-xl font-bold text-gray-800 flex-1 pr-4">
-                                                        {activeService?.title}
-                                                    </h3>
+                                                <div className="flex justify-between items-start gap-4">
+                                                    {/* Left Side (title + description) */}
+                                                    <div className="flex-1">
+                                                        <motion.h3
+                                                            className="text-xl font-bold text-gray-800 mb-4"
+                                                            initial={{ opacity: 0, y: 20 }}
+                                                            animate={{ opacity: 1, y: 0 }}
+                                                            transition={{ delay: 0.6 }}
+                                                        >
+                                                            {activeService?.title}
+                                                        </motion.h3>
+
+                                                        <motion.p
+                                                            className="text-gray-600 text-md leading-relaxed"
+                                                            initial={{ opacity: 0, y: 20 }}
+                                                            animate={{ opacity: 1, y: 0 }}
+                                                            transition={{ delay: 0.8 }}
+                                                        >
+                                                            {activeService?.description}
+                                                        </motion.p>
+                                                    </div>
+
+                                                    {/* Right Side (Number) */}
                                                     <motion.span
-                                                        className={`text-7xl font-bold ${activeService?.numbercolor}`}
+                                                        className={`text-7xl font-bold ${activeService?.numbercolor} -m-2`}
                                                         initial={{ scale: 0, rotate: -180 }}
                                                         animate={{ scale: 1, rotate: 0 }}
                                                         transition={{
@@ -308,19 +319,11 @@ function OurServices() {
                                                     >
                                                         0{selected}
                                                     </motion.span>
-                                                </motion.div>
+                                                </div>
 
-                                                <motion.p
-                                                    className="text-gray-600 text-sm leading-relaxed mb-6"
-                                                    initial={{ opacity: 0, y: 20 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    transition={{ delay: 0.8 }}
-                                                >
-                                                    {activeService?.description}
-                                                </motion.p>
-
+                                                {/* Learn More Button */}
                                                 <motion.div
-                                                    className="flex gap-3 mt-4 items-center cursor-pointer underline"
+                                                    className="flex gap-3 mt-6 items-center cursor-pointer underline"
                                                     whileHover={{
                                                         x: 10,
                                                         transition: { type: "spring", stiffness: 300 }
@@ -340,6 +343,7 @@ function OurServices() {
                                                     />
                                                 </motion.div>
                                             </motion.div>
+
                                         </motion.div>
                                     )}
                                 </motion.div>
