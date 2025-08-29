@@ -93,10 +93,10 @@ function CaseStudiesSection() {
           <div
             onClick={() => router.push("/case-studies")}
             className="w-full p-6 font-semibold cursor-pointer transition-all duration-300 
-            text-gray-700 hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-300 hover:text-black
-            border-t-2 border-gray-200 bg-gray-50"
+            text-gray-700 hover:text-black
+            border-t-2 border-gray-100"
           >
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-end gap-2">
               <span>View All Case Studies</span>
               <motion.span
                 className="text-xl font-bold"
