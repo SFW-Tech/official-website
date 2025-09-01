@@ -99,7 +99,7 @@ function Footer() {
                         Need any expert business & Consulting services?
                     </h3>
 
-                    <button className="connectbutton" onClick={()=>setIsOpen(true)}>
+                    <button className="connectbutton" onClick={() => setIsOpen(true)}>
 
                         <span className="animatebutton"></span>
 
@@ -241,10 +241,10 @@ function Footer() {
 
                 {/* Right Icons */}
                 <div className='flex gap-4 items-center text-white'>
-                    <img src="/assets/Home/footerassets/Insta.png" alt="Instagram" className="w-6 h-6 sm:w-8 sm:h-8 cursor-pointer hover:scale-110 transition" />
-                    <img src="/assets/Home/footerassets/Linkedin.png" alt="Linkedin" className="w-6 h-6 sm:w-8 sm:h-8 cursor-pointer hover:scale-110 transition" />
-                    <img src="/assets/Home/footerassets/Twitter.png" alt="Twitter" className="w-6 h-6 sm:w-8 sm:h-8 cursor-pointer hover:scale-110 transition" />
-                    <img src="/assets/Home/footerassets/Facebook.png" alt="Facebook" className="w-6 h-6 sm:w-8 sm:h-8 cursor-pointer hover:scale-110 transition" />
+                    <Link href="https://www.linkedin.com/company/softworks-technologies/" target='blank'><img src="/assets/Home/footerassets/Linkedin.png" alt="Linkedin" className="w-6 h-6 sm:w-8 sm:h-8 cursor-pointer hover:scale-110 transition" /></Link>
+                    <Link href="https://x.com/Softworkstech1" target='blank'><img src="/assets/Home/footerassets/Twitter.png" alt="Twitter" className="w-6 h-6 sm:w-8 sm:h-8 cursor-pointer hover:scale-110 transition" /></Link>
+                    <Link href="https://www.instagram.com/softworkstech19/" target='blank'><img src="/assets/Home/footerassets/Insta.png" alt="Instagram" className="w-6 h-6 sm:w-8 sm:h-8 cursor-pointer hover:scale-110 transition" /></Link>
+                    <Link href="https://www.facebook.com/softworkstech19" target='blank'><img src="/assets/Home/footerassets/Facebook.png" alt="Facebook" className="w-6 h-6 sm:w-8 sm:h-8 cursor-pointer hover:scale-110 transition" /></Link>
                 </div>
             </div>
 

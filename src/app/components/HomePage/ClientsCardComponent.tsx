@@ -2,11 +2,16 @@
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion"
 
 const ClientsCardComponent: React.FC = () => {
   const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, [
     Autoplay({ delay: 3000, stopOnInteraction: false }),
   ]);
+  const headingRef = useRef(null);
+  const headingInView = useInView(headingRef, { once: true });
+
 
   const clients = [
     "/assets/Home/clientassets/2.png",
@@ -18,13 +23,22 @@ const ClientsCardComponent: React.FC = () => {
   ];
 
   return (
-    <div className="w-full px-6 md:px-28 mt-6">
+    <div className="w-full px-6 md:px-28 mt-6"
+    >
       {/* Heading */}
-      <div className="flex justify-center">
+      <motion.div className="flex justify-center"
+
+        ref={headingRef}
+        initial={{ opacity: 0, y: 20 }}
+        animate={headingInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+
+      >
+
         <h3 className="font-semibold text-gray-700 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl">
           Our Valuable Clients
         </h3>
-      </div>
+      </motion.div>
 
       {/* Carousel */}
       <div ref={emblaRef} className="overflow-hidden mt-6">
