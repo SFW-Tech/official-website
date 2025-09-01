@@ -3,7 +3,8 @@ import React from 'react';
 import { useState } from 'react';
 import { useSnackbar } from 'notistack';
 import emailjs from 'emailjs-com';
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import { useRef } from 'react';
 
 
 function Calloutsection() {
@@ -14,8 +15,15 @@ function Calloutsection() {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [message, setMessage] = useState("");
-
     const { enqueueSnackbar } = useSnackbar();
+
+    const textref = useRef(null)
+    const buttonref = useRef(null)
+
+
+    const textinview = useInView(textref, { once: true, margin: "-100px" })
+    const buttoninview = useInView(buttonref, { once: true, margin: "-100px" })
+
 
 
     const [errors, setErrors] = useState({
@@ -92,14 +100,25 @@ function Calloutsection() {
             style={{ backgroundImage: "url('/assets/Home/Calloutassets/Callout section.png')" }}
         >
             {/* Left Text */}
-            <div className="max-w-xl">
+            <motion.div className="max-w-xl"
+                ref={textref}
+                initial={{ opacity: 0, x: -100 }}
+                animate={textinview ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+            >
                 <h1 className="text-white font-semibold text-xs sm:text-lg md:text-xl lg:text-2xl">
                     Need any expert business & consulting services?
                 </h1>
-            </div>
+            </motion.div>
 
             {/* Right Button */}
-            <div>
+            <motion.div
+                ref={buttonref}
+                initial={{ opacity: 0, x: 100 }}
+                animate={buttoninview ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+
                 <button className="connectbutton" onClick={() => setIsOpen(true)}>
 
                     <span className="animatebutton"></span>
@@ -112,7 +131,7 @@ function Calloutsection() {
 
                 </button>
 
-            </div>
+            </motion.div>
 
             {/* Modal */}
 

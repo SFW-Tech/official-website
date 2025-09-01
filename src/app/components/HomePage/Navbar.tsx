@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import CompanyDropdownMenu from "./TopSection/CompanyDropdownMenu";
 import Servicesdropdownmenu from "./TopSection/Servicesdropdownmenu";
 import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+
 
 function Navbar() {
     const [hamburgerlist, sethamburgerlist] = useState<boolean>(false);
@@ -36,7 +38,10 @@ function Navbar() {
 
 
     return (
-        <div
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 3, ease: "easeOut" }}
             className={`fixed ${pathname === "/" && "top-10"}top-0 left-0 w-full z-50 flex gap-10 justify-between items-center px-6 lg:px-40 md:px-18 py-4 transition-colors duration-300 ${scrolled ? "bg-[#001A5A] text-white shadow-lg top-0" : "bg-transparent text-white"
                 }`}
         >
@@ -137,7 +142,7 @@ function Navbar() {
                     </div>
                 )}
             </div>
-        </div>
+        </motion.div>
     );
 }
 

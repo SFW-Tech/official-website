@@ -1,21 +1,52 @@
-import React from 'react'
+"use client"
+import React, { useRef } from 'react'
+import { motion, useInView, Variants } from "framer-motion";
 
 function Latestposts() {
+    const headingRef = useRef(null);
+    const headingInView = useInView(headingRef, { once: true });
+
+    // Container animation (stagger children)
+    const containerVariants: Variants = {
+        hidden: {},
+        show: {
+            transition: {
+                staggerChildren: 0.5, // gap between each card
+            },
+        },
+    };
+
+    // Each card animation
+    const cardVariants: Variants = {
+        hidden: { opacity: 0, y: 30 },
+        show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    };
+
     return (
         <div className='w-full bg-[#d5e1ea]'>
 
             {/* Heading */}
-            <div className='flex justify-center py-10 md:py-12 lg:py-14 xl:py-15 items-center text-center px-4'>
+            <motion.div
+                className='flex justify-center py-10 md:py-12 lg:py-14 xl:py-15 items-center text-center px-4'
+                ref={headingRef}
+                initial={{ opacity: 0, y: 30 }}
+                animate={headingInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+            >
                 <h1 className='text-gray-950 font-semibold text-xl md:text-2xl lg:text-3xl'>
                     Stay updated with our latest posts
                 </h1>
-            </div>
+            </motion.div>
 
             {/* Posts Grid */}
-            <div className='px-6 sm:px-10 md:px-16 lg:px-20 xl:px-28 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10 pb-10'>
-
+            <motion.div
+                className='px-6 sm:px-10 md:px-16 lg:px-20 xl:px-28 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10 pb-10'
+                variants={containerVariants}
+                initial="hidden"
+                animate={headingInView ? "show" : "hidden"}
+            >
                 {[1, 2, 3, 4].map((item) => (
-                    <div key={item} className="max-w-xs mx-auto">
+                    <motion.div key={item} className="max-w-xs mx-auto" variants={cardVariants}>
                         <div className="relative">
                             <img
                                 className="rounded-lg h-44 sm:h-48 md:h-52 w-full object-cover"
@@ -40,10 +71,9 @@ function Latestposts() {
                                 READ MORE
                             </a>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
-
-            </div>
+            </motion.div>
         </div>
     )
 }

@@ -6,7 +6,7 @@ function AboutUsComponent() {
     const leftRef = useRef(null)
     const rightRef = useRef(null)
 
-    const leftInView = useInView(leftRef, { once: true, margin: "-100px" })  
+    const leftInView = useInView(leftRef, { once: true, margin: "-100px" })
     const rightInView = useInView(rightRef, { once: true, margin: "-100px" })
 
     return (

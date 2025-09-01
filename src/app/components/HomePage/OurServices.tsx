@@ -114,7 +114,7 @@ function OurServices() {
             transition: {
                 type: "spring",
                 stiffness: 100,
-                damping: 12
+                damping: 10
             }
         }
     }
@@ -214,7 +214,7 @@ function OurServices() {
 
                         <motion.div
                             className="flex justify-end gap-3 mt-4 items-center cursor-pointer underline"
-                            
+
 
                         >
                             <h2 className="font-bold text-black text-md hover:text-gray-600">Learn More</h2>

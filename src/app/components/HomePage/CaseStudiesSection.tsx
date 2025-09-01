@@ -1,12 +1,24 @@
 "use client"
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRouter } from "next/navigation"
+import { useRef } from "react";
 
 function CaseStudiesSection() {
   const [selected, setSelected] = useState(0);
   const router = useRouter()
   const intervalTime = 2000;
+
+  // Refs for animation triggers
+  const headingRef = useRef(null);
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
+
+  // Track if elements are in view
+  const headingInView = useInView(headingRef, { once: true, });
+  const leftInView = useInView(leftRef, { once: true,  });
+  const rightInView = useInView(rightRef, { once: true, });
+
 
   const images = [
     {
@@ -55,16 +67,29 @@ function CaseStudiesSection() {
   return (
     <div className="w-full mt-8 md:mt-20 px-6 sm:px-8 md:px-8 lg:px-12 xl:px-28">
       {/* Heading */}
-      <div className="flex flex-col gap-3 justify-center items-center text-center leading-relaxed">
+      <motion.div
+        ref={headingRef}
+        initial={{ opacity: 0, y: 20 }}
+        animate={headingInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+
+        className="flex flex-col gap-3 justify-center items-center text-center leading-relaxed">
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-700 md:mb-10">
           Case Studies
         </h1>
-      </div>
+      </motion.div>
 
       {/* Content */}
       <div className="grid grid-cols-1 md:grid-cols-2 mt-10 gap-10 md:gap-16 items-center">
+
+
         {/* Left Side */}
-        <div className="flex flex-col rounded-lg overflow-hidden order-2 md:order-1">
+        <motion.div className="flex flex-col rounded-lg overflow-hidden order-2 md:order-1"
+          ref={leftRef}
+          initial={{ opacity: 0, x: -100 }}
+          animate={leftInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           {caseStudyTitles.map((title, idx) => {
             const gradients = [
               "from-blue-100 to-blue-900",
@@ -110,10 +135,15 @@ function CaseStudiesSection() {
               </motion.span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Side */}
-        <div className="relative w-full max-w-[650px] h-[260px] sm:h-[300px] md:h-[340px] lg:h-[365px] xl:h-[360px] mx-auto flex justify-center order-1 md:order-2 mt-20 md:mt-0 lg:mt-21">
+        <motion.div className="relative w-full max-w-[650px] h-[260px] sm:h-[300px] md:h-[340px] lg:h-[365px] xl:h-[360px] mx-auto flex justify-center order-1 md:order-2 mt-20 md:mt-0 lg:mt-21"
+          ref={rightRef}
+          initial={{ opacity: 0, x: 100 }}
+          animate={rightInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           {images.map((img, idx) => {
             let pos = (idx - selected + images.length) % images.length;
 
@@ -195,7 +225,7 @@ function CaseStudiesSection() {
               return null;
             }
           })}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

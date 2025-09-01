@@ -25,7 +25,7 @@ function CompanyDropdownMenu() {
 
                 <MenuItems
                     transition
-                    className="absolute left-1/2 transform -translate-x-1/2 z-10 mt-1 w-30 origin-top rounded-md bg-[#59d7f7] shadow-lg outline-1 outline-black/5 transition 
+                    className="absolute left-1/2 transform -translate-x-1/2 z-10 mt-3 w-30 origin-top rounded-md bg-[#59d7f7] shadow-lg outline-1 outline-black/5 transition 
                     data-closed:scale-95 data-closed:transform data-closed:opacity-0 
                     data-enter:duration-100 data-enter:ease-out 
                     data-leave:duration-75 data-leave:ease-in"
