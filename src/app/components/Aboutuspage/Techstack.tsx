@@ -1,26 +1,66 @@
-import React from 'react'
+"use client";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import React, { useRef, useEffect, useState } from "react";
 
 function Techstack() {
+  const headingRef = useRef(null);
+  const imageRef = useRef(null);
+  const headingInView = useInView(headingRef, { once: true });
+  const imageinView = useInView(imageRef,{once:true})
+
+  const [currentImage, setCurrentImage] = useState(3);
+
+  // Switch image every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage(prev => (prev === 3 ? 4 : 3));
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className='mt-8 px-4 md:px-16 lg:px-24 xl:px-28'>
+    <div className="mt-8 px-4 md:px-16 lg:px-24 xl:px-28">
+      {/* Heading */}
+      <motion.div
+        className="flex flex-col gap-2 items-center"
+        ref={headingRef}
+        initial={{ opacity: 0, y: 30 }}
+        animate={headingInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">
+          Our Tech Stack
+        </h1>
+        <p className="text-sm sm:text-base md:text-md lg:text-lg xl:text-base text-gray-600">
+          Your Developers and Our Integration
+        </p>
+      </motion.div>
 
-      <div className='flex flex-col gap-2 items-center'>
-        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">Our Tech Stack</h1>
-        <p className='ext-sm sm:text-base md:text-md lg:text-lg xl:text-base text-gray-600'>Your Developers and Our Integration</p>
-
+      {/* Rotating Image */}
+      <div className="flex justify-center items-center mt-10 relative w-full h-[300px] md:h-[500px] lg:h-[550px] xl:h-[600px]">
+        <motion.div
+        ref={imageRef}
+          style={{ position: "absolute" }}
+          animate={imageinView?{ rotate: 30 }:{}}
+          transition={{ repeat: Infinity, duration: 15, ease: "linear" }} 
+        >
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={currentImage} 
+              src={`/assets/Aboutus/Techstackassets/${currentImage}.png`}
+              className="h-[300px] md:h-[500px] lg:h-[550px] xl:h-[600px] w-auto"
+              alt="Tech Stack"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+            />
+          </AnimatePresence>
+        </motion.div>
       </div>
-
-
-
-      <div className='flex justify-center items-center mt-10'>
-
-        <img src="/assets/Aboutus/Techstackassets/2.png" className='h-[300px] md:h-[500px] lg:h-[550px] xl:h-[600px] w-auto' alt="" />
-
-
-      </div>
-
     </div>
-  )
+  );
 }
 
-export default Techstack
+export default Techstack;
