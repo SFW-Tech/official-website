@@ -27,7 +27,7 @@ function Topbar() {
 
                 {/* Right Section - Socials Media */}
                 <div className="hidden sm:flex gap-3 sm:gap-4 items-center justify-center sm:justify-end w-full sm:w-auto">
-                    <Link href="https://www.linkedin.com/company/softworks-technologies/" target='blank'><img src="/assets/Home/Topbarassets/linkednin.png" alt="LinkedIn" className="w-4 h-4 cursor-pointer hover:scale-110 transition" /></Link>
+                    <Link href="https://www.linkedin.com/company/softworks-technologies/?viewAsMember=true" target='blank'><img src="/assets/Home/Topbarassets/linkednin.png" alt="LinkedIn" className="w-4 h-4 cursor-pointer hover:scale-110 transition" /></Link>
                     <Link href="https://x.com/Softworkstech1" target='blank'><img src="/assets/Home/Topbarassets/twitter.png" alt="Twitter" className="w-3 h-3 cursor-pointer hover:scale-110 transition" /></Link>
                     <Link href="https://www.instagram.com/softworkstech19/" target='blank'><img src="/assets/Home/Topbarassets/insta logo.png" alt="Instagram" className="w-4 h-4 cursor-pointer hover:scale-110 transition" /></Link>
                     <Link href="https://www.facebook.com/softworkstech19" target='blank'><img src="/assets/Home/Topbarassets/fb.png" alt="Facebook" className="w-4 h-4 cursor-pointer hover:scale-110 transition" /></Link>

@@ -1,10 +1,26 @@
 "use client";
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import Link from "next/link";
+import { motion, useInView } from "framer-motion"
+
+
+
 
 function Leaderssection() {
+    const headingRef = useRef<HTMLElement | null>(null);
+
+    const headingInView = useInView(headingRef, { once: true });
+
+    // Combine refs function
+    const combinedRef = (node: HTMLElement | null) => {
+
+        if (emblaRef) emblaRef(node);
+
+        headingRef.current = node;
+    };
+
     const [emblaRef, emblaApi] = useEmblaCarousel(
         { loop: true, align: "start" },
         [Autoplay({ delay: 7000, stopOnInteraction: false })]
@@ -24,12 +40,22 @@ function Leaderssection() {
 
     return (
         <div className="mt-15 mb-15 px-4 md:px-16 lg:px-24 xl:px-28">
-            <h1 className="flex justify-center items-center font-bold text-2xl md:text-3xl mb-6">
+            <motion.h1 className="flex justify-center items-center font-bold text-2xl md:text-3xl mb-6"
+                ref={combinedRef}
+                initial={{ opacity: 0, y: 30 }}
+                animate={headingInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+            >
                 Our Leadership Team
-            </h1>
+            </motion.h1>
 
             {/* Embla carousel */}
-            <div className="overflow-hidden" ref={emblaRef}>
+            <motion.div className="overflow-hidden" ref={combinedRef}
+
+                initial={{ opacity: 0, }}
+                animate={headingInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+            >
                 <div className="flex">
                     {/* Leader 1 */}
                     <div className="flex-[0_0_100%] min-w-0 px-2">
@@ -55,11 +81,11 @@ function Leaderssection() {
                                 <div className="flex-grow" />
                                 <hr className="text-gray-400 opacity-40 mt-auto" />
                                 <Link href="https://www.linkedin.com/in/arun-jesuraj-85840184/" target="blank">
-                                <img
-                                    src="/assets/Home/footerassets/Linkedin.png"
-                                    alt="Linkedin"
-                                    className="w-8 h-8 cursor-pointer hover:scale-110 transition mt-2 lg:mx-0 mx-auto"
-                                />
+                                    <img
+                                        src="/assets/Home/footerassets/Linkedin.png"
+                                        alt="Linkedin"
+                                        className="w-8 h-8 cursor-pointer hover:scale-110 transition mt-2 lg:mx-0 mx-auto"
+                                    />
                                 </Link>
                             </div>
                         </div>
@@ -76,7 +102,7 @@ function Leaderssection() {
                             <div className="flex flex-col gap-3 text-center lg:text-left flex-grow lg:mt-14 justify-center">
                                 <h2 className="font-semibold text-xl md:text-2xl">Vivin Richard Thomas</h2>
                                 <p className="font-medium text-base md:text-lg">
-                                    Co-Founder & Chief Executive Officer 
+                                    Co-Founder & Chief Executive Officer
                                 </p>
                                 <p className="font-medium text-base md:text-lg">
                                     Architect of Digital Realm
@@ -94,12 +120,12 @@ function Leaderssection() {
                                 </p>
                                 <div className="flex-grow" />
                                 <hr className="text-gray-400 opacity-40 mt-auto" />
-                                <Link href = "https://www.linkedin.com/in/vivinrichardthomas-rajamanickam-5b91771b/" target="blank">
-                                <img
-                                    src="/assets/Home/footerassets/Linkedin.png"
-                                    alt="Linkedin"
-                                    className="w-8 h-8 cursor-pointer hover:scale-110 transition mt-2 lg:mx-0 mx-auto"
-                                />
+                                <Link href="https://www.linkedin.com/in/vivinrichardthomas-rajamanickam-5b91771b/" target="blank">
+                                    <img
+                                        src="/assets/Home/footerassets/Linkedin.png"
+                                        alt="Linkedin"
+                                        className="w-8 h-8 cursor-pointer hover:scale-110 transition mt-2 lg:mx-0 mx-auto"
+                                    />
                                 </Link>
                             </div>
                         </div>
@@ -125,17 +151,17 @@ function Leaderssection() {
                                 <div className="flex-grow" />
                                 <hr className="text-gray-400 opacity-40 mt-auto" />
                                 <Link href="https://www.linkedin.com/in/deepa-ganesh-04563070/" target="blank">
-                                <img
-                                    src="/assets/Home/footerassets/Linkedin.png"
-                                    alt="Linkedin"
-                                    className="w-8 h-8 cursor-pointer hover:scale-110 transition mt-2 lg:mx-0 mx-auto"
-                                />
+                                    <img
+                                        src="/assets/Home/footerassets/Linkedin.png"
+                                        alt="Linkedin"
+                                        className="w-8 h-8 cursor-pointer hover:scale-110 transition mt-2 lg:mx-0 mx-auto"
+                                    />
                                 </Link>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
             {/* dots */}
             <div className="flex justify-center gap-2 mt-4">

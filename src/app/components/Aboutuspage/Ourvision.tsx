@@ -1,8 +1,14 @@
 "use client"
-import { useState } from "react"
+import { useState, useRef } from "react"
+import { motion, useInView, AnimatePresence } from "framer-motion"
 
 function Ourvision() {
     const [selected, setSelected] = useState<"vision" | "mission" | "chooseus">("vision")
+
+    const leftRef = useRef(null)
+    const rightRef = useRef(null)
+    const leftInView = useInView(leftRef, { once: true })
+    const rightInView = useInView(rightRef, { once: true })
 
     const content = {
         vision: {
@@ -27,8 +33,13 @@ function Ourvision() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
                 {/* Left Side - Images */}
-                <div className="flex flex-col md:flex-row justify-center md:justify-start gap-2">
-
+                <motion.div
+                    ref={leftRef}
+                    initial={{ opacity: 0, x: -100,y:50 }}
+                    animate={leftInView ? { opacity: 1, x: 0,y:0 } : {}}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="flex flex-col md:flex-row justify-center md:justify-start gap-2"
+                >
                     {/* Vision */}
                     <div
                         onClick={() => setSelected("vision")}
@@ -97,26 +108,43 @@ function Ourvision() {
                             </div>
                         )}
                     </div>
-                </div>
+                </motion.div>
 
-                {/* Right Side - Text */}
-                <div className="flex flex-col gap-6 text-center md:text-left">
-                    <div>
-                        <img
-                            src={content[selected].logo}
-                            alt={content[selected].title}
-                            className="mx-auto md:mx-0 max-w-[120px] sm:max-w-[160px] md:max-w-[200px] lg:max-w-[250px]"
-                        />
-                    </div>
+                {/* Right Side - Text with AnimatePresence */}
+                <motion.div
+                    ref={rightRef}
+                    initial={{ opacity: 0, x: 100 }}
+                    animate={rightInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="flex flex-col gap-6 text-center md:text-left"
+                >
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={selected}
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -50 }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                            className="flex flex-col gap-6"
+                        >
+                            <div>
+                                <img
+                                    src={content[selected].logo}
+                                    alt={content[selected].title}
+                                    className="mx-auto md:mx-0 max-w-[120px] sm:max-w-[160px] md:max-w-[200px] lg:max-w-[250px]"
+                                />
+                            </div>
 
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-                        {content[selected].title}
-                    </h1>
+                            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+                                {content[selected].title}
+                            </h1>
 
-                    <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
-                        {content[selected].text}
-                    </p>
-                </div>
+                            <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
+                                {content[selected].text}
+                            </p>
+                        </motion.div>
+                    </AnimatePresence>
+                </motion.div>
             </div>
         </div>
     )
