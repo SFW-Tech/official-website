@@ -125,7 +125,7 @@ function Applicationtypessection() {
 
             {/* 1st Section - Android */}
             <motion.div
-                className="grid grid-cols-1 lg:flex lg:gap-6"
+                className="grid grid-cols-1 lg:flex lg:gap-x-6 gap-y-6"
                 variants={sectionVariants}
                 whileInView="visible"
                 initial="hidden"
@@ -175,7 +175,7 @@ function Applicationtypessection() {
 
             {/* 2nd Section - iOS */}
             <motion.div
-                className="grid grid-cols-1 lg:flex lg:gap-6"
+                className="grid grid-cols-1 lg:flex lg:gap-x-6 gap-y-6"
                 variants={sectionVariants}
                 whileInView="visible"
                 initial="hidden"
@@ -225,7 +225,7 @@ function Applicationtypessection() {
 
             {/* 3rd Section - Hybrid */}
             <motion.div
-                className="grid grid-cols-1 lg:flex lg:gap-6"
+                className="grid grid-cols-1 lg:flex lg:gap-x-6 gap-y-6"
                 variants={sectionVariants}
                 whileInView="visible"
                 initial="hidden"
