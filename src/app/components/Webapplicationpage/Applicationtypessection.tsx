@@ -123,7 +123,7 @@ function Applicationtypessection() {
 
             {/* 1st Section - Custom Enterprise */}
             <motion.div 
-                className="grid grid-cols-1 lg:flex lg:gap-6"
+                className="grid grid-cols-1 lg:flex lg:gap-x-6 gap-y-6"
                 variants={sectionVariants}
                 whileInView="visible"
                 initial="hidden"
@@ -179,7 +179,7 @@ function Applicationtypessection() {
 
             {/* 2nd Section - SAAS Product */}
             <motion.div 
-                className="grid grid-cols-1 lg:flex lg:gap-6"
+                className="grid grid-cols-1 lg:flex lg:gap-x-6 gap-y-6"
                 variants={sectionVariants}
                 whileInView="visible"
                 initial="hidden"
@@ -234,7 +234,7 @@ function Applicationtypessection() {
 
             {/* 3rd Section - Progressive Web App */}
             <motion.div 
-                className="grid grid-cols-1 lg:flex lg:gap-6"
+                className="grid grid-cols-1 lg:flex lg:gap-x-6 gap-y-6"
                 variants={sectionVariants}
                 whileInView="visible"
                 initial="hidden"
