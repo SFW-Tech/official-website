@@ -60,8 +60,10 @@ function Navbar() {
             <div className="hidden md:flex gap-12 text-sm font-semibold items-center mx-auto lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
                 <Link
                     href="/"
-                    className={`cursor-pointer pt-3 pb-3 rounded-sm ${pathname === "/" ? "bg-[#59d7f7] text-black px-5 rounded-md" : ""
-                        }`}
+                    className={`cursor-pointer pt-3 px-5 pb-3 rounded-sm transition-colors duration-500 ease-in-out 
+                  hover:bg-[#59d7f7] hover:text-black 
+                   ${pathname === "/" ? "bg-[#59d7f7] text-black px-5 rounded-md" : ""}`}
+
                 >
                     Home
                 </Link>
@@ -69,19 +71,17 @@ function Navbar() {
                 <Servicesdropdownmenu />
                 <Link
                     href="/blog"
-                    className={`cursor-pointer pt-3 pb-3 rounded-sm ${pathname === "/blog"
-                        ? "bg-[#59d7f7] text-black px-5 rounded-md"
-                        : ""
-                        }`}
+                    className={`cursor-pointer pt-3 px-5 pb-3 rounded-sm transition-colors duration-500 ease-in-out 
+                  hover:bg-[#59d7f7] hover:text-black 
+                   ${pathname === "/blog" ? "bg-[#59d7f7] text-black px-5 rounded-md" : ""}`}
                 >
                     Blog
                 </Link>
                 <Link
                     href="/contact"
-                    className={`cursor-pointer pt-3 pb-3 rounded-sm ${pathname === "/contact"
-                        ? "bg-[#59d7f7] text-black px-5 rounded-md"
-                        : ""
-                        }`}
+                   className={`cursor-pointer pt-3 px-5 pb-3 rounded-sm transition-colors duration-500 ease-in-out 
+                  hover:bg-[#59d7f7] hover:text-black 
+                   ${pathname === "/contact" ? "bg-[#59d7f7] text-black px-5 rounded-md" : ""}`}
                 >
                     Contact
                 </Link>

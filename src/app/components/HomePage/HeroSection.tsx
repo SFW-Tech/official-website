@@ -125,7 +125,7 @@ function HeroSection() {
                     transition={{ duration: 1.5 }}
                     className={
                         index === 0
-                            ? "absolute top-40 md:top-56 lg:top-37 left-1/2 -translate-x-1/2 text-center w-full"
+                            ? "absolute top-40 md:top-56 lg:top-25 left-1/2 -translate-x-1/2 text-center w-full"
                             : index === 1
                                 ? "absolute top-40 md:top-72 lg:top-55 left-0 md:left-20 text-center md:text-left max-w-xl"
                                 : ""

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const features = [
   {
@@ -57,9 +57,9 @@ const features = [
     image: "/assets/e-commerce/Features/9.png",
   },
   {
-    title: "Intergration",
+    title: "Integration",
     description:
-      "The process of connecting two or more applications or systems using APIs (Application Programming Interfaces) to exchange data and perform actions like Payment gatways, Whatsapp and other tools.",
+      "The process of connecting two or more applications or systems using APIs (Application Programming Interfaces) to exchange data and perform actions like Payment gateways, WhatsApp and other tools.",
     image: "/assets/e-commerce/Features/10.png",
   },
   {
@@ -71,41 +71,115 @@ const features = [
 ];
 
 function Features() {
+  const [selectedFeature, setSelectedFeature] = useState(0);
+  const [autoPlay, setAutoPlay] = useState(true);
+
+  // Auto rotate logic
+  useEffect(() => {
+    if (!autoPlay) return; // stop if user clicked
+    const interval = setInterval(() => {
+      setSelectedFeature((prev) => (prev + 1) % features.length);
+    }, 2000); // change every 4s
+
+    return () => clearInterval(interval);
+  }, [autoPlay]);
+
+  // Split features into left and right columns
+  const leftFeatures = features.slice(0, 6);
+  const rightFeatures = features.slice(6);
+
+  // Handle click -> stop autoplay
+  const handleClick = (index: number) => {
+    setSelectedFeature(index);
+    setAutoPlay(false); // stop auto rotate after user interaction
+  };
+
   return (
-    <div className="px-4 sm:px-6 md:px-12 lg:px-20 xl:px-28 mt-10 md:mt-16 lg:mt-20">
-      <div className="text-center">
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">
+    <div className="px-4 sm:px-6 md:px-12 lg:px-20 xl:px-28 mt-10 md:mt-16 lg:mt-20 mb-4 md:mb-8 lg:mb-10 xl:mb-12">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800">
           Features of E-Commerce
         </h2>
       </div>
 
-      {/* Scrollytelling Container */}
-      <div className="relative h-[1100vh]">
-        {features.map((feature, idx) => (
-          <section
-            key={idx}
-            className="sticky top-0 h-screen flex justify-center items-center"
-          >
-            <div className="bg-gray-100 rounded-4xl grid grid-cols-1 md:grid-cols-2 gap-6 p-8 w-full max-w-7xl shadow-xl">
-              {/* Text */}
-              <div className="flex flex-col justify-center gap-6">
-                <h1 className="text-3xl md:text-4xl font-bold">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center min-h-[600px]">
+          {/* Left Column */}
+          <div className="space-y-4">
+            {leftFeatures.map((feature, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleClick(idx)}
+                className={`w-full p-4 rounded-2xl text-left transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${selectedFeature === idx
+                  ? "bg-gradient-to-r from-cyan-400 to-blue-900 text-white shadow-xl scale-105"
+                  : "bg-[#59d7f7] hover:bg-cyan-300 text-gray-800"
+                  }`}
+              >
+                <h3 className="font-semibold text-sm md:text-base">
                   {feature.title}
-                </h1>
-                <p className="text-base md:text-lg">{feature.description}</p>
-              </div>
+                </h3>
+              </button>
+            ))}
+          </div>
 
-              {/* Image */}
-              <div className="flex justify-center">
-                <img
-                  src={feature.image}
-                  alt={feature.title}
-                  className="rounded-4xl h-[300px] md:h-[400px] w-full object-cover"
-                />
-              </div>
+          {/* Center Column */}
+          <div className="flex flex-col items-center justify-center bg-white rounded-3xl shadow-2xl p-8 min-h-[500px] transition-all duration-500"
+            onClick={() => setAutoPlay(false)}
+          >
+            <div className="w-full max-w-md">
+              <img
+                src={features[selectedFeature].image}
+                alt={features[selectedFeature].title}
+                className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-lg mb-6 transition-all duration-500"
+              />
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 text-center">
+                {features[selectedFeature].title}
+              </h2>
+              <p className="text-gray-600 text-center leading-relaxed">
+                {features[selectedFeature].description}
+              </p>
             </div>
-          </section>
-        ))}
+          </div>
+
+          {/* Right Column */}
+          <div className="space-y-4">
+            {rightFeatures.map((feature, idx) => {
+              const actualIndex = idx + 6;
+              return (
+                <button
+                  key={actualIndex}
+                  onClick={() => handleClick(actualIndex)}
+                  className={`w-full p-4 rounded-2xl text-left transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${selectedFeature === actualIndex
+                    ? "bg-gradient-to-r from-cyan-400 to-blue-900 text-white shadow-xl scale-105"
+                    : "bg-cyan-200 hover:bg-cyan-300 text-gray-800"
+                    }`}
+                >
+                  <h3 className="font-semibold text-sm md:text-base">
+                    {feature.title}
+                  </h3>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Mobile Layout */}
+        <div className="lg:hidden mt-8">
+          <div className="grid grid-cols-2 gap-3 mb-6">
+            {features.map((feature, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleClick(idx)}
+                className={`p-3 rounded-xl text-left transition-all duration-300 ${selectedFeature === idx
+                  ? "bg-gradient-to-r from-cyan-400 to-blue-400 text-white shadow-lg"
+                  : "bg-cyan-200 hover:bg-cyan-300 text-gray-800"
+                  }`}
+              >
+                <h3 className="font-semibold text-xs">{feature.title}</h3>
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
