@@ -16,7 +16,7 @@ function CaseStudiesSection() {
 
   // Track if elements are in view
   const headingInView = useInView(headingRef, { once: true, });
-  const leftInView = useInView(leftRef, { once: true,  });
+  const leftInView = useInView(leftRef, { once: true, });
   const rightInView = useInView(rightRef, { once: true, });
 
 
@@ -160,9 +160,7 @@ function CaseStudiesSection() {
                   />
                   <motion.button
                     onClick={() => (router.push(img.link))}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
+                    
                     transition={{ duration: 1 }}
                     whileTap={{ scale: 0.97 }}
                     whileHover="hover"

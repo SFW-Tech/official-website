@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 function Jointeamsection() {
   return (
-    <div className="mt-8 pr-4 sm:px-8 md:px-16 lg:px-24 xl:px-28 mb-8">
+<div className="mt-12 sm:mt-16 md:mt-20 lg:mt-28 xl:mt-36 pr-4 sm:px-8 md:px-16 lg:px-24 xl:px-28 mb-8">
       <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-x-10 gap-y-3 md:gap-x-20 lg:gap-x-32">
         
         {/* Image Section */}

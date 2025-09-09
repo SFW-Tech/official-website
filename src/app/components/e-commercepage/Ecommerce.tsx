@@ -13,7 +13,7 @@ function Ecommerce() {
                         </h2>
                     </div>
 
-                    <p className="text-sm sm:text-base md:text-lg leading-relaxed text-center lg:text-left">
+                    <p className="text-sm md:text-base leading-relaxed text-center lg:text-left">
                         Softworks is a leading provider of innovative e-commerce website solutions,
                         dedicated to helping businesses establish a robust online presence. Our team of experts
                         works closely with you to understand your business goals, ensuring that your online store

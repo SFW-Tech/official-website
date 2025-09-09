@@ -18,8 +18,8 @@ function CompanyDropdownMenu() {
       <Menu as="div" className="relative inline-block">
         <MenuButton
           className={`hidden md:flex gap-2 text-sm font-semibold py-2.5 cursor-pointer transition-colors duration-500 ease-in-out 
-  hover:bg-[#59d7f7] hover:text-black px-5 rounded-md
-  ${pathname === "/aboutus" || pathname === "/careers"
+          hover:bg-[#59d7f7] hover:text-black px-5 rounded-md
+           ${pathname === "/aboutus" || pathname === "/careers"
               ? "bg-[#59d7f7] text-black"
               : ""}`}
 

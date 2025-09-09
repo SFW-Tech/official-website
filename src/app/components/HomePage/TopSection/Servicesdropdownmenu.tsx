@@ -17,25 +17,24 @@ function ServicesDropdownMenu() {
     >
       <Menu as="div" className="relative inline-block">
         <MenuButton
-          className={`hidden md:flex gap-2 text-sm font-semibold py-3 cursor-pointer hover:bg-[#59d7f7] hover:text-black px-2 rounded-md ${
-            [
+          className={`hidden md:flex gap-2 text-sm font-semibold py-3 cursor-pointer hover:bg-[#59d7f7] hover:text-black px-2 rounded-md ${[
               "/webapplications",
               "/mobileapplications",
               "/websitedevelopment",
               "/e-commerce",
               "/odoo",
-              
+              "/ai"
+
             ].includes(pathname)
               ? "bg-[#59d7f7] text-black px-5 rounded-md"
               : ""
-          }`}
+            }`}
         >
           Services & Solutions
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className={`h-6 w-6 transition-transform duration-300 ${
-              open ? "rotate-180" : "rotate-0"
-            }`}
+            className={`h-6 w-6 transition-transform duration-300 ${open ? "rotate-180" : "rotate-0"
+              }`}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -52,7 +51,7 @@ function ServicesDropdownMenu() {
               animate={{ opacity: 1, y: 0, height: "auto" }}
               exit={{ opacity: 0, y: -15, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="absolute left-1/2 transform -translate-x-1/2 z-10 mt-1 w-40 origin-top rounded-md bg-[#59d7f7] shadow-lg outline-1 outline-black/5 overflow-hidden"
+              className="absolute left-1/2 transform -translate-x-1/2 z-10 mt-1 w-42 origin-top rounded-md bg-[#59d7f7] shadow-lg outline-1 outline-black/5 overflow-hidden"
             >
               <MenuItems static>
                 <div className="py-1">
@@ -119,6 +118,28 @@ function ServicesDropdownMenu() {
                       ODOO
                     </Link>
                   </MenuItem>
+                  <hr className="border-black/30" />
+
+                  <MenuItem>
+                    <Link
+                      href="/servicenow"
+                      className="block px-4 py-2 text-sm text-black text-center hover:bg-cyan-300"
+                    >
+                      Service Now
+                    </Link>
+                  </MenuItem>
+
+                  <hr className="border-black/30" />
+
+                  <MenuItem>
+                    <Link
+                      href="/staffaugmentation"
+                      className="block px-4 py-2 text-sm text-black text-center hover:bg-cyan-300"
+                    >
+                      Staff Augmentation
+                    </Link>
+                  </MenuItem>
+
                 </div>
               </MenuItems>
             </motion.div>

@@ -23,7 +23,7 @@ function Introduction() {
                                     Introduction
                                 </h2>
                             </div>
-                            <p className='text-gray-700 leading-relaxed'>
+                            <p className='text-gray-700 leading-relaxed text-sm md:text-base'>
                                 Odoo is an open-source suite of business applications designed to help businesses manage various aspects of their operations in an integrated manner. Originally known as OpenERP, it provides a range of modules that cover functions like accounting, inventory
                                 management, sales, CRM, human resources, manufacturing, and
                                 more.
@@ -37,10 +37,10 @@ function Introduction() {
                                 </h2>
                             </div>
                             <div className='flex flex-col gap-4'>
-                                <p className='text-gray-700 leading-relaxed'><span className='text-gray-800 font-medium'>Flexibility: </span> Customizable to a wide range of industries and business needs.</p>
-                                <p className='text-gray-700 leading-relaxed'><span className='text-gray-800 font-medium'>Cost-effective:  </span> More affordable compared to many other ERP solutions, especially for smaller businesses.</p>
-                                <p className='text-gray-700 leading-relaxed'><span className='text-gray-800 font-medium'>All-in-one solution: </span> Covers almost every aspect of business operations, making it easier to manage everything in one platform.</p>
-                                <p className='text-gray-700 leading-relaxed'><span className='text-gray-800 font-medium'>Strong community and support: </span> Access to a vast community and resources for help and further customization.</p>
+                                <p className='text-gray-700 leading-relaxed text-sm md:text-base'><span className='text-gray-800 font-medium'>Flexibility: </span> Customizable to a wide range of industries and business needs.</p>
+                                <p className='text-gray-700 leading-relaxed text-sm md:text-base'><span className='text-gray-800 font-medium'>Cost-effective:  </span> More affordable compared to many other ERP solutions, especially for smaller businesses.</p>
+                                <p className='text-gray-700 leading-relaxed text-sm md:text-base'><span className='text-gray-800 font-medium'>All-in-one solution: </span> Covers almost every aspect of business operations, making it easier to manage everything in one platform.</p>
+                                <p className='text-gray-700 leading-relaxed text-sm md:text-base'><span className='text-gray-800 font-medium'>Strong community and support: </span> Access to a vast community and resources for help and further customization.</p>
                             </div>
                         </div>
                     </div>

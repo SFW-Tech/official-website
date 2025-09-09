@@ -55,7 +55,7 @@ function Ourvision() {
                         />
                         {selected !== "vision" && (
                             <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-lg">
-                                <span className="text-white font-semibold text-sm sm:text-base md:text-lg 
+                                <span className="text-white font-semibold text-sm md:text-base leading-relaxed 
                                     md:[writing-mode:vertical-rl] md:rotate-180">
                                     {content.vision.title}
                                 </span>
@@ -78,7 +78,7 @@ function Ourvision() {
                         />
                         {selected !== "mission" && (
                             <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-lg">
-                                <span className="text-white font-semibold text-sm sm:text-base md:text-lg 
+                                <span className="text-white font-semibold text-sm md:text-base 
                                     md:[writing-mode:vertical-rl] md:rotate-180">
                                     {content.mission.title}
                                 </span>
@@ -101,7 +101,7 @@ function Ourvision() {
                         />
                         {selected !== "chooseus" && (
                             <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-lg">
-                                <span className="text-white font-semibold text-sm sm:text-base md:text-lg 
+                                <span className="text-white font-semibold text-sm md:text-base 
                                     md:[writing-mode:vertical-rl] md:rotate-180">
                                     {content.chooseus.title}
                                 </span>

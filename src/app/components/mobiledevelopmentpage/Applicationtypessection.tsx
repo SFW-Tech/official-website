@@ -165,7 +165,7 @@ function Applicationtypessection() {
                         Android Native App
                     </motion.h3>
                     <motion.p
-                        className="text-gray-600 text-base sm:text-lg"
+                        className="text-gray-600 text-sm md:text-base"
                         variants={paragraphVariants}
                     >
                         With SoftWorks the native mobile app development, the app is created and optimized for a specific platform. As a result, the app demonstrates an extremely high level of performance. Native apps are very fast and responsive because they are built for that specific platform and are compiled using platforms core programming language and APIs. As a result, the app is much more efficient. The device stores the app allowing the software to leverage the device's processing speed. As users navigate through a native mobile app, the contents and visual elements are already stored on their phone which means load times are quick, SoftWorks build more advanced and user friendly apps helps to optimize your business venture.
@@ -198,7 +198,7 @@ function Applicationtypessection() {
                         IOS Native App
                     </motion.h3>
                     <motion.p
-                        className="text-gray-600 text-base sm:text-lg"
+                        className="text-gray-600 text-sm md:text-base"
                         variants={paragraphVariants}
                     >
                         SoftWorks builds native mobile applications for iOS have special operating system-specific features. Guidelines by Apple and Google recommend to use platform-standard navigation controls whenever possible: page controls, tab bars, segmented controls, table views, collection views, and split views. Users are familiar with how these controls typically work on each platform, so if you use the standard controls, your users will intuitively know how to get around your app. We focus on the main differences between interaction design patterns on iOS and Android to clarify why apps look different on iOS.Our Developers watch closely the activity of the app and analysis the functionality of the app, to find the user experience and the interface objective obtained.
@@ -265,7 +265,7 @@ function Applicationtypessection() {
                         Hybrid App
                     </motion.h3>
                     <motion.p
-                        className="text-gray-600 text-base sm:text-lg"
+                        className="text-gray-600 text-sm md:text-base"
                         variants={paragraphVariants}
                     >
                         A (hybrid app) is a software application that combines elements of both native apps and web applications. Hybrid apps are essentially web apps that have been put in a native app shell. Once they are downloaded from an app store and installed locally, the shell is able to connect to whatever capabilities the mobile platform provides through a browser that's embedded in the app. The browser and its plug-ins run on the back end and are invisible to the end user.

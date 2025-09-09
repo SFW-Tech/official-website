@@ -15,7 +15,7 @@ function Whychooseus() {
             Best Coding Practice
           </h1>
           <hr className="border border-gray-300" />
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed text-sm md:text-base">
             Our eCommerce website developers are trained to write managed code
             with version control, integration and reuse and follow efficient and
             best coding practices.
@@ -27,7 +27,7 @@ function Whychooseus() {
             Custom Bussiness Logic
           </h1>
           <hr className="border border-gray-300" />
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed text-sm md:text-base">
             Our Ecommerce development services provide infinite possibilities to
             enhance your ROI by reflecting your business logic in our ecommerce
             platform.
@@ -39,7 +39,7 @@ function Whychooseus() {
             Branding & Ownership
           </h1>
           <hr className="border border-gray-300" />
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed text-sm md:text-base">
             The development of our ecommerce websites is highly customized as
             per your branding guidelines and provides authority to own the IP of
             the application.
@@ -51,7 +51,7 @@ function Whychooseus() {
             SEO Optimized
           </h1>
           <hr className="border border-gray-300" />
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed text-sm md:text-base">
             Our eCommerce website developers ensure that the code is designed
             based on eCommerce SEO guidelines guidelines, schema-rich, dynamic
             on-page SEO optimization to provide better visibility on search

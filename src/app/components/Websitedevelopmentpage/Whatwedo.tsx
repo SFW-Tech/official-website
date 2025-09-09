@@ -39,7 +39,7 @@ function Whatwedo() {
           <h1 className="text-lg sm:text-xl font-semibold">
             WordPress Theme Customization
           </h1>
-          <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+          <p className="text-gray-700 leading-relaxed text-sm md:text-base">
             Hire WordPress Developers who design your website in various responsive themes and templates to drive more traffic to transform your business.
           </p>
         </div>
@@ -65,7 +65,7 @@ function Whatwedo() {
           <h1 className="text-lg sm:text-xl font-semibold">
             WordPress Plugin Development
           </h1>
-          <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+          <p className="text-gray-700 leading-relaxed text-sm md:text-base">
             Get customized plugins for your website’s uniqueness that goes beyond defaults. Enhance the functionality with feature rich plugins.
           </p>
         </div>
@@ -91,7 +91,7 @@ function Whatwedo() {
           <h1 className="text-lg sm:text-xl font-semibold">
             Ensuring Website Security
           </h1>
-          <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+          <p className="text-gray-700 leading-relaxed text-sm md:text-base">
             Install an SSL certificate to secure transactions. Regularly update WordPress, themes, and plugins to their latest versions.
           </p>
         </div>
@@ -117,7 +117,7 @@ function Whatwedo() {
           <h1 className="text-lg sm:text-xl font-semibold">
             Woocommerce Development
           </h1>
-          <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+          <p className="text-gray-700 leading-relaxed text-sm md:text-base">
             We help clients build an online store based on WooCommerce with customizable plugins and themes powered by WordPress.
           </p>
         </div>
@@ -143,7 +143,7 @@ function Whatwedo() {
           <h1 className="text-lg sm:text-xl font-semibold">
             WordPress Migration Services
           </h1>
-          <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+          <p className="text-gray-700 leading-relaxed text-sm md:text-base">
             Switch your existing website to WordPress platform for improving functionality without compromising on data and security.
           </p>
         </div>
@@ -169,7 +169,7 @@ function Whatwedo() {
           <h1 className="text-lg sm:text-xl font-semibold">
             WordPress Support & Maintenance
           </h1>
-          <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+          <p className="text-gray-700 leading-relaxed text-sm md:text-base">
             Boost your business with our extensive maintenance and support for WordPress web development services, offered by expert WordPress developers.
           </p>
         </div>
