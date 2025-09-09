@@ -57,7 +57,7 @@ function Navbar() {
             </Link>
 
             {/* Desktop menu */}
-            <div className="hidden md:flex gap-12 text-sm font-semibold items-center mx-auto lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
+            <div className="hidden md:flex gap-12 text-sm font-semibold items-center mx-auto lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2 whitespace-nowrap">
                 <Link
                     href="/"
                     className={`cursor-pointer pt-3 px-5 pb-3 rounded-sm transition-colors duration-500 ease-in-out 

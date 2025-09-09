@@ -118,7 +118,7 @@ function Whychooseus() {
 
             {/* Bottom Paragraph */}
             <div className='mt-6 sm:mt-8 md:mt-12'>
-                <p className="text-gray-700 leading-relaxed text-center px-4 sm:px-6 md:px-20 text-sm sm:text-base md:text-base">
+                <p className="text-gray-700 leading-relaxed text-center px-4 sm:px-6 md:px-20 text-sm md:text-base">
                     An expert, traversable page with simple to-get to substance conveys a great client experience that drives prospect transformation. We realize how to assemble traffic with SEO and increment brand communication with substance. Moreover, we have practical experience in making and propelling Ecommerce stores that enable your customers to purchase while never getting the telephone.
                 </p>
             </div>

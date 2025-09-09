@@ -43,7 +43,7 @@ function Exploresection() {
 
           {/* Paragraph */}
           <motion.p
-            className="text-sm sm:text-base md:text-md lg:text-lg xl:text-base leading-relaxed"
+            className="text-sm md:text-base leading-relaxed"
             initial={{ opacity: 0, y: 0 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
