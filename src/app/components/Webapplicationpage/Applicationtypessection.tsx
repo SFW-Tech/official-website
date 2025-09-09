@@ -163,7 +163,7 @@ function Applicationtypessection() {
                         Custom Application for Enterprise
                     </motion.h3>
                     <motion.p 
-                        className="text-gray-600 text-base sm:text-lg"
+                        className="text-gray-600 text-sm md:text-base"
                         variants={paragraphVariants}
                     >
                         Web applications have become an integral part of businesses in today's
@@ -202,7 +202,7 @@ function Applicationtypessection() {
                         Custom SAAS Product Development
                     </motion.h3>
                     <motion.p 
-                        className="text-gray-600 text-base sm:text-lg"
+                        className="text-gray-600 text-sm md:text-base"
                         variants={paragraphVariants}
                     >
                         SoftWorks provide innovative software solutions to help you and your digital
@@ -274,7 +274,7 @@ function Applicationtypessection() {
                         Progressive Web Application
                     </motion.h3>
                     <motion.p 
-                        className="text-gray-600 text-base sm:text-lg"
+                        className="text-gray-600 text-sm md:text-base"
                         variants={paragraphVariants}
                     >
                         Progressive web apps is use for service workers, manifests, and other web

@@ -20,7 +20,7 @@ function Websitesolutions() {
         </div>
 
         {/* text content */}
-        <div className="flex flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 text-gray-700 justify-center">
+        <div className="flex flex-col gap-5 sm:gap-6 md:gap-7 lg:gap-8 xl:gap-12 text-gray-700 justify-center text-sm md:text-base">
           <p>
             The Face is the index of mind! The website is the index of your
             business. We understand how the business sector depends primarily on

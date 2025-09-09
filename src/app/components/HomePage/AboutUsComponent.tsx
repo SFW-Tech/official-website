@@ -27,7 +27,7 @@ function AboutUsComponent() {
                         <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold mb-4">
                             About Us
                         </h1>
-                        <p className="text-sm sm:text-base md:text-md lg:text-lg xl:text-base leading-relaxed">
+                        <p className="text-sm md:text-base  leading-relaxed">
                             SoftWorks provide innovative software solutions to help you and your digital business space.
                             We have been one of the leading Product development and Technology services companies in India since 2019,
                             Serving clients across the globe. We design, develop, launch and enhance your products with our passionate
@@ -64,7 +64,7 @@ function AboutUsComponent() {
                                     initial={{ opacity: 0, x: 90 }}
                                     animate={rightInView ? { opacity: 1, x: 0 } : {}}
                                     transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.3 }}
-                                    className="text-xs sm:text-base md:text-md lg:text-lg xl:text-base flex items-center leading-relaxed text-gray-950"
+                                    className="text-sm md:text-base flex items-center leading-relaxed text-gray-950"
                                 >
                                     {item.text}
                                 </motion.p>

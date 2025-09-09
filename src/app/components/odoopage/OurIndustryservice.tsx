@@ -137,12 +137,12 @@ function OurIndustryservice() {
                 <h1 className="text-2xl md:text-3xl font-bold">
                   {industry.title}
                 </h1>
-                <p className="text-gray-700 leading-relaxed">{industry.desc}</p>
+                <p className="text-gray-700 leading-relaxed text-sm md:text-base">{industry.desc}</p>
                 <div>
                   <h3 className="text-xl font-medium mb-2 text-cyan-600">
                     Key Benefits of Odoo
                   </h3>
-                  <ul className="list-disc pl-5 space-y-1 text-gray-700">
+                  <ul className="list-disc pl-5 space-y-1 text-gray-700 text-sm md:text-base">
                     {industry.benefits.map((b, i) => (
                       <li key={i}>{b}</li>
                     ))}

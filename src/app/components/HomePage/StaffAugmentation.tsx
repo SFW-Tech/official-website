@@ -41,7 +41,7 @@ function StaffAugmentation() {
                 <h3 className="text-xl sm:text-2xl lg:text-3xl text-gray-700 font-bold">
                     Staff Augmentation Your Developers and Our Integration
                 </h3>
-                <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
+                <p className="text-sm md:text-base leading-relaxed text-gray-500">
                     Our staff augmentation services follow a streamlined approach to help you scale efficiently.
                     We consult with you to understand your project goals and skill requirements. Next, we help
                     you select the right talent from our pool of qualified professionals who align with your
