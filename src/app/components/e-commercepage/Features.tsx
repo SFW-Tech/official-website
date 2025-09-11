@@ -142,7 +142,7 @@ function Features() {
           </div>
 
           {/* Right Column */}
-          <div className="space-y-4">
+          <div className="space-y-4 ">
             {rightFeatures.map((feature, idx) => {
               const actualIndex = idx + 6;
               return (
@@ -163,23 +163,7 @@ function Features() {
           </div>
         </div>
 
-        {/* Mobile Layout */}
-        <div className="lg:hidden mt-8">
-          <div className="grid grid-cols-2 gap-3 mb-6">
-            {features.map((feature, idx) => (
-              <button
-                key={idx}
-                onClick={() => handleClick(idx)}
-                className={`p-3 rounded-xl text-left transition-all duration-300 ${selectedFeature === idx
-                  ? "bg-gradient-to-r from-cyan-400 to-blue-400 text-white shadow-lg"
-                  : "bg-cyan-200 hover:bg-cyan-300 text-gray-800"
-                  }`}
-              >
-                <h3 className="font-semibold text-xs">{feature.title}</h3>
-              </button>
-            ))}
-          </div>
-        </div>
+        
       </div>
     </div>
   );

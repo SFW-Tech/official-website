@@ -119,7 +119,7 @@ const titleVariants: Variants = {
 
 const Expertcustomwebsite = () => {
   return (
-    <div className="px-4 sm:px-6 md:px-12 lg:px-20 xl:px-28 mt-12 md:mt-16 lg:mt-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 py-16">
+    <div className="px-4 sm:px-6 md:px-12 lg:px-20 xl:px-28 mt-12 md:mt-16 lg:mt-20  py-16">
       {/* Header Section */}
       <motion.div
         className="text-center mb-16"
@@ -222,23 +222,8 @@ const Expertcustomwebsite = () => {
                   </motion.p>
                 </div>
 
-                {/* Hover Arrow */}
-                <div className="absolute bottom-6 right-6">
-                  <motion.div
-                    className={`p-2 rounded-full bg-gradient-to-r ${service.gradient} text-white shadow-lg`}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileHover={{
-                      opacity: 1,
-                      x: 0,
-                      rotate: 45,
-                      transition: { duration: 0.3 }
-                    }}
-                  >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </motion.div>
-                </div>
+                
+                
               </div>
             </motion.div>
           )
