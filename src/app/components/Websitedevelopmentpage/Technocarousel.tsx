@@ -20,7 +20,7 @@ function Technocarousel() {
     const images = [1, 2, 3, 4, 5, 6, 7]
 
     return (
-        <div className="px-6 sm:px-12 lg:px-28 mt-20 mb-10">
+        <div className="px-6 sm:px-12 lg:px-28 mb-10">
 
 
 
