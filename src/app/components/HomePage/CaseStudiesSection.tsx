@@ -24,27 +24,27 @@ function CaseStudiesSection() {
     {
       src: "/assets/Home/Casestudyassets/case study 1.png",
       alt: "Digital Transformation",
-      link: "/case-studies/digital-transformation"
+      link: "/case-studies/Digital-transformation"
     },
     {
       src: "/assets/Home/Casestudyassets/case study 2.png",
       alt: "Field Service Management",
-      link: "/case-studies/field-service-management"
+      link: "/case-studies/Field-service-management"
     },
     {
       src: "/assets/Home/Casestudyassets/case study 3.png",
       alt: "Appointment Booking System",
-      link: "/case-studies/appointment-booking"
+      link: "/case-studies/Appointment-booking"
     },
     {
       src: "/assets/Home/Casestudyassets/case study 4.png",
       alt: "Reverse Logistics Management",
-      link: "/case-studies/reverse-logistics"
+      link: "/case-studies/Reverse-logistics"
     },
     {
       src: "/assets/Home/Casestudyassets/case study 5.png",
       alt: "Food Application",
-      link: "/case-studies/food-application"
+      link: "/case-studies/Food-application"
     },
   ];
 
