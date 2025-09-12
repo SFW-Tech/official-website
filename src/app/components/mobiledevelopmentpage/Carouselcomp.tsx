@@ -1,47 +1,51 @@
-"use client"
+"use client";
+import React from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion"
 
-import React from "react"
-import useEmblaCarousel from "embla-carousel-react"
-import Autoplay from "embla-carousel-autoplay"
+const Carouselcomp: React.FC = () => {
+  const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, [
+    Autoplay({ delay: 2000, stopOnInteraction: false }),
+  ]);
+  const headingRef = useRef(null);
+  const headingInView = useInView(headingRef, { once: true });
 
-const images: string[] = [
+
+ const images: string[] = [
   "/assets/e-commerce/carousel/1.png",
   "/assets/e-commerce/carousel/2.png",
   "/assets/e-commerce/carousel/3.png",
   "/assets/e-commerce/carousel/4.png",
   "/assets/e-commerce/carousel/5.png",
-  "/assets/e-commerce/carousel/6.svg",
-  "/assets/e-commerce/carousel/7.png",
+ 
 ]
 
-function Carouselcomp() {
-  const [emblaRef] = useEmblaCarousel(
-    { loop: true },
-    [Autoplay({ delay: 1500 })]
-  )
-
   return (
-    <div className="px-6 sm:px-12 lg:px-28 mb-12">
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex">
+    <div className="w-full px-6 md:px-28 mt-6"
+    >
+      
+
+      {/* Carousel */}
+      <div ref={emblaRef} className="overflow-hidden mt-6">
+        <div className="flex gap-x-6 md:gap-x-12 xl:gap-9">
           {images.map((src, index) => (
             <div
               key={index}
-              className="flex-[0_0_50%] sm:flex-[0_0_33.33%] lg:flex-[0_0_20%] min-w-0 px-2"
+              className="flex-[0_0_28.333%] md:flex-[0_0_24%]"
             >
-              <div className="w-full h-40 sm:h-48 lg:h-56 flex items-center justify-center bg-white rounded-xl shadow-md overflow-hidden">
-                <img
-                  src={src}
-                  alt={`Technology ${index + 1}`}
-                  className="max-h-full max-w-full object-contain"
-                />
-              </div>
+              <img
+                src={src}
+                className="h-16 sm:h-20 md:h-32 lg:h-44 xl:h-44 object-cover w-full"
+                alt={`Client ${index + 1}`}
+              />
             </div>
           ))}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Carouselcomp
+export default Carouselcomp;

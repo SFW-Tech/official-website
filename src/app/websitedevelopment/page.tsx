@@ -16,7 +16,7 @@ function page() {
     <Expertcustomwebsite/>
     <Whychooseus/>
     <Whatwedo/>
-    <Technocarousel/>
+    {/* <Technocarousel/> */}
     
     </>
   )

@@ -22,13 +22,18 @@ function Herosection() {
                 <Navbar />
 
                 <div className="pt-20 md:pt-28 lg:pt-40 xl:pt-[200px] pl-6 md:pl-12 lg:pl-20 xl:pl-[120px] flex flex-col gap-4">
-                    
                     <h1 className="inline-block text-xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-amber-50">
-                        E-Commerce
+                        Transform Your Vision Into
+                    </h1>
+
+                    <h1 className="inline-block text-xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-amber-50">
+                        a High-Performance eCommerce Platform
                     </h1>
 
 
-                   
+                    <p className="inline-block px-2 py-1 text-white rounded bg-gradient-to-r from-[#6F4124] via-[#6C1867] to-[#372C4B] w-fit">
+                        Build, scale, and optimize your eCommerce presence
+                    </p>
 
 
 
