@@ -3,7 +3,7 @@ import Navbar from '../HomePage/Navbar'
 
 function Herosection() {
     return (
-        <div className='w-full'>
+        <div >
             <div
                 className="
                     w-full 
@@ -16,16 +16,27 @@ function Herosection() {
                     bg-no-repeat
                 "
                 style={{
-                    backgroundImage: "url('/assets/Aboutus/Herosectionassets/banner2.png')",
+                    backgroundImage: "url('/assets/Mobileapplications/Herosectionassets/banner1.png')",
                 }}
             >
                 <Navbar />
 
-                <div className="pt-20 md:pt-28 lg:pt-40 xl:pt-[260px] pl-6 md:pl-12 lg:pl-20 xl:pl-[120px]">
-                    <h1 className="inline-block text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-amber-50">
-                        Odoo
+                <div className="pt-20 md:pt-28 lg:pt-40 xl:pt-[200px] pl-6 md:pl-12 lg:pl-20 xl:pl-[120px] flex flex-col gap-4">
+                    <h1 className="inline-block text-xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-amber-50">
+                        Simplify. Automate. Scale
                     </h1>
-                    
+
+                   
+
+
+                    <p className="inline-block px-2 py-1 text-white rounded bg-gradient-to-r from-[#6F4124] via-[#6C1867] to-[#372C4B] w-fit">
+                        Odoo solutions tailored to your business needs
+                    </p>
+
+
+
+
+
                 </div>
             </div>
         </div>

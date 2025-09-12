@@ -46,7 +46,7 @@ const ClientsCardComponent: React.FC = () => {
           {clients.map((src, index) => (
             <div
               key={index}
-              className="flex-[0_0_33.333%] md:flex-[0_0_20%]"
+              className="flex-[0_0_28.333%] md:flex-[0_0_20%]"
             >
               <img
                 src={src}
