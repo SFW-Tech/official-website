@@ -7,7 +7,7 @@ import { useRef } from "react";
 function CaseStudiesSection() {
   const [selected, setSelected] = useState(0);
   const router = useRouter()
-  const intervalTime = 2000;
+  const intervalTime = 3000;
 
   // Refs for animation triggers
   const headingRef = useRef(null);
