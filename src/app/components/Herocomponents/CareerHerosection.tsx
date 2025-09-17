@@ -41,8 +41,12 @@ const createFullFloat = (
 };
 
 const CareerHerosection: React.FC<HeroProps> = ({ title }) => {
-  // split line logic
-  const [firstLine, secondLine] = title.split(" Build ");
+  // safe split logic
+  const parts = title.split(" Build ");
+  const firstLine = parts[0];
+  const secondLine = parts[1] ?? "";
+
+  const hasBuild = title.includes(" Build ");
 
   return (
     <div className="w-full relative">
@@ -88,10 +92,18 @@ const CareerHerosection: React.FC<HeroProps> = ({ title }) => {
         {/* Content wrapper */}
         <div className="h-full flex items-center justify-center relative z-10 px-6 md:px-12 lg:px-20 xl:px-36">
           <h1 className="text-center leading-snug text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold space-y-2">
-            <span className="block text-white">{firstLine}</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-amber-50">
-              {"Build " + secondLine}
-            </span>
+            {hasBuild ? (
+              <>
+                <span className="block text-white">{firstLine}</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-amber-50">
+                  {"Build " + secondLine}
+                </span>
+              </>
+            ) : (
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-amber-50">
+                {title}
+              </span>
+            )}
           </h1>
         </div>
       </div>
