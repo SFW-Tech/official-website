@@ -26,7 +26,7 @@ function ServicesDropdownMenu() {
               "/ai"
 
             ].includes(pathname)
-              ? "bg-[#59d7f7] text-black px-5 rounded-md"
+              ? "bg-[#59d7f7] text-black px-2 rounded-md"
               : ""
             }`}
         >
