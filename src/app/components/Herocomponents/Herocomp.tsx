@@ -45,7 +45,7 @@ const createFullFloat = (
 const Herocomp: React.FC<HeroProps> = ({ title, subtitle, rightImage }) => {
   return (
     <div className="w-full relative">
-      <div className="w-full h-[280px] md:h-[380px] lg:h-[400px] xl:h-[478px] bg-gradient-to-r from-[#221C41] via-[#0D1C3C] to-[#42306A] relative overflow-hidden">
+      <div className="w-full h-[330px] md:h-[380px] lg:h-[400px] xl:h-[478px] bg-gradient-to-r from-[#221C41] via-[#0D1C3C] to-[#42306A] relative overflow-hidden">
         <Navbar />
 
         {/* Animated Icons */}
@@ -89,7 +89,7 @@ const Herocomp: React.FC<HeroProps> = ({ title, subtitle, rightImage }) => {
           <div className="flex justify-between items-center h-full ">
             {/* Left side text */}
             <div className="flex flex-col gap-1 md:gap-2 lg:gap-4 xl:gap-6">
-              <h1 className="inline-block leading-snug md:leading-[1.6] lg:leading-[1.4] xl:leading-[1.4] text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-amber-50">
+              <h1 className="inline-block leading-snug md:leading-[1.6] lg:leading-[1.4] xl:leading-[1.4] text-lg md:text-3xl lg:text-4xl xl:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-amber-50">
                 {title}
               </h1>
               {subtitle && (
@@ -104,7 +104,7 @@ const Herocomp: React.FC<HeroProps> = ({ title, subtitle, rightImage }) => {
               <img
                 src={rightImage}
                 alt="Right Side"
-                className="max-h-[440px] md:max-h-[400px] lg:max-h-[500px] xl:max-h-[600px] 2xl:max-h-[500px] object-contain"
+                className="max-x-xs md:max-h-[400px] lg:max-h-[500px] xl:max-h-[600px] 2xl:max-h-[500px] object-contain"
               />
             </div>
           </div>

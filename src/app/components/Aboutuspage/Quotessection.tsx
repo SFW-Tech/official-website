@@ -1,25 +1,18 @@
 "use client"
-import React, { useRef } from "react"
-import { motion, useInView } from "framer-motion"
+import React from "react"
+import AnimateOnView from "../../../../animations/AnimateOnView"
+import { fadeDown } from '../../../../animations/animations'
 
 function Quotessection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-
   return (
-    <div
-      className="mt-8 w-full h-auto sm:h-72 md:h-80 bg-[#6D62A3]"
-      ref={ref}
-    >
-      <motion.div
-        initial={{ opacity: 0, y: 80 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+    <div className="mt-8 w-full h-auto sm:h-72 md:h-80 bg-[#6D62A3]">
+      <AnimateOnView
+        variants={fadeDown}
         className="flex flex-col-reverse md:flex-row justify-center items-center text-center md:text-left px-4 sm:px-8 md:px-16 lg:px-32 xl:px-[75px] py-8 gap-6 md:gap-12 h-full"
       >
         {/* Quote Text */}
         <p className="text-white text-center italic text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed flex-1">
-         " We build our Software solutions in a simple, easy-to-use format, uncluttered and easy to comprehend, enabling you to make quick & insightful business decisions. This will help you to stay on track for growth goals, foresee new opportunities & cultivate potential business areas."
+          " We build our Software solutions in a simple, easy-to-use format, uncluttered and easy to comprehend, enabling you to make quick & insightful business decisions. This will help you to stay on track for growth goals, foresee new opportunities & cultivate potential business areas."
         </p>
 
         {/* Logo */}
@@ -28,7 +21,7 @@ function Quotessection() {
           alt="Softworks Logo"
           className="w-26 sm:w-30 md:w-48 lg:w-62"
         />
-      </motion.div>
+      </AnimateOnView>
     </div>
   )
 }

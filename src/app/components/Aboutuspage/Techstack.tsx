@@ -1,13 +1,10 @@
 "use client";
-import { motion, AnimatePresence, useInView } from "framer-motion";
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import AnimateOnView from "../../../../animations/AnimateOnView";
+import { fadeDown, headingVariant } from "../../../../animations/animations";
 
 function Techstack() {
-  const headingRef = useRef(null);
-  const imageRef = useRef(null);
-  const headingInView = useInView(headingRef, { once: true });
-  const imageinView = useInView(imageRef, { once: true });
-
   const [currentImage, setCurrentImage] = useState("whole1");
 
   // Switch image every 4 seconds
@@ -15,31 +12,24 @@ function Techstack() {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev === "whole1" ? "whole2" : "whole1"));
     }, 4000);
-
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="mt-8 px-4 md:px-16 lg:px-24 xl:px-28">
       {/* Heading */}
-      <motion.div
-        className="flex flex-col gap-2 items-center"
-        ref={headingRef}
-        initial={{ opacity: 0, y: 30 }}
-        animate={headingInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, ease: "easeIn" }}
-      >
+      <AnimateOnView variants={headingVariant} className="flex flex-col gap-2 items-center">
         <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">
           Our Tech Stack
         </h1>
         <p className="text-sm sm:text-base md:text-md lg:text-lg xl:text-base text-gray-600">
           Your Developers and Our Integration
         </p>
-      </motion.div>
+      </AnimateOnView>
 
       {/* Image Switch */}
       <div className="flex justify-center items-center mt-10 relative w-full h-[300px] md:h-[500px] lg:h-[550px] xl:h-[600px]">
-        <motion.div ref={imageRef} style={{ position: "absolute" }}>
+        <AnimateOnView variants={fadeDown} className="absolute">
           <AnimatePresence mode="wait">
             <motion.img
               key={currentImage}
@@ -52,7 +42,7 @@ function Techstack() {
               transition={{ duration: 0.5, ease: "easeInOut" }}
             />
           </AnimatePresence>
-        </motion.div>
+        </AnimateOnView>
       </div>
     </div>
   );

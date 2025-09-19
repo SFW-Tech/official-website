@@ -1,6 +1,8 @@
 "use client"
 import React, { ReactNode } from 'react';
 import { motion, Variants } from 'framer-motion'
+import AnimateOnView from "../../../../animations/AnimateOnView";
+import { fadeDown, staggerContainer ,headingVariant} from "../../../../animations/animations";
 
 interface Service {
   title: string;
@@ -79,156 +81,59 @@ const services: Service[] = [
   }
 ];
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2
-    }
-  }
-};
 
-const cardVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 50,
-    scale: 0.95
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 15,
-      duration: 0.6
-    }
-  }
-};
 
-const titleVariants: Variants = {
-  rest: { color: "#111827" },
-  hover: {
-    color: "#1f2937",
-    transition: { duration: 0.2 }
-  }
-};
 
 const Expertcustomwebsite = () => {
   return (
     <div className="px-4 sm:px-6 md:px-12 lg:px-20 xl:px-28 mt-12 md:mt-16 lg:mt-20  py-16">
       {/* Header Section */}
-      <motion.div
-        className="text-center mb-16"
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        
-        <motion.h2
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight max-w-4xl mx-auto"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-        >
+      <AnimateOnView variants={headingVariant} className="text-center mb-16">
+        <motion.h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight max-w-4xl mx-auto">
           Expert custom website development services for your{' '}
           <span className="bg-gradient-to-r from-blue-900 to-purple-600 bg-clip-text text-transparent">
             unique needs
           </span>
         </motion.h2>
-        <motion.p
-          className="text-gray-600 text-lg mt-6 max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-        >
+        <motion.p className="text-gray-600 text-lg mt-6 max-w-2xl mx-auto">
           Transform your digital presence with our comprehensive web development solutions
         </motion.p>
-      </motion.div>
+      </AnimateOnView>
 
       {/* Services Grid */}
-      <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 max-w-7xl mx-auto"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
+      <AnimateOnView
+        variants={staggerContainer}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 max-w-7xl mx-auto mt-12"
+        amount={0.2}
       >
-        {services.map((service, index) => {
-          return (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              initial="rest"
-              whileHover="hover"
-              whileTap={{ scale: 0.98 }}
-              className="group relative rounded-2xl p-0.5 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
-            >
+        {services.map((service, index) => (
+          <motion.div key={index} variants={fadeDown}>
+            <div className="group relative rounded-2xl p-0.5 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer h-full">
               <div className={`relative z-10 bg-white rounded-[calc(1rem-2px)] p-8 h-full transition-all duration-300 transform group-hover:scale-[0.99]`}>
-                {/* Subtle background pattern on hover */}
-                <motion.div
-                  className={`absolute inset-0 ${service.bgColor} opacity-0 transition-opacity duration-300 rounded-[calc(1rem-2px)]`}
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 0.1 }}
-                />
 
-                {/* Animated background shapes */}
-                <motion.div
-                  className={`absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br ${service.gradient} rounded-full blur-2xl opacity-0`}
-                  whileHover={{
-                    opacity: 0.05,
-                    scale: 1.1,
-                    transition: { duration: 0.4 }
-                  }}
-                />
+                {/* Background hover effects */}
+                <div className={`absolute inset-0 ${service.bgColor} opacity-0 transition-opacity duration-300 rounded-[calc(1rem-2px)] group-hover:opacity-10`} />
+                <div className={`absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br ${service.gradient} rounded-full blur-2xl opacity-0 group-hover:opacity-5`} />
 
-                {/* Icon Container */}
+                {/* Icon */}
                 <div className="relative mb-6 inline-block z-10">
-                  <motion.div
-                    className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${service.gradient} text-white shadow-md`}
-                    whileHover={{
-                      scale: 1.05,
-                      rotate: 2,
-                      transition: {
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 20
-                      }
-                    }}
-                  >
+                  <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${service.gradient} text-white shadow-md group-hover:scale-105 group-hover:rotate-2 transition-transform duration-300`}>
                     {service.icon}
-                  </motion.div>
+                  </div>
                 </div>
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <motion.h3
-                    className="text-xl font-bold text-gray-900 mb-4"
-                    variants={titleVariants}
-                  >
-                    {service.title}
-                  </motion.h3>
-                  <motion.p
-                    className="text-gray-600 leading-relaxed text-sm"
-                    initial={{ opacity: 0.8 }}
-                    whileHover={{
-                      opacity: 1,
-                      transition: { duration: 0.2 }
-                    }}
-                  >
-                    {service.description}
-                  </motion.p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
+                  <p className="text-gray-600 leading-relaxed text-sm">{service.description}</p>
                 </div>
 
-                
-                
               </div>
-            </motion.div>
-          )
-        })}
-      </motion.div>
+            </div>
+          </motion.div>
+        ))}
+      </AnimateOnView>
+
     </div>
   )
 }
