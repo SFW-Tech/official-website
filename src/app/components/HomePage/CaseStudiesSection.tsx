@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRouter } from "next/navigation"
 import { fadeDown, headingVariant, staggerContainer } from "../../../../animations/animations";
 import AnimateOnView from "../../../../animations/AnimateOnView";
