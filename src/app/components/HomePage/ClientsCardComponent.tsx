@@ -4,6 +4,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion"
+import { headingVariant } from "../../../../animations/animations";
 
 const ClientsCardComponent: React.FC = () => {
   const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, [
@@ -29,8 +30,8 @@ const ClientsCardComponent: React.FC = () => {
       <motion.div className="flex justify-center"
 
         ref={headingRef}
-        initial={{ opacity: 0, y: 20 }}
-        animate={headingInView ? { opacity: 1, y: 0 } : {}}
+        variants={headingVariant}
+         animate={headingInView ? "visible" : "hidden"}
         transition={{ duration: 0.8, ease: "easeOut" }}
 
       >

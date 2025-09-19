@@ -36,25 +36,7 @@ function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Close menu when clicking outside
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            const target = event.target as Element;
-            if (!target.closest('.mobile-menu-container')) {
-                sethamburgerlist(false);
-                setMobileCompanyOpen(true);
-                setMobileServicesOpen(true);
-            }
-        };
 
-        if (hamburgerlist) {
-            document.addEventListener('click', handleClickOutside);
-        }
-
-        return () => {
-            document.removeEventListener('click', handleClickOutside);
-        };
-    }, [hamburgerlist]);
 
     return (
         <motion.div

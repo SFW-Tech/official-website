@@ -1,6 +1,7 @@
 "use client"
 import React, { useRef } from 'react'
 import { motion, useInView, Variants } from "framer-motion";
+import { headingVariant } from '../../../../animations/animations';
 
 function Latestposts() {
     const headingRef = useRef(null);
@@ -24,14 +25,13 @@ function Latestposts() {
 
     return (
         <div className='w-full bg-[#d5e1ea]'>
-
             {/* Heading */}
             <motion.div
                 className='flex justify-center py-10 md:py-12 lg:py-14 xl:py-15 items-center text-center px-4'
                 ref={headingRef}
-                initial={{ opacity: 0, y: 30 }}
-                animate={headingInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+                variants={headingVariant}
+                initial="hidden"
+                animate={headingInView ? "visible" : "hidden"}
             >
                 <h1 className='text-gray-950 font-semibold text-xl md:text-2xl lg:text-3xl'>
                     Stay updated with our latest posts

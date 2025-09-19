@@ -55,6 +55,37 @@
 }
 
 
+/* ===== Scrollbar Style (Global) ===== */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 16px; /* width of the scroller */
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6; /* light gray track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0d1c3c; /* Our custom color */
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #0b1635; /* slightly darker shade for hover */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: auto; /* thicker than thin */
+  scrollbar-color: #0d1c3c #f3f4f6; /* thumb | track */
+}
+
+
+
+
+
+
 
 
 

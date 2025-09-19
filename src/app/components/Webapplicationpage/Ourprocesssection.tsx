@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import AnimateOnView from "../../../../animations/AnimateOnView";
+import { fadeDown, headingVariant } from "../../../../animations/animations";
 
 const steps = [
   {
@@ -52,26 +54,27 @@ function Ourprocesssection() {
     <section className="px-4 sm:px-6 md:px-12 lg:px-20 xl:px-28 mt-18 mb-16">
       {/* Heading */}
       <div className="text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4">
-          We Organize Our Process
-        </h2>
-        <p className="text-gray-600 text-sm md:text-base">
-          We follow a structured and efficient production process to ensure
-          quality, consistency, and timely delivery. From planning and design to
-          development and deployment, every stage is carefully managed with
-          clear communication and agile methodologies, ensuring our clients
-          receive the best outcomes with full transparency.
-        </p>
+        <AnimateOnView variants={headingVariant}>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+            We Organize Our Process
+          </h2>
+        </AnimateOnView>
+        <AnimateOnView variants={fadeDown}>
+          <p className="text-gray-600 text-sm md:text-base">
+            We follow a structured and efficient production process to ensure
+            quality, consistency, and timely delivery. From planning and design to
+            development and deployment, every stage is carefully managed with
+            clear communication and agile methodologies, ensuring our clients
+            receive the best outcomes with full transparency.
+          </p>
+        </AnimateOnView>
       </div>
 
       {/* Mobile only (steps layout) */}
       <div className="relative mt-20 block md:hidden">
         <div className="flex flex-col relative z-10 gap-12">
           {steps.map((step) => (
-            <div
-              key={step.id}
-              className="flex flex-col items-center text-center max-w-xs mx-auto relative"
-            >
+            <AnimateOnView key={step.id} variants={fadeDown} className="flex flex-col items-center text-center max-w-xs mx-auto relative">
               {/* Circle Image */}
               <div className="w-32 h-32 rounded-full flex items-center justify-center bg-white z-10">
                 <Image
@@ -85,20 +88,18 @@ function Ourprocesssection() {
 
               {/* Content */}
               <div className="mt-6">
-                <div
-                  className={`inline-flex items-center px-2 py-1 mt-2 rounded-md text-white text-sm font-bold ${step.color}`}
-                >
+                <div className={`inline-flex items-center px-2 py-1 mt-2 rounded-md text-white text-sm font-bold ${step.color}`}>
                   {step.id} {step.title}
                 </div>
                 <p className="text-gray-600 text-sm mt-2">{step.desc}</p>
               </div>
-            </div>
+            </AnimateOnView>
           ))}
         </div>
       </div>
 
       {/* Tablet + Laptop + Desktop (whole process image) */}
-      <div className="hidden md:flex justify-center mt-16">
+      <AnimateOnView variants={fadeDown} className="hidden md:flex justify-center mt-16">
         <Image
           src="/assets/Webapplications/Ourprocess/wholeimage.png"
           alt="Our Full Process"
@@ -106,7 +107,7 @@ function Ourprocesssection() {
           height={700}
           className="w-full max-w-7xl h-auto object-contain"
         />
-      </div>
+      </AnimateOnView>
     </section>
   );
 }

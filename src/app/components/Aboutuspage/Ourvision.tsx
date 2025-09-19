@@ -1,14 +1,16 @@
 "use client"
-import { useState, useRef } from "react"
-import { motion, useInView, AnimatePresence } from "framer-motion"
+import React, { useState, useRef } from "react";
+import AnimateOnView from "../../../../animations/AnimateOnView";
+import { fadeDown } from "../../../../animations/animations";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 
 function Ourvision() {
-    const [selected, setSelected] = useState<"vision" | "mission" | "chooseus">("vision")
+    const [selected, setSelected] = useState<"vision" | "mission" | "chooseus">("vision");
 
-    const leftRef = useRef(null)
-    const rightRef = useRef(null)
-    const leftInView = useInView(leftRef, { once: true })
-    const rightInView = useInView(rightRef, { once: true })
+    const leftRef = useRef(null);
+    const rightRef = useRef(null);
+    const leftInView = useInView(leftRef, { once: true });
+    const rightInView = useInView(rightRef, { once: true });
 
     const content = {
         vision: {
@@ -26,18 +28,16 @@ function Ourvision() {
             title: "Why Choose Us",
             text: "SoftWorks provide innovative software solutions to help you and your digital business space. We have been one of the leading Product development and Technology services companies in India since 2019, Serving clients across the globe. We design, develop, launch and enhance your products with our passionate and Technology experts. We also help you accelerate the efficiency and performance of your organization with our skilled Technology services."
         }
-    }
+    };
 
     return (
         <div className="w-full py-10 px-4 md:px-12 lg:px-20 xl:px-28">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
                 {/* Left Side - Images */}
-                <motion.div
-                    ref={leftRef}
-                    initial={{ opacity: 0, x: -100,y:50 }}
-                    animate={leftInView ? { opacity: 1, x: 0,y:0 } : {}}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
+                <AnimateOnView
+                    
+                    variants={fadeDown}
                     className="flex flex-col md:flex-row justify-center md:justify-start gap-2"
                 >
                     {/* Vision */}
@@ -49,7 +49,7 @@ function Ourvision() {
                             src="/assets/Aboutus/Ourvisionassets/Ourvision.png"
                             alt={content.vision.title}
                             className={`object-cover rounded-lg shadow-md transition-all duration-500 
-                ${selected === "vision"
+                                ${selected === "vision"
                                     ? "h-64 sm:h-80 md:h-96 lg:h-[450px] w-full md:w-56 lg:w-[350px]"
                                     : "h-20 md:h-96 lg:h-[450px] w-full md:w-20"} `}
                         />
@@ -72,7 +72,7 @@ function Ourvision() {
                             src="/assets/Aboutus/Ourvisionassets/Ourmission.png"
                             alt={content.mission.title}
                             className={`object-cover rounded-lg shadow-md transition-all duration-500 
-                ${selected === "mission"
+                                ${selected === "mission"
                                     ? "h-64 sm:h-80 md:h-96 lg:h-[450px] w-full md:w-56 lg:w-[350px]"
                                     : "h-20 md:h-96 lg:h-[450px] w-full md:w-20"} `}
                         />
@@ -95,7 +95,7 @@ function Ourvision() {
                             src="/assets/Aboutus/Ourvisionassets/Chooseus.png"
                             alt={content.chooseus.title}
                             className={`object-cover rounded-lg shadow-md transition-all duration-500 
-                ${selected === "chooseus"
+                                ${selected === "chooseus"
                                     ? "h-64 sm:h-80 md:h-96 lg:h-[450px] w-full md:w-56 lg:w-[350px]"
                                     : "h-20 md:h-96 lg:h-[450px] w-full md:w-20"} `}
                         />
@@ -108,13 +108,13 @@ function Ourvision() {
                             </div>
                         )}
                     </div>
-                </motion.div>
+                </AnimateOnView>
 
-                {/* Right Side - Text with AnimatePresence */}
+                {/* Right Side - Text with AnimatePresence (keep original animation) */}
                 <motion.div
                     ref={rightRef}
-                    initial={{ opacity: 0, x: 100 }}
-                    animate={rightInView ? { opacity: 1, x: 0 } : {}}
+                    initial={{ opacity: 0 }}
+                    animate={rightInView ? { opacity: 1 } : {}}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="flex flex-col gap-6 text-center md:text-left"
                 >
@@ -147,7 +147,7 @@ function Ourvision() {
                 </motion.div>
             </div>
         </div>
-    )
+    );
 }
 
-export default Ourvision
+export default Ourvision;

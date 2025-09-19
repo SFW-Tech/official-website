@@ -3,7 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "./styles/hompage.css";
 import Footer from "./components/HomePage/Footer";
-import NotistackProvider from "./components/NotistackProvider";
+import NotistackProvider from "./components/Layoutwrappers/NotistackProvider";
+import PageTransitionWrapper from "./components/Layoutwrappers/Pagetransitionwrapper";
 
 
 const geistSans = Geist({
@@ -35,11 +36,13 @@ export default function RootLayout({
         />
       </head>
       <body className="font-[var(--font-display)]">
-        <NotistackProvider>
-          
-          {children}
-          <Footer />
-        </NotistackProvider>
+        <PageTransitionWrapper>
+          <NotistackProvider>
+
+            {children}
+            <Footer />
+          </NotistackProvider>
+        </PageTransitionWrapper>
 
       </body>
       {/* <body className={`${geistSans.variable} ${geistMono.variable}`}>
