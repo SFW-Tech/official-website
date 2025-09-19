@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import AnimateOnView from '../../../../animations/AnimateOnView'
-import { fadeDown, slideLeft } from "../../../../animations/animations"
+import { fadeDown, } from "../../../../animations/animations"
 import ContactModal from "./ContactModal";
 
 function Calloutsection() {

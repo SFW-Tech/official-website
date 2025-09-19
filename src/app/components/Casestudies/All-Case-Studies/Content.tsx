@@ -2,6 +2,8 @@
 import React from 'react'
 import { motion, Variants } from 'framer-motion'
 import { useRouter } from 'next/navigation'
+import AnimateOnView from '../../../../../animations/AnimateOnView'
+import { fadeDown, headingVariant, staggerContainer } from '../../../../../animations/animations'
 
 const caseStudies = [
     {
@@ -98,7 +100,7 @@ function Content() {
     }
 
     return (
-        <div className='px-4 sm:px-8 lg:px-28 py-16 min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50'>
+        <AnimateOnView variants={staggerContainer} className='px-4 sm:px-8 lg:px-28 py-16 min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50'>
             {/* Header Section */}
             <motion.div
                 initial={{ opacity: 0, y: -30 }}
@@ -107,9 +109,7 @@ function Content() {
                 className="text-center mb-20"
             >
                 <motion.div
-                    initial={{ scale: 0.9, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
+                   variants={headingVariant}
                     className="inline-block"
                 >
                     <h1 className="text-3xl lg:text-6xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent mb-6">
@@ -117,12 +117,10 @@ function Content() {
                     </h1>
                 </motion.div>
                 <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
+                    variants={fadeDown}
                     className="text-lg md:xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-light"
                 >
-Discover how we transform ideas into impactful digital solutions. Each case study reflects our commitment to innovation, quality, and measurable results.
+                      Discover how we transform ideas into impactful digital solutions. Each case study reflects our commitment to innovation, quality, and measurable results.
                 </motion.p>
                 <motion.div
                     initial={{ width: 0 }}
@@ -133,16 +131,15 @@ Discover how we transform ideas into impactful digital solutions. Each case stud
             </motion.div>
 
             {/* Case Studies Grid */}
-            <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
+            <AnimateOnView
+                variants={staggerContainer}
+               
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
             >
                 {caseStudies.map((study, index) => (
                     <motion.div
                         key={study.id}
-                        variants={itemVariants}
+                        variants={fadeDown}
                         whileHover={{ y: -8, transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] } }}
                         className="group cursor-pointer"
                         onClick={() => handleCaseStudyClick(study.id)}
@@ -199,8 +196,8 @@ Discover how we transform ideas into impactful digital solutions. Each case stud
                         </div>
                     </motion.div>
                 ))}
-            </motion.div>
-        </div>
+            </AnimateOnView>
+        </AnimateOnView>
     )
 }
 

@@ -1,5 +1,12 @@
 "use client";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
+import AnimateOnView from "../../../../animations/AnimateOnView";
+import {
+  fadeDown,
+  headingVariant,
+  staggerContainer,
+} from "../../../../animations/animations";
 
 const industries = [
   {
@@ -120,78 +127,83 @@ function OurIndustryservice() {
   return (
     <div className="px-4 sm:px-6 md:px-12 lg:px-20 xl:px-28 mt-8 mb-10">
       <div className="text-center mb-10">
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">
-          Our Industry Services
-        </h2>
+        <AnimateOnView variants={headingVariant}>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">
+            Our Industry Services
+          </h2>
+        </AnimateOnView>
       </div>
 
-      {/* Desktop Sticky Scroll (only lg and above) */}
+      {/* Desktop Sticky Scroll */}
       <div className="hidden lg:block relative h-[600vh]">
         {industries.map((industry, idx) => (
           <section
             key={idx}
             className="sticky top-0 h-screen flex justify-center items-center px-4 py-8"
           >
-            <div className="bg-gray-50 rounded-3xl grid grid-cols-1 lg:grid-cols-2 gap-6 p-18 w-full max-w-7xl shadow-xl">
-              <div className="flex flex-col gap-4">
-                <h1 className="text-2xl md:text-3xl font-bold">
-                  {industry.title}
-                </h1>
-                <p className="text-gray-700 leading-relaxed text-sm md:text-base">{industry.desc}</p>
-                <div>
-                  <h3 className="text-xl font-medium mb-2 text-cyan-600">
-                    Key Benefits of Odoo
-                  </h3>
-                  <ul className="list-disc pl-5 space-y-1 text-gray-700 text-sm md:text-base">
-                    {industry.benefits.map((b, i) => (
-                      <li key={i}>{b}</li>
-                    ))}
-                  </ul>
+            <div>
+              <div className="bg-gray-50 rounded-3xl grid grid-cols-1 lg:grid-cols-2 gap-6 p-18 w-full max-w-7xl shadow-xl">
+                <div className="flex flex-col gap-4">
+                  <h1 className="text-2xl md:text-3xl font-bold">
+                    {industry.title}
+                  </h1>
+                  <p className="text-gray-700 leading-relaxed text-sm md:text-base">
+                    {industry.desc}
+                  </p>
+                  <div>
+                    <h3 className="text-xl font-medium mb-2 text-cyan-600">
+                      Key Benefits of Odoo
+                    </h3>
+                    <ul className="list-disc pl-5 space-y-1 text-gray-700 text-sm md:text-base">
+                      {industry.benefits.map((b, i) => (
+                        <li key={i}>{b}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
-              <div className="flex justify-center">
-                <img
-                  src={industry.img}
-                  alt={industry.title}
-                  className="w-full max-w-md lg:max-w-full h-auto md:h-[500px] rounded-3xl shadow-lg object-cover"
-                />
+                <div className="flex justify-center">
+                  <img
+                    src={industry.img}
+                    alt={industry.title}
+                    className="w-full max-w-md lg:max-w-full h-auto md:h-[500px] rounded-3xl shadow-lg object-cover"
+                  />
+                </div>
               </div>
             </div>
           </section>
         ))}
       </div>
 
-      {/* Accordion for mobile + tablet (md and below) */}
+      {/* Accordion for mobile */}
       <div className="lg:hidden space-y-4">
         {industries.map((industry, idx) => (
-          <div
-            key={idx}
-            className="bg-gray-100 rounded-3xl shadow-xl overflow-hidden"
-          >
-            <button
-              onClick={() => toggleAccordion(idx)}
-              className="w-full text-left p-4 flex justify-between items-center font-semibold text-lg"
-            >
-              {industry.title}
-              <span>{activeIndex === idx ? "-" : "+"}</span>
-            </button>
-            {activeIndex === idx && (
-              <div className="p-4 border-t border-gray-300">
-                <p className="text-gray-700 mb-4">{industry.desc}</p>
-                <img
-                  src={industry.img}
-                  alt={industry.title}
-                  className="w-full h-auto rounded-2xl mb-4 object-cover"
-                />
-                <h3 className="font-medium mb-2">Key Benefits of Odoo</h3>
-                <ul className="list-disc pl-5 space-y-1 text-gray-700">
-                  {industry.benefits.map((b, i) => (
-                    <li key={i}>{b}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
+          <AnimateOnView key={idx} variants={fadeDown}>
+            <div className="bg-gray-100 rounded-3xl shadow-xl overflow-hidden">
+              <button
+                onClick={() => toggleAccordion(idx)}
+                className="w-full text-left p-4 flex justify-between items-center font-semibold text-lg"
+              >
+                {industry.title}
+                <span>{activeIndex === idx ? "-" : "+"}</span>
+              </button>
+              {activeIndex === idx && (
+                <div className="p-4 border-t border-gray-300">
+                  <p className="text-gray-700 mb-4">{industry.desc}</p>
+                  <img
+                    src={industry.img}
+                    alt={industry.title}
+                    className="w-full h-auto rounded-2xl mb-4 object-cover"
+                  />
+                  <h3 className="font-medium mb-2">Key Benefits of Odoo</h3>
+                  <ul className="list-disc pl-5 space-y-1 text-gray-700">
+                    {industry.benefits.map((b, i) => (
+                      <li key={i}>{b}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </AnimateOnView>
         ))}
       </div>
     </div>

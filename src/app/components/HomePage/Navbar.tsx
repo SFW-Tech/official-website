@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import CompanyDropdownMenu from "./TopSection/CompanyDropdownMenu";
 import Servicesdropdownmenu from "./TopSection/Servicesdropdownmenu";
 import { usePathname } from "next/navigation";
@@ -12,6 +12,9 @@ function Navbar() {
     const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
     const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
     const pathname = usePathname();
+
+    // 🔹 Ref for mobile menu container
+    const menuRef = useRef<HTMLDivElement>(null);
 
     const handlehamburger = () => {
         sethamburgerlist((prev) => !prev);
@@ -31,10 +34,34 @@ function Navbar() {
     };
 
     useEffect(() => {
+        const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+                sethamburgerlist(false);
+                setMobileCompanyOpen(false);
+                setMobileServicesOpen(false);
+            }
+        };
+        if (hamburgerlist) {
+            document.addEventListener("mousedown", handleClickOutside);
+            document.addEventListener("touchstart", handleClickOutside);
+        } else {
+            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("touchstart", handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("touchstart", handleClickOutside);
+        };
+
+    }, [hamburgerlist]);
+
+
+    useEffect(() => {
         handleScroll();
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    })
 
 
 
@@ -88,7 +115,7 @@ function Navbar() {
             </div>
 
             {/* Hamburger */}
-            <div className="lg:hidden mobile-menu-container">
+            <div className="lg:hidden mobile-menu-container" ref={menuRef}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -112,6 +139,7 @@ function Navbar() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -5 }}
                             transition={{ duration: 0.1, ease: "easeInOut" }}
+                            
 
                             className="absolute top-16 left-0 right-0 bg-[#001A5A] text-white px-6 py-4 rounded-b-xl"
                         >
