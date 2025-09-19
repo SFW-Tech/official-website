@@ -1,8 +1,10 @@
 import React from 'react'
+import AnimateOnView from '../../../../animations/AnimateOnView'
+import { fadeDown } from '../../../../animations/animations'
 
 function Resourcesolution() {
   return (
-    <div
+    <AnimateOnView variants={fadeDown}
       className="my-6 md:my-10 w-full bg-cover bg-no-repeat bg-center"
       style={{ backgroundImage: "url('/assets/Home/Calloutassets/Callout section.png')" }}
     >
@@ -30,7 +32,7 @@ function Resourcesolution() {
           </h3>
         </div>
       </div>
-    </div>
+    </AnimateOnView>
   )
 }
 

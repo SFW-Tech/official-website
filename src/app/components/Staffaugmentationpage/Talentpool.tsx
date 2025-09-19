@@ -1,4 +1,6 @@
 import React from 'react'
+import AnimateOnView from '../../../../animations/AnimateOnView';
+import { fadeDown, headingVariant, textScale } from '../../../../animations/animations';
 
 function Talentpool() {
     const webTechs = [
@@ -118,20 +120,26 @@ function Talentpool() {
 
             {/* Headings */}
             <div className="flex flex-col gap-6 md:gap-12 text-center px-4 md:px-12 lg:px-20 xl:px-28">
+                <AnimateOnView variants={headingVariant}>
                 <h3 className="text-2xl font-bold">
                     Take Advantage of Our Extended Talent Pool Through
                 </h3>
+                </AnimateOnView>
+                <AnimateOnView variants={headingVariant}>
                 <h1 className="text-lg md:text-2xl lg:text-4xl font-bold text-[#001A5A]">
                     IT Staff Augmentation
                 </h1>
+                </AnimateOnView>
+                <AnimateOnView variants={fadeDown}>
 
                 <p className="text-gray-700 leading-relaxed text-left text-sm md:text-base max-w-6xl mx-auto">
                     Create a fabulous team of skilled software engineers, UI/UX designers, business analysts, scrum masters, QA specialists, and the most in-demand technology specialists to create cutting-edge digital solutions. Use our resource augmentation services to gain immediate access to the professionals listed below:
                 </p>
+                </AnimateOnView>
             </div>
 
             {/* Grid */}
-            <div className='grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 gap-10 mt-14 px-4 md:px-12 lg:px-20 xl:px-28'>
+            <AnimateOnView variants={fadeDown} className='grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 gap-10 mt-14 px-4 md:px-12 lg:px-20 xl:px-28'>
 
                 {/* Web Technology */}
                 <div className='flex flex-col gap-2 items-start w-full'>
@@ -193,13 +201,13 @@ function Talentpool() {
                     </ul>
                 </div>
 
-            </div>
+            </AnimateOnView>
 
 
-            <div className='w-full bg-cover bg-center my-10'
+            <div className='w-full bg-cover bg-center my-10 px-4'
                 style={{ backgroundImage: "url('/assets/Home/footerassets/footerbg.png')" }}>
 
-                <h1 className='text-center py-12 text-xl font-bold text-white'>Cutting-edge Technology Stack Used by Our Experts</h1>
+                <AnimateOnView variants={textScale} className='text-center py-12 text-xl font-bold text-white'>Cutting-edge Technology Stack Used by Our Experts</AnimateOnView>
 
             </div>
 
@@ -207,7 +215,7 @@ function Talentpool() {
             {/* Grid -2 section */}
 
 
-            <div className='grid grid-cols-1  md:grid-cols-3 lg:grid-cols-5 gap-10 mt-14 px-4 md:px-12 lg:px-20 xl:px-28'>
+            <AnimateOnView variants={fadeDown} className='grid grid-cols-1  md:grid-cols-3 lg:grid-cols-5 gap-10 mt-14 px-4 md:px-12 lg:px-20 xl:px-28'>
 
                 <div className='flex flex-col gap-2 items-start w-full'>
                     <div className='px-6 py-4 bg-[#001A5A] w-full text-center'>
@@ -357,7 +365,7 @@ function Talentpool() {
 
 
 
-            </div>
+            </AnimateOnView>
 
         </div>
     )
