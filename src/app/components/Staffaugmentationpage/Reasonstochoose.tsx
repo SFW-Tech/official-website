@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
-import { motion ,Variants} from "framer-motion";
+import { motion, Variants } from "framer-motion";
+import AnimateOnView from "../../../../animations/AnimateOnView";
+import { fadeDown, headingVariant, slowfadeDown, staggerContainer } from "../../../../animations/animations";
 
 function Reasonstochoose() {
   const cards = [
@@ -71,26 +73,26 @@ function Reasonstochoose() {
   ];
 
   const cardVariants: Variants = {
-  initial: {
-    y: 0,
-    scale: 1,
-    boxShadow:
-      "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-  },
-  hover: {
-    y: -5,
-    scale: 1.02,
-    boxShadow:
-      "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 10px 20px -5px rgba(0, 0, 0, 0.1)",
-    transition: {
-      duration: 0.4,
-      ease: "easeInOut",
+    initial: {
+      y: 0,
+      scale: 1,
+      boxShadow:
+        "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
     },
-  },
-};
+    hover: {
+      y: -5,
+      scale: 1.02,
+      boxShadow:
+        "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 10px 20px -5px rgba(0, 0, 0, 0.1)",
+      transition: {
+        duration: 0.4,
+        ease: "easeInOut",
+      },
+    },
+  };
 
 
-  const iconVariants:Variants = {
+  const iconVariants: Variants = {
     initial: {
       scale: 1,
       borderRadius: "9999px",
@@ -98,7 +100,7 @@ function Reasonstochoose() {
     },
     hover: {
       scale: 1.15,
-      
+
 
       transition: {
         type: "spring",
@@ -108,7 +110,7 @@ function Reasonstochoose() {
     }
   };
 
-  const titleVariants:Variants = {
+  const titleVariants: Variants = {
     initial: {
       color: "#59D7F7"
     },
@@ -138,60 +140,66 @@ function Reasonstochoose() {
   return (
     <div className="px-4 md:px-16 lg:px-20 xl:px-28 my-20 flex flex-col gap-10">
       {/* Headings */}
-      <div className="flex flex-col gap-4 md:gap-6 lg:gap-8 text-center">
-        <h1 className="text-lg md:text-2xl lg:text-4xl font-bold">
-          Reasons to Choose
-        </h1>
-        <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#001A5A]">
-          SoftWorks Staff Augmentation
-        </h3>
-        <p className="text-base md:text-lg lg:text-2xl text-gray-700 leading-relaxed">
-          Model for Your Software Development Project
-        </p>
-      </div>
+
+      <AnimateOnView variants={staggerContainer} className="flex flex-col gap-4 md:gap-6 lg:gap-8 text-center">
+        <AnimateOnView variants={headingVariant} className="space-y-4">
+          <h1 className="text-lg md:text-2xl lg:text-4xl font-bold">
+            Reasons to Choose
+          </h1>
+          <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#001A5A]">
+            SoftWorks Staff Augmentation
+          </h3>
+        </AnimateOnView>
+        <AnimateOnView variants={fadeDown}>
+          <p className="text-base md:text-lg lg:text-2xl text-gray-700 leading-relaxed">
+            Model for Your Software Development Project
+          </p>
+        </AnimateOnView>
+      </AnimateOnView>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {cards.map((card, i) => (
-          <motion.div
-            key={i}
-            className="flex flex-col gap-6 items-center text-center p-6 rounded-xl bg-white border border-gray-100 cursor-pointer"
-            variants={cardVariants}
-            whileHover="hover"
-            initial="initial"
-          >
-            {/* Animated SVG wrapper */}
+      
+        <AnimateOnView variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {cards.map((card, i) => (
             <motion.div
-              className="w-20 h-20 md:w-24 md:h-24 bg-[#59D7F7] flex items-center justify-center"
-              variants={iconVariants}
+              key={i}
+              className="flex flex-col gap-6 items-center text-center p-6 rounded-xl bg-white border border-gray-100 cursor-pointer"
+              variants={fadeDown}
+             
             >
+              {/* Animated SVG wrapper */}
               <motion.div
-                initial={{ rotate: 0 }}
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}
+                className="w-20 h-20 md:w-24 md:h-24 bg-[#59D7F7] flex items-center justify-center rounded-full"
+                variants={fadeDown}
               >
-                {card.icon}
+                <motion.div
+                  initial={{ rotate: 0 }}
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                >
+                  {card.icon}
+                </motion.div>
               </motion.div>
+
+              {/* Animated Heading */}
+              <motion.h1
+                className="text-xl md:text-2xl lg:text-3xl font-bold"
+                variants={fadeDown}
+              >
+                {card.title}
+              </motion.h1>
+
+              {/* Animated Paragraph */}
+              <motion.p
+                className="text-gray-700 text-sm md:text-base leading-relaxed"
+                variants={fadeDown}
+              >
+                {card.text}
+              </motion.p>
             </motion.div>
-
-            {/* Animated Heading */}
-            <motion.h1
-              className="text-xl md:text-2xl lg:text-3xl font-bold"
-              variants={titleVariants}
-            >
-              {card.title}
-            </motion.h1>
-
-            {/* Animated Paragraph */}
-            <motion.p
-              className="text-gray-700 text-sm md:text-base leading-relaxed"
-              variants={textVariants}
-            >
-              {card.text}
-            </motion.p>
-          </motion.div>
-        ))}
-      </div>
+          ))}
+        </AnimateOnView>
+      
     </div>
   );
 }

@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import { useSnackbar } from 'notistack';
+import AnimateOnView from '../../../../animations/AnimateOnView';
+import { fadeDown, headingVariant, staggerContainer } from '../../../../animations/animations';
+import { motion } from 'framer-motion';
 
 function Contactussection() {
 
@@ -91,20 +94,21 @@ function Contactussection() {
 
                     <div className='flex-col gap-4 flex leading-relaxed'>
 
-                        <h1 className='text-2xl md:text-3xl font-bold text-gray-800'>Contact Us</h1>
-
-                        <p className='text-gray-600 text-base md:text-md lg:text-lg '>
+                        <AnimateOnView variants={headingVariant}>   <h1 className='text-2xl md:text-3xl font-bold text-gray-800'>Contact Us</h1></AnimateOnView>
+                        <AnimateOnView variants={fadeDown}>                       <p className='text-gray-600 text-base md:text-md lg:text-lg '>
                             Give us a call or drop by anytime, we endeavour to answer all enquiries within 24 hours on business days. We will be happy to answer your questions.
                         </p>
+                        </AnimateOnView>
+
 
                     </div>
 
                     <div className='flex-col'>
 
-                        <div className='flex flex-col gap-6'>
+                        <AnimateOnView variants={staggerContainer} className='flex flex-col gap-6'>
 
                             {/* Address */}
-                            <div className='flex gap-4 md:gap-6 items-start'>
+                            <motion.div variants={fadeDown} className='flex gap-4 md:gap-6 items-start'>
                                 <div className='p-4 md:p-5 rounded-xl border border-gray-200 flex-shrink-0'>
                                     <img
                                         src="assets/Contactus/Contactussectionassets/location.png"
@@ -119,12 +123,12 @@ function Contactussection() {
                                         7/2A, Shreesha Building, First Floor, Central Studio Road, Dhanalakshmi Puram South, Singanallur, Coimbatore, TamilNadu, 641005.
                                     </p>
                                 </div>
-                            </div>
+                            </motion.div>
 
 
 
                             {/* Mail */}
-                            <div className='flex gap-4 md:gap-6 items-start'>
+                            <motion.div variants={fadeDown} className='flex gap-4 md:gap-6 items-start'>
                                 <div className='p-4 md:p-5 rounded-xl border border-gray-200 flex-shrink-0'>
                                     <img
                                         src="assets/Contactus/Contactussectionassets/mail.png"
@@ -136,12 +140,12 @@ function Contactussection() {
                                     <h3 className='text-gray-900 font-medium'>Our Mailbox</h3>
                                     <p className='text-gray-600 text-base md:text-md lg:text-lg'>info@sfwtechnologies.com</p>
                                 </div>
-                            </div>
+                            </motion.div>
 
 
 
                             {/* Sales */}
-                            <div className='flex gap-4 md:gap-6 items-start'>
+                            <motion.div variants={fadeDown} className='flex gap-4 md:gap-6 items-start'>
                                 <div className='p-4 md:p-5 rounded-xl border border-gray-200 flex-shrink-0'>
                                     <img
                                         src="assets/Contactus/Contactussectionassets/sales.png"
@@ -153,12 +157,12 @@ function Contactussection() {
                                     <h3 className='text-gray-900 font-medium'>Sales</h3>
                                     <p className='text-gray-600 text-base md:text-md lg:text-lg'>Mobile/WhatsApp: +91 98941 13103 | 99943 17168</p>
                                 </div>
-                            </div>
+                            </motion.div>
 
 
 
                             {/* Career */}
-                            <div className='flex gap-4 md:gap-6 items-start'>
+                            <motion.div variants={fadeDown} className='flex gap-4 md:gap-6 items-start'>
                                 <div className='p-4 md:p-5 rounded-xl border border-gray-200 flex-shrink-0'>
                                     <img
                                         src="assets/Contactus/Contactussectionassets/career.png"
@@ -170,9 +174,9 @@ function Contactussection() {
                                     <h3 className='text-gray-900 font-medium'>Career</h3>
                                     <p className='text-gray-600 text-base md:text-md lg:text-lg'>Mobile: +91 73977 20330</p>
                                 </div>
-                            </div>
+                            </motion.div>
 
-                        </div>
+                        </AnimateOnView>
                     </div>
 
 
@@ -183,86 +187,93 @@ function Contactussection() {
                 {/* Right Side */}
 
                 <div className='h-full'>
-                    
-                    <form onSubmit={handleSubmit} className="rounded-2xl h-full w-full bg-violet-50">
-                        <h2 className="pt-8 flex justify-center text-2xl md:text-3xl font-semibold text-gray-800">
-                            Ready to Get Started?
-                        </h2>
-                        <p className="flex justify-center pt-2 text-gray-800 text-sm md:text-base px-4 text-center">
-                            Your email address will not be published. Required fields are marked *
-                        </p>
+                    <AnimateOnView variants={staggerContainer}>
+                        <form onSubmit={handleSubmit} className="rounded-2xl h-full w-full bg-violet-50">
 
-                        <div className="flex-col flex gap-5 md:gap-6 px-6 md:px-10 lg:px-12 xl:px-13 py-5">
-                            {/* Name */}
-                            <div>
-                                <input
-                                    type="text"
-                                    className="bg-white rounded-md p-4 focus:outline-none focus:ring focus:ring-gray-400 w-full"
-                                    placeholder="Name *"
-                                    value={name}
-                                    onChange={(e) => {
-                                        setName(e.target.value);
-                                        setErrors(prev => ({ ...prev, name: "" }));
-                                    }}
-                                />
-                                {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
-                            </div>
+                            <AnimateOnView variants={headingVariant}>
+                                <h2 className="pt-8 flex justify-center text-2xl md:text-3xl font-semibold text-gray-800">
+                                    Ready to Get Started?
+                                </h2>
+                            </AnimateOnView>
+                            <AnimateOnView variants={fadeDown}>
+                                <p className="flex justify-center pt-2 text-gray-800 text-sm md:text-base px-4 text-center">
+                                    Your email address will not be published. Required fields are marked *
+                                </p>
+                            </AnimateOnView>
 
-                            {/* Email */}
-                            <div>
-                                <input
-                                    type="email"
-                                    className="bg-white rounded-md p-4 focus:outline-none focus:ring focus:ring-gray-400 w-full"
-                                    placeholder="Email Address *"
-                                    value={email}
-                                    onChange={(e) => {
-                                        setEmail(e.target.value);
-                                        setErrors(prev => ({ ...prev, email: "" }));
-                                    }}
-                                />
-                                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-                            </div>
+                            <motion.div variants={fadeDown} className="flex-col flex gap-5 md:gap-6 px-6 md:px-10 lg:px-12 xl:px-13 py-5">
+                                {/* Name */}
+                                <div>
+                                    <input
+                                        type="text"
+                                        className="bg-white rounded-md p-4 focus:outline-none focus:ring focus:ring-gray-400 w-full"
+                                        placeholder="Name *"
+                                        value={name}
+                                        onChange={(e) => {
+                                            setName(e.target.value);
+                                            setErrors(prev => ({ ...prev, name: "" }));
+                                        }}
+                                    />
+                                    {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+                                </div>
 
-                            {/* Phone */}
-                            <div>
-                                <input
-                                    type="text"
-                                    className="bg-white rounded-md p-4 focus:outline-none focus:ring focus:ring-gray-400 w-full"
-                                    placeholder="Phone/Mobile number *"
-                                    value={phone}
-                                    onChange={(e) => {
-                                        setPhone(e.target.value);
-                                        setErrors(prev => ({ ...prev, phone: "" }));
-                                    }}
-                                />
-                                {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
-                            </div>
+                                {/* Email */}
+                                <motion.div variants={fadeDown}>
+                                    <input
+                                        type="email"
+                                        className="bg-white rounded-md p-4 focus:outline-none focus:ring focus:ring-gray-400 w-full"
+                                        placeholder="Email Address *"
+                                        value={email}
+                                        onChange={(e) => {
+                                            setEmail(e.target.value);
+                                            setErrors(prev => ({ ...prev, email: "" }));
+                                        }}
+                                    />
+                                    {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                                </motion.div>
 
-                            {/* Message */}
-                            <div>
-                                <textarea
-                                    className="bg-white rounded-md p-4 h-32 focus:outline-none focus:ring focus:ring-gray-400 w-full"
-                                    placeholder="Please describe your requirement *"
-                                    value={message}
-                                    onChange={(e) => {
-                                        setMessage(e.target.value);
-                                        setErrors(prev => ({ ...prev, message: "" }));
-                                    }}
-                                />
-                                {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
-                            </div>
+                                {/* Phone */}
+                                <motion.div variants={fadeDown}>
+                                    <input
+                                        type="text"
+                                        className="bg-white rounded-md p-4 focus:outline-none focus:ring focus:ring-gray-400 w-full"
+                                        placeholder="Phone/Mobile number *"
+                                        value={phone}
+                                        onChange={(e) => {
+                                            setPhone(e.target.value);
+                                            setErrors(prev => ({ ...prev, phone: "" }));
+                                        }}
+                                    />
+                                    {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+                                </motion.div>
 
-                            {/* Submit */}
-                            <div className="flex justify-end py-3">
-                                <button
-                                    type="submit"
-                                    className="bg-gradient-to-r from-orange-500 to-purple-600 hover:from-orange-600 hover:to-purple-700 text-white font-semibold px-6 py-3 md:px-8 md:py-4 lg:px-6 lg:py-3 rounded-2xl shadow-lg cursor-pointer text-sm md:text-base transition-all duration-300"
-                                >
-                                    Submit
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                                {/* Message */}
+                                <motion.div variants={fadeDown}>
+                                    <textarea
+                                        className="bg-white rounded-md p-4 h-32 focus:outline-none focus:ring focus:ring-gray-400 w-full"
+                                        placeholder="Please describe your requirement *"
+                                        value={message}
+                                        onChange={(e) => {
+                                            setMessage(e.target.value);
+                                            setErrors(prev => ({ ...prev, message: "" }));
+                                        }}
+                                    />
+                                    {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+                                </motion.div>
+
+                                {/* Submit */}
+                                <motion.div variants={fadeDown}
+                                className="flex justify-end py-3">
+                                    <button
+                                        type="submit"
+                                        className="bg-gradient-to-r from-orange-500 to-purple-600 hover:from-orange-600 hover:to-purple-700 text-white font-semibold px-6 py-3 md:px-8 md:py-4 lg:px-6 lg:py-3 rounded-2xl shadow-lg cursor-pointer text-sm md:text-base transition-all duration-300"
+                                    >
+                                        Submit
+                                    </button>
+                                </motion.div>
+                            </motion.div>
+                        </form>
+                    </AnimateOnView>
 
                 </div>
 

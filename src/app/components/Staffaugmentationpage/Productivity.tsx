@@ -1,8 +1,10 @@
 "use client";
 import React from "react";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
+import AnimateOnView from "../../../../animations/AnimateOnView";
+import { fadeDown, headingVariant, staggerContainer } from "../../../../animations/animations";
 
-// Cards array with individual colors
+// Cards array with colors
 const cards = [
   {
     icon: (
@@ -62,53 +64,53 @@ const cards = [
 ];
 
 function Productivity() {
-  const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.2, duration: 0.6, ease: "easeOut" },
-    }),
-  };
-
   return (
-    <div className="px-4 sm:px-8 md:px-16 lg:px-20 xl:px-28 mt-20">
-      {/* Headings */}
-      <div className="flex flex-col gap-6 md:gap-12 text-center">
-        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold">
-          Increase Productivity by Using
-        </h1>
-        <h3 className="text-2xl font-bold text-[#001A5A]">
-          Our IT Staff Augmentation Services.
-        </h3>
-        <p className="text-gray-700 leading-relaxed text-sm md:text-base max-w-3xl mx-auto">
-          We aim to expand the in-house development team by providing on-demand
-          access to a large pool of subject matter professionals for your numerous
-          IT project requirements. This reduces the administrative difficulties of
-          a lengthy hiring process, speeds up the launch of your digital product,
-          and enables high-impact returns.
-        </p>
-      </div>
+    <AnimateOnView
+      variants={staggerContainer}
 
-      {/* Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 mt-16">
+
+
+      className="px-4 sm:px-8 md:px-16 lg:px-20 xl:px-28 mt-20"
+    >
+      {/* Headings */}
+      <motion.div variants={fadeDown} className="flex flex-col gap-6 md:gap-12 text-center">
+
+
+        <motion.div variants={headingVariant} className="flex flex-col gap-6">
+          <h1 className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold">
+            Increase Productivity by Using
+          </h1>
+
+          <h3 className="text-2xl font-bold text-[#001A5A]">
+            Our IT Staff Augmentation Services.
+          </h3>
+        </motion.div>
+
+
+        <p className="text-gray-700 leading-relaxed text-sm md:text-base max-w-3xl mx-auto">
+          We aim to expand the in-house development team by providing on-demand access to a large pool of subject matter professionals for your IT projects. This reduces admin burden, speeds up product launch, and enables high-impact returns.
+        </p>
+      </motion.div>
+
+      {/* Cards Grid */}
+      <motion.div
+        variants={staggerContainer}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 mt-16"
+      >
         {cards.map((card, i) => (
           <motion.div
             key={i}
-            className="flex flex-col items-center text-center gap-4 p-6 hover:shadow-md hover:rounded-2xl cursor-pointer shadow-sm"
-            variants={cardVariants}
-            initial="hidden"
-            animate="visible"
-            custom={i}
-            whileHover={{ scale: 1.08, }}
+            variants={fadeDown}
+            className="flex flex-col items-center text-center gap-4 p-6 hover:shadow-md hover:rounded-2xl cursor-pointer shadow-sm h-full"
+            whileHover={{ scale: 1.08 }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
           >
             <div className={`w-12 h-12 ${card.color}`}>{card.icon}</div>
             <p className="text-gray-700 leading-relaxed text-sm md:text-base">{card.text}</p>
           </motion.div>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </AnimateOnView>
   );
 }
 
