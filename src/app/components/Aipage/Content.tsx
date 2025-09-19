@@ -2,6 +2,8 @@
 
 import React from 'react'
 import { motion, Variants } from 'framer-motion'
+import AnimateOnView from '../../../../animations/AnimateOnView'
+import { fadeDown, staggerContainer, headingVariant } from '../../../../animations/animations'
 
 // Custom SVG Icons
 const BrainIcon = () => (
@@ -288,41 +290,25 @@ const hoverVariants: Variants = {
 
 const Content: React.FC = () => {
   return (
-    <div className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white">
+   <div className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto">
+        
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-20"
-        >
-          <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-6">
+        <AnimateOnView variants={headingVariant} className="text-center mb-20">
+          <motion.h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-6">
             Our AI Services
-          </h2>
-          <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+          </motion.h2>
+          <motion.p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
             Comprehensive AI solutions designed to transform your business and unlock new possibilities through cutting-edge technology
-          </p>
-        </motion.div>
+          </motion.p>
+        </AnimateOnView>
 
         {/* Services Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
-        >
+        <AnimateOnView variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {services.map((service) => (
-            <motion.div
-              key={service.id}
-              variants={cardVariants}
-              whileHover="hover"
-              className="group cursor-pointer relative"
-            >
-              <motion.div
-                variants={hoverVariants}
-                className="h-full bg-white rounded-3xl shadow-xl hover:shadow-2xl border border-gray-100 p-8 transition-all duration-500 relative overflow-hidden"
-              >
+            <motion.div key={service.id} variants={fadeDown} className="group cursor-pointer relative">
+              <div className="h-full bg-white rounded-3xl shadow-xl hover:shadow-2xl border border-gray-100 p-8 transition-all duration-500 relative overflow-hidden">
+                
                 {/* Icon & Title */}
                 <div className="flex items-center mb-6">
                   <div className={`p-4 rounded-2xl bg-gradient-to-r ${service.gradient} text-white mr-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
@@ -365,10 +351,10 @@ const Content: React.FC = () => {
                 <div className="absolute top-0 right-0 w-32 h-32 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
                   <div className={`w-full h-full bg-gradient-to-br ${service.gradient} rounded-full blur-2xl`}></div>
                 </div>
-              </motion.div>
+              </div>
             </motion.div>
           ))}
-        </motion.div>
+        </AnimateOnView>
       </div>
     </div>
   )

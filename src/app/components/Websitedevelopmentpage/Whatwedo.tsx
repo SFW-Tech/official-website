@@ -1,10 +1,13 @@
 "use client"
 import React, { useRef } from 'react'
-import { motion, useInView, Variants } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+import { fadeDown, headingVariant, staggerContainer } from '../../../../animations/animations'
+import AnimateOnView from '../../../../animations/AnimateOnView'
 
 function Whatwedo() {
   const containerRef = useRef(null)
   const isInView = useInView(containerRef, { once: true, margin: "-100px" })
+
   type ColorVariant = {
     bg: string;
     border: string;
@@ -12,6 +15,15 @@ function Whatwedo() {
     text: string;
     accent: string;
   };
+
+  const colorVariants: Record<string, ColorVariant> = {
+    blue: { bg: "bg-blue-50", border: "border-blue-100", icon: "bg-blue-500", text: "text-blue-600", accent: "text-blue-500" },
+    purple: { bg: "bg-purple-50", border: "border-purple-100", icon: "bg-purple-500", text: "text-purple-600", accent: "text-purple-500" },
+    emerald: { bg: "bg-emerald-50", border: "border-emerald-100", icon: "bg-emerald-500", text: "text-emerald-600", accent: "text-emerald-500" },
+    orange: { bg: "bg-orange-50", border: "border-orange-100", icon: "bg-orange-500", text: "text-orange-600", accent: "text-orange-500" },
+    indigo: { bg: "bg-indigo-50", border: "border-indigo-100", icon: "bg-indigo-500", text: "text-indigo-600", accent: "text-indigo-500" },
+    cyan: { bg: "bg-cyan-50", border: "border-cyan-100", icon: "bg-cyan-500", text: "text-cyan-600", accent: "text-cyan-500" }
+  }
 
   const services = [
     {
@@ -82,25 +94,6 @@ function Whatwedo() {
     }
   ]
 
-  const colorVariants: Record<string, ColorVariant> = {
-    blue: { bg: "bg-blue-50", border: "border-blue-100", icon: "bg-blue-500", text: "text-blue-600", accent: "text-blue-500" },
-    purple: { bg: "bg-purple-50", border: "border-purple-100", icon: "bg-purple-500", text: "text-purple-600", accent: "text-purple-500" },
-    emerald: { bg: "bg-emerald-50", border: "border-emerald-100", icon: "bg-emerald-500", text: "text-emerald-600", accent: "text-emerald-500" },
-    orange: { bg: "bg-orange-50", border: "border-orange-100", icon: "bg-orange-500", text: "text-orange-600", accent: "text-orange-500" },
-    indigo: { bg: "bg-indigo-50", border: "border-indigo-100", icon: "bg-indigo-500", text: "text-indigo-600", accent: "text-indigo-500" },
-    cyan: { bg: "bg-cyan-50", border: "border-cyan-100", icon: "bg-cyan-500", text: "text-cyan-600", accent: "text-cyan-500" }
-  }
-
-  const headerVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] } }
-  }
-
-  const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 60, scale: 0.95 },
-    visible: (delay) => ({ opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, delay: delay, ease: [0.21, 1.11, 0.81, 0.99] } })
-  }
-
   return (
     <section className="py-20 lg:py-32 bg-white overflow-hidden" ref={containerRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -108,7 +101,7 @@ function Whatwedo() {
         {/* Header */}
         <motion.div
           className="text-center mb-8 md:mb-14 lg:mb-16 xl:mb-20"
-          variants={headerVariants}
+          variants={headingVariant}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
@@ -118,23 +111,25 @@ function Whatwedo() {
               Do
             </span>
           </h2>
-          <p className="text-lg md:text-xl lg:text-2xl xl:text-4xl text-gray-600  mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl xl:text-4xl text-gray-600 mx-auto leading-relaxed">
             Custom WordPress Development Services
           </p>
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
+        <AnimateOnView
+          className="grid lg:grid-cols-3 gap-8 lg:gap-12"
+          variants={staggerContainer}
+          
+          
+        >
           {services.map((service, index) => {
             const colors = colorVariants[service.color]
             return (
               <motion.div
                 key={index}
                 className="group relative"
-                variants={cardVariants}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-                custom={service.delay}
+                variants={fadeDown}
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.3 }}
               >
@@ -158,15 +153,10 @@ function Whatwedo() {
                     </motion.div>
                   </div>
 
-
                   {/* Content */}
                   <div className="space-y-4 text-center">
-                    <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-600 text-lg leading-relaxed">
-                      {service.description}
-                    </p>
+                    <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">{service.title}</h3>
+                    <p className="text-gray-600 text-lg leading-relaxed">{service.description}</p>
                   </div>
 
                   {/* Hover Indicator */}
@@ -180,7 +170,7 @@ function Whatwedo() {
               </motion.div>
             )
           })}
-        </div>
+        </AnimateOnView>
       </div>
     </section>
   )

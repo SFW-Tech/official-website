@@ -2,34 +2,25 @@
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
+import AnimateOnView from "../../../../animations/AnimateOnView";
+import { fadeDown } from "../../../../animations/animations";
 
 function Jointeamsection() {
   return (
-<div className="mt-12 sm:mt-16 md:mt-20 lg:mt-28 xl:mt-36 pr-4 sm:px-8 md:px-16 lg:px-24 xl:px-28 mb-8">
+    <div className="mt-12 sm:mt-16 md:mt-20 lg:mt-28 xl:mt-36 pr-4 sm:px-8 md:px-16 lg:px-24 xl:px-28 mb-8">
       <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-x-10 gap-y-3 md:gap-x-20 lg:gap-x-32">
         
         {/* Image Section */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
+        <AnimateOnView variants={fadeDown} className="">
           <img
             src="/assets/Aboutus/jointeamassets/1.png"
             alt="Join our team"
             className="h-[180px] sm:h-[250px] md:h-[200px] lg:h-[220px] xl:h-[300px] w-auto"
           />
-        </motion.div>
+        </AnimateOnView>
 
         {/* Text Section */}
-        <motion.div
-          className="flex flex-col gap-3 text-center md:text-left"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
+        <AnimateOnView variants={fadeDown} className="flex flex-col gap-3 text-center md:text-left">
           <h1 className="text-2xl sm:text-2.5xl md:text-3xl font-bold">
             Join Our Team
           </h1>
@@ -66,7 +57,7 @@ function Jointeamsection() {
               </svg>
             </motion.button>
           </Link>
-        </motion.div>
+        </AnimateOnView>
       </div>
     </div>
   );
