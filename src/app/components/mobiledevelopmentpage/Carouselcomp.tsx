@@ -28,7 +28,7 @@ const Carouselcomp: React.FC = () => {
       
 
       {/* Carousel */}
-      <div ref={emblaRef} className="overflow-hidden mt-6">
+      <div ref={emblaRef} className="overflow-hidden mt-3 md:mt-6">
         <div className="flex gap-x-6 md:gap-x-12 xl:gap-9">
           {images.map((src, index) => (
             <div
@@ -37,7 +37,7 @@ const Carouselcomp: React.FC = () => {
             >
               <img
                 src={src}
-                className="h-16 sm:h-20 md:h-32 lg:h-44 xl:h-44 object-cover w-full"
+                className="h-22 md:h-32 lg:h-44 xl:h-44 object-cover w-full"
                 alt={`Client ${index + 1}`}
               />
             </div>

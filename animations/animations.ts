@@ -3,11 +3,11 @@ import { Variants } from "framer-motion";
 
 // Fade Down
 export const fadeDown: Variants = {
-  hidden: { opacity: 0, y: -30 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: "easeOut" }
+    transition: { duration: 0.6, ease: "easeOut" }
   },
 };
 
@@ -17,14 +17,21 @@ export const fadeUp: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: "easeOut" }
+    transition: { duration: 0.6, ease: "easeOut" }
   },
 };
 
 // Staggered Children
+
 export const staggerContainer: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.06 } },
+  visible: {
+    transition: {
+      staggerChildren: 0.12,   // smooth & quick cascade
+      delayChildren: 0.05,     // tiny initial delay
+      ease: "easeOut",         // natural easing
+    },
+  },
 };
 
 // SLowfadeDown
@@ -34,7 +41,7 @@ export const slowfadeDown: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: "easeOut" }
+    transition: { duration: 0.6, ease: "easeOut" }
   },
 };
 
@@ -54,7 +61,7 @@ export const textScale: Variants = {
 
 // Heading variants
 export const headingVariant: Variants = {
-  hidden: { opacity: 0, y: -30, scale: 0.95 },
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
   visible: {
     opacity: 1,
     y: 0,
