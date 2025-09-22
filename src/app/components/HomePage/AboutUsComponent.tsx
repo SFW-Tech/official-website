@@ -2,7 +2,7 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 import AnimateOnView from "../../../../animations/AnimateOnView";
-import { fadeDown, staggerContainer } from "../../../../animations/animations";
+import { fadeDown, headingVariant, staggerContainer } from "../../../../animations/animations";
 
 function AboutUsComponent() {
   const aboutPoints = [
@@ -25,14 +25,18 @@ function AboutUsComponent() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
 
         {/* Left Side */}
-        <AnimateOnView variants={fadeDown}>
+        <div>
           <div
             className="bg-cover bg-center p-6 sm:p-10 md:p-16 lg:p-20 xl:p-28 text-white"
             style={{ backgroundImage: "url('/assets/Home/aboutusassets/aboutusbg.png')" }}
           >
+            <AnimateOnView variants={headingVariant}>
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold mb-4">
               About Us
             </h1>
+            </AnimateOnView>
+
+            <AnimateOnView variants={fadeDown}>
             <p className="text-sm md:text-base leading-relaxed">
               SoftWorks provide innovative software solutions to help you and your digital business space.
               We have been one of the leading Product development and Technology services companies in India since 2019,
@@ -40,8 +44,11 @@ function AboutUsComponent() {
               and Technology experts. We also help you accelerate the efficiency and performance of your organization
               with our skilled Technology services.
             </p>
+            </AnimateOnView>
+
+
           </div>
-        </AnimateOnView>
+        </div>
 
         {/* Right Side */}
         <div className="flex gap-6 md:gap-12 lg:gap-16 xl:gap-20">

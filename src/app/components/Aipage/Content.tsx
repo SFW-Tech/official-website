@@ -294,11 +294,11 @@ const Content: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
-        <AnimateOnView variants={headingVariant} className="text-center mb-20">
-          <motion.h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-6">
+        <AnimateOnView variants={headingVariant} className="text-center mb-8 md:mb-14 lg:mb-16 xl:mb-20">
+          <motion.h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-6">
             Our AI Services
           </motion.h2>
-          <motion.p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+          <motion.p className="text-sm md:text-base text-gray-700 max-w-4xl mx-auto leading-relaxed">
             Comprehensive AI solutions designed to transform your business and unlock new possibilities through cutting-edge technology
           </motion.p>
         </AnimateOnView>

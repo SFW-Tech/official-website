@@ -10,7 +10,7 @@ export const pageVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
+      duration: 0.4,
       ease: [0.4, 0, 0.2, 1], // custom cubic-bezier for smoother easing
     },
   },
@@ -18,7 +18,7 @@ export const pageVariants: Variants = {
     opacity: 0,
     y: -5, // subtle upward exit motion
     transition: {
-      duration: 0.35,
+      duration: 0.4,
       ease: [0.4, 0, 0.2, 1],
     },
   },
