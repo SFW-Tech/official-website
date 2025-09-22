@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import CompanyDropdownMenu from "./TopSection/CompanyDropdownMenu";
 import Servicesdropdownmenu from "./TopSection/Servicesdropdownmenu";
 import { usePathname } from "next/navigation";
@@ -53,25 +53,22 @@ function Navbar() {
             document.removeEventListener("mousedown", handleClickOutside);
             document.removeEventListener("touchstart", handleClickOutside);
         };
-
     }, [hamburgerlist]);
-
 
     useEffect(() => {
         handleScroll();
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    })
-
-
+    });
 
     return (
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 3, ease: "easeOut" }}
-            className={`fixed ${pathname === "/" && "top-10"}top-0 left-0 w-full z-50 flex gap-10 justify-between items-center px-6 lg:px-25 md:px-18 xl:px-40 py-4 transition-colors duration-300 ${scrolled ? "bg-[#001A5A] text-white shadow-lg top-0" : "bg-transparent text-white"
-                }`}
+            className={`fixed ${pathname === "/" && "top-10"}top-0 left-0 w-full z-50 flex gap-10 justify-between items-center px-6 lg:px-25 md:px-18 xl:px-40 py-4 transition-colors duration-300 ${
+                scrolled ? "bg-[#001A5A] text-white shadow-lg top-0" : "bg-transparent text-white"
+            }`}
         >
             {/* Logo */}
             <Link href="/">
@@ -135,21 +132,19 @@ function Navbar() {
                 <AnimatePresence>
                     {hamburgerlist && (
                         <motion.div
-                            initial={{ opacity: 0, y: -5 }}
+                            initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -5 }}
-                            transition={{ duration: 0.1, ease: "easeInOut" }}
-                            
-
-                            className="absolute top-16 left-0 right-0 bg-[#001A5A] text-white px-6 py-4 rounded-b-xl"
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            className="absolute top-16 left-0 right-0 bg-[#001A5A] text-white px-6 py-4 rounded-b-xl shadow-xl z-50"
                         >
-
                             <div className="flex flex-col space-y-1 overflow-hidden rounded-lg">
                                 {/* Home */}
                                 <Link
                                     href="/"
-                                    className={`cursor-pointer py-3 hover:bg-white/10 transition rounded-md px-2 ${pathname === "/" ? "bg-[#59d7f7] text-black py-2 font-semibold" : ""
-                                        }`}
+                                    className={`cursor-pointer py-3 hover:bg-white/10 transition rounded-md px-2 ${
+                                        pathname === "/" ? "bg-[#59d7f7] text-black py-2 font-semibold" : ""
+                                    }`}
                                     onClick={() => sethamburgerlist(false)}
                                 >
                                     Home
@@ -158,16 +153,19 @@ function Navbar() {
                                 {/* Company Dropdown */}
                                 <div className="py-2">
                                     <button
-                                        className={`w-full text-left flex items-center justify-between hover:bg-white/10 transition rounded-md px-2 py-1 ${pathname === "/aboutus" || pathname === "/careers"
-                                            ? "bg-[#59d7f7] text-black font-semibold py-2" : ""
-                                            }`}
+                                        className={`w-full text-left flex items-center justify-between hover:bg-white/10 transition rounded-md px-2 py-1 ${
+                                            pathname === "/aboutus" || pathname === "/careers"
+                                                ? "bg-[#59d7f7] text-black font-semibold py-2"
+                                                : ""
+                                        }`}
                                         onClick={() => setMobileCompanyOpen(!mobileCompanyOpen)}
                                     >
                                         Company
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
-                                            className={`h-5 w-5 transition-transform duration-300 ${mobileCompanyOpen ? "rotate-180" : "rotate-0"
-                                                }`}
+                                            className={`h-5 w-5 transition-transform duration-300 ${
+                                                mobileCompanyOpen ? "rotate-180" : "rotate-0"
+                                            }`}
                                             fill="none"
                                             viewBox="0 0 24 24"
                                             stroke="currentColor"
@@ -180,24 +178,26 @@ function Navbar() {
                                     <AnimatePresence>
                                         {mobileCompanyOpen && (
                                             <motion.div
-                                                initial={{ opacity: 1, height: "auto" }}
+                                                initial={{ opacity: 0, height: 0 }}
                                                 animate={{ opacity: 1, height: "auto" }}
                                                 exit={{ opacity: 0, height: 0 }}
-                                                transition={{ duration: 0.2 }}
+                                                transition={{ duration: 0.25, ease: "easeOut" }}
                                                 className="mt-2 ml-4 space-y-1 overflow-hidden"
                                             >
                                                 <Link
                                                     href="/aboutus"
-                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/aboutus" ? "bg-[#59d7f7] text-black font-semibold" : ""
-                                                        }`}
+                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${
+                                                        pathname === "/aboutus" ? "bg-[#59d7f7] text-black font-semibold" : ""
+                                                    }`}
                                                     onClick={() => sethamburgerlist(false)}
                                                 >
                                                     About Us
                                                 </Link>
                                                 <Link
                                                     href="/careers"
-                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/careers" ? "bg-[#59d7f7] text-black font-semibold" : ""
-                                                        }`}
+                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${
+                                                        pathname === "/careers" ? "bg-[#59d7f7] text-black font-semibold" : ""
+                                                    }`}
                                                     onClick={() => sethamburgerlist(false)}
                                                 >
                                                     Careers
@@ -210,24 +210,28 @@ function Navbar() {
                                 {/* Services Dropdown */}
                                 <div className="py-2">
                                     <button
-                                        className={`w-full text-left flex items-center justify-between hover:bg-white/10 transition rounded-md px-2 py-1 ${[
-                                            "/webapplications",
-                                            "/mobileapplications",
-                                            "/websitedevelopment",
-                                            "/e-commerce",
-                                            "/odoo",
-                                            "/ai",
-                                            "/servicenow",
-                                            "/staffaugmentation"
-                                        ].includes(pathname) ? "bg-[#59d7f7] text-black font-semibold py-2" : ""
-                                            }`}
+                                        className={`w-full text-left flex items-center justify-between hover:bg-white/10 transition rounded-md px-2 py-1 ${
+                                            [
+                                                "/webapplications",
+                                                "/mobileapplications",
+                                                "/websitedevelopment",
+                                                "/e-commerce",
+                                                "/odoo",
+                                                "/ai",
+                                                "/servicenow",
+                                                "/staffaugmentation"
+                                            ].includes(pathname)
+                                                ? "bg-[#59d7f7] text-black font-semibold py-2"
+                                                : ""
+                                        }`}
                                         onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                                     >
                                         Services & Solutions
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
-                                            className={`h-5 w-5 transition-transform duration-300 ${mobileServicesOpen ? "rotate-180" : "rotate-0"
-                                                }`}
+                                            className={`h-5 w-5 transition-transform duration-300 ${
+                                                mobileServicesOpen ? "rotate-180" : "rotate-0"
+                                            }`}
                                             fill="none"
                                             viewBox="0 0 24 24"
                                             stroke="currentColor"
@@ -240,72 +244,80 @@ function Navbar() {
                                     <AnimatePresence>
                                         {mobileServicesOpen && (
                                             <motion.div
-                                                initial={{ opacity: 1, height: "auto" }}
+                                                initial={{ opacity: 0, height: 0 }}
                                                 animate={{ opacity: 1, height: "auto" }}
                                                 exit={{ opacity: 0, height: 0 }}
-                                                transition={{ duration: 0.2 }}
+                                                transition={{ duration: 0.25, ease: "easeOut" }}
                                                 className="mt-2 ml-4 space-y-1 overflow-hidden"
                                             >
                                                 <Link
                                                     href="/webapplications"
-                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/webapplications" ? "bg-[#59d7f7] text-black font-semibold" : ""
-                                                        }`}
+                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${
+                                                        pathname === "/webapplications" ? "bg-[#59d7f7] text-black font-semibold" : ""
+                                                    }`}
                                                     onClick={() => sethamburgerlist(false)}
                                                 >
                                                     Web Applications
                                                 </Link>
                                                 <Link
                                                     href="/mobileapplications"
-                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/mobileapplications" ? "bg-[#59d7f7] text-black font-semibold" : ""
-                                                        }`}
+                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${
+                                                        pathname === "/mobileapplications" ? "bg-[#59d7f7] text-black font-semibold" : ""
+                                                    }`}
                                                     onClick={() => sethamburgerlist(false)}
                                                 >
                                                     Mobile Applications
                                                 </Link>
                                                 <Link
                                                     href="/websitedevelopment"
-                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/websitedevelopment" ? "bg-[#59d7f7] text-black font-semibold" : ""
-                                                        }`}
+                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${
+                                                        pathname === "/websitedevelopment" ? "bg-[#59d7f7] text-black font-semibold" : ""
+                                                    }`}
                                                     onClick={() => sethamburgerlist(false)}
                                                 >
                                                     Website
                                                 </Link>
                                                 <Link
                                                     href="/e-commerce"
-                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/e-commerce" ? "bg-[#59d7f7] text-black font-semibold" : ""
-                                                        }`}
+                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${
+                                                        pathname === "/e-commerce" ? "bg-[#59d7f7] text-black font-semibold" : ""
+                                                    }`}
                                                     onClick={() => sethamburgerlist(false)}
                                                 >
                                                     E-Commerce
                                                 </Link>
                                                 <Link
                                                     href="/ai"
-                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/ai" ? "bg-[#59d7f7] text-black font-semibold" : ""
-                                                        }`}
+                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${
+                                                        pathname === "/ai" ? "bg-[#59d7f7] text-black font-semibold" : ""
+                                                    }`}
                                                     onClick={() => sethamburgerlist(false)}
                                                 >
                                                     AI
                                                 </Link>
                                                 <Link
                                                     href="/odoo"
-                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/odoo" ? "bg-[#59d7f7] text-black font-semibold" : ""
-                                                        }`}
+                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${
+                                                        pathname === "/odoo" ? "bg-[#59d7f7] text-black font-semibold" : ""
+                                                    }`}
                                                     onClick={() => sethamburgerlist(false)}
                                                 >
                                                     ODOO
                                                 </Link>
                                                 <Link
                                                     href="/servicenow"
-                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/servicenow" ? "bg-[#59d7f7] text-black font-semibold" : ""
-                                                        }`}
+                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${
+                                                        pathname === "/servicenow" ? "bg-[#59d7f7] text-black font-semibold" : ""
+                                                    }`}
                                                     onClick={() => sethamburgerlist(false)}
                                                 >
                                                     Service Now
                                                 </Link>
                                                 <Link
                                                     href="/staffaugmentation"
-                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/staffaugmentation" ? "bg-[#59d7f7] text-black font-semibold" : ""
-                                                        }`}
+                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${
+                                                        pathname === "/staffaugmentation" ? "bg-[#59d7f7] text-black font-semibold" : ""
+                                                    }`}
                                                     onClick={() => sethamburgerlist(false)}
                                                 >
                                                     Staff Augmentation
@@ -318,8 +330,9 @@ function Navbar() {
                                 {/* Blog */}
                                 <Link
                                     href="/blog"
-                                    className={`cursor-pointer py-2 hover:bg-white/10 transition rounded-md px-2 block ${pathname === "/blog" ? "bg-[#59d7f7] text-black font-semibold py-2" : ""
-                                        }`}
+                                    className={`cursor-pointer py-2 hover:bg-white/10 transition rounded-md px-2 block ${
+                                        pathname === "/blog" ? "bg-[#59d7f7] text-black font-semibold py-2" : ""
+                                    }`}
                                     onClick={() => sethamburgerlist(false)}
                                 >
                                     Blog
@@ -328,8 +341,9 @@ function Navbar() {
                                 {/* Contact */}
                                 <Link
                                     href="/contact"
-                                    className={`cursor-pointer py-2 hover:bg-white/10 transition rounded-md px-2 block ${pathname === "/contact" ? "bg-[#59d7f7] text-black font-semibold py-2" : ""
-                                        }`}
+                                    className={`cursor-pointer py-2 hover:bg-white/10 transition rounded-md px-2 block ${
+                                        pathname === "/contact" ? "bg-[#59d7f7] text-black font-semibold py-2" : ""
+                                    }`}
                                     onClick={() => sethamburgerlist(false)}
                                 >
                                     Contact

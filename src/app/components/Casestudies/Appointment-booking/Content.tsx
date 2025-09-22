@@ -1,6 +1,8 @@
 "use client"
 import React from 'react'
 import { motion } from "framer-motion";
+import AnimateOnView from '../../../../../animations/AnimateOnView';
+import { fadeDown } from '../../../../../animations/animations';
 
 function Content() {
     return (
@@ -9,16 +11,16 @@ function Content() {
             <div className='flex flex-col gap-8 md:gap-10 lg:gap-12 xl:gap-15'>
 
                 {/* Image */}
-                <div className='flex justify-center'>
+               <AnimateOnView variants={fadeDown} className='flex justify-center'>
                     <img
                         src="/assets/Casestudies/Appointment-Booking.png"
                         alt="Digital transformation image"
                         className='w-full max-w-xs  lg:max-w-base xl:max-w-md rounded-xl'
                     />
-                </div>
+                </AnimateOnView>
 
                 {/* Text + Button */}
-                <div className='flex flex-col gap-4 md:gap-5 lg:gap-6 text-center'>
+               <AnimateOnView variants={fadeDown} className='flex flex-col gap-4 md:gap-5 lg:gap-6 text-center'>
                     <div>
                         <p className='text-gray-700 text-sm md:text-base lg:text-lg leading-relaxed text-left'>
                             As we’re entering a new phase in the COVID-19 pandamic, businesses and service providers are preparing to reopen once restrictions are relaxed. hwen its time to reopen, there’s a good chance that customer football will ncrease, as their demands have been put on old for some time.Appointment booking solution will help to manage customer journeys and keep control of the arrival flow.            </p>
@@ -35,7 +37,7 @@ function Content() {
                             Download
                         </motion.button>
                     </div>
-                </div>
+                </AnimateOnView>
 
             </div>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence,Variants } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useSnackbar } from "notistack";
 import emailjs from "emailjs-com";
 
@@ -53,7 +53,7 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
 
     const handleClose = () => {
         if (isSubmitting) return; // Prevent closing while submitting
-        
+
         setIsOpen(false);
         // Reset form after close animation completes
         setTimeout(() => {
@@ -75,7 +75,11 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
         if (!name.trim()) newErrors.name = "Please enter your name";
         if (!email.trim()) newErrors.email = "Please enter your email";
         else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = "Invalid email";
-        if (!phone.trim()) newErrors.phone = "Please enter your phone number";
+        if (!phone.trim()) {
+            newErrors.phone = "Please enter your phone number";
+        } else if (!/^\d{10,}$/.test(phone)) {
+            newErrors.phone = "Phone number must be at least 10 digits";
+        }
         if (!message.trim()) newErrors.message = "Please enter your message";
         setErrors(newErrors);
 
@@ -95,7 +99,7 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
             );
 
             setIsSubmitted(true);
-            
+
             enqueueSnackbar("Contact Form Submitted successfully", {
                 variant: "success",
                 anchorOrigin: { vertical: "top", horizontal: "center" },
@@ -105,7 +109,7 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
             // Auto close after success animation
             setTimeout(() => {
                 handleClose();
-            }, 2000);
+            }, 3000);
 
         } catch (err) {
             console.error("FAILED...", err);
@@ -119,55 +123,55 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
     };
 
     // Animation variants
-    const backdropVariants :Variants = {
+    const backdropVariants: Variants = {
         hidden: { opacity: 0 },
-        visible: { 
+        visible: {
             opacity: 1,
             transition: { duration: 0.3, ease: "easeOut" }
         },
-        exit: { 
+        exit: {
             opacity: 0,
             transition: { duration: 0.25, ease: "easeIn" }
         }
     };
 
-    const modalVariants:Variants = {
-        hidden: { 
-            opacity: 0, 
-            scale: 0.85, 
+    const modalVariants: Variants = {
+        hidden: {
+            opacity: 0,
+            scale: 0.85,
             y: -50,
             transition: { duration: 0.2 }
         },
-        visible: { 
-            opacity: 1, 
-            scale: 1, 
+        visible: {
+            opacity: 1,
+            scale: 1,
             y: 0,
-            transition: { 
-                duration: 0.4, 
+            transition: {
+                duration: 0.4,
                 ease: "easeOut",
                 type: "spring",
                 stiffness: 300,
                 damping: 25
             }
         },
-        exit: { 
-            opacity: 0, 
-            scale: 0.9, 
+        exit: {
+            opacity: 0,
+            scale: 0.9,
             y: -30,
-            transition: { 
-                duration: 0.25, 
-                ease: "easeIn" 
+            transition: {
+                duration: 0.25,
+                ease: "easeIn"
             }
         }
     };
 
-    const formVariants:Variants = {
+    const formVariants: Variants = {
         hidden: { opacity: 0, y: 20 },
-        visible: { 
-            opacity: 1, 
+        visible: {
+            opacity: 1,
             y: 0,
-            transition: { 
-                duration: 0.5, 
+            transition: {
+                duration: 0.5,
                 delay: 0.2,
                 ease: "easeOut"
             }
@@ -185,13 +189,13 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
         }
     };
 
-    const successVariants:Variants = {
+    const successVariants: Variants = {
         hidden: { opacity: 0, scale: 0.8, y: 20 },
-        visible: { 
-            opacity: 1, 
-            scale: 1, 
+        visible: {
+            opacity: 1,
+            scale: 1,
             y: 0,
-            transition: { 
+            transition: {
                 duration: 0.5,
                 type: "spring",
                 stiffness: 400,
@@ -200,12 +204,12 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
         }
     };
 
-    const inputVariants:Variants = {
-        focus: { 
+    const inputVariants: Variants = {
+        focus: {
             scale: 1.02,
             transition: { duration: 0.2, ease: "easeOut" }
         },
-        blur: { 
+        blur: {
             scale: 1,
             transition: { duration: 0.2, ease: "easeOut" }
         }
@@ -219,7 +223,7 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
                     initial="hidden"
                     animate="visible"
                     exit="exit"
-                    className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm z-50 px-4  "
+                    className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm z-50 p-4 text-left"
                     onClick={(e) => e.target === e.currentTarget && handleClose()}
                 >
                     <motion.div
@@ -227,7 +231,7 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
                         initial="hidden"
                         animate="visible"
                         exit="exit"
-                        className="bg-white rounded-2xl shadow-2xl w-full sm:w-[90%] md:w-[70%] lg:w-[50%] xl:w-[40%] relative flex flex-col max-h-[90vh] overflow-hidden"
+                        className="bg-white rounded-2xl shadow-2xl w-full sm:w-[90%] md:w-[70%] lg:w-[50%] xl:w-[40%] relative max-h-[90vh] flex flex-col"
                     >
                         {/* Close Button */}
                         <motion.button
@@ -244,9 +248,9 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
                             </svg>
                         </motion.button>
 
-                        {/* Header */}
-                        <motion.div 
-                            className="bg-gradient-to-r from-[#221C41] via-[#0D1C3C] to-[#42306A] p-6 text-center flex-shrink-0"
+                        {/* Header - Fixed */}
+                        <motion.div
+                            className="bg-gradient-to-r from-[#221C41] via-[#0D1C3C] to-[#42306A] p-6 text-center flex-shrink-0 rounded-t-2xl"
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.4, delay: 0.1 }}
@@ -257,8 +261,8 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
                             </p>
                         </motion.div>
 
-                        {/* Content Container */}
-                        <div className="relative flex-1 overflow-hidden">
+                        {/* Content Container - Flexible */}
+                        <div className="flex-1 flex flex-col min-h-0">
                             <AnimatePresence mode="wait">
                                 {!isSubmitted ? (
                                     <motion.form
@@ -268,188 +272,197 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
                                         animate={isSubmitting ? "submitting" : "visible"}
                                         exit="submitted"
                                         onSubmit={handleSubmit}
-                                        className="p-6 space-y-5 overflow-y-auto h-full"
+                                        className="flex-1 flex flex-col min-h-0"
                                     >
-                                        {/* Name */}
-                                        <motion.div
-                                            initial={{ opacity: 0, x: -20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            transition={{ duration: 0.3, delay: 0.3 }}
-                                        >
-                                            <label className="block text-sm font-medium text-gray-700 mb-1">
-                                                Name <span className="text-red-500">*</span>
-                                            </label>
-                                            <motion.input
-                                                variants={inputVariants}
-                                                whileFocus="focus"
-                                                animate="blur"
-                                                type="text"
-                                                className={`w-full px-4 py-3 rounded-lg border ${errors.name ? "border-red-500" : "border-gray-300"
-                                                    } focus:ring-2 focus:ring-purple-100 focus:outline-none transition-colors duration-200`}
-                                                placeholder="Enter your name"
-                                                value={name}
-                                                onChange={(e) => {
-                                                    setName(e.target.value);
-                                                    setErrors((prev) => ({ ...prev, name: "" }));
-                                                }}
-                                                disabled={isSubmitting}
-                                            />
-                                            <AnimatePresence>
-                                                {errors.name && (
-                                                    <motion.p
-                                                        initial={{ opacity: 0, y: -10 }}
-                                                        animate={{ opacity: 1, y: 0 }}
-                                                        exit={{ opacity: 0, y: -10 }}
-                                                        className="text-red-500 text-sm mt-1"
-                                                    >
-                                                        {errors.name}
-                                                    </motion.p>
-                                                )}
-                                            </AnimatePresence>
-                                        </motion.div>
+                                        {/* Form Fields - Scrollable */}
+                                        <div className="flex-1 overflow-y-auto px-6 pt-6 pb-2">
+                                            <div className="space-y-4">
+                                                {/* Name */}
+                                                <motion.div
+                                                    initial={{ opacity: 0, x: -20 }}
+                                                    animate={{ opacity: 1, x: 0 }}
+                                                    transition={{ duration: 0.3, delay: 0.3 }}
+                                                >
+                                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                                        Name <span className="text-red-500">*</span>
+                                                    </label>
+                                                    <motion.input
+                                                        variants={inputVariants}
+                                                        whileFocus="focus"
+                                                        animate="blur"
+                                                        type="text"
+                                                        className={`w-full px-4 py-3 rounded-lg border ${errors.name ? "border-red-500" : "border-gray-300"
+                                                            } focus:ring-2 focus:ring-purple-100 focus:outline-none transition-colors duration-200`}
+                                                        placeholder="Enter your name"
+                                                        value={name}
+                                                        onChange={(e) => {
+                                                            setName(e.target.value);
+                                                            setErrors((prev) => ({ ...prev, name: "" }));
+                                                        }}
+                                                        disabled={isSubmitting}
+                                                    />
+                                                    <AnimatePresence>
+                                                        {errors.name && (
+                                                            <motion.p
+                                                                initial={{ opacity: 0, height: 0 }}
+                                                                animate={{ opacity: 1, height: "auto" }}
+                                                                exit={{ opacity: 0, height: 0 }}
+                                                                className="text-red-500 text-sm mt-1"
+                                                            >
+                                                                {errors.name}
+                                                            </motion.p>
+                                                        )}
+                                                    </AnimatePresence>
+                                                </motion.div>
 
-                                        {/* Email */}
-                                        <motion.div
-                                            initial={{ opacity: 0, x: -20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            transition={{ duration: 0.3, delay: 0.4 }}
-                                        >
-                                            <label className="block text-sm font-medium text-gray-700 mb-1">
-                                                Email <span className="text-red-500">*</span>
-                                            </label>
-                                            <motion.input
-                                                variants={inputVariants}
-                                                whileFocus="focus"
-                                                animate="blur"
-                                                type="email"
-                                                className={`w-full px-4 py-3 rounded-lg border ${errors.email ? "border-red-500" : "border-gray-300"
-                                                    } focus:ring-2 focus:ring-purple-100 focus:outline-none transition-colors duration-200`}
-                                                placeholder="Enter your email"
-                                                value={email}
-                                                onChange={(e) => {
-                                                    setEmail(e.target.value);
-                                                    setErrors((prev) => ({ ...prev, email: "" }));
-                                                }}
-                                                disabled={isSubmitting}
-                                            />
-                                            <AnimatePresence>
-                                                {errors.email && (
-                                                    <motion.p
-                                                        initial={{ opacity: 0, y: -10 }}
-                                                        animate={{ opacity: 1, y: 0 }}
-                                                        exit={{ opacity: 0, y: -10 }}
-                                                        className="text-red-500 text-sm mt-1"
-                                                    >
-                                                        {errors.email}
-                                                    </motion.p>
-                                                )}
-                                            </AnimatePresence>
-                                        </motion.div>
+                                                {/* Email */}
+                                                <motion.div
+                                                    initial={{ opacity: 0, x: -20 }}
+                                                    animate={{ opacity: 1, x: 0 }}
+                                                    transition={{ duration: 0.3, delay: 0.4 }}
+                                                >
+                                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                                        Email <span className="text-red-500">*</span>
+                                                    </label>
+                                                    <motion.input
+                                                        variants={inputVariants}
+                                                        whileFocus="focus"
+                                                        animate="blur"
+                                                        type="email"
+                                                        className={`w-full px-4 py-3 rounded-lg border ${errors.email ? "border-red-500" : "border-gray-300"
+                                                            } focus:ring-2 focus:ring-purple-100 focus:outline-none transition-colors duration-200`}
+                                                        placeholder="Enter your email"
+                                                        value={email}
+                                                        onChange={(e) => {
+                                                            setEmail(e.target.value);
+                                                            setErrors((prev) => ({ ...prev, email: "" }));
+                                                        }}
+                                                        disabled={isSubmitting}
+                                                    />
+                                                    <AnimatePresence>
+                                                        {errors.email && (
+                                                            <motion.p
+                                                                initial={{ opacity: 0, height: 0 }}
+                                                                animate={{ opacity: 1, height: "auto" }}
+                                                                exit={{ opacity: 0, height: 0 }}
+                                                                className="text-red-500 text-sm mt-1"
+                                                            >
+                                                                {errors.email}
+                                                            </motion.p>
+                                                        )}
+                                                    </AnimatePresence>
+                                                </motion.div>
 
-                                        {/* Phone */}
-                                        <motion.div
-                                            initial={{ opacity: 0, x: -20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            transition={{ duration: 0.3, delay: 0.5 }}
-                                        >
-                                            <label className="block text-sm font-medium text-gray-700 mb-1">
-                                                Phone <span className="text-red-500">*</span>
-                                            </label>
-                                            <motion.input
-                                                variants={inputVariants}
-                                                whileFocus="focus"
-                                                animate="blur"
-                                                type="text"
-                                                className={`w-full px-4 py-3 rounded-lg border ${errors.phone ? "border-red-500" : "border-gray-300"
-                                                    } focus:ring-2 focus:ring-purple-100 focus:outline-none transition-colors duration-200`}
-                                                placeholder="Enter your phone number"
-                                                value={phone}
-                                                onChange={(e) => {
-                                                    setPhone(e.target.value);
-                                                    setErrors((prev) => ({ ...prev, phone: "" }));
-                                                }}
-                                                disabled={isSubmitting}
-                                            />
-                                            <AnimatePresence>
-                                                {errors.phone && (
-                                                    <motion.p
-                                                        initial={{ opacity: 0, y: -10 }}
-                                                        animate={{ opacity: 1, y: 0 }}
-                                                        exit={{ opacity: 0, y: -10 }}
-                                                        className="text-red-500 text-sm mt-1"
-                                                    >
-                                                        {errors.phone}
-                                                    </motion.p>
-                                                )}
-                                            </AnimatePresence>
-                                        </motion.div>
+                                                {/* Phone */}
+                                                <motion.div
+                                                    initial={{ opacity: 0, x: -20 }}
+                                                    animate={{ opacity: 1, x: 0 }}
+                                                    transition={{ duration: 0.3, delay: 0.5 }}
+                                                >
+                                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                                        Phone <span className="text-red-500">*</span>
+                                                    </label>
+                                                    <motion.input
+                                                        variants={inputVariants}
+                                                        whileFocus="focus"
+                                                        animate="blur"
+                                                        type="text"
+                                                        className={`w-full px-4 py-3 rounded-lg border ${errors.phone ? "border-red-500" : "border-gray-300"
+                                                            } focus:ring-2 focus:ring-purple-100 focus:outline-none transition-colors duration-200`}
+                                                        placeholder="Enter your phone number"
+                                                        value={phone}
+                                                        onChange={(e) => {
+                                                            setPhone(e.target.value);
+                                                            setErrors((prev) => ({ ...prev, phone: "" }));
+                                                        }}
+                                                        disabled={isSubmitting}
+                                                    />
+                                                    <AnimatePresence>
+                                                        {errors.phone && (
+                                                            <motion.p
+                                                                initial={{ opacity: 0, height: 0 }}
+                                                                animate={{ opacity: 1, height: "auto" }}
+                                                                exit={{ opacity: 0, height: 0 }}
+                                                                className="text-red-500 text-sm mt-1"
+                                                            >
+                                                                {errors.phone}
+                                                            </motion.p>
+                                                        )}
+                                                    </AnimatePresence>
+                                                </motion.div>
 
-                                        {/* Message */}
-                                        <motion.div
-                                            initial={{ opacity: 0, x: -20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            transition={{ duration: 0.3, delay: 0.6 }}
-                                        >
-                                            <label className="block text-sm font-medium text-gray-700 mb-1">
-                                                Message <span className="text-red-500">*</span>
-                                            </label>
-                                            <motion.textarea
-                                                variants={inputVariants}
-                                                whileFocus="focus"
-                                                animate="blur"
-                                                className={`w-full px-4 py-3 rounded-lg border ${errors.message ? "border-red-500" : "border-gray-300"
-                                                    } focus:ring-2 focus:ring-purple-100 focus:outline-none h-28 resize-none transition-colors duration-200`}
-                                                placeholder="Write your message..."
-                                                value={message}
-                                                onChange={(e) => {
-                                                    setMessage(e.target.value);
-                                                    setErrors((prev) => ({ ...prev, message: "" }));
-                                                }}
-                                                disabled={isSubmitting}
-                                            />
-                                            <AnimatePresence>
-                                                {errors.message && (
-                                                    <motion.p
-                                                        initial={{ opacity: 0, y: -10 }}
-                                                        animate={{ opacity: 1, y: 0 }}
-                                                        exit={{ opacity: 0, y: -10 }}
-                                                        className="text-red-500 text-sm mt-1"
-                                                    >
-                                                        {errors.message}
-                                                    </motion.p>
-                                                )}
-                                            </AnimatePresence>
-                                        </motion.div>
+                                                {/* Message */}
+                                                <motion.div
+                                                    initial={{ opacity: 0, x: -20 }}
+                                                    animate={{ opacity: 1, x: 0 }}
+                                                    transition={{ duration: 0.3, delay: 0.6 }}
+                                                >
+                                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                                        Message <span className="text-red-500">*</span>
+                                                    </label>
+                                                    <motion.textarea
+                                                        variants={inputVariants}
+                                                        whileFocus="focus"
+                                                        animate="blur"
+                                                        className={`w-full px-4 py-3 rounded-lg border ${errors.message ? "border-red-500" : "border-gray-300"
+                                                            } focus:ring-2 focus:ring-purple-100 focus:outline-none h-24 resize-none transition-colors duration-200`}
+                                                        placeholder="Write your message..."
+                                                        value={message}
+                                                        onChange={(e) => {
+                                                            setMessage(e.target.value);
+                                                            setErrors((prev) => ({ ...prev, message: "" }));
+                                                        }}
+                                                        disabled={isSubmitting}
+                                                    />
+                                                    <AnimatePresence>
+                                                        {errors.message && (
+                                                            <motion.p
+                                                                initial={{ opacity: 0, height: 0 }}
+                                                                animate={{ opacity: 1, height: "auto" }}
+                                                                exit={{ opacity: 0, height: 0 }}
+                                                                className="text-red-500 text-sm mt-1"
+                                                            >
+                                                                {errors.message}
+                                                            </motion.p>
+                                                        )}
+                                                    </AnimatePresence>
+                                                </motion.div>
+                                            </div>
+                                        </div>
 
-                                        {/* Submit */}
-                                        <motion.div 
-                                            className="flex justify-end"
+                                        {/* Submit Button - Fixed at bottom */}
+                                        <motion.div
+                                            className="flex-shrink-0 p-6 pt-4 bg-white border-t border-gray-100 rounded-b-2xl"
                                             initial={{ opacity: 0, y: 20 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ duration: 0.3, delay: 0.7 }}
                                         >
-                                            <motion.button
-                                                type="submit"
-                                                disabled={isSubmitting}
-                                                className="buttonbg relative overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed"
-                                                whileHover={!isSubmitting ? { scale: 1.05 } : {}}
-                                                whileTap={!isSubmitting ? { scale: 0.95 } : {}}
-                                                transition={{ duration: 0.2 }}
-                                            >
-                                                {isSubmitting && (
-                                                    <motion.div
-                                                        initial={{ x: "-100%" }}
-                                                        animate={{ x: "100%" }}
-                                                        transition={{ 
-                                                            duration: 1.5,
-                                                            repeat: Infinity,
-                                                            ease: "linear"
-                                                        }}
-                                                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                                                    />
-                                                )}
-                                                {isSubmitting ? "Submitting..." : "Submit"}
-                                            </motion.button>
+                                            <div className="flex justify-end">
+                                                <motion.button
+                                                    type="submit"
+                                                    disabled={isSubmitting}
+                                                    className="px-8 py-3 bg-gradient-to-r from-[#221C41] via-[#0D1C3C] to-[#42306A] text-white rounded-lg font-medium relative overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed min-w-[120px] cursor-pointer"
+                                                    whileHover={!isSubmitting ? { scale: 1.05 } : {}}
+                                                    whileTap={!isSubmitting ? { scale: 0.95 } : {}}
+                                                    transition={{ duration: 0.2 }}
+                                                >
+                                                    {isSubmitting && (
+                                                        <motion.div
+                                                            initial={{ x: "-100%" }}
+                                                            animate={{ x: "100%" }}
+                                                            transition={{
+                                                                duration: 1.5,
+                                                                repeat: Infinity,
+                                                                ease: "linear"
+                                                            }}
+                                                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                                                        />
+                                                    )}
+                                                    <span className="relative z-10">
+                                                        {isSubmitting ? "Submitting..." : "Submit"}
+                                                    </span>
+                                                </motion.button>
+                                            </div>
                                         </motion.div>
                                     </motion.form>
                                 ) : (
@@ -458,12 +471,12 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
                                         variants={successVariants}
                                         initial="hidden"
                                         animate="visible"
-                                        className="p-6 flex flex-col items-center justify-center h-full text-center"
+                                        className="flex-1 p-6 flex flex-col items-center justify-center text-center"
                                     >
                                         <motion.div
                                             initial={{ scale: 0 }}
                                             animate={{ scale: 1 }}
-                                            transition={{ 
+                                            transition={{
                                                 duration: 0.6,
                                                 type: "spring",
                                                 stiffness: 300,

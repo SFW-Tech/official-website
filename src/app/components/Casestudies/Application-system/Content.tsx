@@ -1,6 +1,8 @@
 "use client"
 import React from 'react'
 import { motion } from "framer-motion";
+import AnimateOnView from '../../../../../animations/AnimateOnView';
+import { fadeDown } from '../../../../../animations/animations';
 
 function Content() {
     return (
@@ -9,16 +11,16 @@ function Content() {
             <div className='flex flex-col gap-8 md:gap-10 lg:gap-12 xl:gap-15'>
 
                 {/* Image */}
-                <div className='flex justify-center'>
+                <AnimateOnView variants={fadeDown} className='flex justify-center'>
                     <img
                         src="/assets/Casestudies/Application-development.png"
                         alt="Digital transformation image"
                         className='w-full max-w-xs  lg:max-w-base xl:max-w-md rounded-xl'
                     />
-                </div>
+                </AnimateOnView>
 
                 {/* Text + Button */}
-                <div className='flex flex-col gap-4 md:gap-5 lg:gap-6 text-center'>
+                <AnimateOnView variants={fadeDown} className='flex flex-col gap-4 md:gap-5 lg:gap-6 text-center'>
                     <div>
                         <p className='text-gray-700 text-sm md:text-base lg:text-lg leading-relaxed text-left'>
                             US-based goverment-affiliated child welfare/NGO organization running for more than 70 years are impacted by serval emerging trends such as digitalization, multi-platform content consumption, and the challenge of managing multiple data formats across agencies. Furthermore, along with immense volumes, the organization was challenged to manage and analyze this data to extract the actionable insights
@@ -36,7 +38,7 @@ function Content() {
                             Download
                         </motion.button>
                     </div>
-                </div>
+                </AnimateOnView>
 
             </div>
         </div>

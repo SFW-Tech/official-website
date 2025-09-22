@@ -1,6 +1,8 @@
 "use client"
 import React from 'react'
 import { motion } from "framer-motion";
+import AnimateOnView from '../../../../../animations/AnimateOnView';
+import { fadeDown } from '../../../../../animations/animations';
 
 function Content() {
     return (
@@ -9,16 +11,16 @@ function Content() {
             <div className='flex flex-col gap-8 md:gap-10 lg:gap-12 xl:gap-15'>
 
                 {/* Image */}
-                <div className='flex justify-center'>
+                <AnimateOnView variants={fadeDown} className='flex justify-center'>
                     <img
                         src="/assets/Casestudies/Kisok.jpg"
                         alt="Digital transformation image"
                         className='w-full max-w-xs  lg:max-w-base xl:max-w-md rounded-xl'
                     />
-                </div>
+                </AnimateOnView>
 
                 {/* Text + Button */}
-                <div className='flex flex-col gap-4 md:gap-5 lg:gap-6 text-center'>
+                <AnimateOnView variants={fadeDown} className='flex flex-col gap-4 md:gap-5 lg:gap-6 text-center'>
                     <div className='flex flex-col gap-2'>
                         <p className='text-gray-700 text-sm md:text-base lg:text-lg leading-relaxed text-left'>
                             Customers without access to a kiosk machine in a aservice centre encounter several challenges thay can impede their experience. without a kiosk, access to vital information such as service updates, product details, or FAQs become limited, exacerbating uncertainties and inquiries.
@@ -41,7 +43,7 @@ function Content() {
                             Download
                         </motion.button>
                     </div>
-                </div>
+                </AnimateOnView>
 
             </div>
         </div>
