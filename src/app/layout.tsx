@@ -5,6 +5,7 @@ import "./styles/hompage.css";
 import Footer from "./components/HomePage/Footer";
 import NotistackProvider from "./components/Layoutwrappers/NotistackProvider";
 import PageTransitionWrapper from "./components/Layoutwrappers/Pagetransitionwrapper";
+import ScrollToTop from "./components/HomePage/ScrollToTop";
 
 
 const geistSans = Geist({
@@ -41,6 +42,7 @@ export default function RootLayout({
 
             {children}
             <Footer />
+            <ScrollToTop/>
           </NotistackProvider>
         </PageTransitionWrapper>
 

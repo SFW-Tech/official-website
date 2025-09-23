@@ -9,7 +9,7 @@ export default function PageTransitionWrapper({ children }: { children: React.Re
   const pathname = usePathname();
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence initial={false}>
       <motion.div
         key={pathname}
         variants={pageVariants}
