@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import Herosection from "../components/Careerspage/Herosection";
 import emailjs from "emailjs-com";
 import { useSnackbar } from 'notistack';
 
 function Page() {
-
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -18,17 +18,99 @@ function Page() {
   });
 
   const [resume, setResume] = useState<File | null>(null);
-
   const [resumeMessage, setResumeMessage] = useState("");
-
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const { enqueueSnackbar } = useSnackbar();
 
+  // Animation variants
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.1
+      }
+    }
+  };
 
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
 
+  const formVariants: Variants = {
+    hidden: { opacity: 0, x: 50, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const successVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.8, y: 20 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.8,
+      y: -20,
+      transition: {
+        duration: 0.3
+      }
+    }
+  };
+
+  const buttonVariants: Variants = {
+    idle: { scale: 1 },
+    hover: {
+      scale: 1.05,
+      transition: {
+        duration: 0.2,
+        ease: "easeInOut"
+      }
+    },
+    tap: { scale: 0.95 },
+    loading: {
+      scale: 1,
+      transition: {
+        duration: 0.2
+      }
+    }
+  };
+
+  const inputVariants: Variants = {
+    focus: {
+      scale: 1.02,
+      borderColor: "#0891b2",
+      transition: {
+        duration: 0.2,
+        ease: "easeOut"
+      }
+    }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -36,13 +118,11 @@ function Page() {
     setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
-
   const handleResume = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
 
     if (file) {
       if (file.size > 4 * 1024 * 1024) {
-
         setResume(null);
         setResumeMessage("");
         setErrors((prev) => ({ ...prev, resume: "File must be 4MB or less" }));
@@ -60,9 +140,6 @@ function Page() {
       setResumeMessage("");
     }
   };
-
-
-
 
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
@@ -83,6 +160,8 @@ function Page() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
+
+    setIsSubmitting(true);
 
     try {
       await emailjs.send(
@@ -114,6 +193,8 @@ function Page() {
         anchorOrigin: { vertical: "top", horizontal: "center" },
         autoHideDuration: 3000,
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -121,156 +202,436 @@ function Page() {
     <div className="w-full">
       <Herosection />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-20 xl:gap-24 px-6 sm:px-10 md:px-16 lg:px-24 xl:px-28 my-12">
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-20 xl:gap-24 px-6 sm:px-10 md:px-16 lg:px-24 xl:px-28 my-12"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {/* Left Grid */}
-        <div className="flex flex-col gap-6 justify-evenly">
-          <div className="flex flex-col gap-3">
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">
+        <motion.div
+          className="flex flex-col gap-6 justify-evenly"
+          variants={itemVariants}
+        >
+          <motion.div
+            className="flex flex-col gap-3"
+            variants={itemVariants}
+          >
+            <motion.h1
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold"
+              variants={itemVariants}
+            >
               Frontend Developer
-            </h1>
-            <div className="flex gap-2">
-              <h4 className="flex text-sm bg-gray-100 px-3 py-1 rounded-md w-fit font-medium text-gray-700 shadow-sm">
+            </motion.h1>
+            <motion.div
+              className="flex gap-2"
+              variants={itemVariants}
+            >
+              <motion.h4
+                className="flex text-sm bg-gray-100 px-3 py-1 rounded-md w-fit font-medium text-gray-700 shadow-sm"
+                whileHover={{ scale: 1.05, backgroundColor: "#f3f4f6" }}
+                transition={{ duration: 0.2 }}
+              >
                 JD101
-              </h4>
-            </div>
-            <p className="text-gray-600 text-sm sm:text-base md:text-md lg:text-lg xl:text-base leading-relaxed">
+              </motion.h4>
+            </motion.div>
+            <motion.p
+              className="text-gray-600 text-sm sm:text-base md:text-md lg:text-lg xl:text-base leading-relaxed"
+              variants={itemVariants}
+            >
               We are looking for a passionate and skilled Frontend Developer to join our growing team at Softworks. The ideal candidate will have a strong understanding of modern frontend technologies and frameworks, with a keen eye for design and user experience. You will be responsible for translating UI/UX designs into responsive, interactive web applications. Working closely with designers, backend developers, and product managers, you will help create seamless and engaging digital experiences that meet business goals and user needs.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="flex flex-col gap-6">
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">
+          <motion.div
+            className="flex flex-col gap-6"
+            variants={itemVariants}
+          >
+            <motion.h1
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold"
+              variants={itemVariants}
+            >
               Roles & Responsibilities
-            </h1>
-            <ul className="list-disc pl-5 space-y-2 text-sm sm:text-base md:text-md lg:text-lg xl:text-base leading-relaxed text-gray-600">
-              <li>Develop responsive user interfaces using HTML, CSS, and JavaScript frameworks.</li>
-              <li>Collaborate with UI/UX designers to bring mockups and wireframes to life.</li>
-              <li>Optimize web pages for performance, speed, and SEO.</li>
-              <li>Integrate frontend components with RESTful APIs.</li>
-            </ul>
-          </div>
-        </div>
+            </motion.h1>
+            <motion.ul
+              className="list-disc pl-5 space-y-2 text-sm sm:text-base md:text-md lg:text-lg xl:text-base leading-relaxed text-gray-600"
+              variants={containerVariants}
+            >
+              {[
+                "Develop responsive user interfaces using HTML, CSS, and JavaScript frameworks.",
+                "Collaborate with UI/UX designers to bring mockups and wireframes to life.",
+                "Optimize web pages for performance, speed, and SEO.",
+                "Integrate frontend components with RESTful APIs."
+              ].map((item, index) => (
+                <motion.li
+                  key={index}
+                  variants={itemVariants}
+                  whileHover={{ x: 5, color: "#374151" }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {item}
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
+        </motion.div>
 
         {/* Right Grid - Form */}
-        <div className="h-full">
-          {submitted ? (
-            <div className="flex items-center justify-center min-h-screen bg-gray-50 px-4">
-              <div className="bg-white shadow-2xl rounded-2xl p-8 sm:p-12 text-center max-w-md w-full">
-                <div className="bg-gradient-to-r from-[#3CC2A3] to-[#17B791] rounded-full p-3 mx-auto mb-6 w-16 h-16 flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white" className="size-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                  </svg>
-                </div>
-                <h2 className="text-2xl font-medium text-gray-900 mb-4">Thank you for applying</h2>
-                <p className="text-gray-700">Our team will review your application and get back to you shortly.</p>
-              </div>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="bg-white shadow-xl rounded-2xl p-6 md:p-8 space-y-6">
-              <h1 className="text-2xl font-bold text-gray-800 mb-4 text-center">APPLICATION</h1>
-
-              {/* Name */}
-              <div className="flex flex-col md:flex-row gap-4 pt-5">
-                {["first_name", "last_name"].map((field) => (
-                  <div className="w-full md:w-1/2" key={field}>
-                    <input
-                      type="text"
-                      name={field}
-                      placeholder={`${field.replace("_", " ")} *`}
-                      value={formData[field as keyof typeof formData]}
-                      onChange={handleChange}
-                      className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-cyan-600 outline-none"
-                    />
-                    {errors[field] && <p className="text-red-500 text-sm">{errors[field]}</p>}
-                  </div>
-                ))}
-              </div>
-
-              {/* Email & Phone */}
-              <div className="flex flex-col md:flex-row gap-4">
-                {["email", "phone"].map((field) => (
-                  <div className="w-full md:w-1/2" key={field}>
-                    <input
-                      type={field === "email" ? "email" : "text"}
-                      name={field}
-                      placeholder={field === "email" ? "Email Address *" : "Phone/Mobile number *"}
-                      value={formData[field as keyof typeof formData]}
-                      onChange={handleChange}
-                      className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-cyan-600 outline-none"
-                    />
-                    {errors[field] && <p className="text-red-500 text-sm">{errors[field]}</p>}
-                  </div>
-                ))}
-              </div>
-
-              {/* Location */}
-              <div>
-                <input
-                  type="text"
-                  name="location"
-                  placeholder="Location *"
-                  value={formData.location}
-                  onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-cyan-600 outline-none"
-                />
-                {errors.location && <p className="text-red-500 text-sm">{errors.location}</p>}
-              </div>
-
-              {/* Message */}
-              <textarea
-                name="message"
-                placeholder="Your message"
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full border border-gray-300 rounded-lg p-3 h-28 focus:ring-2 focus:ring-cyan-600 outline-none"
-              />
-
-              {/* Resume */}
-              <div className="w-full p-4 border-2 border-dashed border-gray-300 rounded-lg text-center text-gray-500 cursor-pointer hover:border-cyan-600 hover:text-cyan-700 transition">
-                <h2 className="font-semibold">
-                  Drop your resume here or{" "}
-                  <label className="text-black cursor-pointer">
-                    browse
-                    <input type="file" className="hidden" accept=".pdf,.doc,.docx" onChange={handleResume} />
-                  </label>
-                </h2>
-                <h4 className="text-sm">Max file size: 4MB (pdf, doc, docx)</h4>
-                {resumeMessage && <p className="text-green-600 text-sm mt-2">{resumeMessage}</p>}
-                {errors.resume && <p className="text-red-500 text-sm">{errors.resume}</p>}
-              </div>
-
-              {/* Experience */}
-              <div>
-                <h3 className="font-semibold text-gray-800 mb-2">How much experience do you have?</h3>
-                <div className="space-y-2">
-                  {["0-2 years", "3-5 years", "5-8 years", "8+ years"].map((exp) => (
-                    <label key={exp} className="flex items-center gap-2 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="experience"
-                        value={exp}
-                        checked={formData.experience === exp}
-                        onChange={(e) => handleChange(e as any)}
-                        className="accent-cyan-600"
-                      />
-                      <span>{exp}</span>
-                    </label>
-                  ))}
-                </div>
-                {errors.experience && <p className="text-red-500 text-sm">{errors.experience}</p>}
-              </div>
-
-              {/* Submit */}
-              <button
-                type="submit"
-                className="bg-gradient-to-r from-orange-500 to-purple-600 hover:from-orange-600 hover:to-purple-700 text-white font-semibold px-5 py-3 rounded-2xl shadow-lg cursor-pointer text-sm md:text-base transition-all duration-300"
+        <motion.div
+          className="h-full"
+          variants={formVariants}
+        >
+          <AnimatePresence mode="wait">
+            {submitted ? (
+              <motion.div
+                className="flex items-center justify-center min-h-screen bg-gray-50 px-4"
+                variants={successVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                key="success"
               >
-                Submit
-              </button>
-            </form>
-          )}
-        </div>
-      </div>
+                <motion.div
+                  className="bg-white shadow-2xl rounded-2xl p-8 sm:p-12 text-center max-w-md w-full"
+
+                  transition={{ duration: 0.2 }}
+                >
+                  <motion.div
+                    className="bg-gradient-to-r from-[#3CC2A3] to-[#17B791] rounded-full p-3 mx-auto mb-6 w-16 h-16 flex items-center justify-center"
+                    initial={{ scale: 0, rotate: -180 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{
+                      duration: 0.6,
+                      delay: 0.2,
+                      type: "spring",
+                      stiffness: 200
+                    }}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white" className="size-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                  </motion.div>
+                  <motion.h2
+                    className="text-2xl font-medium text-gray-900 mb-4"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.4 }}
+                  >
+                    Thank you for applying
+                  </motion.h2>
+                  <motion.p
+                    className="text-gray-700"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, duration: 0.4 }}
+                  >
+                    Our team will review your application and get back to you shortly.
+                  </motion.p>
+                </motion.div>
+              </motion.div>
+            ) : (
+              <motion.form
+                onSubmit={handleSubmit}
+                className="bg-white shadow-xl rounded-2xl p-6 md:p-8 space-y-6"
+                variants={formVariants}
+                initial="hidden"
+                animate="visible"
+                key="form"
+                layout
+              >
+                <motion.h1
+                  className="text-2xl font-bold text-gray-800 mb-4 text-center"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  APPLICATION
+                </motion.h1>
+
+                {/* Name */}
+                <motion.div
+                  className="flex flex-col md:flex-row gap-4 pt-5"
+                  variants={itemVariants}
+                >
+                  {["first_name", "last_name"].map((field, index) => (
+                    <motion.div
+                      className="w-full md:w-1/2"
+                      key={field}
+                      initial={{ opacity: 0, x: index === 0 ? -20 : 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.2 + index * 0.1, duration: 0.4 }}
+                    >
+                      <motion.input
+                        type="text"
+                        name={field}
+                        placeholder={`${field.replace("_", " ")} *`}
+                        value={formData[field as keyof typeof formData]}
+                        onChange={handleChange}
+                        className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-cyan-600 outline-none transition-all duration-200"
+                        whileFocus={{ scale: 1.02, borderColor: "#0891b2" }}
+                        whileHover={{ borderColor: "#64748b" }}
+                      />
+                      <AnimatePresence>
+                        {errors[field] && (
+                          <motion.p
+                            className="text-red-500 text-sm"
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            {errors[field]}
+                          </motion.p>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
+                  ))}
+                </motion.div>
+
+                {/* Email & Phone */}
+                <motion.div
+                  className="flex flex-col md:flex-row gap-4"
+                  variants={itemVariants}
+                >
+                  {["email", "phone"].map((field, index) => (
+                    <motion.div
+                      className="w-full md:w-1/2"
+                      key={field}
+                      initial={{ opacity: 0, x: index === 0 ? -20 : 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.4 + index * 0.1, duration: 0.4 }}
+                    >
+                      <motion.input
+                        type={field === "email" ? "email" : "text"}
+                        name={field}
+                        placeholder={field === "email" ? "Email Address *" : "Phone/Mobile number *"}
+                        value={formData[field as keyof typeof formData]}
+                        onChange={handleChange}
+                        className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-cyan-600 outline-none transition-all duration-200"
+                        whileFocus={{ scale: 1.02, borderColor: "#0891b2" }}
+                        whileHover={{ borderColor: "#64748b" }}
+                      />
+                      <AnimatePresence>
+                        {errors[field] && (
+                          <motion.p
+                            className="text-red-500 text-sm"
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            {errors[field]}
+                          </motion.p>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
+                  ))}
+                </motion.div>
+
+                {/* Location */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6, duration: 0.4 }}
+                >
+                  <motion.input
+                    type="text"
+                    name="location"
+                    placeholder="Location *"
+                    value={formData.location}
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-cyan-600 outline-none transition-all duration-200"
+                    whileFocus={{ scale: 1.02, borderColor: "#0891b2" }}
+                    whileHover={{ borderColor: "#64748b" }}
+                  />
+                  <AnimatePresence>
+                    {errors.location && (
+                      <motion.p
+                        className="text-red-500 text-sm"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {errors.location}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+
+                {/* Message */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.7, duration: 0.4 }}
+                >
+                  <motion.textarea
+                    name="message"
+                    placeholder="Your message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 rounded-lg p-3 h-28 focus:ring-2 focus:ring-cyan-600 outline-none resize-none transition-all duration-200"
+                    whileFocus={{ scale: 1.02, borderColor: "#0891b2" }}
+                    whileHover={{ borderColor: "#64748b" }}
+                  />
+                </motion.div>
+
+                {/* Resume */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8, duration: 0.4 }}
+                >
+                  <motion.label
+                    className="w-full p-4 border-2 border-dashed border-gray-300 rounded-lg text-center text-gray-500 cursor-pointer hover:border-cyan-600 hover:text-cyan-700 transition-all duration-300 block"
+                    whileHover={{
+                      scale: 1.02,
+                      borderColor: "#0891b2",
+                      backgroundColor: "#f8fafc"
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <input type="file" className="hidden" accept=".pdf,.doc,.docx" onChange={handleResume} />
+                    <h2 className="font-semibold">
+                      Drop your resume here or{" "}
+                      <span className="text-black hover:text-cyan-600 transition-colors duration-200">
+                        browse
+                      </span>
+                    </h2>
+                    <h4 className="text-sm">Max file size: 4MB (pdf, doc, docx)</h4>
+                    <AnimatePresence>
+                      {resumeMessage && (
+                        <motion.p
+                          className="text-green-600 text-sm mt-2"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.8 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          {resumeMessage}
+                        </motion.p>
+                      )}
+                      {errors.resume && (
+                        <motion.p
+                          className="text-red-500 text-sm mt-2"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.8 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          {errors.resume}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
+                  </motion.label>
+                </motion.div>
+
+                {/* Experience */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.9, duration: 0.4 }}
+                >
+                  <motion.h3
+                    className="font-semibold text-gray-800 mb-2"
+                    variants={itemVariants}
+                  >
+                    How much experience do you have?
+                  </motion.h3>
+                  <motion.div
+                    className="space-y-2"
+                    variants={containerVariants}
+                  >
+                    {["0-2 years", "3-5 years", "5-8 years", "8+ years"].map((exp, index) => (
+                      <motion.label
+                        key={exp}
+                        className="flex items-center gap-2 cursor-pointer p-2 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                        variants={itemVariants}
+                        whileHover={{ x: 5, backgroundColor: "#f9fafb" }}
+                        whileTap={{ scale: 0.98 }}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 1.0 + index * 0.05, duration: 0.3 }}
+                      >
+                        <motion.input
+                          type="radio"
+                          name="experience"
+                          value={exp}
+                          checked={formData.experience === exp}
+                          onChange={(e) => handleChange(e as any)}
+                          className="accent-cyan-600"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                        />
+                        <span>{exp}</span>
+                      </motion.label>
+                    ))}
+                  </motion.div>
+                  <AnimatePresence>
+                    {errors.experience && (
+                      <motion.p
+                        className="text-red-500 text-sm mt-2"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {errors.experience}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+
+                {/* Submit */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.2, duration: 0.4 }}
+                >
+                  <motion.button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="bg-gradient-to-r from-orange-500 to-purple-600 hover:from-orange-600 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold px-5 py-3 rounded-2xl shadow-lg cursor-pointer text-sm md:text-base transition-all duration-300 w-full relative overflow-hidden"
+                    variants={buttonVariants}
+                    initial="idle"
+                    whileHover={!isSubmitting ? "hover" : "loading"}
+                    whileTap={!isSubmitting ? "tap" : "loading"}
+                    animate={isSubmitting ? "loading" : "idle"}
+                  >
+                    <AnimatePresence mode="wait">
+                      {isSubmitting ? (
+                        <motion.div
+                          key="loading"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          className="flex items-center justify-center gap-2"
+                        >
+                          <motion.div
+                            className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          />
+                          Submitting...
+                        </motion.div>
+                      ) : (
+                        <motion.span
+                          key="submit"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                        >
+                          Submit
+                        </motion.span>
+                      )}
+                    </AnimatePresence>
+                  </motion.button>
+                </motion.div>
+              </motion.form>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

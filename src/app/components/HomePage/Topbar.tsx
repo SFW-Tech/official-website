@@ -1,8 +1,10 @@
+import Link from 'next/link';
 import React from 'react';
 
 function Topbar() {
+
     return (
-        <div className="w-full bg-white text-gray-800 text-sm">
+        <div className="w-full bg-white text-gray-800 text-sm py-0.2">
             <div className="flex flex-wrap justify-between items-center px-4 sm:px-8 md:px-16 lg:px-28 py-2 gap-y-2">
 
                 {/* Left Section */}
@@ -10,7 +12,7 @@ function Topbar() {
                     {/* Email */}
                     <div className="flex items-center gap-2">
                         <img src="/assets/Home/Topbarassets/mail logo.png" alt="mail" className="w-4 h-4" />
-                        <p className="text-xs ">info@sfwtechnologies.com</p>
+                        <Link className="text-sm" href="mailto:info@sfwtechnologies.com">info@sfwtechnologies.com</Link>
                     </div>
 
                     {/* Divider */}
@@ -19,16 +21,16 @@ function Topbar() {
                     {/* Phone */}
                     <div className="flex items-center gap-2">
                         <img src="/assets/Home/Topbarassets/phone logo.png" alt="phone" className="w-4 h-4" />
-                        <p className="text-xs">+91 98941 13103</p>
+                        <p className="text-sm">+91 98941 13103</p>
                     </div>
                 </div>
 
                 {/* Right Section - Socials Media */}
                 <div className="hidden sm:flex gap-3 sm:gap-4 items-center justify-center sm:justify-end w-full sm:w-auto">
-                    <img src="/assets/Home/Topbarassets/insta logo.png" alt="Instagram" className="w-4 h-4 cursor-pointer hover:scale-110 transition" />
-                    <img src="/assets/Home/Topbarassets/linkednin.png" alt="LinkedIn" className="w-4 h-4 cursor-pointer hover:scale-110 transition" />
-                    <img src="/assets/Home/Topbarassets/twitter.png" alt="Twitter" className="w-3 h-3 cursor-pointer hover:scale-110 transition" />
-                    <img src="/assets/Home/Topbarassets/fb.png" alt="Facebook" className="w-4 h-4 cursor-pointer hover:scale-110 transition" />
+                    <Link href="https://www.linkedin.com/company/softworks-technologies/?viewAsMember=true" target='blank'><img src="/assets/Home/Topbarassets/linkednin.png" alt="LinkedIn" className="w-4 h-4 cursor-pointer hover:scale-110 transition" /></Link>
+                    <Link href="https://x.com/Softworkstech1" target='blank'><img src="/assets/Home/Topbarassets/twitter.png" alt="Twitter" className="w-3 h-3 cursor-pointer hover:scale-110 transition" /></Link>
+                    <Link href="https://www.instagram.com/softworkstech19/" target='blank'><img src="/assets/Home/Topbarassets/insta logo.png" alt="Instagram" className="w-4 h-4 cursor-pointer hover:scale-110 transition" /></Link>
+                    <Link href="https://www.facebook.com/softworkstech19" target='blank'><img src="/assets/Home/Topbarassets/fb.png" alt="Facebook" className="w-4 h-4 cursor-pointer hover:scale-110 transition" /></Link>
                 </div>
             </div>
         </div>
