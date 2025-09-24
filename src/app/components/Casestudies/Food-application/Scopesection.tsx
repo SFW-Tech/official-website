@@ -2,7 +2,7 @@ import React from "react";
 
 const Scopesection: React.FC = () => {
   return (
-    <div className="flex flex-col gap-10 bg-gray-50  rounded-4xl">
+    <div className="flex flex-col gap-10 bg-gray-50  rounded-4xl p-4 md:px-6">
       {/* Heading */}
       <div className="flex items-center justify-center gap-4">
         <div className="h-[2px] w-20 bg-gray-300"></div>
