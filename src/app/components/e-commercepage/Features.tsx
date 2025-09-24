@@ -111,7 +111,7 @@ function Features() {
                 key={idx}
                 onClick={() => handleClick(idx)}
                 className={`w-full p-4 rounded-2xl text-left transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${selectedFeature === idx
-                  ? "bg-gradient-to-r from-cyan-400 to-blue-900 text-white shadow-xl scale-105"
+                  ? "bg-gradient-to-r from-blue-900 to-cyan-400 text-white shadow-xl scale-105"
                   : "bg-[#59d7f7] hover:bg-cyan-300 text-gray-800"
                   }`}
               >
@@ -150,7 +150,7 @@ function Features() {
                   key={actualIndex}
                   onClick={() => handleClick(actualIndex)}
                   className={`w-full p-4 rounded-2xl text-left transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${selectedFeature === actualIndex
-                    ? "bg-gradient-to-r from-cyan-400 to-blue-900 text-white shadow-xl scale-105"
+                    ? "bg-gradient-to-r from-blue-900 to-cyan-400 text-white shadow-xl scale-105"
                     : "bg-cyan-200 hover:bg-cyan-300 text-gray-800"
                     }`}
                 >

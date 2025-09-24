@@ -12,6 +12,7 @@ type Service = {
   image: string
   gradient: string
   shadow: number | string
+  mobileShadow: string
   numbercolor: string | number
   link: string
 }
@@ -34,6 +35,7 @@ function OurServices() {
       image: "/assets/Home/Ourservicesassets/services1.png",
       gradient: "bg-gradient-to-r from-[#FCF5F7] to-[#FCBFD0]",
       shadow: "shadow-[0_0_60px_20px_rgba(236,72,153,0.7)]",
+      mobileShadow: "shadow-[0_0_20px_8px_rgba(236,72,153,0.5)]",
       numbercolor: "text-pink-500",
       link: "/webapplications",
     },
@@ -46,6 +48,7 @@ function OurServices() {
       image: "/assets/Home/Ourservicesassets/services2.png",
       gradient: "bg-gradient-to-r from-violet-50 to-violet-200",
       shadow: "shadow-[0_0_60px_20px_rgba(139,92,246,0.7)]",
+      mobileShadow: "shadow-[0_0_20px_8px_rgba(139,92,246,0.5)]",
       numbercolor: "text-violet-500",
       link: "/mobileapplications",
     },
@@ -58,6 +61,7 @@ function OurServices() {
       image: "/assets/Home/Ourservicesassets/services3.png",
       gradient: "bg-gradient-to-r from-violet-50 to-violet-200",
       shadow: "shadow-[0_0_60px_20px_rgba(139,92,246,0.7)]",
+      mobileShadow: "shadow-[0_0_20px_8px_rgba(139,92,246,0.5)]",
       numbercolor: "text-violet-500",
       link: "/websitedevelopment",
     },
@@ -70,6 +74,7 @@ function OurServices() {
       image: "/assets/Home/Ourservicesassets/services4.png",
       gradient: "bg-gradient-to-r from-yellow-50 to-yellow-100",
       shadow: "shadow-[0_0_60px_20px_rgba(250,204,21,0.7)]",
+      mobileShadow: "shadow-[0_0_20px_8px_rgba(250,204,21,0.5)]",
       numbercolor: "text-yellow-500",
       link: "/ai",
     },
@@ -82,6 +87,7 @@ function OurServices() {
       image: "/assets/Home/Ourservicesassets/services5.png",
       gradient: "bg-gradient-to-r from-[#F8F0FC] to-[#D0BFFF]",
       shadow: "shadow-[0_0_60px_20px_rgba(147,51,234,0.7)]",
+      mobileShadow: "shadow-[0_0_20px_8px_rgba(147,51,234,0.5)]",
       numbercolor: "text-purple-500",
       link: "/staff-augmentation",
     },
@@ -137,7 +143,7 @@ function OurServices() {
   return (
     <motion.div
       ref={ref}
-      className="w-full mt-10 md:mt-20 px-6 md:px-0"
+      className="w-full mt-10 md:mt-20"
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
@@ -161,14 +167,14 @@ function OurServices() {
         </motion.p>
       </motion.div>
 
-      <motion.div className="md:pl-28" variants={itemVariants}>
+      <motion.div className="px-6 md:px-8 lg:px-12 xl:px-28" variants={itemVariants}>
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] mt-8 md:mt-22"
+          className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-6 mt-8 md:mt-22"
           variants={containerVariants}
         >
           {/* Left Side */}
           <motion.div
-            className="flex flex-col rounded-lg overflow-hidden"
+            className="flex flex-col rounded-lg overflow-hidden order-2 lg:order-1"
             variants={itemVariants}
           >
             {services.map((service, index) => (
@@ -203,9 +209,9 @@ function OurServices() {
             ))}
           </motion.div>
 
-          {/* Right Side */}
+          {/* Right Side - Now responsive for all screen sizes */}
           <motion.div
-            className="hidden md:block relative h-[600px] overflow-hidden -mt-35"
+            className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden -mt-0 lg:-mt-35 order-1 lg:order-2"
             variants={itemVariants}
             style={{ perspective: 1000 }}
           >
@@ -228,21 +234,21 @@ function OurServices() {
                     <motion.img
                       src={activeService?.image}
                       alt={activeService?.title}
-                      className="w-full h-full"
+                      className="w-full h-full object-cover rounded-lg"
                       layoutId={`main-image-${selected}`}
                       whileHover={{ scale: 1.05, filter: "brightness(1.1)" }}
                       transition={{ type: "spring", stiffness: 200 }}
                     />
                   ) : (
                     <motion.div
-                      className="w-full h-full flex items-center justify-center p-8"
+                      className="w-full h-full flex items-center justify-center p-4 sm:p-6 lg:p-8"
                       style={{ transform: "rotateY(180deg)" }}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.3 }}
                     >
                       <motion.div
-                        className={`bg-white rounded-lg p-8 max-w-md w-full ${activeService?.shadow}`}
+                        className={`bg-white rounded-lg p-4 sm:p-6 lg:p-8 max-w-md w-full ${activeService?.mobileShadow} sm:${activeService?.shadow}`}
                         initial={{ y: 50, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{
@@ -255,11 +261,27 @@ function OurServices() {
                           transition: { type: "spring", stiffness: 300 },
                         }}
                       >
-                        <div className="flex justify-between items-start gap-4">
-                          {/* Left Side */}
+                        {/* Mobile and Tablet Number Display - Shows first on smaller screens */}
+                        <motion.div
+                          className="flex justify-center lg:hidden mb-4"
+                          initial={{ scale: 0, rotate: -180 }}
+                          animate={{ scale: 1, rotate: 0 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 200,
+                            delay: 0.7,
+                          }}
+                        >
+                          <span className={`text-5xl font-bold ${activeService?.numbercolor}`}>
+                            0{selected}
+                          </span>
+                        </motion.div>
+
+                        <div className="flex flex-col lg:flex-row justify-between items-start gap-4">
+                          {/* Content */}
                           <div className="flex-1">
                             <motion.h3
-                              className="text-xl font-bold text-gray-800 mb-4"
+                              className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-4"
                               initial={{ opacity: 0, y: 20 }}
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ delay: 0.6 }}
@@ -268,7 +290,7 @@ function OurServices() {
                             </motion.h3>
 
                             <motion.p
-                              className="text-gray-600 text-md leading-relaxed"
+                              className="text-gray-600 text-sm sm:text-md leading-relaxed"
                               initial={{ opacity: 0, y: 20 }}
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ delay: 0.8 }}
@@ -277,9 +299,9 @@ function OurServices() {
                             </motion.p>
                           </div>
 
-                          {/* Right Side (Number) */}
+                          {/* Desktop Number - Shows on the right for larger screens */}
                           <motion.span
-                            className={`text-7xl font-bold ${activeService?.numbercolor} -m-2`}
+                            className={`text-4xl sm:text-5xl lg:text-7xl font-bold ${activeService?.numbercolor} -m-2 lg:block hidden`}
                             initial={{ scale: 0, rotate: -180 }}
                             animate={{ scale: 1, rotate: 0 }}
                             transition={{
@@ -294,7 +316,7 @@ function OurServices() {
 
                         {/* Learn More Button */}
                         <motion.div
-                          className="flex gap-3 mt-6 items-center cursor-pointer underline"
+                          className="flex gap-3 mt-4 sm:mt-6 items-center cursor-pointer underline justify-center sm:justify-start"
                           onClick={() =>
                             activeService?.link && router.push(activeService.link)
                           }
@@ -307,13 +329,13 @@ function OurServices() {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.9 }}
                         >
-                          <h2 className="font-bold text-black text-xs">
+                          <h2 className="font-bold text-black text-xs sm:text-sm">
                             Learn More
                           </h2>
                           <motion.img
                             src="/assets/Home/Ourservicesassets/arrowicon.png"
                             alt="arrow"
-                            className="h-4 w-4"
+                            className="h-3 w-3 sm:h-4 sm:w-4"
                             whileHover={{ x: 5 }}
                             transition={{ type: "spring", stiffness: 300 }}
                           />

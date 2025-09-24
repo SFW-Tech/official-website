@@ -65,7 +65,7 @@ function Leaderssection() {
       <div ref={emblaRef} className="overflow-hidden">
         <div className="flex">
           {leaders.map((leader, idx) => (
-            <AnimateOnView key={idx} variants={fadeDown} className="flex-[0_0_100%] min-w-0 px-2">
+            <div key={idx} className="flex-[0_0_100%] min-w-0 px-2">
               <div className="bg-gradient-to-r from-[#7264bb] via-[#3f4c67] to-[#605c9b] p-6 rounded-xl flex flex-col lg:flex-row items-center text-white h-full gap-6">
                 <img src={leader.img} alt={leader.name} className="h-60 md:h-72 rounded-xl" />
                 <div className="flex flex-col gap-3 text-center lg:text-left flex-grow lg:mt-2 justify-center">
@@ -84,7 +84,7 @@ function Leaderssection() {
                   </Link>
                 </div>
               </div>
-            </AnimateOnView>
+            </div>
           ))}
         </div>
       </div>

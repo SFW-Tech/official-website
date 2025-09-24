@@ -16,7 +16,7 @@ export default function AnimateOnView({
   variants,
   className,
   style,
-  amount = 0.3,
+  amount = 0.1,
   once = true,
 }: Props) {
   const ref = useRef<HTMLDivElement | null>(null);
