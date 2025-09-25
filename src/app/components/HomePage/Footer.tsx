@@ -32,23 +32,23 @@ function Footer() {
                     <div className='flex flex-col text-white gap-3'>
                         <h2 className='font-semibold'>Quick Links</h2>
                         <hr className="border-gray-400 opacity-40" />
-                        <Link href="/careers">Careers</Link>
-                        <Link href="/blog">Blog</Link>
-                        <Link href="/contact">Contact Us</Link>
+                        <Link href="/careers" className='hover:text-[#59D7F7]'>Careers</Link>
+                        <Link href="/blog" className='hover:text-[#59D7F7]'>Blog</Link>
+                        <Link href="/contact" className='hover:text-[#59D7F7]'>Contact Us</Link>
                     </div>
 
                     {/* Services */}
                     <div className='flex flex-col text-white gap-3'>
                         <h2 className='font-semibold'>Our Services</h2>
                         <hr className="border-gray-400 opacity-40" />
-                        <Link href="/websitedevelopment">Custom Application</Link>
-                        <Link href="/mobileapplications">Mobile Application</Link>
-                        <Link href="/webapplications">Web Application</Link>
-                        <Link href="/ai">Artificial Intelligence</Link>
-                        <Link href="/odoo">Odoo</Link>
-                        <Link href="/staffaugmentation">Staff Augmentation</Link>
-                        <Link href="/e-commerce">Ecommerce Applications</Link>
-                        <Link href="/servicenow">ServiceNow</Link>
+                        <Link href="/websitedevelopment" className='hover:text-[#59D7F7]'>Custom Application</Link>
+                        <Link href="/mobileapplications" className='hover:text-[#59D7F7]'>Mobile Application</Link>
+                        <Link href="/webapplications" className='hover:text-[#59D7F7]'>Web Application</Link>
+                        <Link href="/ai" className='hover:text-[#59D7F7]'>Artificial Intelligence</Link>
+                        <Link href="/odoo" className='hover:text-[#59D7F7]'>Odoo</Link>
+                        <Link href="/staffaugmentation" className='hover:text-[#59D7F7]'>Staff Augmentation</Link>
+                        <Link href="/e-commerce" className='hover:text-[#59D7F7]'>Ecommerce Applications</Link>
+                        <Link href="/servicenow" className='hover:text-[#59D7F7]'>ServiceNow</Link>
                     </div>
 
                     {/* Contact */}
@@ -76,7 +76,7 @@ function Footer() {
                                     #6, Ground Floor, Kaanchan, North Huzur Road, Race Course, Coimbatore, Tamil Nadu, 641018
                                 </p>
                                 <button className="text-cyan-400 text-xs mt-2 flex items-center gap-1 hover:text-cyan-300 transition">
-                                    <Link href="https://maps.app.goo.gl/2UZnYQSZTpfRNFsy9" target='blank'>
+                                    <Link href="https://maps.app.goo.gl/2UZnYQSZTpfRNFsy9" target='blank' className='hover:text-[#59D7F7]'>
                                         Get Direction
                                     </Link>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -98,7 +98,7 @@ function Footer() {
                                     7/2A, Shreesha Building, First Floor, Central Studio Road, Dhanalakshmi Puram South, Singanallur, Coimbatore, Tamil Nadu, 641005
                                 </p>
                                 <button className="text-cyan-400 text-xs mt-2 flex items-center gap-1 hover:text-cyan-300 transition">
-                                    <Link href="https://maps.app.goo.gl/Z6ZCF68WdCUyozsX7" target='blank'>
+                                    <Link href="https://maps.app.goo.gl/Z6ZCF68WdCUyozsX7" target='blank' className='hover:text-[#59D7F7]'>
                                         Get Direction
                                     </Link>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -120,7 +120,7 @@ function Footer() {
                                     C - Block 904 , Riddhi's, Pramukh Elegance, Jeedimetla, Hyderabad, Telangana, 500055
                                 </p>
                                 <button className="text-cyan-400 text-xs mt-2 flex items-center gap-1 hover:text-cyan-300 transition">
-                                    Get Direction
+                                    <span className='hover:text-[#59D7F7]'>Get Direction</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         strokeWidth={1.5} stroke="currentColor" className="w-3 h-3">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
@@ -143,9 +143,9 @@ function Footer() {
                 <div className='flex flex-col sm:flex-row gap-4 sm:gap-8 text-white text-xs sm:text-sm items-center sm:items-start'>
                     <p>©2025 Softworks Technologies. All Rights Reserved</p>
                     <div className="hidden sm:block h-4 border-l border-gray-400 opacity-40"></div>
-                    <p>Terms & Conditions</p>
+                    <p className='hover:text-[#59D7F7] cursor-pointer'>Terms & Conditions</p>
                     <div className="hidden sm:block h-4 border-l border-gray-400 opacity-40"></div>
-                    <p>Privacy Policy</p>
+                    <p className='hover:text-[#59D7F7] cursor-pointer'>Privacy Policy</p>
                 </div>
 
                 {/* Right Icons */}
