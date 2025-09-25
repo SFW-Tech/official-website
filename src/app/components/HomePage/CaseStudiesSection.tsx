@@ -20,7 +20,7 @@ function CaseStudiesSection() {
         {
             src: "/assets/Home/Casestudyassets/case study 2.png",
             alt: "Field Service Management",
-            link: "/case-studies/Field-service-management"
+            link: "/case-studies/Resolve"
         },
         {
             src: "/assets/Home/Casestudyassets/case study 3.png",
@@ -41,7 +41,7 @@ function CaseStudiesSection() {
 
     const caseStudyTitles = [
         "Digital Transformation",
-        "Field Service Management",
+        "Resolve",
         "Appointment Booking System",
         "Reverse Logistics Management",
         "Food Application",
