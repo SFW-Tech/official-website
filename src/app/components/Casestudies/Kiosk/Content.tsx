@@ -16,7 +16,7 @@ function Content() {
                 {/* Image */}
                 <AnimateOnView variants={fadeDown} className='flex justify-center'>
                     <img
-                        src="/assets/Casestudies/Kisok.jpg"
+                        src="/assets/Casestudies/Kiosk.jpg"
                         alt="Kiosk system"
                         className='w-full max-w-xs lg:max-w-base xl:max-w-md rounded-xl'
                     />

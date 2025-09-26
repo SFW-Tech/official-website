@@ -41,7 +41,7 @@ function CaseStudiesSection() {
 
     const caseStudyTitles = [
         "Digital Transformation",
-        "Resolve",
+        "Field Service Management",
         "Appointment Booking System",
         "Reverse Logistics Management",
         "Food Application",

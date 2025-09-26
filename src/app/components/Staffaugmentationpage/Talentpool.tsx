@@ -23,9 +23,6 @@ function Talentpool() {
         "Android Developers",
         "Flutter Developers",
         "React Native Developers",
-        "Xamarin Developers",
-        "AngularJS Developers",
-        "ReactJS Developers",
         "Ionic Developers",
         "Kotlin Developers",
         "Hybrid App Developers"
