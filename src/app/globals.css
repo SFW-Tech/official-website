@@ -85,6 +85,35 @@
 
 
 
+/* ===== Scrollbar Style for Contact Form ===== */
+.form-scrollbar::-webkit-scrollbar {
+  width: 10px; /* width of scrollbar */
+}
+
+.form-scrollbar::-webkit-scrollbar-track {
+  background: #f9fafb; /* light neutral background */
+}
+
+.form-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #9CA3AF; /* gray-400 */
+  border-radius: 8px;
+}
+
+.form-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #6B7280; /* gray-500 on hover */
+}
+
+/* Firefox */
+.form-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #9CA3AF #f9fafb; /* thumb | track */
+}
+
+
+
+
+
+
 
 
 
