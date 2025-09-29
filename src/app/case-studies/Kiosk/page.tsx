@@ -1,5 +1,5 @@
-import Content from '@/app/components/Casestudies/Kisok/Content'
-import Herosection from '@/app/components/Casestudies/Kisok/Herosection'
+import Content from '@/app/components/Casestudies/Kiosk/Content'
+import Herosection from '@/app/components/Casestudies/Kiosk/Herosection'
 import React from 'react'
 
 function Page() {
