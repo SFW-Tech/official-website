@@ -8,7 +8,7 @@ import CaseStudyModalForm from '../CaseStudyModalForm';
 function Content() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const pdfLink = "/assets/CasestudiesPdf/Resolve.pdf"; 
+    const pdfLink = "/assets/CasestudiesPdf/Field-Service-Management.pdf"; 
     return (
         <div className='px-4 py-6 md:px-10 lg:px-16 xl:px-28 xl:py-10'>
             <div className='flex flex-col gap-8 md:gap-10 lg:gap-12 xl:gap-15'>

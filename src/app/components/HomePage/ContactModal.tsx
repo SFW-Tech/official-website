@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useSnackbar } from "notistack";
 import emailjs from "emailjs-com";
+import axios from "axios";
 
 interface ContactModalProps {
     isOpen: boolean;
@@ -15,8 +16,10 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
-    const [services, setServices] = useState(""); // new state for Services
+    const [services, setServices] = useState("");
     const [message, setMessage] = useState("");
+
+
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -24,7 +27,7 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
         name: "",
         email: "",
         phone: "",
-        services: "", // new error key
+        services: "",
         message: "",
     });
 
@@ -71,6 +74,8 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
+
+
         e.preventDefault();
         setIsSubmitting(true);
 
@@ -97,28 +102,36 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
             return;
         }
 
-        const templateParams = { name, email, phone, services, message };
+
+        // APi Call
+
+        const payload = {
+            data: {
+
+                cr276_contact_person: name,
+                cr276_email: email,
+                cr276_mobile: phone,
+                cr276_services: services,
+                cr276_message: message,
+
+            }
+        };
+
 
         try {
-            await emailjs.send(
-                "service_nw9y07d",
-                "template_4do41qh",
-                templateParams,
-                "8J-QHGkIceS0qyv5x"
-            );
+            const res = await axios.post("https://azure-proxy-production.up.railway.app/api/proxy/dynamics?endPoint=cr276_sfcontacts", payload);
 
-            setIsSubmitted(true);
-
-            enqueueSnackbar("Contact Form Submitted successfully", {
-                variant: "success",
-                anchorOrigin: { vertical: "top", horizontal: "center" },
-                autoHideDuration: 3000,
-            });
-
-            // Auto close after success animation
-            setTimeout(() => {
-                handleClose();
-            }, 3000);
+            if (res.status === 200 || res.status === 201) {
+                setIsSubmitted(true);
+                enqueueSnackbar("Form submitted successfully!", {
+                    variant: "success",
+                    anchorOrigin: { vertical: "top", horizontal: "center" },
+                    autoHideDuration: 3000,
+                });
+                setTimeout(() => handleClose(), 5000);
+            } else {
+                throw new Error("API error");
+            }
         } catch (err) {
             console.error("FAILED...", err);
             setIsSubmitting(false);
@@ -128,7 +141,11 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
                 autoHideDuration: 3000,
             });
         }
+
     };
+
+
+
 
     // Animation variants
     const backdropVariants: Variants = {
@@ -258,16 +275,16 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
 
                         {/* Header - Fixed */}
                         <motion.div
-                            className="flex flex-col gap-4 bg-gradient-to-r from-[#221C41] via-[#0D1C3C] to-[#42306A] p-6 text-center flex-shrink-0 rounded-t-2xl"
+                            className="flex flex-col gap-4 bg-white p-6 text-center flex-shrink-0 rounded-t-2xl"
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.4, delay: 0.1 }}
                         >
                             <div className="flex justify-center">
-                                <img src="/assets/logo.png" alt="Logo" className="h-10 w-auto" />
+                                <img src="/assets/Logo1.png" alt="Logo" className="h-10 w-auto" />
                             </div>
 
-                            <p className="text-xs text-white/90">
+                            <p className="text-xs text-gray-400">
                                 Thank you for your interest in our services! Please take a few minutes to fill out this short form so we can
                                 understand your needs better. Once completed, we will reach out to your schedule to discuss further.
                             </p>
@@ -287,7 +304,7 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
                                         className="flex-1 flex flex-col min-h-0 overflow-hidden"
                                     >
                                         {/* Form Fields - Scrollable */}
-                                        <div className="flex-1 overflow-y-auto px-6 pt-6 pb-2">
+                                        <div className="flex-1 overflow-y-auto px-6 pt-6 pb-2 form-scrollbar">
                                             <div className="space-y-4">
                                                 {/* Name */}
                                                 <motion.div
@@ -303,7 +320,7 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
                                                         whileFocus="focus"
                                                         animate="blur"
                                                         type="text"
-                                                        className={`w-full px-4 py-3 rounded-lg border ${errors.name ? "border-red-500" : "border-gray-300"} focus:ring-2 focus:ring-purple-100 focus:outline-none transition-colors duration-200`}
+                                                        className={`w-full px-4 py-3 rounded-lg border ${errors.name ? "border-red-500" : "border-gray-300"} focus:ring-1 focus:ring-cyan-100 focus:outline-none transition-colors duration-200`}
                                                         placeholder="Enter your name"
                                                         value={name}
                                                         onChange={(e) => {
@@ -340,7 +357,7 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
                                                         whileFocus="focus"
                                                         animate="blur"
                                                         type="email"
-                                                        className={`w-full px-4 py-3 rounded-lg border ${errors.email ? "border-red-500" : "border-gray-300"} focus:ring-2 focus:ring-purple-100 focus:outline-none transition-colors duration-200`}
+                                                        className={`w-full px-4 py-3 rounded-lg border ${errors.email ? "border-red-500" : "border-gray-300"} focus:ring-1 focus:ring-cyan-100 focus:outline-none transition-colors duration-200`}
                                                         placeholder="Enter your email"
                                                         value={email}
                                                         onChange={(e) => {
@@ -377,7 +394,7 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
                                                         whileFocus="focus"
                                                         animate="blur"
                                                         type="text"
-                                                        className={`w-full px-4 py-3 rounded-lg border ${errors.phone ? "border-red-500" : "border-gray-300"} focus:ring-2 focus:ring-purple-100 focus:outline-none transition-colors duration-200`}
+                                                        className={`w-full px-4 py-3 rounded-lg border ${errors.phone ? "border-red-500" : "border-gray-300"} focus:ring-1 focus:ring-cyan-100 focus:outline-none transition-colors duration-200`}
                                                         placeholder="Enter your phone number"
                                                         value={phone}
                                                         onChange={(e) => {
@@ -418,7 +435,7 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
                                                         className={`
                                                             w-full px-3 py-3 rounded-lg border 
                                                             ${errors.services ? "border-red-500" : "border-gray-300"} 
-                                                            focus:ring-2 focus:ring-purple-100 focus:outline-none 
+                                                            focus:ring-1 focus:ring-cyan-100 focus:outline-none 
                                                             transition-colors duration-200
                                                             text-sm sm:text-base
                                                             bg-white
@@ -481,7 +498,7 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
                                                         variants={inputVariants}
                                                         whileFocus="focus"
                                                         animate="blur"
-                                                        className={`w-full px-4 py-3 rounded-lg border ${errors.message ? "border-red-500" : "border-gray-300"} focus:ring-2 focus:ring-purple-100 focus:outline-none h-20 resize-none transition-colors duration-200`}
+                                                        className={`w-full px-4 py-3 rounded-lg border ${errors.message ? "border-red-500" : "border-gray-300"} focus:ring-1 focus:ring-cyan-100 focus:outline-none h-20 resize-none transition-colors duration-200`}
                                                         placeholder="Write your message..."
                                                         value={message}
                                                         onChange={(e) => {
@@ -517,7 +534,7 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
                                                 <motion.button
                                                     type="submit"
                                                     disabled={isSubmitting}
-                                                    className="px-8 py-3 bg-gradient-to-r from-[#221C41] via-[#0D1C3C] to-[#42306A] text-white rounded-lg font-medium relative overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed min-w-[120px] cursor-pointer"
+                                                    className="px-8 py-3 bg-[#59D7F7] text-white rounded-lg font-medium relative overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed min-w-[120px] cursor-pointer"
                                                     whileHover={!isSubmitting ? { scale: 1.05 } : {}}
                                                     whileTap={!isSubmitting ? { scale: 0.95 } : {}}
                                                     transition={{ duration: 0.2 }}

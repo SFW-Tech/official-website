@@ -5,7 +5,7 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 interface ContactModalProps {
     isOpen: boolean;
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-    pdfLink: string; // pass the PDF path as a prop
+    pdfLink: string;
 }
 
 function CaseStudyModalForm({ isOpen, setIsOpen, pdfLink }: ContactModalProps) {
@@ -99,7 +99,7 @@ function CaseStudyModalForm({ isOpen, setIsOpen, pdfLink }: ContactModalProps) {
                         initial="hidden"
                         animate="visible"
                         exit="exit"
-                        className="bg-white rounded-2xl shadow-2xl w-full sm:w-[90%] md:w-[70%] lg:w-[50%] xl:w-[40%] relative max-h-[90vh] flex flex-col"
+                        className="bg-white rounded-2xl shadow-2xl w-full sm:w-[90%] md:w-[70%] lg:w-[50%] xl:w-[40%] 2xl:max-w-2xl relative max-h-[90vh] flex flex-col overflow-hidden"
                     >
                         {/* Close Button */}
                         <button
@@ -111,9 +111,16 @@ function CaseStudyModalForm({ isOpen, setIsOpen, pdfLink }: ContactModalProps) {
                         </button>
 
                         {/* Header */}
-                        <div className="flex flex-col gap-4 bg-gradient-to-r from-[#221C41] via-[#0D1C3C] to-[#42306A] p-6 text-center flex-shrink-0 rounded-t-2xl">
-                            <img src="/assets/logo.png" alt="Logo" className="h-10 w-auto mx-auto" />
-                            <p className="text-xs text-white/90">
+                        <div className="flex flex-col gap-4 bg-white p-6 text-center flex-shrink-0 rounded-t-2xl"
+                        >
+                            <div className="flex  justify-center">
+                                <img src="/assets/Logo1.png" alt="Logo" className="h-10 w-auto" />
+                            </div>
+
+
+
+                            <p className="text-xs text-gray-400">
+
                                 Fill out your name and email to access the download.
                             </p>
                         </div>
@@ -130,7 +137,7 @@ function CaseStudyModalForm({ isOpen, setIsOpen, pdfLink }: ContactModalProps) {
                                         onSubmit={handleSubmit}
                                         className="flex-1 flex flex-col min-h-0"
                                     >
-                                        <div className="flex-1 overflow-y-auto px-6 pt-6 pb-2 space-y-4">
+                                        <div className="flex-1 overflow-y-auto px-6 pt-6 pb-2 space-y-4  form-scrollbar">
                                             {/* Name */}
                                             <div>
                                                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -141,7 +148,7 @@ function CaseStudyModalForm({ isOpen, setIsOpen, pdfLink }: ContactModalProps) {
                                                     whileFocus="focus"
                                                     animate="blur"
                                                     type="text"
-                                                    className={`w-full px-4 py-3 rounded-lg border ${errors.name ? "border-red-500" : "border-gray-300"} focus:ring-2 focus:ring-purple-100 focus:outline-none transition-colors duration-200`}
+                                                    className={`w-full px-4 py-3 rounded-lg border ${errors.name ? "border-red-500" : "border-gray-300"} focus:ring-1 focus:ring-cyan-100 focus:outline-none transition-colors duration-200`}
                                                     placeholder="Enter your name"
                                                     value={name}
                                                     onChange={(e) => {
@@ -163,7 +170,7 @@ function CaseStudyModalForm({ isOpen, setIsOpen, pdfLink }: ContactModalProps) {
                                                     whileFocus="focus"
                                                     animate="blur"
                                                     type="email"
-                                                    className={`w-full px-4 py-3 rounded-lg border ${errors.email ? "border-red-500" : "border-gray-300"} focus:ring-2 focus:ring-purple-100 focus:outline-none transition-colors duration-200`}
+                                                    className={`w-full px-4 py-3 rounded-lg border ${errors.email ? "border-red-500" : "border-gray-300"} focus:ring-1 focus:ring-cyan-100 focus:outline-none transition-colors duration-200`}
                                                     placeholder="Enter your email"
                                                     value={email}
                                                     onChange={(e) => {
@@ -187,7 +194,7 @@ function CaseStudyModalForm({ isOpen, setIsOpen, pdfLink }: ContactModalProps) {
                                                 <motion.button
                                                     type="submit"
                                                     disabled={isSubmitting}
-                                                    className="px-8 py-3 bg-gradient-to-r from-[#221C41] via-[#0D1C3C] to-[#42306A] text-white rounded-lg font-medium relative overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed min-w-[120px] cursor-pointer"
+                                                    className="px-8 py-3 bg-[#59D7F7] text-white rounded-lg font-medium relative overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed min-w-[120px] cursor-pointer"
                                                     whileHover={!isSubmitting ? { scale: 1.05 } : {}}
                                                     whileTap={!isSubmitting ? { scale: 0.95 } : {}}
                                                     transition={{ duration: 0.2 }}

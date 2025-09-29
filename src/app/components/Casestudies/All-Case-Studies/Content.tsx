@@ -49,15 +49,15 @@ const caseStudies = [
         tags: ['Developer Tools', 'Productivity', 'Platform']
     },
     {
-        id: 'Kisok',
-        title: 'Kisok',
+        id: 'Kiosk',
+        title: 'Kiosk',
         description: 'Interactive self-service kiosk solution for retail environments and customer engagement',
-        image: '/assets/Casestudies/Kisok.jpg',
+        image: '/assets/Casestudies/Kiosk.jpg',
         tags: ['Retail', 'Self-Service', 'Interactive']
     },
     {
-        id: 'Resolve',
-        title: 'Resolve',
+        id: 'Field-Service-Management',
+        title: 'Field Service Management',
         description: 'Customer support and issue resolution management system with intelligent routing',
         image: '/assets/Casestudies/Resolve.png',
         tags: ['Support', 'CRM', 'Management']
@@ -109,7 +109,7 @@ function Content() {
                 className="text-center mb-20"
             >
                 <motion.div
-                   variants={headingVariant}
+                    variants={headingVariant}
                     className="inline-block"
                 >
                     <h1 className="text-3xl lg:text-6xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent mb-6">
@@ -120,7 +120,7 @@ function Content() {
                     variants={fadeDown}
                     className="text-lg md:xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-light"
                 >
-                      Discover how we transform ideas into impactful digital solutions. Each case study reflects our commitment to innovation, quality, and measurable results.
+                    Discover how we transform ideas into impactful digital solutions. Each case study reflects our commitment to innovation, quality, and measurable results.
                 </motion.p>
                 <motion.div
                     initial={{ width: 0 }}
@@ -133,7 +133,7 @@ function Content() {
             {/* Case Studies Grid */}
             <AnimateOnView
                 variants={staggerContainer}
-               
+
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
             >
                 {caseStudies.map((study, index) => (

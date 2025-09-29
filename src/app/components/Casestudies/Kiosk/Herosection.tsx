@@ -5,7 +5,7 @@ import CareerHerosection from '../../Herocomponents/CareerHerosection'
 function Herosection() {
   return (
     <div>
-      <CareerHerosection title='Kisok'/>
+      <CareerHerosection title='Kiosk'/>
     </div>
   )
 }

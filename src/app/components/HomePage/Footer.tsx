@@ -29,12 +29,26 @@ function Footer() {
                 {/* Grid ------------ */}
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-6 mt-10 text-sm'>
                     {/* Quick Links */}
-                    <div className='flex flex-col text-white gap-3'>
-                        <h2 className='font-semibold'>Quick Links</h2>
-                        <hr className="border-gray-400 opacity-40" />
-                        <Link href="/careers" className='hover:text-[#59D7F7]'>Careers</Link>
-                        <Link href="/blog" className='hover:text-[#59D7F7]'>Blog</Link>
-                        <Link href="/contact" className='hover:text-[#59D7F7]'>Contact Us</Link>
+                    <div className='flex flex-col text-white gap-6'>
+
+                        <div className='flex flex-col gap-3'>
+                            <h2 className='font-semibold'>Quick Links</h2>
+                            <hr className="border-gray-400 opacity-40" />
+                            <Link href="/careers" className='hover:text-[#59D7F7]'>Careers</Link>
+                            <Link href="/blog" className='hover:text-[#59D7F7]'>Blog</Link>
+                            <Link href="/contact" className='hover:text-[#59D7F7]'>Contact Us</Link>
+                        </div>
+
+                        <div className='flex flex-col gap-1 justify-center'>
+                            <div>
+                                <img src="/assets/QrCode/BitlyQr.png" alt="Qr Code" className='max-h-25 w-auto' />
+                            </div>
+
+                            <div>
+                                <h1 className='text-white font-bold text-xs'>Scan For Location</h1>
+                            </div>
+
+                        </div>
                     </div>
 
                     {/* Services */}
