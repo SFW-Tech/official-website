@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useSnackbar } from "notistack";
-import emailjs from "emailjs-com";
 import axios from "axios";
 
 interface ContactModalProps {

@@ -1,10 +1,10 @@
 "use client"
 import React, { useState } from 'react';
-import emailjs from 'emailjs-com';
 import { useSnackbar } from 'notistack';
 import AnimateOnView from '../../../../animations/AnimateOnView';
 import { fadeDown, headingVariant, staggerContainer } from '../../../../animations/animations';
 import { motion } from 'framer-motion';
+import axios from 'axios';
 
 function Contactussection() {
 
@@ -15,13 +15,14 @@ function Contactussection() {
 
     const { enqueueSnackbar } = useSnackbar();
 
-
     const [errors, setErrors] = useState({
         name: "",
         email: "",
         phone: "",
         message: "",
     });
+
+    const [loading, setLoading] = useState(false); 
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -37,39 +38,40 @@ function Contactussection() {
         setErrors(newErrors);
 
         if (newErrors.name || newErrors.email || newErrors.phone || newErrors.message) {
-
             return;
         }
 
-        const templateParams = {
-            name,
-            email,
-            phone,
-            message,
+        // APi Call
+        const payload = {
+            data: {
+                cr276_contact_person: name,
+                cr276_email: email,
+                cr276_mobile: phone,
+                cr276_message: message,
+            }
         };
 
         try {
-            const response = await emailjs.send(
-                "service_nw9y07d",
-                "template_4do41qh",
-                templateParams,
-                "8J-QHGkIceS0qyv5x"
-            );
+            setLoading(true); 
+            const res = await axios.post("https://azure-proxy-production.up.railway.app/api/proxy/dynamics?endPoint=cr276_sfcontacts", payload);
 
-            console.log("SUCCESS!", response.status, response.text);
+            if (res.status === 200 || res.status === 201) {
+                enqueueSnackbar("Form submitted successfully!", {
+                    variant: "success",
+                    anchorOrigin: { vertical: "top", horizontal: "center" },
+                    autoHideDuration: 3000,
+                });
 
-            enqueueSnackbar("Contact Form Submitted successfully", {
-                variant: "success",
-                anchorOrigin: { vertical: "top", horizontal: "center" },
-                autoHideDuration: 3000,
-            });
+                
+                setName("");
+                setEmail("");
+                setPhone("");
+                setMessage("");
+                setErrors({ name: "", email: "", phone: "", message: "" });
 
-
-            setName("");
-            setEmail("");
-            setPhone("");
-            setMessage("");
-            setErrors({ name: "", email: "", phone: "", message: "" });
+            } else {
+                throw new Error("API error");
+            }
         } catch (err) {
             console.error("FAILED...", err);
             enqueueSnackbar("Failed to send message. Please try again later.", {
@@ -77,9 +79,10 @@ function Contactussection() {
                 anchorOrigin: { vertical: "top", horizontal: "center" },
                 autoHideDuration: 3000,
             });
+        } finally {
+            setLoading(false); 
         }
     };
-
 
     return (
         <div className='w-full mt-15 mb-4'>
@@ -87,36 +90,32 @@ function Contactussection() {
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-20 xl:gap-24 px-6 sm:px-10 md:px-16 lg:px-24 xl:px-28'>
 
                 {/* Left Side */}
-
                 <div className='flex flex-col gap-10 lg:gap-12'>
 
                     {/* Top */}
-
                     <div className='flex-col gap-4 flex leading-relaxed'>
-
-                        <AnimateOnView variants={headingVariant}>   <h1 className='text-2xl md:text-3xl font-bold text-gray-800'>Contact Us</h1></AnimateOnView>
-                        <AnimateOnView variants={fadeDown}>                       <p className='text-gray-600 text-base md:text-md lg:text-lg '>
-                            Give us a call or drop by anytime, we endeavour to answer all enquiries within 24 hours on business days. We will be happy to answer your questions.
-                        </p>
+                        <AnimateOnView variants={headingVariant}>
+                            <h1 className='text-2xl md:text-3xl font-bold text-gray-800'>Contact Us</h1>
                         </AnimateOnView>
-
-
+                        <AnimateOnView variants={fadeDown}>
+                            <p className='text-gray-600 text-base md:text-md lg:text-lg '>
+                                Give us a call or drop by anytime, we endeavour to answer all enquiries within 24 hours on business days. We will be happy to answer your questions.
+                            </p>
+                        </AnimateOnView>
                     </div>
 
                     <div className='flex-col'>
-
                         <AnimateOnView variants={staggerContainer} className='flex flex-col gap-6'>
 
                             {/* Address */}
-                            <motion.div variants={fadeDown} className='flex gap-4 md:gap-6 items-start'>
-                                <div className='p-4 md:p-5 rounded-xl border border-gray-200 flex-shrink-0'>
+                            <motion.div variants={fadeDown} className='flex gap-4 md:gap-6 items-center'>
+                                <div className='p-4 md:p-5 rounded-xl border border-gray-200 flex-shrink-0' >
                                     <img
                                         src="assets/Contactus/Contactussectionassets/location.png"
                                         alt="location"
                                         className='h-8 w-8 object-contain'
                                     />
                                 </div>
-
                                 <div className='flex-1'>
                                     <h3 className='text-gray-900 font-medium'>Our Address</h3>
                                     <p className='text-gray-600 text-base md:text-md lg:text-lg'>
@@ -125,10 +124,8 @@ function Contactussection() {
                                 </div>
                             </motion.div>
 
-
-
                             {/* Mail */}
-                            <motion.div variants={fadeDown} className='flex gap-4 md:gap-6 items-start'>
+                            <motion.div variants={fadeDown} className='flex gap-4 md:gap-6 items-center'>
                                 <div className='p-4 md:p-5 rounded-xl border border-gray-200 flex-shrink-0'>
                                     <img
                                         src="assets/Contactus/Contactussectionassets/mail.png"
@@ -142,10 +139,8 @@ function Contactussection() {
                                 </div>
                             </motion.div>
 
-
-
                             {/* Sales */}
-                            <motion.div variants={fadeDown} className='flex gap-4 md:gap-6 items-start'>
+                            <motion.div variants={fadeDown} className='flex gap-4 md:gap-6 items-center'>
                                 <div className='p-4 md:p-5 rounded-xl border border-gray-200 flex-shrink-0'>
                                     <img
                                         src="assets/Contactus/Contactussectionassets/sales.png"
@@ -159,10 +154,8 @@ function Contactussection() {
                                 </div>
                             </motion.div>
 
-
-
                             {/* Career */}
-                            <motion.div variants={fadeDown} className='flex gap-4 md:gap-6 items-start'>
+                            <motion.div variants={fadeDown} className='flex gap-4 md:gap-6 items-center'>
                                 <div className='p-4 md:p-5 rounded-xl border border-gray-200 flex-shrink-0'>
                                     <img
                                         src="assets/Contactus/Contactussectionassets/career.png"
@@ -178,14 +171,9 @@ function Contactussection() {
 
                         </AnimateOnView>
                     </div>
-
-
                 </div>
 
-
-
                 {/* Right Side */}
-
                 <div className='h-full'>
                     <AnimateOnView variants={staggerContainer}>
                         <form onSubmit={handleSubmit} className="rounded-2xl h-full w-full bg-violet-50">
@@ -262,21 +250,30 @@ function Contactussection() {
                                 </motion.div>
 
                                 {/* Submit */}
-                                <motion.div variants={fadeDown}
-                                className="flex justify-end py-3">
+                                <motion.div variants={fadeDown} className="flex justify-end py-3">
                                     <button
                                         type="submit"
-                                        className="bg-gradient-to-r from-orange-500 to-purple-600 hover:from-orange-600 hover:to-purple-700 text-white font-semibold px-6 py-3 md:px-8 md:py-4 lg:px-6 lg:py-3 rounded-2xl shadow-lg cursor-pointer text-sm md:text-base transition-all duration-300"
+                                        disabled={loading}
+                                        className={`flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-purple-600 hover:from-orange-600 hover:to-purple-700 text-white font-semibold px-6 py-3 md:px-8 md:py-4 lg:px-6 lg:py-3 rounded-2xl shadow-lg cursor-pointer text-sm md:text-base transition-all duration-300 ${loading ? "opacity-70 cursor-not-allowed" : ""}`}
                                     >
-                                        Submit
+                                        {loading ? (
+                                            <>
+                                                <motion.div
+                                                    animate={{ rotate: 360 }}
+                                                    transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                                                    className="h-5 w-5 border-2 border-white border-t-transparent rounded-full"
+                                                />
+                                                <span>Submitting...</span>
+                                            </>
+                                        ) : (
+                                            "Submit"
+                                        )}
                                     </button>
                                 </motion.div>
                             </motion.div>
                         </form>
                     </AnimateOnView>
-
                 </div>
-
             </div>
         </div>
     )
