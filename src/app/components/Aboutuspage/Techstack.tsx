@@ -1,24 +1,26 @@
 "use client";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import React, { useRef, useEffect, useState } from "react";
- 
+
 function Techstack() {
   const headingRef = useRef(null);
   const imageRef = useRef(null);
   const headingInView = useInView(headingRef, { once: true });
   const imageinView = useInView(imageRef, { once: true });
- 
-  const [currentImage, setCurrentImage] = useState("whole1");
- 
+
+  // Array of images
+  const images = ["TechStack1", "TechStack2", "TechStack3", "TechStack4"];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   // Switch image every 4 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev === "whole1" ? "whole2" : "whole1"));
+      setCurrentIndex((prev) => (prev + 1) % images.length); 
     }, 4000);
- 
+
     return () => clearInterval(interval);
-  }, []);
- 
+  }, [images.length]);
+
   return (
     <div className="mt-8 px-4 md:px-16 lg:px-24 xl:px-28">
       {/* Heading */}
@@ -36,14 +38,14 @@ function Techstack() {
           Your Developers and Our Integration
         </p>
       </motion.div>
- 
+
       {/* Image Switch */}
-      <div className="flex justify-center items-center mt-10 relative w-full h-[300px] md:h-[500px] lg:h-[550px] xl:h-[600px]">
+      <div className="flex justify-center items-center relative w-full h-[300px] md:h-[500px] lg:h-[550px] xl:h-[600px]">
         <motion.div ref={imageRef} style={{ position: "absolute" }}>
           <AnimatePresence mode="wait">
             <motion.img
-              key={currentImage}
-              src={`/assets/Aboutus/Techstackassets/${currentImage}.png`}
+              key={images[currentIndex]}
+              src={`/assets/Aboutus/Techstackassets/${images[currentIndex]}.png`}
               className="h-[300px] md:h-[500px] lg:h-[550px] xl:h-[600px] w-auto"
               alt="Tech Stack"
               initial={{ opacity: 0 }}
@@ -57,5 +59,5 @@ function Techstack() {
     </div>
   );
 }
- 
+
 export default Techstack;
