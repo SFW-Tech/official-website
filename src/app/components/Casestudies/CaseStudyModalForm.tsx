@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
+import axios, { Axios } from "axios";
+import { enqueueSnackbar } from "notistack";
 
 interface ContactModalProps {
     isOpen: boolean;
@@ -43,7 +45,7 @@ function CaseStudyModalForm({ isOpen, setIsOpen, pdfLink }: ContactModalProps) {
         }, 300);
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
 
@@ -64,6 +66,43 @@ function CaseStudyModalForm({ isOpen, setIsOpen, pdfLink }: ContactModalProps) {
             setIsSubmitted(true);
             setIsSubmitting(false);
         }, 800);
+
+        // APi Call
+
+        const payload = {
+            data: {
+
+                cr276_contact_person: name,
+                cr276_email: email,
+
+
+            }
+        };
+
+
+        try {
+            const res = await axios.post("https://azure-proxy-production.up.railway.app/api/proxy/dynamics?endPoint=cr276_sfcontacts", payload);
+
+            if (res.status === 200 || res.status === 201) {
+                setIsSubmitted(true);
+                enqueueSnackbar("Form submitted successfully!", {
+                    variant: "success",
+                    anchorOrigin: { vertical: "top", horizontal: "center" },
+                    autoHideDuration: 3000,
+                });
+                setTimeout(() => handleClose(), 5000);
+            } else {
+                throw new Error("API error");
+            }
+        } catch (err) {
+            console.error("FAILED...", err);
+            setIsSubmitting(false);
+            enqueueSnackbar("Failed to send message. Please try again later.", {
+                variant: "error",
+                anchorOrigin: { vertical: "top", horizontal: "center" },
+                autoHideDuration: 3000,
+            });
+        }
     };
 
     const backdropVariants: Variants = {
