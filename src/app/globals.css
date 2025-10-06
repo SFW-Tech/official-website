@@ -109,6 +109,10 @@
   scrollbar-color: #9CA3AF #f9fafb; /* thumb | track */
 }
 
+html {
+  @apply scroll-smooth;
+}
+
 
 
 

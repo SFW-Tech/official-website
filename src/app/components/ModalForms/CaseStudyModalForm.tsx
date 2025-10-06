@@ -233,27 +233,40 @@ function CaseStudyModalForm({ isOpen, setIsOpen, pdfLink }: ContactModalProps) {
                                                 <motion.button
                                                     type="submit"
                                                     disabled={isSubmitting}
-                                                    className="px-8 py-3 bg-[#59D7F7] text-white rounded-lg font-medium relative overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed min-w-[120px] cursor-pointer"
+                                                    className={`cursor-pointer px-8 py-3 bg-[#59D7F7] text-white rounded-lg font-medium relative min-w-[140px] flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed`}
                                                     whileHover={!isSubmitting ? { scale: 1.05 } : {}}
                                                     whileTap={!isSubmitting ? { scale: 0.95 } : {}}
                                                     transition={{ duration: 0.2 }}
                                                 >
-                                                    {isSubmitting && (
-                                                        <motion.div
-                                                            initial={{ x: "-100%" }}
-                                                            animate={{ x: "100%" }}
-                                                            transition={{
-                                                                duration: 1.5,
-                                                                repeat: Infinity,
-                                                                ease: "linear",
-                                                            }}
-                                                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                                                        />
+                                                    {isSubmitting ? (
+                                                        <>
+                                                            <svg
+                                                                className="animate-spin h-5 w-5 text-white"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                fill="none"
+                                                                viewBox="0 0 24 24"
+                                                            >
+                                                                <circle
+                                                                    className="opacity-25"
+                                                                    cx="12"
+                                                                    cy="12"
+                                                                    r="10"
+                                                                    stroke="currentColor"
+                                                                    strokeWidth="4"
+                                                                ></circle>
+                                                                <path
+                                                                    className="opacity-75"
+                                                                    fill="currentColor"
+                                                                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                                                                ></path>
+                                                            </svg>
+                                                            <span>Submitting</span>
+                                                        </>
+                                                    ) : (
+                                                        <span>Submit</span>
                                                     )}
-                                                    <span className="relative z-10">
-                                                        {isSubmitting ? "Submitting..." : "Submit"}
-                                                    </span>
                                                 </motion.button>
+
                                             </div>
                                         </motion.div>
 

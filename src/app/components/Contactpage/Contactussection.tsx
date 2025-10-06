@@ -22,7 +22,7 @@ function Contactussection() {
         message: "",
     });
 
-    const [loading, setLoading] = useState(false); 
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -52,7 +52,7 @@ function Contactussection() {
         };
 
         try {
-            setLoading(true); 
+            setLoading(true);
             const res = await axios.post("https://azure-proxy-production.up.railway.app/api/proxy/dynamics?endPoint=cr276_sfcontacts", payload);
 
             if (res.status === 200 || res.status === 201) {
@@ -62,7 +62,7 @@ function Contactussection() {
                     autoHideDuration: 3000,
                 });
 
-                
+
                 setName("");
                 setEmail("");
                 setPhone("");
@@ -80,7 +80,7 @@ function Contactussection() {
                 autoHideDuration: 3000,
             });
         } finally {
-            setLoading(false); 
+            setLoading(false);
         }
     };
 

@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { AnimatePresence } from "framer-motion"
-import ContactModal from './ContactModal'
+import ContactModal from '../ModalForms/ContactModal'
 
 function Footer() {
     const [isOpen, setIsOpen] = useState(false)
