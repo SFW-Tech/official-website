@@ -1,5 +1,5 @@
-import Content from '@/app/components/Casestudies/Resolve/Content'
-import Herosection from '@/app/components/Casestudies/Resolve/Herosection'
+import Content from '@/app/components/Casestudies/Field-Service-Management/Content'
+import Herosection from '@/app/components/Casestudies/Field-Service-Management/Herosection'
 import React from 'react'
 
 function page() {

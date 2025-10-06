@@ -21,7 +21,7 @@ function Serviceofferings() {
 
         {/* Description */}
         <motion.div variants={fadeDown}>
-          <p className="text-sm md:text-base text-left text-gray-700">
+          <p className="text-sm md:text-base text-gray-700">
             Collaborate with SoftWorks Technologies, one of the leading IT staff augmentation businesses, to strengthen the technical workforce capabilities that allow you to move regularly and focus on key business responsibilities. We distinguish ourselves via our values, passion, expertise, broad industry experience, and customer-first approach to providing cutting-edge digital solutions and top league augmentation services to businesses.
           </p>
         </motion.div>

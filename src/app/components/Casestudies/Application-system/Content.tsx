@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import AnimateOnView from '../../../../../animations/AnimateOnView';
 import { fadeDown } from '../../../../../animations/animations';
-import CaseStudyModalForm from '../CaseStudyModalForm' 
+import CaseStudyModalForm from '../../ModalForms/CaseStudyModalForm' 
 
 function Content() {
     const [isModalOpen, setIsModalOpen] = useState(false);

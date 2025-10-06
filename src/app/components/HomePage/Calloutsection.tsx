@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import AnimateOnView from '../../../../animations/AnimateOnView'
 import { fadeDown} from "../../../../animations/animations";
-import ContactModal from "./ContactModal";
+import ContactModal from "../ModalForms/ContactModal";
 
 function Calloutsection() {
   const [isOpen, setIsOpen] = useState(false);

@@ -36,7 +36,7 @@ export default function ScrollToTop() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           onClick={scrollToTop}
           whileTap={{ scale: 0.9 }}
-          className="fixed bottom-6 right-6 z-50 p-4 md:p-5 rounded-full bg-[#59D7F7] text-white shadow-lg hover:bg-cyan-400 transition-colors duration-300 cursor-pointer"
+          className="fixed bottom-6 right-6 z-40 p-4 md:p-5 rounded-full bg-[#59D7F7] text-white shadow-lg hover:bg-cyan-400 transition-colors duration-300 cursor-pointer"
           aria-label="Scroll to top"
         >
           {/* Inline Lucide ArrowUp */}

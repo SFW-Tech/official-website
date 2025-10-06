@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "./Navbar";
-import ContactModal from "./ContactModal";
+import ContactModal from "../ModalForms/ContactModal";
 
 const images = [
     "/assets/Home/Heroassets/banner1.png",
