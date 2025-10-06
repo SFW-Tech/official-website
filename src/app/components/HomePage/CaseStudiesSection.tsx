@@ -20,7 +20,7 @@ function CaseStudiesSection() {
         {
             src: "/assets/Home/Casestudyassets/case study 2.png",
             alt: "Field Service Management",
-            link: "/case-studies/Resolve"
+            link: "/case-studies/Field-Service-Management"
         },
         {
             src: "/assets/Home/Casestudyassets/case study 3.png",
