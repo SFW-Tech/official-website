@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation"
 import { fadeDown, headingVariant, staggerContainer } from "../../../../animations/animations";
 import AnimateOnView from "../../../../animations/AnimateOnView";
+import Link from "next/link";
 
 function CaseStudiesSection() {
     const [selected, setSelected] = useState(0);
@@ -101,11 +102,11 @@ function CaseStudiesSection() {
                     })}
 
                     {/* All Case Studies Option */}
-                    <div
-                        onClick={() => router.push("/case-studies")}
+                    <Link href={"/case-studies"}
+                        
                         className="w-full p-6 font-semibold cursor-pointer transition-all duration-300 
-            text-gray-700 hover:text-black
-            border-t-2 border-gray-100"
+                            text-gray-700 hover:text-black
+                             border-t-2 border-gray-100"
                     >
                         <div className="flex items-center justify-end gap-2">
                             <span>View All Case Studies</span>
@@ -120,7 +121,7 @@ function CaseStudiesSection() {
 
                             </motion.span>
                         </div>
-                    </div>
+                    </Link>
                 </AnimateOnView>
 
                 {/* Right Side */}
@@ -141,37 +142,36 @@ function CaseStudiesSection() {
                                         alt={img.alt}
                                         className="w-full h-full object-cover shadow-lg transition-all duration-500"
                                     />
-                                    <motion.button
-                                        onClick={() => (router.push(img.link))}
+                                    <motion.a
+    href={img.link}
+    className="absolute bottom-0 left-0 w-full 
+               bg-black/80 hover:bg-black/70 
+               text-white py-3 
+               flex items-center justify-center gap-2
+               transition-all duration-300 cursor-pointer"
+    whileTap={{ scale: 0.97 }}
+    whileHover="hover"
+    transition={{ duration: 1 }}
+>
+    {/* Text */}
+    <motion.span
+        className="font-semibold text-sm"
+        variants={{
+            hover: { x: 4, transition: { duration: 0.3, ease: "easeOut" } }
+        }}
+    >
+        View Case Study
+    </motion.span>
 
-                                        transition={{ duration: 1 }}
-                                        whileTap={{ scale: 0.97 }}
-                                        whileHover="hover"
-                                        className="absolute bottom-0 left-0 w-full 
-                    bg-black/80 hover:bg-black/70 
-                    text-white py-3 
-                    flex items-center justify-center gap-2
-                    transition-all duration-300 cursor-pointer"
-                                    >
-                                        {/* Text */}
-                                        <motion.span
-                                            className="font-semibold text-sm"
-                                            variants={{
-                                                hover: { x: 4, transition: { duration: 0.3, ease: "easeOut" } }
-                                            }}>
-                                            View Case Study
-                                        </motion.span>
-
-                                        {/* Arrow */}
-                                        <motion.span
-                                            className="font-bold text-lg"
-                                            variants={{
-                                                hover: { x: 8, transition: { duration: 0.3, ease: "easeOut" } }
-                                            }}
-
-                                        >
-                                        </motion.span>
-                                    </motion.button>
+    {/* Arrow */}
+    <motion.span
+        className="font-bold text-lg"
+        variants={{
+            hover: { x: 8, transition: { duration: 0.3, ease: "easeOut" } }
+        }}
+    >
+    </motion.span>
+</motion.a>
                                 </div>
                             );
                         }
