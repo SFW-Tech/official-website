@@ -12,7 +12,7 @@ function Latestposts() {
         hidden: {},
         show: {
             transition: {
-                staggerChildren: 0.5, // gap between each card
+                staggerChildren: 0.4, // gap between each card
             },
         },
     };
