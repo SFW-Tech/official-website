@@ -109,9 +109,45 @@
   scrollbar-color: #9CA3AF #f9fafb; /* thumb | track */
 }
 
-html {
-  @apply scroll-smooth;
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi/Satoshi-Light.otf") format("opentype");
+  font-weight: 300; /* Light */
+  font-style: normal;
 }
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi/Satoshi-Regular.otf") format("opentype");
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi/Satoshi-Medium.otf") format("opentype");
+  font-weight: 500; /* Medium */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi/Satoshi-Bold.otf") format("opentype");
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi/Satoshi-Black.otf") format("opentype");
+  font-weight: 900; /* Black */
+  font-style: normal;
+}
+
+html, body {
+  font-family: "Satoshi", sans-serif;
+}
+
 
 
 
