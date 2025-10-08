@@ -246,47 +246,7 @@ const services: ServiceCard[] = [
   }
 ]
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1
-    }
-  }
-}
 
-const cardVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 60,
-    scale: 0.92
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      type: "spring",
-      stiffness: 80,
-      damping: 20,
-      duration: 0.7
-    }
-  }
-}
-
-const hoverVariants: Variants = {
-  hover: {
-    y: -12,
-    scale: 1.03,
-    transition: {
-      type: "spring",
-      stiffness: 300,
-      damping: 20
-    }
-  }
-}
 
 const Content: React.FC = () => {
   return (
