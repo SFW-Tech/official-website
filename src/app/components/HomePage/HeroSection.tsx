@@ -21,7 +21,7 @@ function HeroSection() {
     }, []);
 
     return (
-        <div className="relative w-full h-[800px] md:h-[1000px] lg:h-[650px] overflow-hidden px-4 md:px-0">
+        <div className="relative w-full h-[500px] md:h-[400px] lg:h-[550px] overflow-hidden px-4 md:px-0">
             {/* Background Image Animation */}
             <AnimatePresence>
                 <motion.div
@@ -46,14 +46,14 @@ function HeroSection() {
                     transition={{ duration: 1.5 }}
                     className={
                         index === 0
-                            ? "absolute top-40 md:top-56 lg:top-25 left-1/2 -translate-x-1/2 text-center w-full"
+                            ? "absolute top-24 md:top-24 lg:top-25 left-1/2 -translate-x-1/2 text-center w-full"
                             : index === 1
-                            ? "absolute top-40 md:top-72 lg:top-55 left-0 md:left-20 text-center md:text-left max-w-xl"
+                            ? "absolute top-24 md:top-24 lg:top-45 left-0 md:left-20 text-center md:text-left max-w-xl"
                             : ""
                     }
                 >
                     {/* Heading */}
-                    <h1 className="text-white font-bold text-2xl md:text-4xl lg:text-5xl">
+                    <h1 className="text-white font-bold text-2xl md:text-3xl lg:text-5xl">
                         Building Smart Solutions for a Digital-First Future
                     </h1>
 
