@@ -1,10 +1,25 @@
 "use client";
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
-import Herosection from "../components/Careerspage/Herosection";
+import Herosection from "../../components/Careerspage/Herosection";
 import emailjs from "emailjs-com";
 import { useSnackbar } from 'notistack';
+import { useParams } from "next/navigation";
+import axios, { Axios } from "axios";
+
+interface Job {
+  title: string;
+  jobId: string;
+  jobType?: string;
+  skills?: string[];
+  experience?: string;
+  location?: string;
+  jobdescription?: string;
+  rolesAndresponsibilities?: string[];
+}
+
+
+
 
 function Page() {
   const [formData, setFormData] = useState({
@@ -16,14 +31,18 @@ function Page() {
     message: "",
     experience: "",
   });
-
+  const [jobs, setJobs] = useState<Job[]>([]);
   const [resume, setResume] = useState<File | null>(null);
   const [resumeMessage, setResumeMessage] = useState("");
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [loading, setLoading] = useState<boolean>(true);
+
 
   const { enqueueSnackbar } = useSnackbar();
+ const { jobId } = useParams();
+  const [selectedJob, setSelectedJob] = useState<Job | null>(null);
 
   // Animation variants
   const containerVariants: Variants = {
@@ -111,6 +130,44 @@ function Page() {
       }
     }
   };
+
+  const fetchJobs = async () => {
+  try {
+    setLoading(true);
+    const res = await axios.get(
+      "https://azure-proxy-production.up.railway.app/api/proxy/dynamics?endPoint=cr276_sfjobdetailses"
+    );
+
+    const data = res.data.value || [];
+
+    const formattedJobs: Job[] = data.map((item: any) => ({
+      title: item.cr276_job_title || "N/A",
+      jobId: item.cr276_newcolumn || "N/A",
+      jobdescription: item.cr276_job_description || "N/A",
+      rolesAndresponsibilities: item.cr276_job_responsibilities || []
+    }));
+
+    setJobs(formattedJobs);
+
+    
+    
+
+  } catch (err) {
+    console.error("Error fetching jobs:", err);
+  } finally {
+    setLoading(false);
+  }
+};
+
+
+
+
+
+  useEffect(() => {
+    fetchJobs();
+    console.log(jobId);
+    
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -369,7 +426,7 @@ function Page() {
                         onChange={handleChange}
                         className="w-full border border-gray-300 rounded-lg p-3 focus:ring-1 focus:ring-cyan-500 outline-none transition-all duration-200"
                         whileFocus={{ scale: 1.02 }}
-                       
+
                       />
                       <AnimatePresence>
                         {errors[field] && (
@@ -409,7 +466,7 @@ function Page() {
                         onChange={handleChange}
                         className="w-full border border-gray-300 rounded-lg p-3 focus:ring-1 focus:ring-cyan-500 outline-none transition-all duration-200"
                         whileFocus={{ scale: 1.02 }}
-                        
+
                       />
                       <AnimatePresence>
                         {errors[field] && (
@@ -442,7 +499,7 @@ function Page() {
                     onChange={handleChange}
                     className="w-full border border-gray-300 rounded-lg p-3 focus:ring-1 focus:ring-cyan-500 outline-none transition-all duration-200"
                     whileFocus={{ scale: 1.02 }}
-                    
+
                   />
                   <AnimatePresence>
                     {errors.location && (
@@ -472,7 +529,7 @@ function Page() {
                     onChange={handleChange}
                     className="w-full border border-gray-300 rounded-lg p-3 h-28 focus:ring-1 focus:ring-cyan-500 outline-none resize-none transition-all duration-200"
                     whileFocus={{ scale: 1.02 }}
-                    
+
                   />
                 </motion.div>
 

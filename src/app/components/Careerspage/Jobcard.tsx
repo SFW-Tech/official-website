@@ -23,7 +23,7 @@ const Jobcard = ({ title, jobId, jobType, skills, experience, location }: JobCar
             <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2 gap-2">
                 <h1 className="text-base sm:text-lg md:text-xl font-bold">{title}</h1>
                 <button className="flex gap-2 items-center justify-center text-xs sm:text-sm tracking-tight rounded-md text-white bg-cyan-600 px-3 py-1.5 w-fit hover:bg-cyan-700 transition cursor-pointer"
-                    onClick={() => router.push("/Jobdescription")}
+                    onClick={() => router.push(`/Jobdescription/${jobId}`)}
                 >
                     Apply Here
                     <svg
