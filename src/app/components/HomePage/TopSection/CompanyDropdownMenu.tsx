@@ -47,10 +47,10 @@ function CompanyDropdownMenu() {
             transition={{ duration: 0.25, ease: "easeInOut" }}
             className="absolute left-1/2 -translate-x-1/2 z-10 mt-1 w-32 origin-top rounded-md bg-[#59d7f7] shadow-lg outline-1 outline-black/5"
           >
-            <div className="py-1">
+            <div className="">
               <Link
                 href="/aboutus"
-                className="block px-4 py-2 text-sm text-black text-center hover:bg-cyan-300"
+                className="block px-4 py-2 text-sm text-black text-center hover:bg-cyan-300 hover:rounded-md"
               >
                 About Us
               </Link>
@@ -59,7 +59,7 @@ function CompanyDropdownMenu() {
 
               <Link
                 href="/careers"
-                className="block px-4 py-2 text-sm text-black text-center hover:bg-cyan-300"
+                className="block px-4 py-2 text-sm text-black text-center hover:bg-cyan-300 hover:hover:rounded-md"
               >
                 Careers
               </Link>

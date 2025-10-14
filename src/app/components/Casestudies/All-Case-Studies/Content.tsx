@@ -45,7 +45,7 @@ const caseStudies = [
         id: 'Code-ninja',
         title: 'Code Ninja',
         description: 'Developer productivity tools and code optimization platform for enhanced workflow',
-        image: '/assets/Casestudies/Code-Ninja.jpg',
+        image: '/assets/Casestudies/Code-Ninja.png',
         tags: ['Developer Tools', 'Productivity', 'Platform']
     },
     {
@@ -59,7 +59,7 @@ const caseStudies = [
         id: 'Field-Service-Management',
         title: 'Field Service Management',
         description: 'Customer support and issue resolution management system with intelligent routing',
-        image: '/assets/Casestudies/Resolve.png',
+        image: '/assets/Casestudies/Field-Service-Management.png',
         tags: ['Support', 'CRM', 'Management']
     },
     {
@@ -150,7 +150,7 @@ function Content() {
                                 <img
                                     src={study.image}
                                     alt={study.title}
-                                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                                    className="w-full h-full object-contain transition-all duration-700 group-hover:scale-105"
                                     onError={(e) => (e.currentTarget.style.display = 'none')}
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent group-hover:from-black/10 transition-all duration-500"></div>

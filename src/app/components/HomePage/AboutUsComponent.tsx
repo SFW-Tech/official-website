@@ -63,7 +63,7 @@ function AboutUsComponent() {
           >
             {aboutPoints.map((item, index) => (
               <motion.div key={index} variants={fadeDown}>
-                <div className="flex gap-4">
+                <div className="flex gap-4 items-center">
                   <img
                     src={`/assets/Home/aboutusassets/${item.icon}`}
                     className="h-22 w-22"
