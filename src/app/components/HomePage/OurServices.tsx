@@ -89,7 +89,7 @@ function OurServices() {
       shadow: "shadow-[0_0_60px_20px_rgba(147,51,234,0.7)]",
       mobileShadow: "shadow-[0_0_20px_8px_rgba(147,51,234,0.5)]",
       numbercolor: "text-purple-500",
-      link: "/staff-augmentation",
+      link: "/staffaugmentation",
     },
   ]
 
