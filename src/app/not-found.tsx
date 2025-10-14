@@ -12,7 +12,7 @@ export default function NotFound() {
 
 
         
-        <h1 className="text-9xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+        <h1 className="text-9xl font-extrabold text-transparent bg-clip-text bg-cyan-400">
           404
         </h1>
 
@@ -28,7 +28,7 @@ export default function NotFound() {
         
         <button
           onClick={() => router.push("/")}
-          className="mt-8 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold shadow-lg hover:shadow-cyan-500/30 hover:scale-105 transform transition duration-300 cursor-pointer"
+          className="mt-8 px-6 py-3 rounded-xl bg-cyan-500 text-white font-semibold shadow-lg hover:shadow-cyan-500/30 hover:scale-105 transform transition duration-300 cursor-pointer"
         >
           Go to Home
         </button>

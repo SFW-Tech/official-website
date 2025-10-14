@@ -284,7 +284,7 @@ function Page() {
           <AnimatePresence mode="wait">
             {submitted ? (
               <motion.div
-                className="flex items-center justify-center min-h-screen bg-gray-50 px-4"
+                className="flex items-center justify-center min-h-screen bg-white px-4"
                 variants={successVariants}
                 initial="hidden"
                 animate="visible"
@@ -367,9 +367,9 @@ function Page() {
                         placeholder={`${field.replace("_", " ")} *`}
                         value={formData[field as keyof typeof formData]}
                         onChange={handleChange}
-                        className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-cyan-600 outline-none transition-all duration-200"
-                        whileFocus={{ scale: 1.02, borderColor: "#0891b2" }}
-                        whileHover={{ borderColor: "#64748b" }}
+                        className="w-full border border-gray-300 rounded-lg p-3 focus:ring-1 focus:ring-cyan-500 outline-none transition-all duration-200"
+                        whileFocus={{ scale: 1.02 }}
+                       
                       />
                       <AnimatePresence>
                         {errors[field] && (
@@ -407,9 +407,9 @@ function Page() {
                         placeholder={field === "email" ? "Email Address *" : "Phone/Mobile number *"}
                         value={formData[field as keyof typeof formData]}
                         onChange={handleChange}
-                        className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-cyan-600 outline-none transition-all duration-200"
-                        whileFocus={{ scale: 1.02, borderColor: "#0891b2" }}
-                        whileHover={{ borderColor: "#64748b" }}
+                        className="w-full border border-gray-300 rounded-lg p-3 focus:ring-1 focus:ring-cyan-500 outline-none transition-all duration-200"
+                        whileFocus={{ scale: 1.02 }}
+                        
                       />
                       <AnimatePresence>
                         {errors[field] && (
@@ -440,9 +440,9 @@ function Page() {
                     placeholder="Location *"
                     value={formData.location}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-cyan-600 outline-none transition-all duration-200"
-                    whileFocus={{ scale: 1.02, borderColor: "#0891b2" }}
-                    whileHover={{ borderColor: "#64748b" }}
+                    className="w-full border border-gray-300 rounded-lg p-3 focus:ring-1 focus:ring-cyan-500 outline-none transition-all duration-200"
+                    whileFocus={{ scale: 1.02 }}
+                    
                   />
                   <AnimatePresence>
                     {errors.location && (
@@ -470,9 +470,9 @@ function Page() {
                     placeholder="Your message"
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-lg p-3 h-28 focus:ring-2 focus:ring-cyan-600 outline-none resize-none transition-all duration-200"
-                    whileFocus={{ scale: 1.02, borderColor: "#0891b2" }}
-                    whileHover={{ borderColor: "#64748b" }}
+                    className="w-full border border-gray-300 rounded-lg p-3 h-28 focus:ring-1 focus:ring-cyan-500 outline-none resize-none transition-all duration-200"
+                    whileFocus={{ scale: 1.02 }}
+                    
                   />
                 </motion.div>
 
@@ -494,7 +494,7 @@ function Page() {
                     <input type="file" className="hidden" accept=".pdf,.doc,.docx" onChange={handleResume} />
                     <h2 className="font-semibold">
                       Drop your resume here or{" "}
-                      <span className="text-black hover:text-cyan-600 transition-colors duration-200">
+                      <span className="text-black hover:text-cyan-400 transition-colors duration-200">
                         browse
                       </span>
                     </h2>
