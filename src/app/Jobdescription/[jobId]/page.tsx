@@ -3,9 +3,9 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import Herosection from "../../components/Careerspage/Herosection";
 import emailjs from "emailjs-com";
-import { useSnackbar } from 'notistack';
+import { useSnackbar } from "notistack";
 import { useParams } from "next/navigation";
-import axios, { Axios } from "axios";
+import axios from "axios";
 
 interface Job {
   title: string;
@@ -15,16 +15,13 @@ interface Job {
   experience?: string;
   location?: string;
   jobdescription?: string;
-  rolesAndresponsibilities?: string[];
+  rolesAndresponsibilities?: string[] | string;
 }
-
-
-
 
 function Page() {
   const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
+    First_name: "",
+    Last_name: "",
     email: "",
     phone: "",
     location: "",
@@ -39,136 +36,66 @@ function Page() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [loading, setLoading] = useState<boolean>(true);
 
-
   const { enqueueSnackbar } = useSnackbar();
- const { jobId } = useParams();
+  const { jobId } = useParams();
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
 
   // Animation variants
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        staggerChildren: 0.1
-      }
-    }
+  const containerVariants: Variants = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.6, staggerChildren: 0.1 } } };
+  const itemVariants: Variants = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } };
+  const formVariants: Variants = { hidden: { opacity: 0, x: 50, scale: 0.95 }, visible: { opacity: 1, x: 0, scale: 1, transition: { duration: 0.6, ease: "easeOut" } } };
+  const successVariants: Variants = { hidden: { opacity: 0, scale: 0.8, y: 20 }, visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }, exit: { opacity: 0, scale: 0.8, y: -20, transition: { duration: 0.3 } } };
+  const buttonVariants: Variants = { idle: { scale: 1 }, hover: { scale: 1.05, transition: { duration: 0.2, ease: "easeInOut" } }, tap: { scale: 0.95 }, loading: { scale: 1, transition: { duration: 0.2 } } };
+
+  const jobTypeMap: Record<number, string> = {
+    [Number(process.env.NEXT_PUBLIC_JOB_FULLTIME)]: "Full-time",
+    [Number(process.env.NEXT_PUBLIC_JOB_PARTTIME)]: "Part-time",
+    [Number(process.env.NEXT_PUBLIC_JOB_CONTRACT)]: "Contract",
+    [Number(process.env.NEXT_PUBLIC_JOB_INTERNSHIP)]: "Internship",
+    [Number(process.env.NEXT_PUBLIC_JOB_REMOTE)]: "Remote",
   };
 
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const formVariants: Variants = {
-    hidden: { opacity: 0, x: 50, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const successVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.8, y: 20 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut"
-      }
-    },
-    exit: {
-      opacity: 0,
-      scale: 0.8,
-      y: -20,
-      transition: {
-        duration: 0.3
-      }
-    }
-  };
-
-  const buttonVariants: Variants = {
-    idle: { scale: 1 },
-    hover: {
-      scale: 1.05,
-      transition: {
-        duration: 0.2,
-        ease: "easeInOut"
-      }
-    },
-    tap: { scale: 0.95 },
-    loading: {
-      scale: 1,
-      transition: {
-        duration: 0.2
-      }
-    }
-  };
-
-  const inputVariants: Variants = {
-    focus: {
-      scale: 1.02,
-      borderColor: "#0891b2",
-      transition: {
-        duration: 0.2,
-        ease: "easeOut"
-      }
-    }
+  const jobLocationMap: Record<number, string> = {
+    [Number(process.env.NEXT_PUBLIC_LOCATION_COIMBATORE)]: "Coimbatore",
+    [Number(process.env.NEXT_PUBLIC_LOCATION_BENGALURU)]: "Bengaluru",
+    [Number(process.env.NEXT_PUBLIC_LOCATION_HYDERABAD)]: "Hyderabad",
+    [Number(process.env.NEXT_PUBLIC_LOCATION_HYBRID)]: "Hybrid",
+    [Number(process.env.NEXT_PUBLIC_LOCATION_REMOTE)]: "Remote",
   };
 
   const fetchJobs = async () => {
-  try {
-    setLoading(true);
-    const res = await axios.get(
-      "https://azure-proxy-production.up.railway.app/api/proxy/dynamics?endPoint=cr276_sfjobdetailses"
-    );
+    try {
+      setLoading(true);
+      const res = await axios.get(process.env.NEXT_PUBLIC_ALLJOBS_FETCH_API!);
+      const data = res.data.value || [];
 
-    const data = res.data.value || [];
+      const formattedJobs: Job[] = data.map((item: any) => ({
+        title: item.cr276_job_title || "N/A",
+        jobId: item.cr276_newcolumn || "N/A",
+        jobType: jobTypeMap[item.cr276_job_employmenttype] || "N/A",
+        location: jobLocationMap[item.cr276_job_location] || "N/A",
+        skills: item.cr276_job_skills?.split(",") || ["Not specified"],
+        experience: item.cr276_job_required_experience || "Not mentioned",
+        rolesAndresponsibilities: item.cr276_job_responsibilities || []
+      }));
 
-    const formattedJobs: Job[] = data.map((item: any) => ({
-      title: item.cr276_job_title || "N/A",
-      jobId: item.cr276_newcolumn || "N/A",
-      jobdescription: item.cr276_job_description || "N/A",
-      rolesAndresponsibilities: item.cr276_job_responsibilities || []
-    }));
+      setJobs(formattedJobs);
 
-    setJobs(formattedJobs);
-
-    
-    
-
-  } catch (err) {
-    console.error("Error fetching jobs:", err);
-  } finally {
-    setLoading(false);
-  }
-};
-
-
-
-
+      //selected job dynamically
+      const job = formattedJobs.find((job) => job.jobId === jobId);
+      if (job) setSelectedJob(job);
+    } catch (err) {
+      console.error("Error fetching jobs:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     fetchJobs();
-    console.log(jobId);
-    
-  }, []);
+  }, [jobId]);
 
+  // Form handlers
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -177,7 +104,6 @@ function Page() {
 
   const handleResume = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
-
     if (file) {
       if (file.size > 4 * 1024 * 1024) {
         setResume(null);
@@ -186,11 +112,7 @@ function Page() {
       } else {
         setResume(file);
         setResumeMessage(`Resume uploaded (${file.name})`);
-        setErrors((prev) => {
-          const newErrors = { ...prev };
-          delete newErrors.resume;
-          return newErrors;
-        });
+        setErrors((prev) => { const newErrors = { ...prev }; delete newErrors.resume; return newErrors; });
       }
     } else {
       setResume(null);
@@ -200,8 +122,8 @@ function Page() {
 
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
-    if (!formData.first_name.trim()) newErrors.first_name = "First name is required";
-    if (!formData.last_name.trim()) newErrors.last_name = "Last name is required";
+    if (!formData.First_name.trim()) newErrors.first_name = "First name is required";
+    if (!formData.Last_name.trim()) newErrors.last_name = "Last name is required";
     if (!formData.email.trim()) newErrors.email = "Email is required";
     else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Enter a valid email";
     if (!formData.phone.trim()) newErrors.phone = "Phone is required";
@@ -219,118 +141,150 @@ function Page() {
     if (!validateForm()) return;
 
     setIsSubmitting(true);
-
     try {
       await emailjs.send(
         "service_nw9y07d",
         "template_kizffhh",
-        { job_title: "Frontend Developer", ...formData },
+        { job_title: selectedJob?.title || "", ...formData },
         "8J-QHGkIceS0qyv5x"
       );
 
       setSubmitted(true);
-      setFormData({ first_name: "", last_name: "", email: "", phone: "", location: "", message: "", experience: "" });
+      setFormData({ First_name: "", Last_name: "", email: "", phone: "", location: "", message: "", experience: "" });
       setResume(null);
       setResumeMessage("");
       setErrors({});
 
-      enqueueSnackbar("Application submitted successfully", {
-        variant: "success",
-        anchorOrigin: {
-          vertical: "top",
-          horizontal: "center",
-        },
-        autoHideDuration: 3000,
-      });
-
+      enqueueSnackbar("Application submitted successfully", { variant: "success", anchorOrigin: { vertical: "top", horizontal: "center" }, autoHideDuration: 3000 });
     } catch (err) {
       console.log(err);
-      enqueueSnackbar("Failed to send application.", {
-        variant: "error",
-        anchorOrigin: { vertical: "top", horizontal: "center" },
-        autoHideDuration: 3000,
-      });
+      enqueueSnackbar("Failed to send application.", { variant: "error", anchorOrigin: { vertical: "top", horizontal: "center" }, autoHideDuration: 3000 });
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  const JobSkeleton = () => (
+    <div className="rounded-2xl p-5 bg-white shadow-sm animate-pulse">
+      {/* Title + Job ID */}
+      <div className="flex flex-col gap-3 mb-4">
+        <div className="h-7 bg-gray-200 rounded w-3/4"></div>
+        <div className="h-6 bg-gray-300 rounded w-1/3"></div>
+      </div>
+
+      <hr className="border-gray-200 mb-4" />
+
+      {/* Description */}
+      <div className="space-y-2 mb-6">
+        <div className="h-4 bg-gray-100 rounded w-full"></div>
+        <div className="h-4 bg-gray-100 rounded w-5/6"></div>
+        <div className="h-4 bg-gray-100 rounded w-4/5"></div>
+        <div className="h-4 bg-gray-100 rounded w-3/4"></div>
+      </div>
+
+      {/* Roles & Responsibilities heading */}
+      <div className="h-6 bg-gray-200 rounded w-1/2 mb-3"></div>
+
+      {/* Bullet points */}
+      <ul className="space-y-2">
+        {[...Array(5)].map((_, i) => (
+          <li key={i} className="flex items-center gap-2">
+            <div className="h-3 w-3 bg-gray-300 rounded-full"></div>
+            <div className="h-4 bg-gray-100 rounded w-3/4"></div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
+
   return (
     <div className="w-full">
       <Herosection />
 
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-20 xl:gap-24 px-6 sm:px-10 md:px-16 lg:px-24 xl:px-28 my-12"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
+      <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-20 xl:gap-24 px-6 sm:px-10 md:px-16 lg:px-24 xl:px-28 my-12" variants={containerVariants} initial="hidden" animate="visible">
         {/* Left Grid */}
-        <motion.div
-          className="flex flex-col gap-6 justify-evenly"
-          variants={itemVariants}
-        >
-          <motion.div
-            className="flex flex-col gap-3"
-            variants={itemVariants}
-          >
-            <motion.h1
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold"
-              variants={itemVariants}
-            >
-              Frontend Developer
-            </motion.h1>
-            <motion.div
-              className="flex gap-2"
-              variants={itemVariants}
-            >
-              <motion.h4
-                className="flex text-sm bg-gray-100 px-3 py-1 rounded-md w-fit font-medium text-gray-700 shadow-sm"
-                whileHover={{ scale: 1.05, backgroundColor: "#f3f4f6" }}
-                transition={{ duration: 0.2 }}
-              >
-                JD101
-              </motion.h4>
-            </motion.div>
-            <motion.p
-              className="text-gray-600 text-sm sm:text-base md:text-md lg:text-lg xl:text-base leading-relaxed"
-              variants={itemVariants}
-            >
-              We are looking for a passionate and skilled Frontend Developer to join our growing team at Softworks. The ideal candidate will have a strong understanding of modern frontend technologies and frameworks, with a keen eye for design and user experience. You will be responsible for translating UI/UX designs into responsive, interactive web applications. Working closely with designers, backend developers, and product managers, you will help create seamless and engaging digital experiences that meet business goals and user needs.
-            </motion.p>
-          </motion.div>
+        <motion.div className="flex flex-col gap-6 " variants={itemVariants}>
+          {loading ? (
+            <JobSkeleton />
+          ) : selectedJob ? (
+            <>
+              <motion.h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">
+                {selectedJob.title}
+              </motion.h1>
 
-          <motion.div
-            className="flex flex-col gap-6"
-            variants={itemVariants}
-          >
-            <motion.h1
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold"
-              variants={itemVariants}
+              <motion.div className="flex gap-2">
+
+                {/* Job ID */}
+                <motion.h4 className="flex text-xs md:text-sm bg-gray-100 px-3 py-1 rounded-md w-fit font-medium text-gray-700 shadow-sm">
+                  {selectedJob.jobId}
+                </motion.h4>
+
+                {/* Job Type with image */}
+                <motion.h4 className="flex items-center gap-1 md:gap-2 bg-gray-100 px-3 py-1 rounded-md w-fit font-medium text-gray-700 shadow-sm">
+                  <img
+                    src="/assets/Careers/Jobsectionassets/Jobtype.png"
+                    alt="Job Type"
+                    className="w-5 h-5"
+                  />
+                  <span className="text-xs md:text-sm">{selectedJob.jobType}</span>
+                </motion.h4>
+
+                {/* Location with image */}
+                <motion.h4 className="flex items-center gap-1 md:gap-2 bg-gray-100 px-3 py-1 rounded-md w-fit font-medium text-gray-700 shadow-sm">
+                  <img
+                    src="/assets/Careers/Jobsectionassets/Location.png"
+                    alt="Location"
+                    className="w-4 h-4"
+                  />
+                  <span className="text-xs md:text-sm">{selectedJob.location}</span>
+                </motion.h4>
+
+              </motion.div>
+
+
+              <motion.p className="text-gray-600 text-sm sm:text-base md:text-md lg:text-lg xl:text-base leading-relaxed">{selectedJob.jobdescription}</motion.p>
+
+              <motion.div className="flex flex-col gap-6">
+                <motion.h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">
+                  Roles & Responsibilities
+                </motion.h1>
+                <motion.ul className="list-disc pl-5 space-y-2 text-sm sm:text-base md:text-md lg:text-lg xl:text-base leading-relaxed text-gray-600">
+                  {Array.isArray(selectedJob.rolesAndresponsibilities)
+                    ? selectedJob.rolesAndresponsibilities.map((item, index) => (
+                      <motion.li key={index} whileHover={{ x: 5, color: "#374151" }} transition={{ duration: 0.2 }}>
+                        {item}
+                      </motion.li>
+                    ))
+                    : typeof selectedJob.rolesAndresponsibilities === "string"
+                      ? selectedJob.rolesAndresponsibilities
+                        .split(".")
+                        .filter(item => item.trim() !== "") // remove empty values
+                        .map((item, index) => (
+                          <motion.li key={index} whileHover={{ color: "#374151" }} transition={{ duration: 0.2 }}>
+                            {item.trim()}.
+                          </motion.li>
+                        ))
+                      : null}
+                </motion.ul>
+              </motion.div>
+
+            </>
+          ) : (
+            <motion.div
+              className="flex flex-col items-center justify-center py-20 text-gray-500"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
             >
-              Roles & Responsibilities
-            </motion.h1>
-            <motion.ul
-              className="list-disc pl-5 space-y-2 text-sm sm:text-base md:text-md lg:text-lg xl:text-base leading-relaxed text-gray-600"
-              variants={containerVariants}
-            >
-              {[
-                "Develop responsive user interfaces using HTML, CSS, and JavaScript frameworks.",
-                "Collaborate with UI/UX designers to bring mockups and wireframes to life.",
-                "Optimize web pages for performance, speed, and SEO.",
-                "Integrate frontend components with RESTful APIs."
-              ].map((item, index) => (
-                <motion.li
-                  key={index}
-                  variants={itemVariants}
-                  whileHover={{ x: 5, color: "#374151" }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {item}
-                </motion.li>
-              ))}
-            </motion.ul>
-          </motion.div>
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 mb-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <motion.p className="text-lg font-semibold">No jobs found</motion.p>
+              <motion.p className="text-sm text-gray-400">Please check back later for new openings.</motion.p>
+            </motion.div>
+
+          )}
         </motion.div>
 
         {/* Right Grid - Form */}
@@ -410,7 +364,7 @@ function Page() {
                   className="flex flex-col md:flex-row gap-4 pt-5"
                   variants={itemVariants}
                 >
-                  {["first_name", "last_name"].map((field, index) => (
+                  {["First_name", "Last_name"].map((field, index) => (
                     <motion.div
                       className="w-full md:w-1/2"
                       key={field}
@@ -688,6 +642,8 @@ function Page() {
             )}
           </AnimatePresence>
         </motion.div>
+
+
       </motion.div>
     </div>
   );
