@@ -53,7 +53,7 @@ function Contactussection() {
 
         try {
             setLoading(true);
-            const res = await axios.post("https://azure-proxy-production.up.railway.app/api/proxy/dynamics?endPoint=cr276_sfcontacts", payload);
+            const res = await axios.post(process.env.NEXT_PUBLIC_CONNECT_WITH_US_API!, payload);
 
             if (res.status === 200 || res.status === 201) {
                 enqueueSnackbar("Form submitted successfully!", {
