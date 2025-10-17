@@ -28,10 +28,7 @@ export default function ScrollToTop() {
         <motion.button
           key="scrollToTop"
           initial={{ opacity: 0, y: 50 }}
-          animate={{ 
-            opacity: 1, 
-            y: [50, -10, 0]  // bounce effect
-          }}
+          animate={{ opacity: 1, y: [50, -10, 0] }}
           exit={{ opacity: 0, y: 50 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           onClick={scrollToTop}
@@ -39,7 +36,18 @@ export default function ScrollToTop() {
           className="fixed bottom-6 right-6 z-40 p-4 md:p-5 rounded-full bg-[#59D7F7] text-white shadow-lg hover:bg-cyan-400 transition-colors duration-300 cursor-pointer"
           aria-label="Scroll to top"
         >
-          {/* Inline Lucide ArrowUp */}
+          {/* Rotating dotted border */}
+          <motion.span
+            animate={{ rotate: 360 }}
+            transition={{
+              repeat: Infinity,
+              duration: 4,
+              ease: "linear",
+            }}
+            className="absolute inset-[-4px] md:inset-[-4px] rounded-full border-2 md:border-3 border-dotted border-cyan-300"
+          ></motion.span>
+
+          {/* Arrow icon */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -50,6 +58,7 @@ export default function ScrollToTop() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
+            className="relative z-10"
           >
             <line x1="12" x2="12" y1="19" y2="5" />
             <polyline points="5 12 12 5 19 12" />
