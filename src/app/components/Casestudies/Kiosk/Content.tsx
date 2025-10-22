@@ -24,7 +24,7 @@ function Content() {
 
                 {/* Text + Button */}
                 <AnimateOnView variants={fadeDown} className='flex flex-col gap-4 md:gap-5 lg:gap-6 text-center'>
-                    <div className='flex flex-col gap-2 text-left'>
+                    <div className='flex flex-col gap-2 text-center'>
                         <p className='text-gray-700 text-sm md:text-base lg:text-lg leading-relaxed'>
                             Customers without access to a kiosk machine in a service centre encounter several challenges that can impede their experience. Without a kiosk, access to vital information such as service updates, product details, or FAQs becomes limited, exacerbating uncertainties and inquiries.
                         </p>
