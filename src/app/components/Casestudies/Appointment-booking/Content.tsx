@@ -27,7 +27,7 @@ function Content() {
                 {/* Text + Button */}
                 <AnimateOnView variants={fadeDown} className='flex flex-col gap-4 md:gap-5 lg:gap-6 text-center'>
                     <div>
-                        <p className='text-gray-700 text-sm md:text-base lg:text-lg leading-relaxed text-left'>
+                        <p className='text-gray-700 text-sm md:text-base lg:text-lg leading-relaxed text-center'>
                             As we enter a new phase in the COVID-19 pandemic, businesses and service providers are preparing to reopen once restrictions are relaxed. When it’s time to reopen, there’s a good chance that customer footfall will increase, as their demands have been on hold for some time. An appointment booking solution will help manage customer journeys and keep control of the arrival flow.
                         </p>
                     </div>

@@ -26,7 +26,7 @@ function Content() {
                 {/* Text + Button */}
                 <AnimateOnView variants={fadeDown} className='flex flex-col gap-4 md:gap-5 lg:gap-6 text-center'>
                     <div>
-                        <p className='text-gray-700 text-sm md:text-base lg:text-lg leading-relaxed text-left'>
+                        <p className='text-gray-700 text-sm md:text-base lg:text-lg leading-relaxed text-center'>
                             Customers feel unfairly treated and had to wait longer because they think others are cutting in front of them. Service centres found it difficult to effectively manage bottlenecks and delays in service delivery. Customer unhappiness was further compounded by unclear communication regarding wait times and service availability.
                         </p>
                     </div>

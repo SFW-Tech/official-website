@@ -26,7 +26,7 @@ function Content() {
                 {/* Text + Button */}
                 <AnimateOnView variants={fadeDown} className='flex flex-col gap-4 md:gap-5 lg:gap-6 text-center'>
                     <div>
-                        <p className='text-gray-700 text-sm md:text-base lg:text-lg leading-relaxed text-left'>
+                        <p className='text-gray-700 text-sm md:text-base lg:text-lg leading-relaxed text-center'>
                             Client is running a Foster care 70+ years in USA. The idea is to protect the children and youths in a community to offer a happy and prosperous lifestyle. Client dealt with lot of documentation in their business process, so they had built their own desktop app. The system typically receive and investigate reports of possible child abuse and neglect.
                         </p>
                     </div>
