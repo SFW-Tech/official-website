@@ -27,7 +27,7 @@ function Content() {
                 {/* Text + Button */}
                 <AnimateOnView variants={fadeDown} className='flex flex-col gap-4 md:gap-5 lg:gap-6 text-center'>
                     <div>
-                        <p className='text-gray-700 text-sm md:text-base lg:text-lg leading-relaxed text-left'>
+                        <p className='text-gray-700 text-sm md:text-base lg:text-lg leading-relaxed text-center'>
                             US-based government-affiliated child welfare/NGO organization running for more than 70 years are impacted by several emerging trends such as digitalization, multi-platform content consumption, and the challenge of managing multiple data formats across agencies. Furthermore, along with immense volumes, the organization was challenged to manage and analyze this data to extract actionable insights.
                         </p>
                     </div>
