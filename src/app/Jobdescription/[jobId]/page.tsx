@@ -81,7 +81,6 @@ function Page() {
 
       setJobs(formattedJobs);
 
-      //selected job dynamically
       const job = formattedJobs.find((job) => job.jobId === jobId);
       if (job) setSelectedJob(job);
     } catch (err) {
@@ -95,7 +94,6 @@ function Page() {
     fetchJobs();
   }, [jobId]);
 
-  // Form handlers
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -164,38 +162,68 @@ function Page() {
     }
   };
 
+  // Left-side skeleton
   const JobSkeleton = () => (
-    <div className="rounded-2xl p-5 bg-white shadow-sm animate-pulse">
-      {/* Title + Job ID */}
-      <div className="flex flex-col gap-3 mb-4">
-        <div className="h-7 bg-gray-200 rounded w-3/4"></div>
-        <div className="h-6 bg-gray-300 rounded w-1/3"></div>
-      </div>
-
-      <hr className="border-gray-200 mb-4" />
-
-      {/* Description */}
-      <div className="space-y-2 mb-6">
-        <div className="h-4 bg-gray-100 rounded w-full"></div>
-        <div className="h-4 bg-gray-100 rounded w-5/6"></div>
-        <div className="h-4 bg-gray-100 rounded w-4/5"></div>
-        <div className="h-4 bg-gray-100 rounded w-3/4"></div>
-      </div>
-
-      {/* Roles & Responsibilities heading */}
-      <div className="h-6 bg-gray-200 rounded w-1/2 mb-3"></div>
-
-      {/* Bullet points */}
-      <ul className="space-y-2">
+    <div className="rounded-2xl p-5 bg-white shadow-sm animate-pulse space-y-4">
+      <div className="h-8 bg-gray-200 rounded w-3/4"></div>
+      <div className="h-6 bg-gray-300 rounded w-1/3"></div>
+      <hr className="border-gray-200" />
+      <div className="space-y-2">
         {[...Array(5)].map((_, i) => (
-          <li key={i} className="flex items-center gap-2">
-            <div className="h-3 w-3 bg-gray-300 rounded-full"></div>
-            <div className="h-4 bg-gray-100 rounded w-3/4"></div>
-          </li>
+          <div key={i} className="h-4 bg-gray-100 rounded w-full"></div>
+        ))}
+      </div>
+      <div className="h-6 bg-gray-200 rounded w-1/2 mt-4"></div>
+      <ul className="space-y-2 mt-2">
+        {[...Array(5)].map((_, i) => (
+          <li key={i} className="h-3 bg-gray-100 rounded w-5/6"></li>
         ))}
       </ul>
     </div>
   );
+
+  // Right-side skeleton
+  // Right-side skeleton
+const FormSkeleton: React.FC = () => (
+  <div className="bg-white shadow-xl rounded-2xl p-6 md:p-8 lg:p-10 space-y-6 animate-pulse">
+    {/* Title */}
+    <div className="h-8 sm:h-10 md:h-12 bg-gray-200 rounded w-1/2 mx-auto"></div>
+
+    {/* Name fields */}
+    <div className="flex flex-col md:flex-row gap-4 pt-5">
+      <div className="h-12 bg-gray-200 rounded w-full md:w-1/2"></div>
+      <div className="h-12 bg-gray-200 rounded w-full md:w-1/2"></div>
+    </div>
+
+    {/* Email & Phone */}
+    <div className="flex flex-col md:flex-row gap-4">
+      <div className="h-12 bg-gray-200 rounded w-full md:w-1/2"></div>
+      <div className="h-12 bg-gray-200 rounded w-full md:w-1/2"></div>
+    </div>
+
+    {/* Location */}
+    <div className="h-12 bg-gray-200 rounded w-full"></div>
+
+    {/* Message */}
+    <div className="h-28 bg-gray-200 rounded w-full"></div>
+
+    {/* Resume */}
+    <div className="h-24 bg-gray-200 rounded w-full flex items-center justify-center"></div>
+
+    {/* Experience */}
+    <div className="space-y-2">
+      <div className="h-5 bg-gray-200 rounded w-1/3"></div>
+      <div className="flex flex-wrap gap-2 mt-2">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <div key={i} className="h-10 w-28 bg-gray-200 rounded"></div>
+        ))}
+      </div>
+    </div>
+
+    {/* Submit button */}
+    <div className="h-12 bg-gray-200 rounded w-full mt-4"></div>
+  </div>
+);
 
 
   return (
@@ -205,139 +233,54 @@ function Page() {
       <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-20 xl:gap-24 px-6 sm:px-10 md:px-16 lg:px-24 xl:px-28 my-12" variants={containerVariants} initial="hidden" animate="visible">
         {/* Left Grid */}
         <motion.div className="flex flex-col gap-6 " variants={itemVariants}>
-          {loading ? (
-            <JobSkeleton />
-          ) : selectedJob ? (
+          {loading ? <JobSkeleton /> : selectedJob ? (
             <>
-              <motion.h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">
-                {selectedJob.title}
-              </motion.h1>
-
+              <motion.h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">{selectedJob.title}</motion.h1>
               <motion.div className="flex gap-2">
-
-                {/* Job ID */}
-                <motion.h4 className="flex text-xs md:text-sm bg-gray-100 px-3 py-1 rounded-md w-fit font-medium text-gray-700 shadow-sm">
-                  {selectedJob.jobId}
-                </motion.h4>
-
-                {/* Job Type with image */}
+                <motion.h4 className="flex text-xs md:text-sm bg-gray-100 px-3 py-1 rounded-md w-fit font-medium text-gray-700 shadow-sm">{selectedJob.jobId}</motion.h4>
                 <motion.h4 className="flex items-center gap-1 md:gap-2 bg-gray-100 px-3 py-1 rounded-md w-fit font-medium text-gray-700 shadow-sm">
-                  <img
-                    src="/assets/Careers/Jobsectionassets/Jobtype.png"
-                    alt="Job Type"
-                    className="w-5 h-5"
-                  />
+                  <img src="/assets/Careers/Jobsectionassets/Jobtype.png" alt="Job Type" className="w-5 h-5" />
                   <span className="text-xs md:text-sm">{selectedJob.jobType}</span>
                 </motion.h4>
-
-                {/* Location with image */}
                 <motion.h4 className="flex items-center gap-1 md:gap-2 bg-gray-100 px-3 py-1 rounded-md w-fit font-medium text-gray-700 shadow-sm">
-                  <img
-                    src="/assets/Careers/Jobsectionassets/Location.png"
-                    alt="Location"
-                    className="w-4 h-4"
-                  />
+                  <img src="/assets/Careers/Jobsectionassets/Location.png" alt="Location" className="w-4 h-4" />
                   <span className="text-xs md:text-sm">{selectedJob.location}</span>
                 </motion.h4>
-
               </motion.div>
-
-
               <motion.p className="text-gray-600 text-sm sm:text-base md:text-md lg:text-lg xl:text-base leading-relaxed">{selectedJob.jobdescription}</motion.p>
-
               <motion.div className="flex flex-col gap-6">
-                <motion.h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">
-                  Roles & Responsibilities
-                </motion.h1>
+                <motion.h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">Roles & Responsibilities</motion.h1>
                 <motion.ul className="list-disc pl-5 space-y-2 text-sm sm:text-base md:text-md lg:text-lg xl:text-base leading-relaxed text-gray-600">
                   {Array.isArray(selectedJob.rolesAndresponsibilities)
-                    ? selectedJob.rolesAndresponsibilities.map((item, index) => (
-                      <motion.li key={index} whileHover={{ x: 5, color: "#374151" }} transition={{ duration: 0.2 }}>
-                        {item}
-                      </motion.li>
-                    ))
+                    ? selectedJob.rolesAndresponsibilities.map((item, index) => <motion.li key={index} whileHover={{ x: 5, color: "#374151" }} transition={{ duration: 0.2 }}>{item}</motion.li>)
                     : typeof selectedJob.rolesAndresponsibilities === "string"
-                      ? selectedJob.rolesAndresponsibilities
-                        .split(".")
-                        .filter(item => item.trim() !== "") // remove empty values
-                        .map((item, index) => (
-                          <motion.li key={index} whileHover={{ color: "#374151" }} transition={{ duration: 0.2 }}>
-                            {item.trim()}.
-                          </motion.li>
-                        ))
+                      ? selectedJob.rolesAndresponsibilities.split(".").filter(item => item.trim() !== "").map((item, index) => <motion.li key={index} whileHover={{ color: "#374151" }} transition={{ duration: 0.2 }}>{item.trim()}.</motion.li>)
                       : null}
                 </motion.ul>
               </motion.div>
-
             </>
           ) : (
-            <motion.div
-              className="flex flex-col items-center justify-center py-20 text-gray-500"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-            >
+            <motion.div className="flex flex-col items-center justify-center py-20 text-gray-500" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
               <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 mb-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <motion.p className="text-lg font-semibold">No jobs found</motion.p>
-              <motion.p className="text-sm text-gray-400">Please check back later for new openings.āāā</motion.p>
+              <motion.p className="text-sm text-gray-400">Please check back later for new openings.</motion.p>
             </motion.div>
-
           )}
         </motion.div>
 
-        {/* Right Grid - Form */}
-        <motion.div
-          className="h-full"
-          variants={formVariants}
-        >
+        {/* Right Grid */}
+        <motion.div className="h-full" variants={formVariants}>
           <AnimatePresence mode="wait">
-            {submitted ? (
-              <motion.div
-                className="flex items-center justify-center min-h-screen bg-white px-4"
-                variants={successVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                key="success"
-              >
-                <motion.div
-                  className="bg-white shadow-2xl rounded-2xl p-8 sm:p-12 text-center max-w-md w-full"
-
-                  transition={{ duration: 0.2 }}
-                >
-                  <motion.div
-                    className="bg-gradient-to-r from-[#3CC2A3] to-[#17B791] rounded-full p-3 mx-auto mb-6 w-16 h-16 flex items-center justify-center"
-                    initial={{ scale: 0, rotate: -180 }}
-                    animate={{ scale: 1, rotate: 0 }}
-                    transition={{
-                      duration: 0.6,
-                      delay: 0.2,
-                      type: "spring",
-                      stiffness: 200
-                    }}
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white" className="size-6">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                    </svg>
+            {loading ? <FormSkeleton /> : submitted ? (
+              <motion.div className="flex items-center justify-center min-h-screen bg-white px-4" variants={successVariants} initial="hidden" animate="visible" exit="exit" key="success">
+                <motion.div className="bg-white shadow-2xl rounded-2xl p-8 sm:p-12 text-center max-w-md w-full" transition={{ duration: 0.2 }}>
+                  <motion.div className="bg-gradient-to-r from-[#3CC2A3] to-[#17B791] rounded-full p-3 mx-auto mb-6 w-16 h-16 flex items-center justify-center" initial={{ scale: 0, rotate: -180 }} animate={{ scale: 1, rotate: 0 }} transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 200 }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white" className="size-6"><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
                   </motion.div>
-                  <motion.h2
-                    className="text-2xl font-medium text-gray-900 mb-4"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4, duration: 0.4 }}
-                  >
-                    Thank you for applying
-                  </motion.h2>
-                  <motion.p
-                    className="text-gray-700"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6, duration: 0.4 }}
-                  >
-                    Our team will review your application and get back to you shortly.
-                  </motion.p>
+                  <motion.h2 className="text-2xl font-medium text-gray-900 mb-4" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.4 }}>Thank you for applying</motion.h2>
+                  <motion.p className="text-gray-700" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.4 }}>Our team will review your application and get back to you shortly.</motion.p>
                 </motion.div>
               </motion.div>
             ) : (
