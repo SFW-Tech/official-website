@@ -221,7 +221,7 @@ const Jobsection: React.FC = () => {
               <li>
                 <button
                   onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-                  className="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 transition"
+                  className="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 transition cursor-pointer"
                 >
                   Prev
                 </button>
@@ -242,7 +242,7 @@ const Jobsection: React.FC = () => {
               <li>
                 <button
                   onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
-                  className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 transition"
+                  className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 transition cursor-pointer"
                 >
                   Next
                 </button>
