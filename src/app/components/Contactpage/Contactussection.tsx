@@ -15,6 +15,8 @@ function Contactussection() {
 
     const { enqueueSnackbar } = useSnackbar();
 
+    const CONNECT_WITH_US_API = process.env.NEXT_PUBLIC_CONNECT_WITH_US_API
+
     const [errors, setErrors] = useState({
         name: "",
         email: "",
@@ -53,7 +55,7 @@ function Contactussection() {
 
         try {
             setLoading(true);
-            const res = await axios.post(process.env.NEXT_PUBLIC_CONNECT_WITH_US_API!, payload);
+            const res = await axios.post(CONNECT_WITH_US_API!, payload);
 
             if (res.status === 200 || res.status === 201) {
                 enqueueSnackbar("Form submitted successfully!", {
