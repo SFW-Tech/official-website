@@ -6,10 +6,7 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 
 function Ourvision() {
     const [selected, setSelected] = useState<"vision" | "mission" | "chooseus">("vision");
-
-    const leftRef = useRef(null);
     const rightRef = useRef(null);
-    const leftInView = useInView(leftRef, { once: true });
     const rightInView = useInView(rightRef, { once: true });
 
     const content = {

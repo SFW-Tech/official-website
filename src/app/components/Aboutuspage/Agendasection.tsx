@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
 
 export default function Agendasection() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
@@ -37,10 +38,12 @@ export default function Agendasection() {
               className="min-w-full flex-[0_0_100%] flex justify-center"
               key={index}
             >
-              <img
+              <Image
                 src={src}
                 alt={`Agenda slide ${index + 1}`}
-                className="mx-auto h-[60px] w-[250px] md:h-[100px] md:w-[500px] lg:h-[130px] lg:w-[700px] xl:h-60 xl:w-[1200px]"
+                width={1200}   
+                height={240}  
+                className="mx-auto h-[60px] w-[250px] md:h-[100px] md:w-[500px] lg:h-[130px] lg:w-[700px] xl:h-[240px] xl:w-[1200px]"
               />
             </div>
           ))}

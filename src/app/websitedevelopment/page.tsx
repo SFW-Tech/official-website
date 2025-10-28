@@ -5,7 +5,7 @@ import Websitesolutions from "../components/Websitedevelopmentpage/Websitesoluti
 import Expertcustomwebsite from "../components/Websitedevelopmentpage/Expertcustomwebsite";
 import Whychooseus from "../components/Websitedevelopmentpage/Whychooseus";
 import Whatwedo from "../components/Websitedevelopmentpage/Whatwedo";
-// import Technocarousel from "../components/Websitedevelopmentpage/Technocarousel";
+
 
 const weburl = process.env.NEXT_PUBLIC_webUrl!;
 

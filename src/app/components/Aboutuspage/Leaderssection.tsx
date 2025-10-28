@@ -5,6 +5,8 @@ import Autoplay from "embla-carousel-autoplay";
 import Link from "next/link";
 import AnimateOnView from "../../../../animations/AnimateOnView";
 import { fadeDown } from "../../../../animations/animations";
+import Image from "next/image";
+
 
 function Leaderssection() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -67,7 +69,13 @@ function Leaderssection() {
           {leaders.map((leader, idx) => (
             <div key={idx} className="flex-[0_0_100%] min-w-0 px-2">
               <div className="bg-gradient-to-r from-[#7264bb] via-[#3f4c67] to-[#605c9b] p-6 rounded-xl flex flex-col lg:flex-row items-center text-white h-full gap-6">
-                <img src={leader.img} alt={leader.name} className="h-60 md:h-72 rounded-xl" />
+                <Image
+                  src={leader.img}
+                  alt={leader.name}
+                  width={300}
+                  height={288}
+                  className="h-60 md:h-72 rounded-xl"
+                />
                 <div className="flex flex-col gap-3 text-center lg:text-left flex-grow lg:mt-2 justify-center">
                   <h2 className="font-semibold text-xl md:text-2xl">{leader.name}</h2>
                   <p className="font-medium text-base md:text-lg">{leader.role}</p>
@@ -76,9 +84,11 @@ function Leaderssection() {
                   <div className="flex-grow" />
                   <hr className="text-gray-400 opacity-40 mt-auto" />
                   <Link href={leader.linkedin} target="_blank">
-                    <img
+                    <Image
                       src="/assets/Home/footerassets/Linkedin.png"
                       alt="Linkedin"
+                      width={32}
+                      height={32}
                       className="w-8 h-8 cursor-pointer hover:scale-110 transition mt-2 lg:mx-0 mx-auto"
                     />
                   </Link>
@@ -95,9 +105,8 @@ function Leaderssection() {
           <button
             key={i}
             onClick={() => emblaApi && emblaApi.scrollTo(i)}
-            className={`w-3 h-3 rounded-full transition cursor-pointer ${
-              selectedIndex === i ? "bg-[#201D42]" : "bg-gray-400"
-            }`}
+            className={`w-3 h-3 rounded-full transition cursor-pointer ${selectedIndex === i ? "bg-[#201D42]" : "bg-gray-400"
+              }`}
           />
         ))}
       </div>
