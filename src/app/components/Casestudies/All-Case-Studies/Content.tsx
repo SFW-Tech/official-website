@@ -126,7 +126,7 @@ function Content() {
                     initial={{ width: 0 }}
                     animate={{ width: 96 }}
                     transition={{ duration: 1, delay: 0.6 }}
-                    className="h-1 bg-gradient-to-r from-blue-900 to-purple-600 mx-auto mt-10 rounded-full"
+                    className="h-1 bg-[#001A5A] mx-auto mt-10 rounded-full"
                 ></motion.div>
             </motion.div>
 

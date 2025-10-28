@@ -14,7 +14,27 @@ interface Job {
   experience: string;
   location: string;
   validthrough?: string;
+
 }
+
+/* ===========================
+    🔹 Environment Variables
+=========================== */
+const ALLJOBS_FETCH_API = String(process.env.NEXT_PUBLIC_ALLJOBS_FETCH_API);
+
+const JOB_FULLTIME = Number(process.env.NEXT_PUBLIC_JOB_FULLTIME);
+const JOB_PARTTIME = Number(process.env.NEXT_PUBLIC_JOB_PARTTIME);
+const JOB_CONTRACT = Number(process.env.NEXT_PUBLIC_JOB_CONTRACT);
+const JOB_INTERNSHIP = Number(process.env.NEXT_PUBLIC_JOB_INTERNSHIP);
+const JOB_REMOTE = Number(process.env.NEXT_PUBLIC_JOB_REMOTE);
+
+const LOC_COIMBATORE = Number(process.env.NEXT_PUBLIC_LOCATION_COIMBATORE);
+const LOC_BENGALURU = Number(process.env.NEXT_PUBLIC_LOCATION_BENGALURU);
+const LOC_HYDERABAD = Number(process.env.NEXT_PUBLIC_LOCATION_HYDERABAD);
+const LOC_HYBRID = Number(process.env.NEXT_PUBLIC_LOCATION_HYBRID);
+const LOC_REMOTE = Number(process.env.NEXT_PUBLIC_LOCATION_REMOTE);
+
+
 
 /* ===========================
     🔹 Skeleton Loader
@@ -94,25 +114,25 @@ const Jobsection: React.FC = () => {
   const jobsPerPage = 4;
 
   const jobTypeMap: Record<number, string> = {
-    [Number(process.env.NEXT_PUBLIC_JOB_FULLTIME)]: "Full-time",
-    [Number(process.env.NEXT_PUBLIC_JOB_PARTTIME)]: "Part-time",
-    [Number(process.env.NEXT_PUBLIC_JOB_CONTRACT)]: "Contract",
-    [Number(process.env.NEXT_PUBLIC_JOB_INTERNSHIP)]: "Internship",
-    [Number(process.env.NEXT_PUBLIC_JOB_REMOTE)]: "Remote",
+    [JOB_FULLTIME]: "Full-time",
+    [JOB_PARTTIME]: "Part-time",
+    [JOB_CONTRACT]: "Contract",
+    [JOB_INTERNSHIP]: "Internship",
+    [JOB_REMOTE]: "Remote",
   };
 
   const jobLocationMap: Record<number, string> = {
-    [Number(process.env.NEXT_PUBLIC_LOCATION_COIMBATORE)]: "Coimbatore",
-    [Number(process.env.NEXT_PUBLIC_LOCATION_BENGALURU)]: "Bengaluru",
-    [Number(process.env.NEXT_PUBLIC_LOCATION_HYDERABAD)]: "Hyderabad",
-    [Number(process.env.NEXT_PUBLIC_LOCATION_HYBRID)]: "Hybrid",
-    [Number(process.env.NEXT_PUBLIC_LOCATION_REMOTE)]: "Remote",
+    [LOC_COIMBATORE]: "Coimbatore",
+    [LOC_BENGALURU]: "Bengaluru",
+    [LOC_HYDERABAD]: "Hyderabad",
+    [LOC_HYBRID]: "Hybrid",
+    [LOC_REMOTE]: "Remote",
   };
 
   const fetchJobs = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(process.env.NEXT_PUBLIC_ALLJOBS_FETCH_API!);
+      const res = await axios.get(ALLJOBS_FETCH_API);
       const data = res.data.value || [];
 
       if (!Array.isArray(data) || data.length === 0) {

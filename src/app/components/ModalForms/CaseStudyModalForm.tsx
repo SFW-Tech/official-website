@@ -10,6 +10,9 @@ interface ContactModalProps {
     pdfLink: string;
 }
 
+
+const CONNECT_WITH_US_API = process.env.NEXT_PUBLIC_CONNECT_WITH_US_API
+
 function CaseStudyModalForm({ isOpen, setIsOpen, pdfLink }: ContactModalProps) {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -81,7 +84,7 @@ function CaseStudyModalForm({ isOpen, setIsOpen, pdfLink }: ContactModalProps) {
 
 
         try {
-            const res = await axios.post(process.env.NEXT_PUBLIC_CONNECT_WITH_US_API!, payload);
+            const res = await axios.post(CONNECT_WITH_US_API!, payload);
 
             if (res.status === 200 || res.status === 201) {
                 setIsSubmitted(true);
