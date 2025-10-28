@@ -18,6 +18,23 @@ interface Job {
   rolesAndresponsibilities?: string[] | string;
 }
 
+/* ===========================
+    🔹 Environment Variables
+=========================== */
+const ALLJOBS_FETCH_API = String(process.env.NEXT_PUBLIC_ALLJOBS_FETCH_API);
+
+const JOB_FULLTIME = Number(process.env.NEXT_PUBLIC_JOB_FULLTIME);
+const JOB_PARTTIME = Number(process.env.NEXT_PUBLIC_JOB_PARTTIME);
+const JOB_CONTRACT = Number(process.env.NEXT_PUBLIC_JOB_CONTRACT);
+const JOB_INTERNSHIP = Number(process.env.NEXT_PUBLIC_JOB_INTERNSHIP);
+const JOB_REMOTE = Number(process.env.NEXT_PUBLIC_JOB_REMOTE);
+
+const LOC_COIMBATORE = Number(process.env.NEXT_PUBLIC_LOCATION_COIMBATORE);
+const LOC_BENGALURU = Number(process.env.NEXT_PUBLIC_LOCATION_BENGALURU);
+const LOC_HYDERABAD = Number(process.env.NEXT_PUBLIC_LOCATION_HYDERABAD);
+const LOC_HYBRID = Number(process.env.NEXT_PUBLIC_LOCATION_HYBRID);
+const LOC_REMOTE = Number(process.env.NEXT_PUBLIC_LOCATION_REMOTE);
+
 function Page() {
   const [formData, setFormData] = useState({
     First_name: "",
@@ -48,25 +65,25 @@ function Page() {
   const buttonVariants: Variants = { idle: { scale: 1 }, hover: { scale: 1.05, transition: { duration: 0.2, ease: "easeInOut" } }, tap: { scale: 0.95 }, loading: { scale: 1, transition: { duration: 0.2 } } };
 
   const jobTypeMap: Record<number, string> = {
-    [Number(process.env.NEXT_PUBLIC_JOB_FULLTIME)]: "Full-time",
-    [Number(process.env.NEXT_PUBLIC_JOB_PARTTIME)]: "Part-time",
-    [Number(process.env.NEXT_PUBLIC_JOB_CONTRACT)]: "Contract",
-    [Number(process.env.NEXT_PUBLIC_JOB_INTERNSHIP)]: "Internship",
-    [Number(process.env.NEXT_PUBLIC_JOB_REMOTE)]: "Remote",
+    [JOB_FULLTIME]: "Full-time",
+    [JOB_PARTTIME]: "Part-time",
+    [JOB_CONTRACT]: "Contract",
+    [JOB_INTERNSHIP]: "Internship",
+    [JOB_REMOTE]: "Remote",
   };
 
   const jobLocationMap: Record<number, string> = {
-    [Number(process.env.NEXT_PUBLIC_LOCATION_COIMBATORE)]: "Coimbatore",
-    [Number(process.env.NEXT_PUBLIC_LOCATION_BENGALURU)]: "Bengaluru",
-    [Number(process.env.NEXT_PUBLIC_LOCATION_HYDERABAD)]: "Hyderabad",
-    [Number(process.env.NEXT_PUBLIC_LOCATION_HYBRID)]: "Hybrid",
-    [Number(process.env.NEXT_PUBLIC_LOCATION_REMOTE)]: "Remote",
+    [LOC_COIMBATORE]: "Coimbatore",
+    [LOC_BENGALURU]: "Bengaluru",
+    [LOC_HYDERABAD]: "Hyderabad",
+    [LOC_HYBRID]: "Hybrid",
+    [LOC_REMOTE]: "Remote",
   };
 
   const fetchJobs = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(process.env.NEXT_PUBLIC_ALLJOBS_FETCH_API!);
+      const res = await axios.get(ALLJOBS_FETCH_API);
       const data = res.data.value || [];
 
       const formattedJobs: Job[] = data.map((item: any) => ({
@@ -184,46 +201,46 @@ function Page() {
 
   // Right-side skeleton
   // Right-side skeleton
-const FormSkeleton: React.FC = () => (
-  <div className="bg-white shadow-xl rounded-2xl p-6 md:p-8 lg:p-10 space-y-6 animate-pulse">
-    {/* Title */}
-    <div className="h-8 sm:h-10 md:h-12 bg-gray-200 rounded w-1/2 mx-auto"></div>
+  const FormSkeleton: React.FC = () => (
+    <div className="bg-white shadow-xl rounded-2xl p-6 md:p-8 lg:p-10 space-y-6 animate-pulse">
+      {/* Title */}
+      <div className="h-8 sm:h-10 md:h-12 bg-gray-200 rounded w-1/2 mx-auto"></div>
 
-    {/* Name fields */}
-    <div className="flex flex-col md:flex-row gap-4 pt-5">
-      <div className="h-12 bg-gray-200 rounded w-full md:w-1/2"></div>
-      <div className="h-12 bg-gray-200 rounded w-full md:w-1/2"></div>
-    </div>
-
-    {/* Email & Phone */}
-    <div className="flex flex-col md:flex-row gap-4">
-      <div className="h-12 bg-gray-200 rounded w-full md:w-1/2"></div>
-      <div className="h-12 bg-gray-200 rounded w-full md:w-1/2"></div>
-    </div>
-
-    {/* Location */}
-    <div className="h-12 bg-gray-200 rounded w-full"></div>
-
-    {/* Message */}
-    <div className="h-28 bg-gray-200 rounded w-full"></div>
-
-    {/* Resume */}
-    <div className="h-24 bg-gray-200 rounded w-full flex items-center justify-center"></div>
-
-    {/* Experience */}
-    <div className="space-y-2">
-      <div className="h-5 bg-gray-200 rounded w-1/3"></div>
-      <div className="flex flex-wrap gap-2 mt-2">
-        {Array.from({ length: 4 }).map((_, i) => (
-          <div key={i} className="h-10 w-28 bg-gray-200 rounded"></div>
-        ))}
+      {/* Name fields */}
+      <div className="flex flex-col md:flex-row gap-4 pt-5">
+        <div className="h-12 bg-gray-200 rounded w-full md:w-1/2"></div>
+        <div className="h-12 bg-gray-200 rounded w-full md:w-1/2"></div>
       </div>
-    </div>
 
-    {/* Submit button */}
-    <div className="h-12 bg-gray-200 rounded w-full mt-4"></div>
-  </div>
-);
+      {/* Email & Phone */}
+      <div className="flex flex-col md:flex-row gap-4">
+        <div className="h-12 bg-gray-200 rounded w-full md:w-1/2"></div>
+        <div className="h-12 bg-gray-200 rounded w-full md:w-1/2"></div>
+      </div>
+
+      {/* Location */}
+      <div className="h-12 bg-gray-200 rounded w-full"></div>
+
+      {/* Message */}
+      <div className="h-28 bg-gray-200 rounded w-full"></div>
+
+      {/* Resume */}
+      <div className="h-24 bg-gray-200 rounded w-full flex items-center justify-center"></div>
+
+      {/* Experience */}
+      <div className="space-y-2">
+        <div className="h-5 bg-gray-200 rounded w-1/3"></div>
+        <div className="flex flex-wrap gap-2 mt-2">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="h-10 w-28 bg-gray-200 rounded"></div>
+          ))}
+        </div>
+      </div>
+
+      {/* Submit button */}
+      <div className="h-12 bg-gray-200 rounded w-full mt-4"></div>
+    </div>
+  );
 
 
   return (
