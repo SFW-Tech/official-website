@@ -4,17 +4,20 @@ import React from "react";
 import { motion } from "framer-motion";
 import AnimateOnView from "../../../../animations/AnimateOnView";
 import { fadeDown } from "../../../../animations/animations";
+import Image from "next/image";
 
 function Jointeamsection() {
   return (
     <div className="mt-12 sm:mt-16 md:mt-20 lg:mt-28 xl:mt-36 pr-4 sm:px-8 md:px-16 lg:px-24 xl:px-28 mb-8">
       <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-x-10 gap-y-3 md:gap-x-20 lg:gap-x-32">
-        
+
         {/* Image Section */}
         <AnimateOnView variants={fadeDown} className="">
-          <img
+          <Image
             src="/assets/Aboutus/jointeamassets/1.png"
             alt="Join our team"
+            width={300}
+            height={300}
             className="h-[180px] sm:h-[250px] md:h-[200px] lg:h-[220px] xl:h-[300px] w-auto"
           />
         </AnimateOnView>

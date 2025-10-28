@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import AnimateOnView from "../../../../animations/AnimateOnView";
-import { fadeDown, headingVariant, slowfadeDown, staggerContainer } from "../../../../animations/animations";
+import { fadeDown, headingVariant, staggerContainer } from "../../../../animations/animations";
 
 function Reasonstochoose() {
   const cards = [
@@ -72,70 +72,12 @@ function Reasonstochoose() {
     },
   ];
 
-  const cardVariants: Variants = {
-    initial: {
-      y: 0,
-      scale: 1,
-      boxShadow:
-        "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-    },
-    hover: {
-      y: -5,
-      scale: 1.02,
-      boxShadow:
-        "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 10px 20px -5px rgba(0, 0, 0, 0.1)",
-      transition: {
-        duration: 0.4,
-        ease: "easeInOut",
-      },
-    },
-  };
 
 
-  const iconVariants: Variants = {
-    initial: {
-      scale: 1,
-      borderRadius: "9999px",
-
-    },
-    hover: {
-      scale: 1.15,
 
 
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 15
-      }
-    }
-  };
 
-  const titleVariants: Variants = {
-    initial: {
-      color: "#59D7F7"
-    },
-    hover: {
-      color: "#001A5A",
-      scale: 1.05,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 20
-      }
-    }
-  };
-
-  const textVariants = {
-    initial: {
-      opacity: 0.8
-    },
-    hover: {
-      opacity: 1,
-      transition: {
-        duration: 0.2
-      }
-    }
-  };
+  
 
   return (
     <div className="px-4 md:px-16 lg:px-20 xl:px-28 my-20 flex flex-col gap-10">

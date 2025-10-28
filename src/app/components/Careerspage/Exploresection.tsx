@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import AnimateOnView from "../../../../animations/AnimateOnView";
-import { fadeDown, headingVariant } from "../../../../animations/animations";
+import { fadeDown } from "../../../../animations/animations";
 
 function Exploresection() {
   return (

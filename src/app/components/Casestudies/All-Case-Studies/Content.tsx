@@ -78,26 +78,9 @@ function Content() {
         router.push(`/case-studies/${caseStudyId}`)
     }
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                duration: 0.8,
-                staggerChildren: 0.08
-            }
-        }
-    }
+  
 
-    const itemVariants: Variants = {
-        hidden: { opacity: 0, y: 40, scale: 0.96 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
-        }
-    }
+ 
 
     return (
         <AnimateOnView variants={staggerContainer} className='px-4 sm:px-8 lg:px-28 py-16 min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50'>

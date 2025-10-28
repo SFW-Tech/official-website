@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import AnimateOnView from "../../../../animations/AnimateOnView";
 import { fadeDown, headingVariant, staggerContainer } from "../../../../animations/animations";
 
