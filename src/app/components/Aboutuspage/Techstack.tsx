@@ -6,7 +6,7 @@ function Techstack() {
   const headingRef = useRef(null);
   const imageRef = useRef(null);
   const headingInView = useInView(headingRef, { once: true });
-  const imageinView = useInView(imageRef, { once: true });
+ 
 
   // Array of images
   const images = ["TechStack1", "TechStack2", "TechStack3", "TechStack4"];

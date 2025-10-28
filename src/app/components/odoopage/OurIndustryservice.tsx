@@ -1,11 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+
 import AnimateOnView from "../../../../animations/AnimateOnView";
 import {
   fadeDown,
   headingVariant,
-  staggerContainer,
 } from "../../../../animations/animations";
 
 const industries = [

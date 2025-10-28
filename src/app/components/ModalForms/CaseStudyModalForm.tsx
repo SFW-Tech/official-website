@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
-import axios, { Axios } from "axios";
+import axios from "axios";
 import { enqueueSnackbar } from "notistack";
 
 interface ContactModalProps {

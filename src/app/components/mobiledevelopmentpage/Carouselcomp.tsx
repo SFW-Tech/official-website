@@ -2,15 +2,15 @@
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion"
+
+
 
 const Carouselcomp: React.FC = () => {
   const [emblaRef] = useEmblaCarousel({ loop: true, align: "start" }, [
     Autoplay({ delay: 2000, stopOnInteraction: false }),
   ]);
-  const headingRef = useRef(null);
-  const headingInView = useInView(headingRef, { once: true });
+ 
+  
 
 
  const images: string[] = [
