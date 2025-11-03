@@ -3,6 +3,7 @@ import React, { useState, useRef } from "react";
 import AnimateOnView from "../../../../animations/AnimateOnView";
 import { fadeDown } from "../../../../animations/animations";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import Image from "next/image";
 
 function Ourvision() {
     const [selected, setSelected] = useState<"vision" | "mission" | "chooseus">("vision");
@@ -33,7 +34,7 @@ function Ourvision() {
 
                 {/* Left Side - Images */}
                 <AnimateOnView
-                    
+
                     variants={fadeDown}
                     className="flex flex-col md:flex-row justify-center md:justify-start gap-2"
                 >
@@ -42,11 +43,13 @@ function Ourvision() {
                         onClick={() => setSelected("vision")}
                         className="relative cursor-pointer transition-all duration-300"
                     >
-                        <img
+                        <Image
                             src="/assets/Aboutus/Ourvisionassets/Ourvision.png"
                             alt={content.vision.title}
+                            width={350}
+                            height={450}
                             className={`object-cover rounded-lg shadow-md transition-all duration-500 
-                                ${selected === "vision"
+                                    ${selected === "vision"
                                     ? "h-64 sm:h-80 md:h-96 lg:h-[450px] w-full md:w-56 lg:w-[350px]"
                                     : "h-20 md:h-96 lg:h-[450px] w-full md:w-20"} `}
                         />
@@ -65,11 +68,13 @@ function Ourvision() {
                         onClick={() => setSelected("mission")}
                         className="relative cursor-pointer transition-all duration-300"
                     >
-                        <img
+                        <Image
                             src="/assets/Aboutus/Ourvisionassets/Ourmission.png"
                             alt={content.mission.title}
+                            width={350}
+                            height={450}
                             className={`object-cover rounded-lg shadow-md transition-all duration-500 
-                                ${selected === "mission"
+                              ${selected === "mission"
                                     ? "h-64 sm:h-80 md:h-96 lg:h-[450px] w-full md:w-56 lg:w-[350px]"
                                     : "h-20 md:h-96 lg:h-[450px] w-full md:w-20"} `}
                         />
@@ -88,11 +93,13 @@ function Ourvision() {
                         onClick={() => setSelected("chooseus")}
                         className="relative cursor-pointer transition-all duration-300"
                     >
-                        <img
+                        <Image
                             src="/assets/Aboutus/Ourvisionassets/Chooseus.png"
                             alt={content.chooseus.title}
+                            width={350}
+                            height={450}
                             className={`object-cover rounded-lg shadow-md transition-all duration-500 
-                                ${selected === "chooseus"
+                              ${selected === "chooseus"
                                     ? "h-64 sm:h-80 md:h-96 lg:h-[450px] w-full md:w-56 lg:w-[350px]"
                                     : "h-20 md:h-96 lg:h-[450px] w-full md:w-20"} `}
                         />
@@ -125,9 +132,11 @@ function Ourvision() {
                             className="flex flex-col gap-6"
                         >
                             <div>
-                                <img
+                                <Image
                                     src={content[selected].logo}
                                     alt={content[selected].title}
+                                    width={250}
+                                    height={250}
                                     className="mx-auto md:mx-0 max-w-[120px] sm:max-w-[160px] md:max-w-[200px] lg:max-w-[250px]"
                                 />
                             </div>

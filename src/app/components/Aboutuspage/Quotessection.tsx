@@ -2,6 +2,7 @@
 import React from "react"
 import AnimateOnView from "../../../../animations/AnimateOnView"
 import { fadeDown } from '../../../../animations/animations'
+import Image from "next/image"
 
 function Quotessection() {
   return (
@@ -16,9 +17,11 @@ function Quotessection() {
         </p>
 
         {/* Logo */}
-        <img
+        <Image
           src="/assets/Aboutus/Quotesassets/logo.png"
           alt="Softworks Logo"
+          width={248}
+          height={248}
           className="w-26 sm:w-30 md:w-48 lg:w-62"
         />
       </AnimateOnView>
