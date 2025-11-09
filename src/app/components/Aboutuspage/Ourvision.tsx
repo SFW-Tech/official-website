@@ -135,8 +135,8 @@ function Ourvision() {
                                 <Image
                                     src={content[selected].logo}
                                     alt={content[selected].title}
-                                    width={250}
-                                    height={250}
+                                    width={50}
+                                    height={50}
                                     className="mx-auto md:mx-0 max-w-[120px] sm:max-w-[160px] md:max-w-[200px] lg:max-w-[250px]"
                                 />
                             </div>

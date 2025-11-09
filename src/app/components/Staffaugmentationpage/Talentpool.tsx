@@ -69,10 +69,10 @@ function Talentpool() {
             </div>
 
             {/* Grid 1 */}
-            <AnimateOnView variants={fadeDown} className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-14 px-4 md:px-12 lg:px-20 xl:px-28">
+            <AnimateOnView variants={fadeDown} className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 mt-14 px-4 md:px-12 lg:px-20 xl:px-28">
                 {renderCategory("Web Technology", webTechs)}
                 {renderCategory("Mobile Technology", mobileTechs)}
-                {renderCategory("Service Now", serviceNowModules)}
+                {/* {renderCategory("Service Now", serviceNowModules)} */}
                 {renderCategory("Quality Assurance", qualityAssurance)}
             </AnimateOnView>
 

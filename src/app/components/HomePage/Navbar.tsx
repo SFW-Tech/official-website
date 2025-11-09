@@ -218,6 +218,7 @@ function Navbar() {
                                                 "/e-commerce",
                                                 "/odoo",
                                                 "/ai",
+                                                "/sap",
                                                 "/servicenow",
                                                 "/staffaugmentation"
                                             ].includes(pathname)
@@ -296,6 +297,15 @@ function Navbar() {
                                                     AI
                                                 </Link>
                                                 <Link
+                                                    href="/sap"
+                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${
+                                                        pathname === "/sap" ? "bg-[#59d7f7] text-black font-semibold" : ""
+                                                    }`}
+                                                    onClick={() => sethamburgerlist(false)}
+                                                >
+                                                    SAP
+                                                </Link>
+                                                <Link
                                                     href="/odoo"
                                                     className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${
                                                         pathname === "/odoo" ? "bg-[#59d7f7] text-black font-semibold" : ""
@@ -304,7 +314,7 @@ function Navbar() {
                                                 >
                                                     ODOO
                                                 </Link>
-                                                <Link
+                                                {/* <Link
                                                     href="/servicenow"
                                                     className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${
                                                         pathname === "/servicenow" ? "bg-[#59d7f7] text-black font-semibold" : ""
@@ -312,7 +322,7 @@ function Navbar() {
                                                     onClick={() => sethamburgerlist(false)}
                                                 >
                                                     Service Now
-                                                </Link>
+                                                </Link> */}
                                                 <Link
                                                     href="/staffaugmentation"
                                                     className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${
