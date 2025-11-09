@@ -146,7 +146,7 @@ export default function ContactPage() {
       <Herosection />
       <Contactussection />
       <Map />
-      <Footer />
+      
     </>
   );
 }
