@@ -5,6 +5,7 @@ const webUrl = process.env.NEXT_PUBLIC_webUrl!
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = [
     { path: "", priority: 1.0 },
+    { path: "aboutus", priority: 0.8 },
     { path: "contact", priority: 0.8 },
     { path: "case-studies", priority: 0.8 },
     { path: "careers", priority: 0.8 },

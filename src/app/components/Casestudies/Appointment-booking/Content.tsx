@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import AnimateOnView from '../../../../../animations/AnimateOnView';
 import { fadeDown } from '../../../../../animations/animations';
-import CaseStudyModalForm from '../../ModalForms/CaseStudyModalForm'; 
+import CaseStudyModalForm from '../../ModalForms/CaseStudyModalForm';
+import Image from 'next/image';
 
 function Content() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,11 +18,14 @@ function Content() {
 
                 {/* Image */}
                 <AnimateOnView variants={fadeDown} className='flex justify-center'>
-                    <img
+                    <Image
                         src="/assets/Casestudies/Appointment-Booking.png"
                         alt="Appointment Booking"
-                        className='w-full max-w-xs lg:max-w-base xl:max-w-md rounded-xl'
+                        width={500}
+                        height={500}
+                        className="w-full max-w-xs lg:max-w-base xl:max-w-md rounded-xl"
                     />
+
                 </AnimateOnView>
 
                 {/* Text + Button */}

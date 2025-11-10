@@ -2,6 +2,7 @@
 import React from "react";
 import AnimateOnView from "../../../../animations/AnimateOnView";
 import { fadeDown } from "../../../../animations/animations";
+import Image from "next/image";
 
 function Exploresection() {
   return (
@@ -10,10 +11,12 @@ function Exploresection() {
 
         {/* Image Section */}
         <AnimateOnView variants={fadeDown} className="order-1 md:order-2 flex justify-center md:justify-end">
-          <img
+          <Image
             src="/assets/Careers/Exploresectionassets/1.png"
-            className="h-[250px] sm:h-[350px] md:h-[400px] lg:h-[450px] xl:h-[500px] w-auto"
             alt="Explore life at Softworks"
+            width={500}
+            height={500}
+            className="h-[250px] sm:h-[350px] md:h-[400px] lg:h-[450px] xl:h-[500px] w-auto"
           />
         </AnimateOnView>
 

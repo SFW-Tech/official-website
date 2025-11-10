@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import AnimateOnView from '../../../../../animations/AnimateOnView';
 import { fadeDown } from '../../../../../animations/animations';
-import CaseStudyModalForm from '../../ModalForms/CaseStudyModalForm'; 
+import CaseStudyModalForm from '../../ModalForms/CaseStudyModalForm';
+import Image from 'next/image';
 
 function Content() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const pdfLink = "/assets/CasestudiesPdf/Digital-Transformation.pdf"; 
+    const pdfLink = "/assets/CasestudiesPdf/Digital-Transformation.pdf";
 
     return (
         <div className='px-4 py-6 md:px-10 lg:px-16 xl:px-28 xl:py-10'>
@@ -16,11 +17,14 @@ function Content() {
 
                 {/* Image */}
                 <AnimateOnView variants={fadeDown} className='flex justify-center'>
-                    <img
+                    <Image
                         src="/assets/Casestudies/Digital-Transformation.png"
                         alt="Digital transformation image"
-                        className='w-full max-w-xs lg:max-w-base xl:max-w-md'
+                        width={500}
+                        height={500}
+                        className="w-full max-w-xs lg:max-w-base xl:max-w-md"
                     />
+
                 </AnimateOnView>
 
                 {/* Text + Button */}
