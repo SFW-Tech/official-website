@@ -4,6 +4,7 @@ import { motion, Variants } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import AnimateOnView from '../../../../../animations/AnimateOnView'
 import { fadeDown, headingVariant, staggerContainer } from '../../../../../animations/animations'
+import Image from 'next/image'
 
 const caseStudies = [
     {
@@ -78,9 +79,9 @@ function Content() {
         router.push(`/case-studies/${caseStudyId}`)
     }
 
-  
 
- 
+
+
 
     return (
         <AnimateOnView variants={staggerContainer} className='px-4 sm:px-8 lg:px-28 py-16 min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50'>
@@ -130,9 +131,11 @@ function Content() {
                         <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl overflow-hidden border border-gray-200 transition-all duration-500 hover:border-gray-400 hover:shadow-2xl">
                             {/* Image Container */}
                             <div className="relative h-56 overflow-hidden">
-                                <img
+                                <Image
                                     src={study.image}
                                     alt={study.title}
+                                    width={500}
+                                    height={500}
                                     className="w-full h-full object-contain transition-all duration-700 group-hover:scale-105"
                                     onError={(e) => (e.currentTarget.style.display = 'none')}
                                 />

@@ -3,23 +3,27 @@ import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import AnimateOnView from '../../../../../animations/AnimateOnView';
 import { fadeDown } from '../../../../../animations/animations';
-import CaseStudyModalForm from '../../ModalForms/CaseStudyModalForm'; 
+import CaseStudyModalForm from '../../ModalForms/CaseStudyModalForm';
+import Image from 'next/image';
 
 function Content() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const pdfLink = "/assets/CasestudiesPdf/Field-Service-Management.pdf"; 
+    const pdfLink = "/assets/CasestudiesPdf/Field-Service-Management.pdf";
     return (
         <div className='px-4 py-6 md:px-10 lg:px-16 xl:px-28 xl:py-10'>
             <div className='flex flex-col gap-8 md:gap-10 lg:gap-12 xl:gap-15'>
 
                 {/* Image */}
                 <AnimateOnView variants={fadeDown} className='flex justify-center'>
-                    <img
+                    <Image
                         src="/assets/Casestudies/Field-Service-Management.png"
                         alt="Resolve"
-                        className='w-full max-w-xs lg:max-w-base xl:max-w-md rounded-xl'
+                        width={500}
+                        height={500}
+                        className="w-full max-w-xs lg:max-w-base xl:max-w-md rounded-xl"
                     />
+
                 </AnimateOnView>
 
                 {/* Text + Button */}
