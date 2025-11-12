@@ -463,14 +463,14 @@ function ContactModal({ isOpen, setIsOpen }: ContactModalProps) {
                                                     >
                                                         <option value="" className="text-gray-500">-- Select a Service --</option>
 
-                                                        <option value="erp-development" className="font-normal text-gray-700 py-2">ERP Development</option>
+                                                       
                                                         <option value="enterprise-application" className="font-normal text-gray-700 py-2">Enterprise/Custom App Development</option>
                                                         <option value="odoo-services" className="font-normal text-gray-700 py-2">Odoo Services</option>
                                                         <option value="website-development" className="font-normal text-gray-700 py-2">Website Development</option>
-                                                        <option value="ecommerce-website" className="font-normal text-gray-700 py-2">E-Commerce Website Development</option>
+                                                        <option value="ecommerce-website" className="font-normal text-gray-700 py-2">Ecommerce</option>
                                                         {/* <option value="service-now" className="font-normal text-gray-700 py-2">Service Now</option> */}
+                                                        <option value="SAP" className="font-normal text-gray-700 py-2">SAP</option>
                                                         <option value="Artificial-Intelligence" className="font-normal text-gray-700 py-2">Artificial Intelligence</option>
-                                                        <option value="digital-marketing" className="font-normal text-gray-700 py-2">Digital Marketing</option>
                                                         <option value="staff-augmentation" className="font-normal text-gray-700 py-2">Staff Augmentation</option>
                                                     </motion.select>
                                                     <AnimatePresence>

@@ -63,7 +63,7 @@ function Footer() {
                         <Link href="/odoo" className='hover:text-[#59D7F7]'>Odoo</Link>
                         <Link href="/staffaugmentation" className='hover:text-[#59D7F7]'>Staff Augmentation</Link>
                         <Link href="/e-commerce" className='hover:text-[#59D7F7]'>Ecommerce Applications</Link>
-                        <Link href="/servicenow" className='hover:text-[#59D7F7]'>ServiceNow</Link>
+                        {/* <Link href="/servicenow" className='hover:text-[#59D7F7]'>ServiceNow</Link> */}
                     </div>
 
                     {/* Contact */}
@@ -72,8 +72,15 @@ function Footer() {
                         <hr className="border-gray-400 opacity-40" />
                         <p>Sales: +91 98941 13103 / +91 9994317168</p>
                         <p>Career: +91 73977 20330</p>
-                        <p>Mailbox: info@sfwtechnologies.com</p>
+                        <p>
+                            Sales Mail: <a href="mailto:sales@sfwtechnologies.com" >sales@sfwtechnologies.com</a>
+                        </p>
+                        <p>
+                            Mailbox: <a href="mailto:info@sfwtechnologies.com">info@sfwtechnologies.com</a>
+                        </p>
+
                     </div>
+
 
                     {/* Address */}
                     <div className='flex flex-col text-white gap-3'>
