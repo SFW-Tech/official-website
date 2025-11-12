@@ -137,7 +137,15 @@ function Contactussection() {
                                 </div>
                                 <div className='flex-1'>
                                     <h3 className='text-gray-900 font-medium'>Our Mailbox</h3>
-                                    <p className='text-gray-600 text-base md:text-md lg:text-lg'>info@sfwtechnologies.com</p>
+                                    <p className='text-gray-600 text-base md:text-md lg:text-lg'>
+                                        Email:{" "}
+                                        <a
+                                            href="mailto:info@sfwtechnologies.com"
+                                            
+                                        >
+                                            info@sfwtechnologies.com
+                                        </a>
+                                    </p>
                                 </div>
                             </motion.div>
 
@@ -152,9 +160,15 @@ function Contactussection() {
                                 </div>
                                 <div className='flex-1'>
                                     <h3 className='text-gray-900 font-medium'>Sales</h3>
-                                    <p className='text-gray-600 text-base md:text-md lg:text-lg'>Mobile/WhatsApp: +91 98941 13103 | 99943 17168</p>
+                                    <p className='text-gray-600 text-base md:text-md lg:text-lg'>
+                                        Mobile / WhatsApp: +91 98941 13103 | 99943 17168
+                                    </p>
+                                    <p className='text-gray-600 text-base md:text-md lg:text-lg'>
+                                        Email: <a href="mailto:sales@sfwtechnologies.com">sales@sfwtechnologies.com</a>
+                                    </p>
                                 </div>
                             </motion.div>
+
 
                             {/* Career */}
                             <motion.div variants={fadeDown} className='flex gap-4 md:gap-6 items-center'>
