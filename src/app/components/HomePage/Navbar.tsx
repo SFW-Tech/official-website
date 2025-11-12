@@ -66,11 +66,11 @@ function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 3, ease: "easeOut" }}
-            className={`fixed ${pathname === "/" ? (scrolled ? "top-2" : "top-10") : scrolled ? "top-2" : "top-0"
+            className={`fixed ${pathname === "/" ? (scrolled ? "top-1.5" : "top-10") : scrolled ? "top-2" : "top-0"
                 } left-0 right-0 z-50 flex gap-10 justify-between items-center transition-all duration-300 ease-in-out 
                 ${scrolled
-                    ? "bg-[#001A5A] text-white shadow-lg mx-2 px-4 lg:px-20 md:px-14 xl:px-36 py-6 md:py-5 rounded-2xl"
-                    : "bg-transparent text-white px-6 lg:px-25 md:px-18 xl:px-40 py-4"
+                    ? "bg-[#001A5A] text-white shadow-lg mx-2 px-6 md:px-18 lg:px-28 py-6 md:py-5 rounded-2xl"
+                    : "bg-transparent text-white mx-2 px-6 md:px-18 lg:px-28 py-6 md:py-5"
                 }`}
 
         >
