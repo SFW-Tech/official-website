@@ -126,28 +126,7 @@ function Contactussection() {
                                 </div>
                             </motion.div>
 
-                            {/* Mail */}
-                            <motion.div variants={fadeDown} className='flex gap-4 md:gap-6 items-center'>
-                                <div className='p-4 md:p-5 rounded-xl border border-gray-200 flex-shrink-0'>
-                                    <img
-                                        src="assets/Contactus/Contactussectionassets/mail.png"
-                                        alt="mail"
-                                        className='h-8 w-8 object-contain'
-                                    />
-                                </div>
-                                <div className='flex-1'>
-                                    <h3 className='text-gray-900 font-medium'>Our Mailbox</h3>
-                                    <p className='text-gray-600 text-base md:text-md lg:text-lg'>
-                                        Email:{" "}
-                                        <a
-                                            href="mailto:info@sfwtechnologies.com"
-                                            
-                                        >
-                                            info@sfwtechnologies.com
-                                        </a>
-                                    </p>
-                                </div>
-                            </motion.div>
+                           
 
                             {/* Sales */}
                             <motion.div variants={fadeDown} className='flex gap-4 md:gap-6 items-center'>
@@ -161,11 +140,9 @@ function Contactussection() {
                                 <div className='flex-1'>
                                     <h3 className='text-gray-900 font-medium'>Sales</h3>
                                     <p className='text-gray-600 text-base md:text-md lg:text-lg'>
-                                        Mobile / WhatsApp: +91 98941 13103 | 99943 17168
+                                        Mobile: +91 98941 13103 | 99943 17168
                                     </p>
-                                    <p className='text-gray-600 text-base md:text-md lg:text-lg'>
-                                        Email: <a href="mailto:sales@sfwtechnologies.com">sales@sfwtechnologies.com</a>
-                                    </p>
+                                    
                                 </div>
                             </motion.div>
 
@@ -182,6 +159,36 @@ function Contactussection() {
                                 <div className='flex-1'>
                                     <h3 className='text-gray-900 font-medium'>Career</h3>
                                     <p className='text-gray-600 text-base md:text-md lg:text-lg'>Mobile: +91 73977 20330</p>
+                                </div>
+                            </motion.div>
+
+
+                             {/* Mail */}
+                            <motion.div variants={fadeDown} className='flex gap-4 md:gap-6 items-center'>
+                                <div className='p-4 md:p-5 rounded-xl border border-gray-200 flex-shrink-0'>
+                                    <img
+                                        src="assets/Contactus/Contactussectionassets/mail.png"
+                                        alt="mail"
+                                        className='h-8 w-8 object-contain'
+                                    />
+                                </div>
+                                <div className='flex-1'>
+                                    <h3 className='text-gray-900 font-medium'>Our Mailbox</h3>
+                                     <p className='text-gray-600 text-base md:text-md lg:text-lg'>
+                                        Sales: <a href="mailto:sales@sfwtechnologies.com">sales@sfwtechnologies.com</a>
+                                    </p>
+                                    <p className='text-gray-600 text-base md:text-md lg:text-lg'>
+
+                                        Career:{" "}
+                                        <a
+                                            href="mailto:info@sfwtechnologies.com"
+                                            
+                                        >
+                                            info@sfwtechnologies.com
+                                        </a>
+                                    </p>
+
+                                    
                                 </div>
                             </motion.div>
 

@@ -71,10 +71,10 @@ function Footer() {
                         <h2 className='font-semibold'>Contact</h2>
                         <hr className="border-gray-400 opacity-40" />
                         <p>Sales: +91 98941 13103 / +91 9994317168</p>
-                        <p>Career: +91 73977 20330</p>
                         <p>
-                            Sales Mail: <a href="mailto:sales@sfwtechnologies.com" >sales@sfwtechnologies.com</a>
+                            Mailbox: <a href="mailto:sales@sfwtechnologies.com" >sales@sfwtechnologies.com</a>
                         </p>
+                        <p>Career: +91 73977 20330</p>
                         <p>
                             Mailbox: <a href="mailto:info@sfwtechnologies.com">info@sfwtechnologies.com</a>
                         </p>
