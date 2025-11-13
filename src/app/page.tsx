@@ -326,7 +326,7 @@ export default function Home() {
       <Calloutsection />
       <CaseStudiesSection />
       <StaffAugmentation />
-      <Latestposts />
+      {/* <Latestposts /> */}
     </>
   );
 }
