@@ -53,16 +53,16 @@ function OurServices() {
     },
     {
       id: 3,
-      title: "Website Development",
+      title: "SAP",
       description:
-        "Engage your audience with a fluid, responsive, high-performing, appealing, intuitive front-end architecture.",
+        "Empower your business with seamless SAP solutions that streamline operations, enhance productivity, and drive intelligent decision-making.",
       icon: "/assets/Home/Ourservicesassets/service 3 icon.png",
       image: "/assets/Home/Ourservicesassets/services3.png",
       gradient: "bg-gradient-to-r from-violet-50 to-violet-200",
       shadow: "shadow-[0_0_60px_20px_rgba(139,92,246,0.7)]",
       mobileShadow: "shadow-[0_0_20px_8px_rgba(139,92,246,0.5)]",
       numbercolor: "text-violet-500",
-      link: "/websitedevelopment",
+      link: "/sap",
     },
     {
       id: 4,
