@@ -142,7 +142,7 @@ export default function CareersPage() {
       <Herosection />
       <Exploresection />
       <Jobsection />
-      <Footer />
+      
     </>
   );
 }
