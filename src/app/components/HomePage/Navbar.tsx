@@ -66,14 +66,32 @@ function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 3, ease: "easeOut" }}
-            className={`fixed ${pathname === "/" ? (scrolled ? "top-1.5" : "top-10") : scrolled ? "top-2" : "top-0"
-                } left-0 right-0 z-50 flex gap-10 justify-between items-center transition-all duration-300 ease-in-out 
-                ${scrolled
-                    ? "bg-[#001A5A] text-white shadow-lg mx-2 px-6 md:px-18 lg:px-28 py-6 md:py-5 rounded-2xl"
+            className={`fixed 
+
+    /*  Mobile (<640px) */
+    ${pathname === "/"
+                    ? (scrolled ? "top-0" : "top-10")
+                    : "top-0"
+                }
+
+    /* 🔹 SM and above (>=640px) */
+    sm:${pathname === "/"
+                    ? (scrolled ? "top-1.5" : "top-10")
+                    : (scrolled ? "top-1.5" : "top-10")
+                }
+
+    left-0 right-0 z-50 flex gap-10 justify-between items-center 
+    transition-all duration-300 ease-in-out 
+    ${scrolled
+                    ? "bg-[#001A5A] text-white shadow-lg sm:mx-2 px-6 md:px-18 lg:px-28 py-4 md:py-5 sm:rounded-2xl"
                     : "bg-transparent text-white mx-2 px-6 md:px-18 lg:px-28 py-6 md:py-5"
-                }`}
+                }
+`}
 
         >
+
+
+
             {/* Logo */}
             <Link href="/">
                 <div className="flex items-center">
@@ -97,14 +115,14 @@ function Navbar() {
                 </Link>
                 <CompanyDropdownMenu />
                 <Servicesdropdownmenu />
-                <Link
+                {/* <Link
                     href="/blog"
                     className={`cursor-pointer pt-3 px-5 pb-3 rounded-sm transition-colors duration-500 ease-in-out 
                   hover:bg-[#59d7f7] hover:text-black 
                       ${pathname === "/blog" ? "bg-[#59d7f7] text-black px-5 rounded-md" : ""}`}
                 >
                     Blog
-                </Link>
+                </Link> */}
                 <Link
                     href="/contact"
                     className={`cursor-pointer pt-3 px-5 pb-3 rounded-sm transition-colors duration-500 ease-in-out 
@@ -140,7 +158,7 @@ function Navbar() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.3, ease: "easeOut" }}
-                            className="absolute top-16 left-0 right-0 bg-[#001A5A] text-white px-6 py-4 rounded-2xl shadow-xl z-50"
+                            className="absolute top-16 left-0 right-0 bg-[#001A5A] text-white px-6 py-4 rounded-b-2xl shadow-xl z-50"
                         >
                             <div className="flex flex-col space-y-1 overflow-hidden rounded-lg">
                                 {/* Home */}
@@ -327,14 +345,14 @@ function Navbar() {
                                 </div>
 
                                 {/* Blog */}
-                                <Link
+                                {/* <Link
                                     href="/blog"
                                     className={`cursor-pointer py-2 hover:bg-white/10 transition rounded-md px-2 block ${pathname === "/blog" ? "bg-[#59d7f7] text-black font-semibold py-2" : ""
                                         }`}
                                     onClick={() => sethamburgerlist(false)}
                                 >
                                     Blog
-                                </Link>
+                                </Link> */}
 
                                 {/* Contact */}
                                 <Link

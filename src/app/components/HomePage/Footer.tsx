@@ -35,7 +35,7 @@ function Footer() {
                             <h2 className='font-semibold'>Quick Links</h2>
                             <hr className="border-gray-400 opacity-40" />
                             <Link href="/careers" className='hover:text-[#59D7F7]'>Careers</Link>
-                            <Link href="/blog" className='hover:text-[#59D7F7]'>Blog</Link>
+                            {/* <Link href="/blog" className='hover:text-[#59D7F7]'>Blog</Link> */}
                             <Link href="/contact" className='hover:text-[#59D7F7]'>Contact Us</Link>
                         </div>
 
