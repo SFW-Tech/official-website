@@ -142,7 +142,9 @@ function Footer() {
                                     C - Block 904 , Riddhi's, Pramukh Elegance, Jeedimetla, Hyderabad, Telangana, 500055
                                 </p>
                                 <button className="text-cyan-400 text-xs mt-2 flex items-center gap-1 hover:text-cyan-300 transition">
-                                    <span className='hover:text-[#59D7F7]'>Get Direction</span>
+                                    <Link href="https://maps.app.goo.gl/C4w8P7kSMqyQjgHP8" target='blank' className='hover:text-[#59D7F7]'>
+                                        Get Direction
+                                    </Link>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         strokeWidth={1.5} stroke="currentColor" className="w-3 h-3">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
@@ -165,9 +167,8 @@ function Footer() {
                 <div className='flex flex-col sm:flex-row gap-4 sm:gap-8 text-white text-xs sm:text-sm items-center sm:items-start'>
                     <p>©2025 Softworks Technologies. All Rights Reserved</p>
                     <div className="hidden sm:block h-4 border-l border-gray-400 opacity-40"></div>
-                    <p className='hover:text-[#59D7F7] cursor-pointer'>Terms & Conditions</p>
-                    <div className="hidden sm:block h-4 border-l border-gray-400 opacity-40"></div>
-                    <p className='hover:text-[#59D7F7] cursor-pointer'>Privacy Policy</p>
+                    <p className='hover:text-[#59D7F7] cursor-pointer'>Registered As : SFW Technologies India Pvt Ltd  </p>
+                    
                 </div>
 
                 {/* Right Icons */}
