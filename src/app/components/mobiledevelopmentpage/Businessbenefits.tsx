@@ -119,12 +119,12 @@ function Businessbenefits() {
                 className='flex justify-center items-center'
                 variants={headingVariants}
             >
-                <motion.h1 
+                <motion.h2 
                     className='text-2xl md:text-3xl font-bold'
                    
                 >
                     Business Benefits
-                </motion.h1>
+                </motion.h2>
             </motion.div>
 
             {/* Main Grid */}

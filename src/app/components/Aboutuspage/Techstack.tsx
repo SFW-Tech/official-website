@@ -31,9 +31,9 @@ function Techstack() {
         animate={headingInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">
           Our Tech Stack
-        </h1>
+        </h2>
         <p className="text-sm sm:text-base md:text-md lg:text-lg xl:text-base text-gray-600">
           Your Developers and Our Integration
         </p>

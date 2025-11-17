@@ -5,7 +5,7 @@ import Imagesection from './Imagesection'
 function BusinessRequirements() {
   return (
     <div className='flex flex-col gap-15'>
-      <h1 className="text-blue-950 text-3xl md:text-4xl lg:text-5xl font-bold">Business Requirement Specification</h1>
+      <h2 className="text-blue-950 text-3xl md:text-4xl lg:text-5xl font-bold">Business Requirement Specification</h2>
 
       <div className='flex flex-col gap-20'>
 

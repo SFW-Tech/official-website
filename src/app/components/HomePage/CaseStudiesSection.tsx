@@ -63,9 +63,9 @@ function CaseStudiesSection() {
                 variants={headingVariant}
 
                 className="flex flex-col gap-3 justify-center items-center text-center leading-relaxed">
-                <h1 className="text-2xl sm:text-3xl font-bold text-gray-700 md:mb-10">
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-700 md:mb-10">
                     Case Studies
-                </h1>
+                </h2>
             </AnimateOnView>
 
             {/* Content */}

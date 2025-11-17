@@ -16,9 +16,9 @@ function Calloutsection() {
     >
       {/* Left Text */}
       <AnimateOnView variants={fadeDown} className="max-w-xl">
-        <h1 className="text-white font-semibold text-xs sm:text-lg md:text-xl lg:text-2xl">
+        <h2 className="text-white font-semibold text-xs sm:text-lg md:text-xl lg:text-2xl">
           Need any expert business & consulting services?
-        </h1>
+        </h2>
       </AnimateOnView>
 
       {/* Right Button */}

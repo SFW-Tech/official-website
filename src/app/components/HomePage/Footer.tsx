@@ -45,7 +45,7 @@ function Footer() {
                             </div>
 
                             <div>
-                                <h1 className='text-white font-bold text-xs'>Scan For Location</h1>
+                                <h2 className='text-white font-bold text-xs'>Scan For Location</h2>
                             </div>
 
                         </div>

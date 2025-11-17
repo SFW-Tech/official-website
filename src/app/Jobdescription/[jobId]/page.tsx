@@ -252,7 +252,7 @@ function Page() {
         <motion.div className="flex flex-col gap-6 " variants={itemVariants}>
           {loading ? <JobSkeleton /> : selectedJob ? (
             <>
-              <motion.h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">{selectedJob.title}</motion.h1>
+              <motion.h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">{selectedJob.title}</motion.h2>
               <motion.div className="flex gap-2">
                 <motion.h4 className="flex text-xs md:text-sm bg-gray-100 px-3 py-1 rounded-md w-fit font-medium text-gray-700 shadow-sm">{selectedJob.jobId}</motion.h4>
                 <motion.h4 className="flex items-center gap-1 md:gap-2 bg-gray-100 px-3 py-1 rounded-md w-fit font-medium text-gray-700 shadow-sm">
@@ -266,7 +266,7 @@ function Page() {
               </motion.div>
               <motion.p className="text-gray-600 text-sm sm:text-base md:text-md lg:text-lg xl:text-base leading-relaxed">{selectedJob.jobdescription}</motion.p>
               <motion.div className="flex flex-col gap-6">
-                <motion.h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">Roles & Responsibilities</motion.h1>
+                <motion.h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">Roles & Responsibilities</motion.h2>
                 <motion.ul className="list-disc pl-5 space-y-2 text-sm sm:text-base md:text-md lg:text-lg xl:text-base leading-relaxed text-gray-600">
                   {Array.isArray(selectedJob.rolesAndresponsibilities)
                     ? selectedJob.rolesAndresponsibilities.map((item, index) => <motion.li key={index} whileHover={{ x: 5, color: "#374151" }} transition={{ duration: 0.2 }}>{item}</motion.li>)
@@ -310,14 +310,14 @@ function Page() {
                 key="form"
                 layout
               >
-                <motion.h1
+                <motion.h2
                   className="text-2xl font-bold text-gray-800 mb-4 text-center"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                 >
                   APPLICATION
-                </motion.h1>
+                </motion.h2>
 
                 {/* Name */}
                 <motion.div

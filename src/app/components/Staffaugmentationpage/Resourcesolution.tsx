@@ -19,9 +19,9 @@ function Resourcesolution() {
 
         {/* Main Title */}
         <div>
-          <h1 className="text-xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">
+          <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">
             Software Development Project in One Place
-          </h1>
+          </h2>
         </div>
 
         {/* Description */}

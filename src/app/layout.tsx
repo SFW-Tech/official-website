@@ -15,11 +15,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* ✅ Default SEO Config */}
+        {/*  Default SEO Config */}
         <title>{SEO.title}</title>
-        <meta name="description" content={SEO.description} />
+        {/* <meta name="description" content={SEO.description} /> */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="canonical" href={SEO.baseUrl} />
+        {/* <link rel="canonical" href={SEO.baseUrl} /> */}
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />

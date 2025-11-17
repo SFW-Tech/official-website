@@ -24,9 +24,9 @@ function Jointeamsection() {
 
         {/* Text Section */}
         <AnimateOnView variants={fadeDown} className="flex flex-col gap-3 text-center md:text-left">
-          <h1 className="text-2xl sm:text-2.5xl md:text-3xl font-bold">
+          <h2 className="text-2xl sm:text-2.5xl md:text-3xl font-bold">
             Join Our Team
-          </h1>
+          </h2>
 
           <p className="text-sm sm:text-base">
             It will be the best part of your career

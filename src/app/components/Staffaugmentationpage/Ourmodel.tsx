@@ -17,9 +17,9 @@ function Ourmodel() {
 
                 {/* Fade Down */}
                 <AnimateOnView variants={fadeDown}>
-                    <h1 className="text-xl sm:text-3xl md:text-4xl font-semibold text-gray-700">
+                    <h2 className="text-xl sm:text-3xl md:text-4xl font-semibold text-gray-700">
                         Our IT Staff Augmentation Model
-                    </h1>
+                    </h2>
                 </AnimateOnView>
 
                 {/* Fade Up */}
