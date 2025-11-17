@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title: "Odoo ERP Development Company in Coimbatore | Softworks Technologies",
+    title: "Softworks Technologies | Odoo ERP Development Company in Coimbatore",
     description:
       "Softworks Technologies delivers end-to-end Odoo ERP implementation, integration, and customization services for efficient business management.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],

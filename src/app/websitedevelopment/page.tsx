@@ -31,13 +31,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${weburl}/websitedevelopment`,
-    title: "Website Development Company in Coimbatore | Softworks Technologies",
+    title: "Softworks Technologies | Website Development Company in Coimbatore",
     description:
       "Softworks Technologies builds professional, SEO-optimized, and mobile-friendly websites tailored for your business growth.",
     siteName: "Softworks Technologies",
     images: [
       {
-        url: `${weburl}/assets/Sfw-Logo1.svg`,
+        url: `${weburl}/assets/Logo1.png`,
         width: 1200,
         height: 630,
         alt: "Softworks Technologies Website Development",
@@ -49,10 +49,10 @@ export const metadata: Metadata = {
     site: "@softworkstech",
     creator: "@softworkstech",
     title:
-      "Website Development Company in Coimbatore | Softworks Technologies",
+      "Softworks Technologies | Website Development Company in Coimbatore",
     description:
       "We specialize in building SEO-friendly, responsive, and scalable websites for businesses using React, Next.js, and Node.js.",
-    images: [`${weburl}/assets/Sfw-Logo1.svg`],
+    images: [`${weburl}/assets/Logo1.png`],
   },
   alternates: {
     canonical: `${weburl}/websitedevelopment`,

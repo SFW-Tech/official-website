@@ -64,7 +64,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${weburl}/careers`,
-    title: "Careers at Softworks Technologies | IT Jobs in Coimbatore & Dubai",
+    title: "Softworks Technologies | Careers – Join Our IT Team in Coimbatore & Dubai",
     description:
       "Build your future with Softworks Technologies — leading IT company in Coimbatore & Dubai specializing in Web, ERP, Odoo, AI, and Cloud solutions.",
     siteName: "Softworks Technologies",
@@ -76,6 +76,15 @@ export const metadata: Metadata = {
         alt: "Softworks Technologies Careers",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@softworkstech",
+    creator: "@softworkstech",
+    title: "Softworks Technologies | Careers – Join Our IT Team in Coimbatore & Dubai",
+    description:
+      "Build your future with Softworks Technologies — leading IT company in Coimbatore & Dubai specializing in Web, ERP, Odoo, AI, and Cloud solutions.",
+    images: [`${weburl}/assets/Sfw-Logo1.svg`],
   },
   alternates: {
     canonical: `${weburl}/careers`,
