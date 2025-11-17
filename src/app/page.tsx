@@ -133,7 +133,7 @@ export const metadata: Metadata = {
     url: weburl,
     title: "Softworks Technologies | Global IT, ERP, and AI Solutions Company",
     description:
-      "Softworks Technologies delivers next-gen web, ERP, AI, Odoo, and cloud solutions worldwide with offices in Coimbatore and Dubai.",
+      "SoftWorks Technologies, Coimbatore-based leader in Web, Mobile App, AI, SAP, Odoo & Staff Augmentation, delivering innovative solutions for business efficiency.",
     siteName: "Softworks Technologies",
     images: [
       {

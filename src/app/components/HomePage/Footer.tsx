@@ -167,7 +167,7 @@ function Footer() {
                 <div className='flex flex-col sm:flex-row gap-4 sm:gap-8 text-white text-xs sm:text-sm items-center sm:items-start'>
                     <p>©2025 Softworks Technologies. All Rights Reserved</p>
                     <div className="hidden sm:block h-4 border-l border-gray-400 opacity-40"></div>
-                    <p className='hover:text-[#59D7F7] cursor-pointer'>Registered As : SFW Technologies India Pvt Ltd  </p>
+                    <p className=''>Registered As : SFW Technologies India Pvt Ltd  </p>
                     
                 </div>
 

@@ -4,7 +4,7 @@ const SEO = {
   baseUrl: webUrl,
   title: "Softworks Technologies",
   description:
-    "SoftWorks Technologies is a leading Web, Mobile App, Odoo, Staff Augmentation & ERP Development Company based in Coimbatore, India, and Dubai, offering innovative solutions to boost business efficiency.",
+    "SoftWorks Technologies, Coimbatore-based leader in Web, Mobile App, AI, SAP, Odoo & Staff Augmentation, delivering innovative solutions for business efficiency.",
   canonical: webUrl,
   image: `${webUrl}/assets/Sfw-Logo1.svg`, 
   socialLinks: [
@@ -18,9 +18,9 @@ const SEO = {
     url: `${webUrl}/`,
     siteName: "Softworks Technologies",
     title:
-      "SoftWorks Technologies, Coimbatore-based leader in Web, Mobile App, AI, SAP, Odoo & Staff Augmentation, delivering innovative solutions for business efficiency.",
+      "Softworks Technologies",
     description:
-      "SoftWorks Technologies is a leading Web, Mobile App, Odoo, Staff Augmentation & ERP Development Company based in Coimbatore, India, and Dubai, offering innovative solutions to boost business efficiency.",
+      "SoftWorks Technologies, Coimbatore-based leader in Web, Mobile App, AI, SAP, Odoo & Staff Augmentation, delivering innovative solutions for business efficiency.",
     images: [
       {
         url: `${webUrl}/assets/Sfw-Logo1.svg`,
