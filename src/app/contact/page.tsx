@@ -50,6 +50,15 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    site: "@softworkstech",
+    creator: "@softworkstech",
+    title: "Softworks Technologies | Contact Us – Coimbatore & Dubai Offices",
+    description:
+      "Reach out to Softworks Technologies for IT, ERP, Odoo, and AI solutions in Coimbatore & Dubai. Visit our offices or send us a message online.",
+    images: [`${weburl}/assets/Sfw-Logo1.svg`],
+  },
   alternates: {
     canonical: `${weburl}/contact`,
   },

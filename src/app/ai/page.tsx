@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${weburl}/ai`,
-    title: "AI Development Company in Coimbatore | Softworks Technologies",
+    title: "Softworks Technologies | AI Development Company in Coimbatore",
     description:
       "Softworks Technologies delivers intelligent AI and machine learning solutions that automate business processes and enhance decision-making.",
     siteName: "Softworks Technologies",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title: "AI Development Company in Coimbatore | Softworks Technologies",
+    title: "Softworks Technologies | AI Development Company in Coimbatore",
     description:
       "Softworks Technologies creates AI-driven business solutions including chatbots, ML models, and predictive analytics tools.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],

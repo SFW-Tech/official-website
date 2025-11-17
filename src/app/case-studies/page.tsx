@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     type: "website",
     url: `${weburl}/case-studies`,
     title:
-      "Case Studies | Web & App Development Success Stories | Softworks Technologies",
+      "Softworks Technologies | Case Studies | Web & App Development Success Stories",
     description:
       "Discover real-world case studies showcasing our expertise in web, mobile, and AI solutions for businesses worldwide.",
     siteName: "Softworks Technologies",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     site: "@softworkstech",
     creator: "@softworkstech",
     title:
-      "Case Studies | Web & App Development Success Stories | Softworks Technologies",
+      "Softworks Technologies | Case Studies | Web & App Development Success Stories",
     description:
       "Explore how Softworks Technologies delivered impactful solutions across multiple industries with modern technologies.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],
