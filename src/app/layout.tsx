@@ -14,26 +14,26 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        {/*  Default SEO Config */}
+      {/* <head>
+        
         <title>{SEO.title}</title>
-        {/* <meta name="description" content={SEO.description} /> */}
+        <meta name="description" content={SEO.description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* <link rel="canonical" href={SEO.baseUrl} /> */}
+        <link rel="canonical" href={SEO.baseUrl} />
 
-        {/* Open Graph */}
+       
         <meta property="og:type" content="website" />
         <meta property="og:title" content={SEO.title} />
         <meta property="og:description" content={SEO.description} />
         <meta property="og:url" content={SEO.baseUrl} />
         <meta property="og:image" content={SEO.image} />
 
-        {/* Twitter */}
+        
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={SEO.title} />
         <meta name="twitter:description" content={SEO.description} />
         <meta name="twitter:image" content={SEO.image} />
-      </head>
+      </head> */}
 
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <PageTransitionWrapper>
