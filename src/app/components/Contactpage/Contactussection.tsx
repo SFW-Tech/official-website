@@ -97,7 +97,7 @@ function Contactussection() {
                     {/* Top */}
                     <div className='flex-col gap-4 flex leading-relaxed'>
                         <AnimateOnView variants={headingVariant}>
-                            <h1 className='text-2xl md:text-3xl font-bold text-gray-800'>Contact Us</h1>
+                            <h2 className='text-2xl md:text-3xl font-bold text-gray-800'>Contact Us</h2>
                         </AnimateOnView>
                         <AnimateOnView variants={fadeDown}>
                             <p className='text-gray-600 text-base md:text-md lg:text-lg '>

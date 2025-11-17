@@ -33,9 +33,9 @@ function Latestposts() {
                 initial="hidden"
                 animate={headingInView ? "visible" : "hidden"}
             >
-                <h1 className='text-gray-950 font-semibold text-xl md:text-2xl lg:text-3xl'>
+                <h2 className='text-gray-950 font-semibold text-xl md:text-2xl lg:text-3xl'>
                     Stay updated with our latest posts
-                </h1>
+                </h2>
             </motion.div>
 
             {/* Posts Grid */}

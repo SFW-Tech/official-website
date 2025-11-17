@@ -53,9 +53,9 @@ function HeroSection() {
                     }
                 >
                     {/* Heading */}
-                    <h1 className="text-white font-bold text-2xl md:text-3xl lg:text-5xl">
+                    <h2 className="text-white font-bold text-2xl md:text-3xl lg:text-5xl">
                         Building Smart Solutions for a Digital-First Future
-                    </h1>
+                    </h2>
 
                     {/* Paragraph */}
                     <p className="text-white mt-4 text-sm md:text-base lg:text-lg">

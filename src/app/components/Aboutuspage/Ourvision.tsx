@@ -141,9 +141,9 @@ function Ourvision() {
                                 />
                             </div>
 
-                            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
                                 {content[selected].title}
-                            </h1>
+                            </h2>
 
                             <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
                                 {content[selected].text}

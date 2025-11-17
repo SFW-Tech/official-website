@@ -152,12 +152,12 @@ function OurServices() {
         className="flex flex-col gap-3 justify-center items-center"
         variants={itemVariants}
       >
-        <motion.h1
+        <motion.h2
           className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold text-gray-700"
           variants={itemVariants}
         >
           Our Services
-        </motion.h1>
+        </motion.h2>
         <motion.p
           className="text-center text-sm sm:text-base md:text-md lg:text-xl text-gray-500"
           variants={itemVariants}

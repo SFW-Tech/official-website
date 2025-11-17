@@ -31,9 +31,9 @@ function AboutUsComponent() {
             style={{ backgroundImage: "url('/assets/Home/aboutusassets/aboutusbg.png')" }}
           >
             <AnimateOnView variants={headingVariant}>
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold mb-4">
               About Us
-            </h1>
+            </h2>
             </AnimateOnView>
 
             <AnimateOnView variants={fadeDown}>

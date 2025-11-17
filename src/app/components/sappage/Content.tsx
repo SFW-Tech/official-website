@@ -15,9 +15,9 @@ function Content() {
     >
       {/* Title */}
       <AnimateOnView variants={fadeDown} className="flex justify-center mb-16">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 text-center">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 text-center">
           Our SAP Practices
-        </h1>
+        </h2>
       </AnimateOnView>
 
       {/* SAP Implementation + Benefits */}

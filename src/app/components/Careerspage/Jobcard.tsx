@@ -22,7 +22,7 @@ const Jobcard = ({ title, jobId, jobType, skills, experience, location, validthr
 
             {/* Top section */}
             <div className="flex flex-row justify-between sm:items-center mb-2 gap-2">
-                <h1 className="text-base sm:text-lg md:text-xl font-bold">{title}</h1>
+                <h2 className="text-base sm:text-lg md:text-xl font-bold">{title}</h2>
                 <button className="flex gap-2 items-center justify-center text-xs sm:text-sm font-medium tracking-tight rounded-md text-black bg-[#59D7F7] px-1.5 py-1  sm:px-3 sm:py-1.5 w-fit hover:bg-cyan-400 transition cursor-pointer"
                     onClick={() => router.push(`/Jobdescription/${jobId}`)}
                 >
