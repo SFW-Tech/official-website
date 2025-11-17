@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${weburl}/mobileapplications`,
-    title: "Mobile App Development Company in Coimbatore | Softworks Technologies",
+    title: "Softworks Technologies | Mobile App Development Company in Coimbatore",
     description:
       "Softworks Technologies specializes in mobile app development for Android, iOS, and cross-platform solutions using React Native and Flutter.",
     siteName: "Softworks Technologies",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     site: "@softworkstech",
     creator: "@softworkstech",
     title:
-      "Mobile App Development Company in Coimbatore | Softworks Technologies",
+      "Softworks Technologies | Mobile App Development Company in Coimbatore",
     description:
       "Build powerful Android, iOS, and cross-platform mobile apps with Softworks Technologies — trusted app development company in Coimbatore.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],

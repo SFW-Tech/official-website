@@ -151,7 +151,7 @@ export const metadata: Metadata = {
     title:
       "Softworks Technologies | Global Experts in Web, ERP, and AI Development",
     description:
-      "Softworks Technologies provides cutting-edge digital solutions — Web, ERP, Odoo, SAP, AI, and Cloud — trusted by clients across the world.",
+      "SoftWorks Technologies, Coimbatore-based leader in Web, Mobile App, AI, SAP, Odoo & Staff Augmentation, delivering innovative solutions for business efficiency.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],
   },
   alternates: {

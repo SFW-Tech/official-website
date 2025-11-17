@@ -14,7 +14,7 @@ const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 //  PAGE METADATA
 export const metadata: Metadata = {
-  title: "Softworks Technologies | Staff Augmentation Company in Coimbatore ",
+  title: "Softworks Technologies | Staff Augmentation Company in Coimbatore",
   description:
     "Softworks Technologies offers top-notch staff augmentation services in Coimbatore, helping businesses hire skilled developers, designers, and IT professionals to scale efficiently.",
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${weburl}/staffaugmentation`,
-    title: "Staff Augmentation Company in Coimbatore | Softworks Technologies",
+    title: "Softworks Technologies | Staff Augmentation Company in Coimbatore",
     description:
       "Softworks Technologies provides IT staff augmentation and dedicated developer hiring solutions for startups and enterprises worldwide.",
     siteName: "Softworks Technologies",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title: "Staff Augmentation Company in Coimbatore | Softworks Technologies",
+    title: "Softworks Technologies | Staff Augmentation Company in Coimbatore",
     description:
       "Softworks Technologies offers dedicated developers and IT professionals through flexible staff augmentation services.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],
