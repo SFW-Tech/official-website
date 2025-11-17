@@ -6,9 +6,9 @@ const Scopesection: React.FC = () => {
       {/* Heading */}
       <div className="flex items-center justify-center gap-4">
         <div className="h-[2px] w-20 bg-gray-300"></div>
-        <h1 className="text-blue-950 text-3xl md:text-4xl font-bold whitespace-nowrap">
+        <h2 className="text-blue-950 text-3xl md:text-4xl font-bold whitespace-nowrap">
           Scope & Limitation
-        </h1>
+        </h2>
         <div className="h-[2px] w-20 bg-gray-300"></div>
       </div>
 

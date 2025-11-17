@@ -14,9 +14,9 @@ function Serviceofferings() {
 
         {/* Title */}
         <motion.div variants={headingVariant}>
-          <h1 className="text-2xl xl:text-4xl font-bold">
+          <h2 className="text-2xl xl:text-4xl font-bold">
             Our Team Augmentation Service Offerings
-          </h1>
+          </h2>
         </motion.div>
 
         {/* Description */}
@@ -41,7 +41,7 @@ function Serviceofferings() {
                 </svg>
               </div>
             </div>
-            <h1 className="text-lg xl:text-2xl font-medium">Develop a Team</h1>
+            <h2 className="text-lg xl:text-2xl font-medium">Develop a Team</h2>
             <p className="leading-relaxed text-sm md:text-base text-gray-700">
               Make your ideas a reality by creating a fresh team of seasoned IT professionals of your choosing and in the way required by your project. We have a broad selection of professionals and team members available to work on a contract or hourly basis with you.
             </p>
@@ -56,7 +56,7 @@ function Serviceofferings() {
                 </svg>
               </div>
             </div>
-            <h1 className="text-lg xl:text-2xl font-medium">IT Expertise to Existing Team</h1>
+            <h2 className="text-lg xl:text-2xl font-medium">IT Expertise to Existing Team</h2>
             <p className="leading-relaxed text-sm md:text-base text-gray-700">
               Include our experienced IT professionals in your team to fill IT talent gaps and perform specific tasks throughout the software development lifecycle. And utilize our professionals' technical expertise to give your ongoing project an unique push.
             </p>
@@ -72,7 +72,7 @@ function Serviceofferings() {
                 </svg>
               </div>
             </div>
-            <h1 className="text-lg xl:text-2xl font-medium">Vendor Transition</h1>
+            <h2 className="text-lg xl:text-2xl font-medium">Vendor Transition</h2>
             <p className="leading-relaxed text-sm md:text-base text-gray-700">
               Switch your project from an existing IT service provider with the help of our professionals who are experienced. SoftWork's team has extensive experience employing superior approaches to make the transfer more structured, secure, and smooth.
             </p>

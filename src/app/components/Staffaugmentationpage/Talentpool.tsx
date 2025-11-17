@@ -34,7 +34,7 @@ function Talentpool() {
     const renderCategory = (title: string, items: string[]) => (
         <div className="flex flex-col gap-2 items-start w-full">
             <div className="px-6 bg-[#001A5A] w-full flex items-center justify-center min-h-[90px]">
-                <h1 className="text-xl font-bold text-white text-center">{title}</h1>
+                <h2 className="text-xl font-bold text-white text-center">{title}</h2>
             </div>
             <ul className="flex flex-col gap-3 mt-4 list-disc list-inside w-full">
                 {items.map((tech, index) => (
@@ -57,9 +57,9 @@ function Talentpool() {
                     </h3>
                 </AnimateOnView>
                 <AnimateOnView variants={headingVariant}>
-                    <h1 className="text-lg md:text-2xl lg:text-4xl font-bold text-[#001A5A]">
+                    <h4 className="text-lg md:text-2xl lg:text-4xl font-bold text-[#001A5A]">
                         IT Staff Augmentation
-                    </h1>
+                    </h4>
                 </AnimateOnView>
                 <AnimateOnView variants={fadeDown}>
                     <p className="text-gray-700 leading-relaxed text-left text-sm md:text-base max-w-6xl mx-auto">

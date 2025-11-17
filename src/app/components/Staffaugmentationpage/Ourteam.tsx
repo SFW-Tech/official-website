@@ -28,7 +28,7 @@ function Ourteam() {
               <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z" />
             </svg>
           </div>
-          <div className="text-center"><h1 className="text-xl">Dedicated Developer</h1></div>
+          <div className="text-center"><h2 className="text-xl">Dedicated Developer</h2></div>
         </motion.div>
 
         {/* Card2 */}
@@ -46,7 +46,7 @@ function Ourteam() {
               <path d="m15 5 4 4" />
             </svg>
           </div>
-          <div className="text-center"><h1 className="text-xl">UI/UX Designers</h1></div>
+          <div className="text-center"><h2 className="text-xl">UI/UX Designers</h2></div>
         </motion.div>
 
         {/* Card3 */}
@@ -60,7 +60,7 @@ function Ourteam() {
               <path d="m9 11 3 3L22 4" />
             </svg>
           </div>
-          <div className="text-center"><h1 className="text-xl">Quality Assurance</h1></div>
+          <div className="text-center"><h2 className="text-xl">Quality Assurance</h2></div>
         </motion.div>
 
         {/* Card4 */}
@@ -77,7 +77,7 @@ function Ourteam() {
               <path d="M3 4h8" />
             </svg>
           </div>
-          <div className="text-center"><h1 className="text-xl">Consultant</h1></div>
+          <div className="text-center"><h2 className="text-xl">Consultant</h2></div>
         </motion.div>
 
         {/* Card5 */}
@@ -92,7 +92,7 @@ function Ourteam() {
               <circle cx="10" cy="7" r="4" />
             </svg>
           </div>
-          <div className="text-center"><h1 className="text-xl">Scrum Masters</h1></div>
+          <div className="text-center"><h2 className="text-xl">Scrum Masters</h2></div>
         </motion.div>
       </motion.div>
 
@@ -112,7 +112,7 @@ function Ourteam() {
               <path d="M7 16c.5-2 1.5-7 4-7 2 0 2 3 4 3 2.5 0 4.5-5 5-7" />
             </svg>
           </div>
-          <div className="text-center"><h1 className="text-xl">Business Analysts</h1></div>
+          <div className="text-center"><h2 className="text-xl">Business Analysts</h2></div>
         </motion.div>
 
         {/* Card7 */}
@@ -126,7 +126,7 @@ function Ourteam() {
               <circle cx="12" cy="7" r="4" />
             </svg>
           </div>
-          <div className="text-center"><h1 className="text-xl">Project Managers</h1></div>
+          <div className="text-center"><h2 className="text-xl">Project Managers</h2></div>
         </motion.div>
 
         {/* Card8 */}
@@ -142,7 +142,7 @@ function Ourteam() {
               <path d="M9 7V4A2 2 0 1 1 13 4V7.268" />
             </svg>
           </div>
-          <div className="text-center"><h1 className="text-xl">Technical Support</h1></div>
+          <div className="text-center"><h2 className="text-xl">Technical Support</h2></div>
         </motion.div>
 
         {/* Card9 */}
@@ -157,7 +157,7 @@ function Ourteam() {
               <path d="m8 17 4-4 4 4" />
             </svg>
           </div>
-          <div className="text-center"><h1 className="text-xl">Cloud Specialist</h1></div>
+          <div className="text-center"><h2 className="text-xl">Cloud Specialist</h2></div>
         </motion.div>
       </motion.div>
     </AnimateOnView>

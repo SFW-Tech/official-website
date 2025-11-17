@@ -96,9 +96,9 @@ function Content() {
                     variants={headingVariant}
                     className="inline-block"
                 >
-                    <h1 className="text-3xl lg:text-6xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent mb-6">
+                    <h2 className="text-3xl lg:text-6xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent mb-6">
                         Our Solutions
-                    </h1>
+                    </h2>
                 </motion.div>
                 <motion.p
                     variants={fadeDown}

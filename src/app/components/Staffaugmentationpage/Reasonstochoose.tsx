@@ -85,9 +85,9 @@ function Reasonstochoose() {
 
       <AnimateOnView variants={staggerContainer} className="flex flex-col gap-4 md:gap-6 lg:gap-8 text-center">
         <AnimateOnView variants={headingVariant} className="space-y-4">
-          <h1 className="text-lg md:text-2xl lg:text-4xl font-bold">
+          <h2 className="text-lg md:text-2xl lg:text-4xl font-bold">
             Reasons to Choose
-          </h1>
+          </h2>
           <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#001A5A]">
             SoftWorks Staff Augmentation
           </h3>
@@ -124,12 +124,12 @@ function Reasonstochoose() {
               </motion.div>
 
               {/* Animated Heading */}
-              <motion.h1
+              <motion.h2
                 className="text-xl md:text-2xl lg:text-3xl font-bold"
                 variants={fadeDown}
               >
                 {card.title}
-              </motion.h1>
+              </motion.h2>
 
               {/* Animated Paragraph */}
               <motion.p

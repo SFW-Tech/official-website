@@ -143,9 +143,9 @@ function OurIndustryservice() {
             <div>
               <div className="bg-gray-50 rounded-3xl grid grid-cols-1 lg:grid-cols-2 gap-6 p-18 w-full max-w-7xl shadow-xl">
                 <div className="flex flex-col gap-4">
-                  <h1 className="text-2xl md:text-3xl font-bold">
+                  <h2 className="text-2xl md:text-3xl font-bold">
                     {industry.title}
-                  </h1>
+                  </h2>
                   <p className="text-gray-700 leading-relaxed text-sm md:text-base">
                     {industry.desc}
                   </p>

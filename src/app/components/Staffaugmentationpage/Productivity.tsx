@@ -64,9 +64,9 @@ function Productivity() {
 
 
         <motion.div variants={headingVariant} className="flex flex-col gap-6">
-          <h1 className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold">
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold">
             Increase Productivity by Using
-          </h1>
+          </h2>
 
           <h3 className="text-2xl font-bold text-[#001A5A]">
             Our IT Staff Augmentation Services.
