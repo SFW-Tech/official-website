@@ -8,14 +8,15 @@ import { motion, useInView, Variants, AnimatePresence } from "framer-motion";
 
 interface Job {
   title: string;
-  jobId: string;
+  jobId: string;      
+  jobCode?: string;   
   jobType: string;
   skills: string[];
   experience: string;
   location: string;
   validthrough?: string;
-
 }
+
 
 /* ===========================
     🔹 Environment Variables
@@ -142,13 +143,20 @@ const Jobsection: React.FC = () => {
 
       const formattedJobs: Job[] = data.map((item: any) => ({
         title: item.cr276_job_title || "N/A",
-        jobId: item.cr276_newcolumn || "N/A",
+
+        // Use GUID as jobId
+        jobId: item.cr276_sfjobdetailsid,
+
+        // Also store job code separately if you want to display it
+        jobCode: item.cr276_newcolumn || "N/A",
+
         jobType: jobTypeMap[item.cr276_job_employmenttype] || "N/A",
         location: jobLocationMap[item.cr276_job_location] || "N/A",
         skills: item.cr276_job_skills?.split(",") || ["Not specified"],
         experience: item.cr276_job_required_experience || "Not mentioned",
         validthrough: item.cr276_job_validthrough || undefined,
       }));
+
 
       setJobs(formattedJobs);
     } catch (err) {

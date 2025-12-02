@@ -3,7 +3,6 @@ import StructuredData from "../components/Seo/StructuredData";
 import Herosection from "../components/Careerspage/Herosection";
 import Exploresection from "../components/Careerspage/Exploresection";
 import Jobsection from "../components/Careerspage/Jobsection";
-import Footer from "../components/HomePage/Footer";
 
 const weburl = process.env.NEXT_PUBLIC_webUrl!;
 

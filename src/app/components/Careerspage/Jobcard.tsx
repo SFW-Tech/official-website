@@ -4,18 +4,21 @@ import React from 'react'
 import { useRouter } from "next/navigation";
 
 interface JobCardProps {
-    title: string
-    jobId: string
-    jobType: string
-    skills: string[]
-    experience: string
-    location: string
-    validthrough?: string
+  title: string;
+  jobId: string;
+  jobCode?: string | null;
+  jobType: string;
+  skills: string[];
+  experience: string;
+  location: string;
+  validthrough?: string;
 }
 
 
 
-const Jobcard = ({ title, jobId, jobType, skills, experience, location, validthrough }: JobCardProps) => {
+
+
+const Jobcard = ({ title, jobId,jobCode, jobType, skills, experience, location, validthrough }: JobCardProps) => {
     const router = useRouter()
     return (
         <div className="rounded-2xl shadow-2xl p-4 md:p-5 lg:p-6 bg-white">
@@ -53,8 +56,8 @@ const Jobcard = ({ title, jobId, jobType, skills, experience, location, validthr
             {/* Job details */}
             <div className="space-y-3 text-xs sm:text-sm md:text-base">
                 <div className="flex flex-wrap gap-2 sm:gap-10">
-                    <span className="font-semibold w-20 sm:w-24">Job ID:</span>
-                    <span className='text-gray-600'>{jobId}</span>
+                    <span className="font-semibold w-20 sm:w-24">Job Code:</span>
+                    <span className='text-gray-600'>{jobCode ?? "N/A"}</span>
                 </div>
 
                 <div className="flex flex-wrap gap-2 sm:gap-10">

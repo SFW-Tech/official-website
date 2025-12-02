@@ -1,15 +1,17 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import Herosection from "../../components/Careerspage/Herosection";
-import emailjs from "emailjs-com";
 import { useSnackbar } from "notistack";
 import { useParams } from "next/navigation";
 import axios from "axios";
+import ReCAPTCHA from "react-google-recaptcha";
+
 
 interface Job {
   title: string;
-  jobId: string;
+  jobId: string; // Job opening id 
+  jobCode: string; // This is the display code like "JOB001"
   jobType?: string;
   skills?: string[];
   experience?: string;
@@ -18,10 +20,11 @@ interface Job {
   rolesAndresponsibilities?: string[] | string;
 }
 
-/* ===========================
-    🔹 Environment Variables
-=========================== */
+// Env's
 const ALLJOBS_FETCH_API = String(process.env.NEXT_PUBLIC_ALLJOBS_FETCH_API);
+
+const baseUrl = process.env.NEXT_PUBLIC_BLOB_BASE_URL;
+const sas = process.env.NEXT_PUBLIC_BLOB_SAS_TOKEN;
 
 const JOB_FULLTIME = Number(process.env.NEXT_PUBLIC_JOB_FULLTIME);
 const JOB_PARTTIME = Number(process.env.NEXT_PUBLIC_JOB_PARTTIME);
@@ -52,6 +55,8 @@ function Page() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [loading, setLoading] = useState<boolean>(true);
+
+
 
   const { enqueueSnackbar } = useSnackbar();
   const { jobId } = useParams();
@@ -84,11 +89,19 @@ function Page() {
     try {
       setLoading(true);
       const res = await axios.get(ALLJOBS_FETCH_API);
+      console.log(res);
+
       const data = res.data.value || [];
 
       const formattedJobs: Job[] = data.map((item: any) => ({
         title: item.cr276_job_title || "N/A",
-        jobId: item.cr276_newcolumn || "N/A",
+
+        // MUST use GUID only
+        jobId: item.cr276_sfjobdetailsid,
+
+        // Display code
+        jobCode: item.cr276_newcolumn || "N/A",
+
         jobType: jobTypeMap[item.cr276_job_employmenttype] || "N/A",
         location: jobLocationMap[item.cr276_job_location] || "N/A",
         skills: item.cr276_job_skills?.split(",") || ["Not specified"],
@@ -96,12 +109,22 @@ function Page() {
         rolesAndresponsibilities: item.cr276_job_responsibilities || []
       }));
 
+
       setJobs(formattedJobs);
 
-      const job = formattedJobs.find((job) => job.jobId === jobId);
+
+
+
+
+      // Match by jobCode or jobId from URL
+      const job = formattedJobs.find(
+        (job) => job.jobId === jobId || job.jobCode === jobId
+      );
+
       if (job) setSelectedJob(job);
     } catch (err) {
       console.error("Error fetching jobs:", err);
+      enqueueSnackbar("Failed to load job details", { variant: "error" });
     } finally {
       setLoading(false);
     }
@@ -120,10 +143,10 @@ function Page() {
   const handleResume = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
     if (file) {
-      if (file.size > 4 * 1024 * 1024) {
+      if (file.size > 5 * 1024 * 1024) {
         setResume(null);
         setResumeMessage("");
-        setErrors((prev) => ({ ...prev, resume: "File must be 4MB or less" }));
+        setErrors((prev) => ({ ...prev, resume: "File must be 5MB or less" }));
       } else {
         setResume(file);
         setResumeMessage(`Resume uploaded (${file.name})`);
@@ -137,43 +160,160 @@ function Page() {
 
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
-    if (!formData.First_name.trim()) newErrors.first_name = "First name is required";
-    if (!formData.Last_name.trim()) newErrors.last_name = "Last name is required";
+
+    // Use consistent keys matching form field names
+    if (!formData.First_name.trim()) newErrors.First_name = "First name is required";
+    if (!formData.Last_name.trim()) newErrors.Last_name = "Last name is required";
     if (!formData.email.trim()) newErrors.email = "Email is required";
     else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Enter a valid email";
     if (!formData.phone.trim()) newErrors.phone = "Phone is required";
+    else if (!/^[0-9+\-\s()]+$/.test(formData.phone)) newErrors.phone = "Enter a valid phone number";
     if (!formData.location.trim()) newErrors.location = "Location is required";
     if (!formData.experience) newErrors.experience = "Select your experience";
     if (!resume) newErrors.resume = "Resume is required";
-    else if (resume.size > 4 * 1024 * 1024) newErrors.resume = "File must be < 4MB";
+    else if (resume.size > 5 * 1024 * 1024) newErrors.resume = "File must be < 5MB";
+
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
+
+  const uploadResumeToBlob = async (file: File, jobCode: string) => {
+    if (!file) return null;
+
+    if (file.size > 5 * 1024 * 1024) {
+      enqueueSnackbar("Resume size must be below 5 MB", { variant: "error" });
+      return null;
+    }
+
+    // Create final filename
+    const timestamp = Math.floor(Date.now() / 1000);
+    const safeFileName = file.name.replace(/\s+/g, "_").toLowerCase();
+    const finalFileName = `${jobCode}_${timestamp}_${safeFileName}`;
+
+
+    // Azure URL with SAS token for upload
+    const blobUrl = `${baseUrl}/${finalFileName}${sas}`;
+
+    try {
+      const response = await axios.put(blobUrl, file, {
+        headers: {
+          "x-ms-blob-type": "BlockBlob",
+          "Content-Type": "application/octet-stream",
+        },
+      });
+
+      if (response.status === 201) {
+        return finalFileName;
+      }
+
+      throw new Error(`Upload returned status: ${response.status}`);
+
+    } catch (error: any) {
+      console.error("Resume Upload Failed:", error);
+      enqueueSnackbar("Failed to upload resume. Please try again.", { variant: "error" });
+      return null;
+    }
+  };
+
+
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validateForm()) return;
+
+    if (!validateForm()) {
+      enqueueSnackbar("Please fill all required fields", { variant: "warning" });
+      return;
+    }
+
+    if (!selectedJob) {
+      enqueueSnackbar("Job details not loaded yet", { variant: "error" });
+      return;
+    }
 
     setIsSubmitting(true);
+
     try {
-      await emailjs.send(
-        "service_nw9y07d",
-        "template_kizffhh",
-        { job_title: selectedJob?.title || "", ...formData },
-        "8J-QHGkIceS0qyv5x"
+      // Upload resume first
+      if (!resume) {
+        enqueueSnackbar("Please upload your resume", { variant: "error" });
+        setIsSubmitting(false);
+        return;
+      }
+
+      const uploadedFileName = await uploadResumeToBlob(resume, selectedJob.jobCode);
+
+      if (!uploadedFileName) {
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Construct the full blob URL (without SAS token for storage)
+
+      const resumeFullUrl = `${baseUrl}/${uploadedFileName}${sas}`;
+
+      // Prepare payload for job application submission
+      const applicationPayload = {
+        data: {
+          cr276_applicant_firstname: formData.First_name.trim(),
+          cr276_applicant_lasttname: formData.Last_name.trim(),
+          cr276_applicant_email: formData.email.trim(),
+          cr276_applicant_mobile_number: formData.phone.trim(),
+          cr276_applicant_location: formData.location.trim(),
+          cr276_applicant_resume_file_name: resumeFullUrl,
+          "cr276_job_opening_id@odata.bind": `/cr276_sfjobdetailses(${selectedJob.jobId})`
+        }
+      };
+
+      console.log("Submitting application:", applicationPayload);
+
+      // Submit application to Dynamics API
+      const applicationResponse = await axios.post(
+        "https://azure-proxy-production.up.railway.app/api/proxy/dynamics?endPoint=cr276_sfjobapplicationses",
+        applicationPayload,
+        {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
       );
 
-      setSubmitted(true);
-      setFormData({ First_name: "", Last_name: "", email: "", phone: "", location: "", message: "", experience: "" });
-      setResume(null);
-      setResumeMessage("");
-      setErrors({});
+      // Check for successful response
+      if (applicationResponse.status === 200 || applicationResponse.status === 201 || applicationResponse.status === 204) {
+        setSubmitted(true);
+        setFormData({
+          First_name: "",
+          Last_name: "",
+          email: "",
+          phone: "",
+          location: "",
+          message: "",
+          experience: ""
+        });
+        setResume(null);
+        setResumeMessage("");
+        setErrors({});
 
-      enqueueSnackbar("Application submitted successfully", { variant: "success", anchorOrigin: { vertical: "top", horizontal: "center" }, autoHideDuration: 3000 });
-    } catch (err) {
-      console.log(err);
-      enqueueSnackbar("Failed to send application.", { variant: "error", anchorOrigin: { vertical: "top", horizontal: "center" }, autoHideDuration: 3000 });
+
+
+        enqueueSnackbar("Application submitted successfully! We'll be in touch soon.", { variant: "success" });
+      } else {
+        throw new Error(`Unexpected response status: ${applicationResponse.status}`);
+      }
+
+    } catch (err: any) {
+      console.error("Application submission error:", err);
+
+      // Extract error message from response
+      const errorMessage = err.response?.data?.error?.message
+        || err.response?.data?.message
+        || err.message
+        || "Failed to submit application. Please try again.";
+
+      enqueueSnackbar(errorMessage, { variant: "error" });
+
+
     } finally {
       setIsSubmitting(false);
     }
@@ -200,34 +340,20 @@ function Page() {
   );
 
   // Right-side skeleton
-  // Right-side skeleton
   const FormSkeleton: React.FC = () => (
     <div className="bg-white shadow-xl rounded-2xl p-6 md:p-8 lg:p-10 space-y-6 animate-pulse">
-      {/* Title */}
       <div className="h-8 sm:h-10 md:h-12 bg-gray-200 rounded w-1/2 mx-auto"></div>
-
-      {/* Name fields */}
       <div className="flex flex-col md:flex-row gap-4 pt-5">
         <div className="h-12 bg-gray-200 rounded w-full md:w-1/2"></div>
         <div className="h-12 bg-gray-200 rounded w-full md:w-1/2"></div>
       </div>
-
-      {/* Email & Phone */}
       <div className="flex flex-col md:flex-row gap-4">
         <div className="h-12 bg-gray-200 rounded w-full md:w-1/2"></div>
         <div className="h-12 bg-gray-200 rounded w-full md:w-1/2"></div>
       </div>
-
-      {/* Location */}
       <div className="h-12 bg-gray-200 rounded w-full"></div>
-
-      {/* Message */}
       <div className="h-28 bg-gray-200 rounded w-full"></div>
-
-      {/* Resume */}
       <div className="h-24 bg-gray-200 rounded w-full flex items-center justify-center"></div>
-
-      {/* Experience */}
       <div className="space-y-2">
         <div className="h-5 bg-gray-200 rounded w-1/3"></div>
         <div className="flex flex-wrap gap-2 mt-2">
@@ -236,8 +362,6 @@ function Page() {
           ))}
         </div>
       </div>
-
-      {/* Submit button */}
       <div className="h-12 bg-gray-200 rounded w-full mt-4"></div>
     </div>
   );
@@ -249,12 +373,12 @@ function Page() {
 
       <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-20 xl:gap-24 px-6 sm:px-10 md:px-16 lg:px-24 xl:px-28 my-12" variants={containerVariants} initial="hidden" animate="visible">
         {/* Left Grid */}
-        <motion.div className="flex flex-col gap-6 " variants={itemVariants}>
+        <motion.div className="flex flex-col gap-6" variants={itemVariants}>
           {loading ? <JobSkeleton /> : selectedJob ? (
             <>
               <motion.h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold">{selectedJob.title}</motion.h2>
-              <motion.div className="flex gap-2">
-                <motion.h4 className="flex text-xs md:text-sm bg-gray-100 px-3 py-1 rounded-md w-fit font-medium text-gray-700 shadow-sm">{selectedJob.jobId}</motion.h4>
+              <motion.div className="flex gap-2 flex-wrap">
+                <motion.h4 className="flex text-xs md:text-sm bg-gray-100 px-3 py-1 rounded-md w-fit font-medium text-gray-700 shadow-sm">{selectedJob.jobCode}</motion.h4>
                 <motion.h4 className="flex items-center gap-1 md:gap-2 bg-gray-100 px-3 py-1 rounded-md w-fit font-medium text-gray-700 shadow-sm">
                   <img src="/assets/Careers/Jobsectionassets/Jobtype.png" alt="Job Type" className="w-5 h-5" />
                   <span className="text-xs md:text-sm">{selectedJob.jobType}</span>
@@ -307,7 +431,6 @@ function Page() {
                 variants={formVariants}
                 initial="hidden"
                 animate="visible"
-                key="form"
                 layout
               >
                 <motion.h2
@@ -340,12 +463,11 @@ function Page() {
                         onChange={handleChange}
                         className="w-full border border-gray-300 rounded-lg p-3 focus:ring-1 focus:ring-cyan-500 outline-none transition-all duration-200"
                         whileFocus={{ scale: 1.02 }}
-
                       />
                       <AnimatePresence>
                         {errors[field] && (
                           <motion.p
-                            className="text-red-500 text-sm"
+                            className="text-red-500 text-sm mt-1"
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
@@ -380,12 +502,11 @@ function Page() {
                         onChange={handleChange}
                         className="w-full border border-gray-300 rounded-lg p-3 focus:ring-1 focus:ring-cyan-500 outline-none transition-all duration-200"
                         whileFocus={{ scale: 1.02 }}
-
                       />
                       <AnimatePresence>
                         {errors[field] && (
                           <motion.p
-                            className="text-red-500 text-sm"
+                            className="text-red-500 text-sm mt-1"
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
@@ -413,12 +534,11 @@ function Page() {
                     onChange={handleChange}
                     className="w-full border border-gray-300 rounded-lg p-3 focus:ring-1 focus:ring-cyan-500 outline-none transition-all duration-200"
                     whileFocus={{ scale: 1.02 }}
-
                   />
                   <AnimatePresence>
                     {errors.location && (
                       <motion.p
-                        className="text-red-500 text-sm"
+                        className="text-red-500 text-sm mt-1"
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
@@ -438,12 +558,11 @@ function Page() {
                 >
                   <motion.textarea
                     name="message"
-                    placeholder="Your message"
+                    placeholder="Your message (optional)"
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full border border-gray-300 rounded-lg p-3 h-28 focus:ring-1 focus:ring-cyan-500 outline-none resize-none transition-all duration-200"
                     whileFocus={{ scale: 1.02 }}
-
                   />
                 </motion.div>
 
@@ -469,7 +588,7 @@ function Page() {
                         browse
                       </span>
                     </h2>
-                    <h4 className="text-sm">Max file size: 4MB (pdf, doc, docx)</h4>
+                    <h4 className="text-sm">Max file size: 5MB (pdf, doc, docx)</h4>
                     <AnimatePresence>
                       {resumeMessage && (
                         <motion.p
@@ -510,7 +629,7 @@ function Page() {
                     How much experience do you have?
                   </motion.h3>
                   <motion.div
-                    className="space-y-2"
+                    className="grid grid-cols-2 gap-y-2"
                     variants={containerVariants}
                   >
                     {["0-2 years", "3-5 years", "5-8 years", "8+ years"].map((exp, index) => (
@@ -548,6 +667,33 @@ function Page() {
                         transition={{ duration: 0.2 }}
                       >
                         {errors.experience}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+
+                {/* Captcha */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.1, duration: 0.4 }}
+                  className="flex flex-col items-center mt-4"
+                >
+                  <ReCAPTCHA
+
+                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+
+                  />
+                  <AnimatePresence>
+                    {errors.captcha && (
+                      <motion.p
+                        className="text-red-500 text-sm mt-2"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {errors.captcha}
                       </motion.p>
                     )}
                   </AnimatePresence>
@@ -592,7 +738,7 @@ function Page() {
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                         >
-                          Submit
+                          Submit Application
                         </motion.span>
                       )}
                     </AnimatePresence>
@@ -602,8 +748,6 @@ function Page() {
             )}
           </AnimatePresence>
         </motion.div>
-
-
       </motion.div>
     </div>
   );

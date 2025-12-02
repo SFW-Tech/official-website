@@ -16,7 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "odoo", priority: 0.8 },
     { path: "staffaugmentation", priority: 0.8 },
     { path: "e-commerce", priority: 0.8 },
-    { path: "servicenow", priority: 0.8 },
+    // { path: "servicenow", priority: 0.8 },
+    { path: "sap", priority: 0.8 },
   ];
 
   const caseStudies = [
