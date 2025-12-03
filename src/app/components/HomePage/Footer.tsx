@@ -55,13 +55,13 @@ function Footer() {
                     <div className='flex flex-col text-white gap-3'>
                         <h2 className='font-semibold'>Our Services</h2>
                         <hr className="border-gray-400 opacity-40" />
-                        <Link href="/websitedevelopment" className='hover:text-[#59D7F7]'>Custom Application</Link>
-                        <Link href="/mobileapplications" className='hover:text-[#59D7F7]'>Mobile Application</Link>
                         <Link href="/webapplications" className='hover:text-[#59D7F7]'>Web Application</Link>
-                        <Link href="/ai" className='hover:text-[#59D7F7]'>Artificial Intelligence</Link>
+                        <Link href="/mobileapplications" className='hover:text-[#59D7F7]'>Mobile Application</Link>
                         <Link href="/sap" className='hover:text-[#59D7F7]'>SAP</Link>
-                        <Link href="/odoo" className='hover:text-[#59D7F7]'>Odoo</Link>
+                        <Link href="/ai" className='hover:text-[#59D7F7]'>Artificial Intelligence</Link>
                         <Link href="/staffaugmentation" className='hover:text-[#59D7F7]'>Staff Augmentation</Link>
+                        <Link href="/odoo" className='hover:text-[#59D7F7]'>Odoo</Link>
+                        <Link href="/websitedevelopment" className='hover:text-[#59D7F7]'>Custom Application</Link>
                         <Link href="/e-commerce" className='hover:text-[#59D7F7]'>Ecommerce Applications</Link>
                         {/* <Link href="/servicenow" className='hover:text-[#59D7F7]'>ServiceNow</Link> */}
                     </div>
@@ -168,7 +168,7 @@ function Footer() {
                     <p>©2025 Softworks Technologies. All Rights Reserved</p>
                     <div className="hidden sm:block h-4 border-l border-gray-400 opacity-40"></div>
                     <p className=''>Registered As : SFW Technologies India Pvt Ltd  </p>
-                    
+
                 </div>
 
                 {/* Right Icons */}
