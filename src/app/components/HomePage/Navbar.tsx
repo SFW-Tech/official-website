@@ -318,22 +318,22 @@ function Navbar() {
                                                 >
                                                     ODOO
                                                 </Link>
-                                                <Link
+                                                {/* <Link
                                                     href="/websitedevelopment"
                                                     className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/websitedevelopment" ? "bg-[#59d7f7] text-black font-semibold" : ""
                                                         }`}
                                                     onClick={() => sethamburgerlist(false)}
                                                 >
                                                     Website
-                                                </Link>
-                                                <Link
+                                                </Link> */}
+                                                {/* <Link
                                                     href="/e-commerce"
                                                     className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/e-commerce" ? "bg-[#59d7f7] text-black font-semibold" : ""
                                                         }`}
                                                     onClick={() => sethamburgerlist(false)}
                                                 >
                                                     E-Commerce
-                                                </Link>
+                                                </Link> */}
 
                                                 {/* <Link
                                                     href="/servicenow"
