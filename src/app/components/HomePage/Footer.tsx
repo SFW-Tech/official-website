@@ -61,8 +61,8 @@ function Footer() {
                         <Link href="/ai" className='hover:text-[#59D7F7]'>Artificial Intelligence</Link>
                         <Link href="/staffaugmentation" className='hover:text-[#59D7F7]'>Staff Augmentation</Link>
                         <Link href="/odoo" className='hover:text-[#59D7F7]'>Odoo</Link>
-                        <Link href="/websitedevelopment" className='hover:text-[#59D7F7]'>Custom Application</Link>
-                        <Link href="/e-commerce" className='hover:text-[#59D7F7]'>Ecommerce Applications</Link>
+                        {/* <Link href="/websitedevelopment" className='hover:text-[#59D7F7]'>Custom Application</Link> */}
+                        {/* <Link href="/e-commerce" className='hover:text-[#59D7F7]'>Ecommerce Applications</Link> */}
                         {/* <Link href="/servicenow" className='hover:text-[#59D7F7]'>ServiceNow</Link> */}
                     </div>
 
