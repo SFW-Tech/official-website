@@ -232,13 +232,14 @@ function Navbar() {
                                         className={`w-full text-left flex items-center justify-between hover:bg-white/10 transition rounded-md px-2 py-1 ${[
                                             "/webapplications",
                                             "/mobileapplications",
-                                            // "/websitedevelopment",
-                                            // "/e-commerce",
-                                            "/odoo",
-                                            "/ai",
                                             "/sap",
+                                            "/ai",
+                                            "/staffaugmentation",
+                                            "/odoo",
+                                            "/websitedevelopment",
+                                            "/e-commerce",
                                             "/servicenow",
-                                            "/staffaugmentation"
+
                                         ].includes(pathname)
                                             ? "bg-[#59d7f7] text-black font-semibold py-2"
                                             : ""
@@ -284,6 +285,39 @@ function Navbar() {
                                                 >
                                                     Mobile Applications
                                                 </Link>
+                                                <Link
+                                                    href="/sap"
+                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/sap" ? "bg-[#59d7f7] text-black font-semibold" : ""
+                                                        }`}
+                                                    onClick={() => sethamburgerlist(false)}
+                                                >
+                                                    SAP
+                                                </Link>
+
+                                                <Link
+                                                    href="/ai"
+                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/ai" ? "bg-[#59d7f7] text-black font-semibold" : ""
+                                                        }`}
+                                                    onClick={() => sethamburgerlist(false)}
+                                                >
+                                                    AI
+                                                </Link>
+                                                <Link
+                                                    href="/staffaugmentation"
+                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/staffaugmentation" ? "bg-[#59d7f7] text-black font-semibold" : ""
+                                                        }`}
+                                                    onClick={() => sethamburgerlist(false)}
+                                                >
+                                                    Staff Augmentation
+                                                </Link>
+                                                <Link
+                                                    href="/odoo"
+                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/odoo" ? "bg-[#59d7f7] text-black font-semibold" : ""
+                                                        }`}
+                                                    onClick={() => sethamburgerlist(false)}
+                                                >
+                                                    ODOO
+                                                </Link>
                                                 {/* <Link
                                                     href="/websitedevelopment"
                                                     className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/websitedevelopment" ? "bg-[#59d7f7] text-black font-semibold" : ""
@@ -300,30 +334,7 @@ function Navbar() {
                                                 >
                                                     E-Commerce
                                                 </Link> */}
-                                                <Link
-                                                    href="/ai"
-                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/ai" ? "bg-[#59d7f7] text-black font-semibold" : ""
-                                                        }`}
-                                                    onClick={() => sethamburgerlist(false)}
-                                                >
-                                                    AI
-                                                </Link>
-                                                <Link
-                                                    href="/sap"
-                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/sap" ? "bg-[#59d7f7] text-black font-semibold" : ""
-                                                        }`}
-                                                    onClick={() => sethamburgerlist(false)}
-                                                >
-                                                    SAP
-                                                </Link>
-                                                <Link
-                                                    href="/odoo"
-                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/odoo" ? "bg-[#59d7f7] text-black font-semibold" : ""
-                                                        }`}
-                                                    onClick={() => sethamburgerlist(false)}
-                                                >
-                                                    ODOO
-                                                </Link>
+
                                                 {/* <Link
                                                     href="/servicenow"
                                                     className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${
@@ -333,14 +344,7 @@ function Navbar() {
                                                 >
                                                     Service Now
                                                 </Link> */}
-                                                <Link
-                                                    href="/staffaugmentation"
-                                                    className={`block py-2 px-3 rounded-md hover:bg-white/10 transition text-sm ${pathname === "/staffaugmentation" ? "bg-[#59d7f7] text-black font-semibold" : ""
-                                                        }`}
-                                                    onClick={() => sethamburgerlist(false)}
-                                                >
-                                                    Staff Augmentation
-                                                </Link>
+
                                             </motion.div>
                                         )}
                                     </AnimatePresence>

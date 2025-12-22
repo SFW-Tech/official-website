@@ -11,12 +11,13 @@ function ServicesDropdownMenu() {
   const activePaths = [
     "/webapplications",
     "/mobileapplications",
-    // "/websitedevelopment",
-    // "/e-commerce",
-    "/odoo",
+    "/sap",
     "/ai",
+    "/staffaugmentation",
+    "/odoo",
+    "/websitedevelopment",
+    "/e-commerce",
     "/servicenow",
-    "/staffaugmentation"
   ];
 
   return (
@@ -65,23 +66,18 @@ function ServicesDropdownMenu() {
               </Link>
               <hr className="border-black/30" />
 
-              {/* <Link href="/websitedevelopment" className="block px-3 py-2 text-sm text-black text-center hover:bg-cyan-300">
-                Website
+              <Link href="/sap" className="block px-3 py-2 text-sm text-black text-center hover:bg-cyan-300">
+                SAP
               </Link>
-              <hr className="border-black/30" /> */}
-
-              {/* <Link href="/e-commerce" className="block px-3 py-2 text-sm text-black text-center hover:bg-cyan-300">
-                E-Commerce
-              </Link>
-              <hr className="border-black/30" /> */}
+              <hr className="border-black/30" /> 
 
               <Link href="/ai" className="block px-3 py-2 text-sm text-black text-center hover:bg-cyan-300">
                 AI
               </Link>
               <hr className="border-black/30" />
 
-              <Link href="/sap" className="block px-3 py-2 text-sm text-black text-center hover:bg-cyan-300">
-                SAP
+              <Link href="/staffaugmentation" className="block px-3 py-2 text-sm text-black text-center hover:bg-cyan-300 hover:rounded-md">
+                Staff Augmentation
               </Link>
               <hr className="border-black/30" />
 
@@ -90,14 +86,20 @@ function ServicesDropdownMenu() {
               </Link>
               <hr className="border-black/30" />
 
+              {/* <Link href="/websitedevelopment" className="block px-3 py-2 text-sm text-black text-center hover:bg-cyan-300">
+                Website
+              </Link>
+              <hr className="border-black/30" /> */}
+
+              {/* <Link href="/e-commerce" className="block px-3 py-2 text-sm text-black text-center hover:bg-cyan-300 hover:rounded-md">
+                E-Commerce
+              </Link> */}
+
               {/* <Link href="/servicenow" className="block px-3 py-2 text-sm text-black text-center hover:bg-cyan-300">
                 Service Now
               </Link>
               <hr className="border-black/30" /> */}
 
-              <Link href="/staffaugmentation" className="block px-3 py-2 text-sm text-black text-center hover:bg-cyan-300 hover:rounded-md">
-                Staff Augmentation
-              </Link>
             </div>
           </motion.div>
         )}
