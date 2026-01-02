@@ -11,14 +11,14 @@ function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
     const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+    const [visible, setVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
     const pathname = usePathname();
 
-    // 🔹 Ref for mobile menu container
     const menuRef = useRef<HTMLDivElement>(null);
 
     const handlehamburger = () => {
         sethamburgerlist((prev) => !prev);
-        // Reset dropdowns when opening/closing menu
         if (hamburgerlist) {
             setMobileCompanyOpen(false);
             setMobileServicesOpen(false);
@@ -26,11 +26,27 @@ function Navbar() {
     };
 
     const handleScroll = () => {
-        if (window.scrollY > 50) {
+        const currentScrollY = window.scrollY;
+        
+        // For desktop/tablet behavior
+        if (currentScrollY > 50) {
             setScrolled(true);
         } else {
             setScrolled(false);
         }
+
+        // Mobile-specific behavior
+        if (window.innerWidth < 1024) { 
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                setVisible(false);
+            } else if (currentScrollY < lastScrollY) {
+                setVisible(true);
+            }
+        } else {
+            setVisible(true);
+        }
+        
+        setLastScrollY(currentScrollY);
     };
 
     useEffect(() => {
@@ -64,8 +80,12 @@ function Navbar() {
     return (
         <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 3, ease: "easeOut" }}
+            animate={{ 
+                opacity: 1,
+                y: visible ? 0 : -100,
+                transition: { duration: 0.3, ease: "easeInOut" }
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             className={`fixed
 
     /* Mobile (<640px) */
@@ -74,13 +94,11 @@ function Navbar() {
                     : "top-0"
                 }
 
-    
     /* SM & above (>=640px) */
     ${pathname === "/"
                     ? (scrolled ? "sm:top-1.5" : "sm:top-10")
                     : (scrolled ? "sm:top-1.5" : "sm:top-0")
                 }
-
 
     left-0 right-0 z-50 flex gap-10 justify-between items-center
     transition-all duration-300 ease-in-out
@@ -91,8 +109,6 @@ function Navbar() {
 `}
 
         >
-
-
 
             {/* Logo */}
             <Link href="/">
