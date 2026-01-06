@@ -1,11 +1,80 @@
-"use client"
-import React, { useState } from 'react'
-import Link from 'next/link'
-import { AnimatePresence } from "framer-motion"
-import ContactModal from '../ModalForms/ContactModal'
+"use client";
+import Link from "next/link";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import type { Variants } from "framer-motion";
 
 function Footer() {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
+    const [expandedLocation, setExpandedLocation] = useState<string | null>(null);
+
+    const locations = {
+        india: {
+            contacts: [
+                { type: "Sales", numbers: ["+91 98941 13103", "+91 99943 17168"] },
+                { type: "Career", numbers: ["+91 73977 20330"] }
+            ],
+            offices: [
+                {
+                    type: "Registered Office",
+                    address: "#6, Ground Floor, Kaanchan, North Huzur Road, Coimbatore, Tamil Nadu, 641018",
+                    link: "https://maps.app.goo.gl/2UZnYQSZTpfRNFsy9"
+                },
+                {
+                    type: "Development Center",
+                    address: "7/2A, Shreesha Building, First Floor, Singanallur, Coimbatore, Tamil Nadu, 641005",
+                    link: "https://maps.app.goo.gl/Z6ZCF68WdCUyozsX7"
+                },
+                {
+                    type: "Branch",
+                    address: "C-Block 904, Riddhi's, Pramukh Elegance, Jeedimetla, Hyderabad, Telangana, 500055",
+                    link: "https://maps.app.goo.gl/C4w8P7kSMqyQjgHP8"
+                }
+            ]
+        },
+        singapore: [
+            {
+                type: "Office",
+                address: "60 Paya Lebar Road #06-28, Paya Lebar Square, Singapore 409051",
+                link: "https://maps.app.goo.gl/rQex92vFNuAp66kE7",
+                phone: [
+                    { type: "Sales", number: "+65 9073 1373" },
+                    { type: "Sales", number: "+65 9108 2034" }
+                ]
+            }
+        ],
+        germany: [
+            {
+                type: "Office",
+                address: "Coming Soon!!",
+                link:"",
+                phone: [
+                    { type: "Sales", number: "+49 XXX XXXX XXX" }
+                ]
+            }
+        ]
+    };
+
+    // Animation variants for smooth expand/collapse
+    const containerVariants: Variants = {
+        hidden: { height: 0, opacity: 0 },
+        visible: {
+            height: "auto",
+            opacity: 1,
+            transition: {
+                height: { duration: 0.3, ease: "easeInOut" },
+                opacity: { duration: 0.2, delay: 0.1 }
+            }
+        },
+        exit: {
+            height: 0,
+            opacity: 0,
+            transition: {
+                height: { duration: 0.3, ease: "easeInOut" },
+                opacity: { duration: 0.2 }
+            }
+        }
+    };
 
     return (
         <div
@@ -14,143 +83,263 @@ function Footer() {
         >
             {/* Top Section */}
             <div className='px-4 sm:px-6 md:px-12 lg:px-20 xl:px-46 py-5'>
-                {/* Flex Section */}
+                {/* CTA Section */}
                 <div className='flex flex-col sm:flex-row justify-between text-white items-start sm:items-center gap-4'>
                     <h3 className='text-lg sm:text-xl text-center sm:text-left'>
                         Need any expert business & Consulting services?
                     </h3>
-
                     <button className="connectbutton" onClick={() => setIsOpen(true)}>
                         <span className="animatebutton"></span>
                         <span className="buttonbg">Connect with us</span>
                     </button>
                 </div>
 
-                {/* Grid ------------ */}
-                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-6 mt-10 text-sm'>
-                    {/* Quick Links */}
-                    <div className='flex flex-col text-white gap-6'>
+                {/* Main Grid - 4 Columns */}
+                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 text-sm'>
+                    {/* Column 1: Locations with Expandable View */}
+                    <div className='flex flex-col text-white gap-3'>
+                        <h2 className='font-semibold text-base'>Our Offices</h2>
+                        <hr className="border-gray-400 opacity-40" />
 
-                        <div className='flex flex-col gap-3'>
-                            <h2 className='font-semibold'>Quick Links</h2>
-                            <hr className="border-gray-400 opacity-40" />
-                            <Link href="/careers" className='hover:text-[#59D7F7]'>Careers</Link>
-                            {/* <Link href="/blog" className='hover:text-[#59D7F7]'>Blog</Link> */}
-                            <Link href="/contact" className='hover:text-[#59D7F7]'>Contact Us</Link>
+                        {/* India */}
+                        <div className='border-b border-gray-700 pb-2'>
+                            <button
+                                onClick={() => setExpandedLocation(expandedLocation === 'india' ? null : 'india')}
+                                className='flex items-center justify-between w-full text-left group'
+                            >
+                                <div className='flex items-center gap-2'>
+                                    <img src="https://flagcdn.com/w20/in.png" alt="India" className='w-5 h-3.5' />
+                                    <span className='font-medium text-sm group-hover:text-[#59D7F7]'>India (3)</span>
+                                </div>
+                                <motion.svg
+                                    className='w-4 h-4'
+                                    animate={{ rotate: expandedLocation === 'india' ? 180 : 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </motion.svg>
+                            </button>
+
+                            <AnimatePresence>
+                                {expandedLocation === 'india' && (
+                                    <motion.div
+                                        initial="hidden"
+                                        animate="visible"
+                                        exit="exit"
+                                        variants={containerVariants}
+                                        className='overflow-hidden'
+                                    >
+                                        <div className='mt-2 space-y-2 pl-1'>
+                                            {locations.india.offices.map((office, idx) => (
+                                                <div key={idx} className='text-xs mb-3'>
+                                                    <p className='text-gray-200 font-medium'>{office.type}</p>
+                                                    <p className='text-gray-400 leading-relaxed mb-1'>{office.address}</p>
+                                                    <Link
+                                                        href={office.link}
+                                                        target='_blank'
+                                                        className='text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-1 mt-1'
+                                                    >
+                                                        Direction →
+                                                    </Link>
+                                                </div>
+                                            ))}
+
+                                            {/* Contact Numbers */}
+                                            <div className='mt-4 pt-2 border-t border-gray-700'>
+                                                <p className='text-gray-200 font-medium mb-1'>Contact:</p>
+                                                {locations.india.contacts.map((contact, idx) => (
+                                                    <p key={idx} className='text-cyan-300 text-xs'>
+                                                        {contact.type}: {contact.numbers.join(', ')}
+                                                    </p>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
                         </div>
 
-                        <div className='flex flex-col gap-1 justify-center'>
+                        {/* Singapore */}
+                        <div className='border-b border-gray-700 pb-2'>
+                            <button
+                                onClick={() => setExpandedLocation(expandedLocation === 'singapore' ? null : 'singapore')}
+                                className='flex items-center justify-between w-full text-left group'
+                            >
+                                <div className='flex items-center gap-2'>
+                                    <img src="https://flagcdn.com/w20/sg.png" alt="Singapore" className='w-5 h-3.5' />
+                                    <span className='font-medium text-sm group-hover:text-[#59D7F7]'>Singapore</span>
+                                </div>
+                                <motion.svg
+                                    className='w-4 h-4'
+                                    animate={{ rotate: expandedLocation === 'singapore' ? 180 : 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </motion.svg>
+                            </button>
+
+                            <AnimatePresence>
+                                {expandedLocation === 'singapore' && (
+                                    <motion.div
+                                        initial="hidden"
+                                        animate="visible"
+                                        exit="exit"
+                                        variants={containerVariants}
+                                        className='overflow-hidden'
+                                    >
+                                        <div className='mt-2 pl-1'>
+                                            {locations.singapore.map((loc, idx) => (
+                                                <div key={idx} className='text-xs mb-3'>
+                                                    <p className='text-gray-200 font-medium'>{loc.type}</p>
+                                                    <p className='text-gray-400 leading-relaxed mb-1'>{loc.address}</p>
+                                                    {loc.phone && (
+                                                        <div className='mt-1'>
+                                                            {Object.entries(
+                                                                loc.phone.reduce((acc, phone) => {
+                                                                    if (!acc[phone.type]) acc[phone.type] = [];
+                                                                    acc[phone.type].push(phone.number);
+                                                                    return acc;
+                                                                }, {} as Record<string, string[]>)
+                                                            ).map(([type, numbers], i) => (
+                                                                <p key={i} className='text-cyan-300'>
+                                                                    {type}: {numbers.join(', ')}
+                                                                </p>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                    <Link
+                                                        href={loc.link}
+                                                        target='_blank'
+                                                        className='text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-1 mt-1'
+                                                    >
+                                                        Direction →
+                                                    </Link>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
+
+                        {/* Germany */}
+                        <div>
+                            <button
+                                onClick={() => setExpandedLocation(expandedLocation === 'germany' ? null : 'germany')}
+                                className='flex items-center justify-between w-full text-left group'
+                            >
+                                <div className='flex items-center gap-2'>
+                                    <img src="https://flagcdn.com/w20/de.png" alt="Germany" className='w-5 h-3.5' />
+                                    <span className='font-medium text-sm group-hover:text-[#59D7F7]'>Germany</span>
+                                </div>
+                                <motion.svg
+                                    className='w-4 h-4'
+                                    animate={{ rotate: expandedLocation === 'germany' ? 180 : 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </motion.svg>
+                            </button>
+
+                            <AnimatePresence>
+                                {expandedLocation === 'germany' && (
+                                    <motion.div
+                                        initial="hidden"
+                                        animate="visible"
+                                        exit="exit"
+                                        variants={containerVariants}
+                                        className='overflow-hidden'
+                                    >
+                                        <div className='mt-2 pl-1'>
+                                            {locations.germany.map((loc, idx) => (
+                                                <div key={idx} className='text-xs mb-3'>
+                                                    <p className='text-gray-200 font-medium'>{loc.type}</p>
+                                                    <p className='text-gray-400 leading-relaxed mb-1'>{loc.address}</p>
+                                                    {loc.phone && (
+                                                        <div className='mt-1'>
+                                                            {Object.entries(
+                                                                loc.phone.reduce((acc, phone) => {
+                                                                    if (!acc[phone.type]) acc[phone.type] = [];
+                                                                    acc[phone.type].push(phone.number);
+                                                                    return acc;
+                                                                }, {} as Record<string, string[]>)
+                                                            ).map(([type, numbers], i) => (
+                                                                <p key={i} className='text-cyan-300'>
+                                                                    {type}: {numbers.join(', ')}
+                                                                </p>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                    <Link
+                                                        href={loc.link}
+                                                        target='_blank'
+                                                        className='text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-1 mt-1'
+                                                    >
+                                                        Direction →
+                                                    </Link>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
+                    </div>
+
+                    {/* Column 2: Contact Info */}
+                    <div className='flex flex-col text-white gap-3'>
+                        <h2 className='font-semibold text-base'>Get In Touch</h2>
+                        <hr className="border-gray-400 opacity-40" />
+
+                        {/* Email Section */}
+                        <div className='space-y-1'>
                             <div>
-                                <img src="/assets/QrCode/BitlyQr.png" alt="Qr Code" className='max-h-25 w-auto' />
+                                <p className='text-xs text-gray-300 font-medium'>Sales Enquiry:</p>
+                                <a href="mailto:sales@sfwtechnologies.com" className='text-sm hover:text-[#59D7F7]'>
+                                    sales@sfwtechnologies.com
+                                </a>
                             </div>
-
                             <div>
-                                <h2 className='text-white font-bold text-xs'>Scan For Location</h2>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    {/* Services */}
-                    <div className='flex flex-col text-white gap-3'>
-                        <h2 className='font-semibold'>Our Services</h2>
-                        <hr className="border-gray-400 opacity-40" />
-                        <Link href="/webapplications" className='hover:text-[#59D7F7]'>Web Application</Link>
-                        <Link href="/mobileapplications" className='hover:text-[#59D7F7]'>Mobile Application</Link>
-                        <Link href="/sap" className='hover:text-[#59D7F7]'>SAP</Link>
-                        <Link href="/ai" className='hover:text-[#59D7F7]'>Artificial Intelligence</Link>
-                        <Link href="/staffaugmentation" className='hover:text-[#59D7F7]'>Staff Augmentation</Link>
-                        <Link href="/odoo" className='hover:text-[#59D7F7]'>Odoo</Link>
-                        {/* <Link href="/websitedevelopment" className='hover:text-[#59D7F7]'>Custom Application</Link> */}
-                        {/* <Link href="/e-commerce" className='hover:text-[#59D7F7]'>Ecommerce Applications</Link> */}
-                        {/* <Link href="/servicenow" className='hover:text-[#59D7F7]'>ServiceNow</Link> */}
-                    </div>
-
-                    {/* Contact */}
-                    <div className='flex flex-col text-white gap-3'>
-                        <h2 className='font-semibold'>Contact</h2>
-                        <hr className="border-gray-400 opacity-40" />
-                        <p>Sales: +91 98941 13103 / +91 9994317168</p>
-                        <p>
-                            Mailbox: <a href="mailto:sales@sfwtechnologies.com" >sales@sfwtechnologies.com</a>
-                        </p>
-                        <p>Career: +91 73977 20330</p>
-                        <p>
-                            Mailbox: <a href="mailto:info@sfwtechnologies.com">info@sfwtechnologies.com</a>
-                        </p>
-
-                    </div>
-
-
-                    {/* Address */}
-                    <div className='flex flex-col text-white gap-3'>
-                        <h2 className='font-semibold'>Find us at</h2>
-                        <hr className="border-gray-400 opacity-40" />
-
-                        {/* Registered Office */}
-                        <div className='flex gap-3 items-start'>
-                            <div className='flex-shrink-0 mt-1'>
-                                <img src="/assets/Home/footerassets/location.png" alt="Location" className="w-4 h-4" />
-                            </div>
-                            <div className='flex-1'>
-                                <p className="text-white font-medium mb-1">Registered Office:</p>
-                                <p className="text-gray-300 text-xs leading-relaxed">
-                                    #6, Ground Floor, Kaanchan, North Huzur Road, Race Course, Coimbatore, Tamil Nadu, 641018
-                                </p>
-                                <button className="text-cyan-400 text-xs mt-2 flex items-center gap-1 hover:text-cyan-300 transition">
-                                    <Link href="https://maps.app.goo.gl/2UZnYQSZTpfRNFsy9" target='blank' className='hover:text-[#59D7F7]'>
-                                        Get Direction
-                                    </Link>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        strokeWidth={1.5} stroke="currentColor" className="w-3 h-3">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                    </svg>
-                                </button>
+                                <p className='text-xs text-gray-300 font-medium'>Career Enquiry:</p>
+                                <a href="mailto:info@sfwtechnologies.com" className='text-sm hover:text-[#59D7F7]'>
+                                    info@sfwtechnologies.com
+                                </a>
                             </div>
                         </div>
 
-                        {/* Development Center */}
-                        <div className='flex gap-3 items-start'>
-                            <div className='flex-shrink-0 mt-1'>
-                                <img src="/assets/Home/footerassets/location.png" alt="Location" className="w-4 h-4" />
-                            </div>
-                            <div className='flex-1'>
-                                <p className="text-white font-medium mb-1">Development Center:</p>
-                                <p className="text-gray-300 text-xs leading-relaxed">
-                                    7/2A, Shreesha Building, First Floor, Central Studio Road, Dhanalakshmi Puram South, Singanallur, Coimbatore, Tamil Nadu, 641005
-                                </p>
-                                <button className="text-cyan-400 text-xs mt-2 flex items-center gap-1 hover:text-cyan-300 transition">
-                                    <Link href="https://maps.app.goo.gl/Z6ZCF68WdCUyozsX7" target='blank' className='hover:text-[#59D7F7]'>
-                                        Get Direction
-                                    </Link>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        strokeWidth={1.5} stroke="currentColor" className="w-3 h-3">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
+                    </div>
 
-                        {/* Branch */}
-                        <div className='flex gap-3 items-start'>
-                            <div className='flex-shrink-0 mt-1'>
-                                <img src="/assets/Home/footerassets/location.png" alt="Location" className="w-4 h-4" />
-                            </div>
-                            <div className='flex-1'>
-                                <p className="text-white font-medium mb-1">Branch:</p>
-                                <p className="text-gray-300 text-xs leading-relaxed">
-                                    C - Block 904 , Riddhi's, Pramukh Elegance, Jeedimetla, Hyderabad, Telangana, 500055
-                                </p>
-                                <button className="text-cyan-400 text-xs mt-2 flex items-center gap-1 hover:text-cyan-300 transition">
-                                    <Link href="https://maps.app.goo.gl/C4w8P7kSMqyQjgHP8" target='blank' className='hover:text-[#59D7F7]'>
-                                        Get Direction
-                                    </Link>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        strokeWidth={1.5} stroke="currentColor" className="w-3 h-3">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                    </svg>
-                                </button>
-                            </div>
+                    {/* Column 3: Services */}
+                    <div className='flex flex-col text-white gap-3'>
+                        <h2 className='font-semibold text-base'>Our Services</h2>
+                        <hr className="border-gray-400 opacity-40" />
+                        <Link href="/webapplications" className='hover:text-[#59D7F7] text-sm'>Web Application</Link>
+                        <Link href="/mobileapplications" className='hover:text-[#59D7F7] text-sm'>Mobile Application</Link>
+                        <Link href="/sap" className='hover:text-[#59D7F7] text-sm'>SAP</Link>
+                        <Link href="/ai" className='hover:text-[#59D7F7] text-sm'>Artificial Intelligence</Link>
+                        <Link href="/staffaugmentation" className='hover:text-[#59D7F7] text-sm'>Staff Augmentation</Link>
+                        <Link href="/odoo" className='hover:text-[#59D7F7] text-sm'>Odoo</Link>
+                    </div>
+
+                    {/* Column 4: Quick Links & QR */}
+                    <div className='flex flex-col text-white gap-3'>
+                        <h2 className='font-semibold text-base'>Quick Links</h2>
+                        <hr className="border-gray-400 opacity-40" />
+                        <Link href="/careers" className='hover:text-[#59D7F7] text-sm'>Careers</Link>
+                        <Link href="/contact" className='hover:text-[#59D7F7] text-sm'>Contact Us</Link>
+
+                        <div className='mt-3'>
+                            <img src="/assets/QrCode/BitlyQr.png" alt="Qr Code" className='max-h-20 w-auto mb-1' />
+                            <p className='text-white font-semibold text-xs'>Scan For Location</p>
                         </div>
                     </div>
                 </div>
@@ -191,13 +380,8 @@ function Footer() {
                     </Link>
                 </div>
             </div>
-
-            {/* Modal */}
-            <AnimatePresence>
-                {isOpen && <ContactModal isOpen={isOpen} setIsOpen={setIsOpen} />}
-            </AnimatePresence>
         </div>
-    )
+    );
 }
 
-export default Footer
+export default Footer;
