@@ -310,7 +310,7 @@ function Footer() {
                         <div className='flex flex-col gap-2'>
                             <Link href="/careers" className='hover:text-[#59D7F7] text-sm'>Careers</Link>
                             <Link href="/contact" className='hover:text-[#59D7F7] text-sm'>Contact Us</Link>
-                            <Link href="/about" className='hover:text-[#59D7F7] text-sm'>About Us</Link>
+                            <Link href="/aboutus" className='hover:text-[#59D7F7] text-sm'>About Us</Link>
                         </div>
                     </div>
 
