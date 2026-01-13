@@ -7,29 +7,28 @@ function Footer() {
     const [isOpen, setIsOpen] = useState(false);
 
     const locations = {
-        india: {
-            contacts: [
-                { type: "Sales", numbers: ["+91 98941 13103", "+91 99943 17168"] },
-                { type: "Career", numbers: ["+91 73977 20330"] }
-            ],
-            offices: [
-                {
-                    type: "Registered Office",
-                    address: "#6, Ground Floor, Kaanchan, North Huzur Road, Coimbatore, Tamil Nadu, 641018",
-                    link: "https://maps.app.goo.gl/2UZnYQSZTpfRNFsy9"
-                },
-                {
-                    type: "Development Center",
-                    address: "7/2A, Shreesha Building, First Floor, Singanallur, Coimbatore, Tamil Nadu, 641005",
-                    link: "https://maps.app.goo.gl/Z6ZCF68WdCUyozsX7"
-                },
-                {
-                    type: "Branch",
-                    address: "C-Block 904, Riddhi's, Pramukh Elegance, Jeedimetla, Hyderabad, Telangana, 500055",
-                    link: "https://maps.app.goo.gl/C4w8P7kSMqyQjgHP8"
-                }
-            ]
-        },
+        india: [
+            {
+                type: "Registered Office",
+                address: "#6, Ground Floor, Kaanchan, North Huzur Road, Coimbatore, Tamil Nadu, 641018",
+                link: "https://maps.app.goo.gl/2UZnYQSZTpfRNFsy9",
+                phone: [
+                    { type: "Sales", number: "+91 98941 13103" },
+                    { type: "Sales", number: "+91 99943 17168" },
+                    { type: "Career", number: "+91 73977 20330" }
+                ]
+            },
+            {
+                type: "Development Center",
+                address: "7/2A, Shreesha Building, First Floor, Singanallur, Coimbatore, Tamil Nadu, 641005",
+                link: "https://maps.app.goo.gl/Z6ZCF68WdCUyozsX7"
+            },
+            {
+                type: "Branch",
+                address: "C-Block 904, Riddhi's, Pramukh Elegance, Jeedimetla, Hyderabad, Telangana, 500055",
+                link: "https://maps.app.goo.gl/C4w8P7kSMqyQjgHP8"
+            }
+        ],
         singapore: [
             {
                 type: "Office",
@@ -54,10 +53,10 @@ function Footer() {
         canada: [
             {
                 type: "Office",
-                address: "123 Maple Street, Suite 400, Toronto, ON M5V 2L7, Canada",
-                link: "https://maps.app.goo.gl/7YJkXm3Z9W2R8T6V7",
+                address: "970 Burrard Street, Office# 1643, Vancouver, BC V6Z 2R4, Canada",
+                link: "https://maps.app.goo.gl/HKMc6BYqahEmmwsD6",
                 phone: [
-                    { type: "Sales", number: "+1 (416) 555-0123" }
+                    { type: "Sales", number: "+1 778-879-6141" }
                 ]
             }
         ]
@@ -84,7 +83,7 @@ function Footer() {
 
                 {/* Main Grid - 4 Columns */}
                 {/* Address Grid - 5 Columns */}
-                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-10 lg:mt-15 text-sm'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mt-10 lg:mt-15 text-sm'>
                     {/* India */}
                     <div className='flex flex-col text-white gap-3'>
                         <div className='flex items-center gap-2'>
@@ -92,31 +91,41 @@ function Footer() {
                             <h2 className='font-semibold text-base'>India</h2>
                         </div>
                         <hr className="border-gray-400 opacity-40" />
-                        <div className='space-y-4'>
-                            {locations.india.offices.map((office, idx) => (
-                                <div key={idx} className='text-xs'>
-                                    <p className='text-gray-200 font-medium'>{office.type}</p>
-                                    <p className='text-gray-400 leading-relaxed'>{office.address}</p>
-                                    <Link href={office.link} target='_blank' className='text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-1 mt-1'>
+                        <div className='space-y-4 text-xs text-gray-400'>
+                            {locations.india.map((loc, idx) => (
+                                <div key={idx}>
+                                    <p className='text-gray-200 font-medium'>{loc.type}</p>
+                                    <p className='leading-relaxed'>{loc.address}</p>
+                                    {loc.phone && (
+                                        <div className='mt-2 space-y-1'>
+                                            {Object.entries(
+                                                loc.phone.reduce((acc: any, p: any) => {
+                                                    if (!acc[p.type]) acc[p.type] = [];
+                                                    acc[p.type].push(p.number);
+                                                    return acc;
+                                                }, {})
+                                            ).map(([type, numbers]: any, i) => (
+                                                <div key={i} className='flex gap-1 text-cyan-300'>
+                                                    <span className='shrink-0'>{type}:</span>
+                                                    <div className='flex flex-wrap gap-x-1'>
+                                                        {numbers.map((num: string, idx: number) => (
+                                                            <React.Fragment key={idx}>
+                                                                <a href={`tel:${num.replace(/\s+/g, '')}`} className="hover:underline whitespace-nowrap">
+                                                                    {num}
+                                                                </a>
+                                                                {idx < numbers.length - 1 && <span className="text-gray-500">/</span>}
+                                                            </React.Fragment>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+                                    <Link href={loc.link} target='_blank' className='text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-1 mt-1'>
                                         Direction →
                                     </Link>
                                 </div>
                             ))}
-                            <div className='pt-2 border-t border-gray-700/50'>
-                                <p className='text-gray-200 font-medium text-xs mb-1'>Contact:</p>
-                                {locations.india.contacts.map((contact, idx) => (
-                                    <p key={idx} className='text-cyan-300 text-xs'>
-                                        {contact.type}: {contact.numbers.map((num, i) => (
-                                            <React.Fragment key={i}>
-                                                <a href={`tel:${num.replace(/\s+/g, '')}`} className="hover:underline">
-                                                    {num}
-                                                </a>
-                                                {i < contact.numbers.length - 1 && " / "}
-                                            </React.Fragment>
-                                        ))}
-                                    </p>
-                                ))}
-                            </div>
                         </div>
                     </div>
 
@@ -132,7 +141,7 @@ function Footer() {
                                 <div key={idx}>
                                     <p className='text-gray-200 font-medium'>{loc.type}</p>
                                     <p className='leading-relaxed'>{loc.address}</p>
-                                    <div className='mt-2'>
+                                    <div className='mt-2 space-y-1'>
                                         {Object.entries(
                                             loc.phone.reduce((acc: any, p: any) => {
                                                 if (!acc[p.type]) acc[p.type] = [];
@@ -140,16 +149,19 @@ function Footer() {
                                                 return acc;
                                             }, {})
                                         ).map(([type, numbers]: any, i) => (
-                                            <p key={i} className='text-cyan-300'>
-                                                {type}: {numbers.map((num: string, idx: number) => (
-                                                    <React.Fragment key={idx}>
-                                                        <a href={`tel:${num.replace(/\s+/g, '')}`} className="hover:underline">
-                                                            {num}
-                                                        </a>
-                                                        {idx < numbers.length - 1 && " / "}
-                                                    </React.Fragment>
-                                                ))}
-                                            </p>
+                                            <div key={i} className='flex gap-1 text-cyan-300'>
+                                                <span className='shrink-0'>{type}:</span>
+                                                <div className='flex flex-wrap gap-x-1'>
+                                                    {numbers.map((num: string, idx: number) => (
+                                                        <React.Fragment key={idx}>
+                                                            <a href={`tel:${num.replace(/\s+/g, '')}`} className="hover:underline whitespace-nowrap">
+                                                                {num}
+                                                            </a>
+                                                            {idx < numbers.length - 1 && <span className="text-gray-500">/</span>}
+                                                        </React.Fragment>
+                                                    ))}
+                                                </div>
+                                            </div>
                                         ))}
                                     </div>
                                     <Link href={loc.link} target='_blank' className='text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-1 mt-1'>
@@ -172,7 +184,7 @@ function Footer() {
                                 <div key={idx}>
                                     <p className='text-gray-200 font-medium'>{loc.type}</p>
                                     <p className='leading-relaxed'>{loc.address}</p>
-                                    <div className='mt-2'>
+                                    <div className='mt-2 space-y-1'>
                                         {Object.entries(
                                             loc.phone.reduce((acc: any, p: any) => {
                                                 if (!acc[p.type]) acc[p.type] = [];
@@ -180,16 +192,19 @@ function Footer() {
                                                 return acc;
                                             }, {})
                                         ).map(([type, numbers]: any, i) => (
-                                            <p key={i} className='text-cyan-300'>
-                                                {type}: {numbers.map((num: string, idx: number) => (
-                                                    <React.Fragment key={idx}>
-                                                        <a href={`tel:${num.replace(/\s+/g, '')}`} className="hover:underline">
-                                                            {num}
-                                                        </a>
-                                                        {idx < numbers.length - 1 && " / "}
-                                                    </React.Fragment>
-                                                ))}
-                                            </p>
+                                            <div key={i} className='flex gap-1 text-cyan-300'>
+                                                <span className='shrink-0'>{type}:</span>
+                                                <div className='flex flex-wrap gap-x-1'>
+                                                    {numbers.map((num: string, idx: number) => (
+                                                        <React.Fragment key={idx}>
+                                                            <a href={`tel:${num.replace(/\s+/g, '')}`} className="hover:underline whitespace-nowrap">
+                                                                {num}
+                                                            </a>
+                                                            {idx < numbers.length - 1 && <span className="text-gray-500">/</span>}
+                                                        </React.Fragment>
+                                                    ))}
+                                                </div>
+                                            </div>
                                         ))}
                                     </div>
                                     <Link href={loc.link} target='_blank' className='text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-1 mt-1'>
@@ -212,7 +227,7 @@ function Footer() {
                                 <div key={idx}>
                                     <p className='text-gray-200 font-medium'>{loc.type}</p>
                                     <p className='leading-relaxed'>{loc.address}</p>
-                                    <div className='mt-2'>
+                                    <div className='mt-2 space-y-1'>
                                         {Object.entries(
                                             loc.phone.reduce((acc: any, p: any) => {
                                                 if (!acc[p.type]) acc[p.type] = [];
@@ -220,16 +235,19 @@ function Footer() {
                                                 return acc;
                                             }, {})
                                         ).map(([type, numbers]: any, i) => (
-                                            <p key={i} className='text-cyan-300'>
-                                                {type}: {numbers.map((num: string, idx: number) => (
-                                                    <React.Fragment key={idx}>
-                                                        <a href={`tel:${num.replace(/\s+/g, '')}`} className="hover:underline">
-                                                            {num}
-                                                        </a>
-                                                        {idx < numbers.length - 1 && " / "}
-                                                    </React.Fragment>
-                                                ))}
-                                            </p>
+                                            <div key={i} className='flex gap-1 text-cyan-300'>
+                                                <span className='shrink-0'>{type}:</span>
+                                                <div className='flex flex-wrap gap-x-1'>
+                                                    {numbers.map((num: string, idx: number) => (
+                                                        <React.Fragment key={idx}>
+                                                            <a href={`tel:${num.replace(/\s+/g, '')}`} className="hover:underline whitespace-nowrap">
+                                                                {num}
+                                                            </a>
+                                                            {idx < numbers.length - 1 && <span className="text-gray-500">/</span>}
+                                                        </React.Fragment>
+                                                    ))}
+                                                </div>
+                                            </div>
                                         ))}
                                     </div>
                                     <Link href={loc.link} target='_blank' className='text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-1 mt-1'>
