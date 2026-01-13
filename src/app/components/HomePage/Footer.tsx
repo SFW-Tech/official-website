@@ -14,8 +14,7 @@ function Footer() {
                 link: "https://maps.app.goo.gl/2UZnYQSZTpfRNFsy9",
                 phone: [
                     { type: "Sales", number: "+91 98941 13103" },
-                    { type: "Sales", number: "+91 99943 17168" },
-                    { type: "Career", number: "+91 73977 20330" }
+                    { type: "Sales", number: "+91 99943 17168" }
                 ]
             },
             {
@@ -53,7 +52,7 @@ function Footer() {
         canada: [
             {
                 type: "Office",
-                address: "970 Burrard Street, Office# 1643, Vancouver, BC V6Z 2R4, Canada",
+                address: "970 Burrard Street, Office# 1643, Vancouver, Canada, BC V6Z 2R4",
                 link: "https://maps.app.goo.gl/HKMc6BYqahEmmwsD6",
                 phone: [
                     { type: "Sales", number: "+1 778-879-6141" }
@@ -91,10 +90,10 @@ function Footer() {
                             <h2 className='font-semibold text-base'>India</h2>
                         </div>
                         <hr className="border-gray-400 opacity-40" />
-                        <div className='space-y-4 text-xs text-gray-400'>
+                        <div className='space-y-6'>
                             {locations.india.map((loc, idx) => (
                                 <div key={idx}>
-                                    <p className='text-gray-200 font-medium'>{loc.type}</p>
+                                    <p className='text-white font-semibold'>{loc.type}</p>
                                     <p className='leading-relaxed'>{loc.address}</p>
                                     {loc.phone && (
                                         <div className='mt-2 space-y-1'>
@@ -110,7 +109,7 @@ function Footer() {
                                                     <div className='flex flex-wrap gap-x-1'>
                                                         {numbers.map((num: string, idx: number) => (
                                                             <React.Fragment key={idx}>
-                                                                <a href={`tel:${num.replace(/\s+/g, '')}`} className="hover:underline whitespace-nowrap">
+                                                                <a href={`tel:${num.replace(/\s+/g, '')}`} className="hover:text-[#59D7F7] hover:underline whitespace-nowrap">
                                                                     {num}
                                                                 </a>
                                                                 {idx < numbers.length - 1 && <span className="text-gray-500">/</span>}
@@ -136,10 +135,10 @@ function Footer() {
                             <h2 className='font-semibold text-base'>Singapore</h2>
                         </div>
                         <hr className="border-gray-400 opacity-40" />
-                        <div className='space-y-4 text-xs text-gray-400'>
+                        <div className='space-y-4'>
                             {locations.singapore.map((loc, idx) => (
                                 <div key={idx}>
-                                    <p className='text-gray-200 font-medium'>{loc.type}</p>
+                                    <p className='text-white font-semibold'>{loc.type}</p>
                                     <p className='leading-relaxed'>{loc.address}</p>
                                     <div className='mt-2 space-y-1'>
                                         {Object.entries(
@@ -154,7 +153,7 @@ function Footer() {
                                                 <div className='flex flex-wrap gap-x-1'>
                                                     {numbers.map((num: string, idx: number) => (
                                                         <React.Fragment key={idx}>
-                                                            <a href={`tel:${num.replace(/\s+/g, '')}`} className="hover:underline whitespace-nowrap">
+                                                            <a href={`tel:${num.replace(/\s+/g, '')}`} className="hover:text-[#59D7F7] hover:underline whitespace-nowrap">
                                                                 {num}
                                                             </a>
                                                             {idx < numbers.length - 1 && <span className="text-gray-500">/</span>}
@@ -179,10 +178,10 @@ function Footer() {
                             <h2 className='font-semibold text-base'>Germany</h2>
                         </div>
                         <hr className="border-gray-400 opacity-40" />
-                        <div className='space-y-4 text-xs text-gray-400'>
+                        <div className='space-y-4'>
                             {locations.germany.map((loc, idx) => (
                                 <div key={idx}>
-                                    <p className='text-gray-200 font-medium'>{loc.type}</p>
+                                    <p className='text-white font-semibold'>{loc.type}</p>
                                     <p className='leading-relaxed'>{loc.address}</p>
                                     <div className='mt-2 space-y-1'>
                                         {Object.entries(
@@ -197,7 +196,7 @@ function Footer() {
                                                 <div className='flex flex-wrap gap-x-1'>
                                                     {numbers.map((num: string, idx: number) => (
                                                         <React.Fragment key={idx}>
-                                                            <a href={`tel:${num.replace(/\s+/g, '')}`} className="hover:underline whitespace-nowrap">
+                                                            <a href={`tel:${num.replace(/\s+/g, '')}`} className="hover:text-[#59D7F7] hover:underline whitespace-nowrap">
                                                                 {num}
                                                             </a>
                                                             {idx < numbers.length - 1 && <span className="text-gray-500">/</span>}
@@ -222,10 +221,10 @@ function Footer() {
                             <h2 className='font-semibold text-base'>Canada</h2>
                         </div>
                         <hr className="border-gray-400 opacity-40" />
-                        <div className='space-y-4 text-xs text-gray-400'>
+                        <div className='space-y-4'>
                             {locations.canada.map((loc, idx) => (
                                 <div key={idx}>
-                                    <p className='text-gray-200 font-medium'>{loc.type}</p>
+                                    <p className='text-white font-semibold'>{loc.type}</p>
                                     <p className='leading-relaxed'>{loc.address}</p>
                                     <div className='mt-2 space-y-1'>
                                         {Object.entries(
@@ -240,7 +239,7 @@ function Footer() {
                                                 <div className='flex flex-wrap gap-x-1'>
                                                     {numbers.map((num: string, idx: number) => (
                                                         <React.Fragment key={idx}>
-                                                            <a href={`tel:${num.replace(/\s+/g, '')}`} className="hover:underline whitespace-nowrap">
+                                                            <a href={`tel:${num.replace(/\s+/g, '')}`} className="hover:text-[#59D7F7] hover:underline whitespace-nowrap">
                                                                 {num}
                                                             </a>
                                                             {idx < numbers.length - 1 && <span className="text-gray-500">/</span>}
@@ -264,16 +263,21 @@ function Footer() {
                         <hr className="border-gray-400 opacity-40" />
                         <div className='space-y-4 text-sm'>
                             <div>
-                                <p className='text-xs text-gray-300 font-medium'>Sales Enquiry:</p>
-                                <a href="mailto:sales@sfwtechnologies.com" className='hover:text-[#59D7F7]'>
+                                <p className='text-white font-semibold'>Sales Enquiry:</p>
+                                <a href="mailto:sales@sfwtechnologies.com" className='text-cyan-300 hover:text-white leading-relaxed'>
                                     sales@sfwtechnologies.com
                                 </a>
                             </div>
                             <div>
-                                <p className='text-xs text-gray-300 font-medium'>Career Enquiry:</p>
-                                <a href="mailto:info@sfwtechnologies.com" className='hover:text-[#59D7F7]'>
-                                    info@sfwtechnologies.com
-                                </a>
+                                <p className='text-white font-semibold'>Career Enquiry:</p>
+                                <div className="flex flex-col gap-1">
+                                    <a href="mailto:info@sfwtechnologies.com" className='text-cyan-300 hover:text-white leading-relaxed'>
+                                        info@sfwtechnologies.com
+                                    </a>
+                                    <a href="tel:+917397720330" className='text-cyan-300 hover:text-white leading-relaxed'>
+                                        +91 73977 20330
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
