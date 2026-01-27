@@ -59,9 +59,6 @@ export const metadata: Metadata = {
       "Reach out to Softworks Technologies for IT, ERP, Odoo, and AI solutions in Coimbatore & Dubai. Visit our offices or send us a message online.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],
   },
-  alternates: {
-    canonical: `${weburl}/contact`,
-  },
 };
 
 export default function ContactPage() {
@@ -155,7 +152,7 @@ export default function ContactPage() {
       <Herosection />
       <Contactussection />
       <Map />
-      
+
     </>
   );
 }

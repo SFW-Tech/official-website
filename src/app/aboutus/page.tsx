@@ -59,10 +59,6 @@ export const metadata: Metadata = {
       "Softworks Technologies delivers innovative solutions in web, mobile, ERP, Odoo, AI, SAP, and cloud technologies.",
     images: [`${weburl}/assets/og-about.jpg`],
   },
-  alternates: {
-    canonical: `${weburl}/about`,
-  },
-  metadataBase: new URL(weburl),
 };
 
 export default function AboutPage() {

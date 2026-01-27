@@ -154,10 +154,6 @@ export const metadata: Metadata = {
       "SoftWorks Technologies, Coimbatore-based leader in Web, Mobile App, AI, SAP, Odoo & Staff Augmentation, delivering innovative solutions for business efficiency.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],
   },
-  alternates: {
-    canonical: weburl,
-  },
-  metadataBase: new URL(weburl),
 };
 
 export default function Home() {

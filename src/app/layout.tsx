@@ -1,40 +1,29 @@
-"use client";
-
+import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/HomePage/Footer";
 import NotistackProvider from "./components/Layoutwrappers/NotistackProvider";
 import PageTransitionWrapper from "./components/Layoutwrappers/Pagetransitionwrapper";
 import ScrollToTop from "./components/HomePage/ScrollToTop";
-import SEO from "../../next-seo.config";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
+export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_webUrl!),
+  alternates: {
+    canonical: "./",
+  },
+  title: {
+    default: "Softworks Technologies",
+    template: "%s | Softworks Technologies",
+  },
+  description: "SoftWorks Technologies, Coimbatore-based leader in Web, Mobile App, AI, SAP, Odoo & Staff Augmentation.",
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      {/* <head>
-        
-        <title>{SEO.title}</title>
-        <meta name="description" content={SEO.description} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="canonical" href={SEO.baseUrl} />
-
-       
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={SEO.title} />
-        <meta property="og:description" content={SEO.description} />
-        <meta property="og:url" content={SEO.baseUrl} />
-        <meta property="og:image" content={SEO.image} />
-
-        
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={SEO.title} />
-        <meta name="twitter:description" content={SEO.description} />
-        <meta name="twitter:image" content={SEO.image} />
-      </head> */}
-
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <PageTransitionWrapper>
           <NotistackProvider>
