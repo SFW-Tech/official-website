@@ -6,7 +6,7 @@ import Content from "@/app/components/Casestudies/Field-Service-Management/Conte
 const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 export const metadata: Metadata = {
-  title: "Softworks Technologies | Field Service Management Case Study",
+  title: "Field Service Management Case Study",
   description:
     "Explore how Softworks Technologies optimized field operations through digital field service management — improving real-time tracking, task automation, and workforce efficiency.",
   keywords: [
@@ -41,10 +41,6 @@ export const metadata: Metadata = {
       "Learn how Softworks Technologies digitized field service operations with automation and real-time tracking.",
     images: [`${weburl}/assets/Casestudies/Field-Service-Management.png`],
   },
-  alternates: {
-    canonical: `${weburl}/case-studies/Field-Service-Management`,
-  },
-  metadataBase: new URL(weburl),
 };
 
 export default function Page() {
@@ -81,7 +77,7 @@ export default function Page() {
           "https://www.linkedin.com/company/softworks-technologies",
           "https://www.instagram.com/softworkstech19/",
           "https://x.com/softworkstech",
-          
+
         ],
         contactPoint: [
           {

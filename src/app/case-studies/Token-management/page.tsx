@@ -6,7 +6,7 @@ import Content from "@/app/components/Casestudies/Token-Management/Content";
 const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 export const metadata: Metadata = {
-  title: "Softworks Technologies | Token Management System Case Study",
+  title: "Token Management System Case Study",
   description:
     "Learn how Softworks Technologies implemented a digital token management system to reduce waiting time, improve service flow, and enhance customer experience.",
   keywords: [
@@ -41,10 +41,6 @@ export const metadata: Metadata = {
       "Discover how Softworks Technologies automated customer queues using a smart token management system.",
     images: [`${weburl}/assets/Casestudies/Token-management.png`],
   },
-  alternates: {
-    canonical: `${weburl}/case-studies/Token-management`,
-  },
-  metadataBase: new URL(weburl),
 };
 
 export default function Page() {

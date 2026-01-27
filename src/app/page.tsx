@@ -13,7 +13,7 @@ import Latestposts from "./components/HomePage/Latestposts";
 const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 export const metadata: Metadata = {
-  title: "Softworks Technologies | Global Experts in Web, ERP, AI & Cloud Solutions",
+  title: "Global Experts in Web, ERP, AI & Cloud Solutions",
   description:
     "SoftWorks Technologies is a leading Web, Mobile App, Odoo, Staff Augmentation & ERP Development Company based in Coimbatore, India, and Dubai, offering innovative solutions to boost business efficiency",
   keywords: [
@@ -154,10 +154,6 @@ export const metadata: Metadata = {
       "SoftWorks Technologies, Coimbatore-based leader in Web, Mobile App, AI, SAP, Odoo & Staff Augmentation, delivering innovative solutions for business efficiency.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],
   },
-  alternates: {
-    canonical: weburl,
-  },
-  metadataBase: new URL(weburl),
 };
 
 export default function Home() {

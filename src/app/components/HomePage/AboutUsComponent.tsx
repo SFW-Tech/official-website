@@ -7,15 +7,15 @@ import { fadeDown, headingVariant, staggerContainer } from "../../../../animatio
 function AboutUsComponent() {
   const aboutPoints = [
     {
-      icon: "about us icon 1.png",
+      icon: "about-us-icon-1.png",
       text: "With a passionate team of software experts, we design, develop, and enhance digital products to accelerate your business success.",
     },
     {
-      icon: "about us icon 2.png",
+      icon: "about-us-icon-2.png",
       text: "We'll help you test bold new ideas while sharing yours.",
     },
     {
-      icon: "about us icon 3.png",
+      icon: "about-us-icon-3.png",
       text: "We excel in providing tailored IT solutions, from web and mobile development to cloud and support services.",
     },
   ];
@@ -31,19 +31,19 @@ function AboutUsComponent() {
             style={{ backgroundImage: "url('/assets/Home/aboutusassets/aboutusbg.png')" }}
           >
             <AnimateOnView variants={headingVariant}>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold mb-4">
-              About Us
-            </h2>
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-3xl font-bold mb-4">
+                About Us
+              </h2>
             </AnimateOnView>
 
             <AnimateOnView variants={fadeDown}>
-            <p className="text-sm md:text-base leading-relaxed">
-              SoftWorks provide innovative software solutions to help you and your digital business space.
-              We have been one of the leading Product development and Technology services companies in India since 2019,
-              Serving clients across the globe. We design, develop, launch and enhance your products with our passionate
-              and Technology experts. We also help you accelerate the efficiency and performance of your organization
-              with our skilled Technology services.
-            </p>
+              <p className="text-sm md:text-base leading-relaxed">
+                SoftWorks provide innovative software solutions to help you and your digital business space.
+                We have been one of the leading Product development and Technology services companies in India since 2019,
+                Serving clients across the globe. We design, develop, launch and enhance your products with our passionate
+                and Technology experts. We also help you accelerate the efficiency and performance of your organization
+                with our skilled Technology services.
+              </p>
             </AnimateOnView>
 
 
@@ -87,8 +87,8 @@ function AboutUsComponent() {
         once={true}
       >
         <img
-          src="/assets/Home/aboutusassets/about us image .png"
-          alt="Overlay"
+          src="/assets/Home/aboutusassets/about-us-image.png"
+          alt="Softworks Technologies Team"
           className="w-40 h-40 md:w-52 md:h-52 lg:w-60 lg:h-60 xl:w-72 xl:h-72 object-cover shadow-lg"
         />
       </AnimateOnView>

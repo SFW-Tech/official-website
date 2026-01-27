@@ -246,6 +246,8 @@ function Page() {
   return (
     <div className="w-full">
       <Herosection />
+          
+      <title>{`${selectedJob?.title || "Job Details"} | Softworks Technologies`}</title>
 
       <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-20 xl:gap-24 px-6 sm:px-10 md:px-16 lg:px-24 xl:px-28 my-12" variants={containerVariants} initial="hidden" animate="visible">
         {/* Left Grid */}

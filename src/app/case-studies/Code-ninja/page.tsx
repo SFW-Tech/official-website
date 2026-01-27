@@ -6,7 +6,7 @@ import Content from "@/app/components/Casestudies/Code-ninja/Content";
 const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 export const metadata: Metadata = {
-  title: "Softworks Technologies | Code Ninja Case Study",
+  title: "Code Ninja Case Study",
   description:
     "Learn how Softworks Technologies built Code Ninja — an interactive coding platform designed to enhance learning, automate challenges, and improve developer engagement.",
   keywords: [
@@ -41,10 +41,6 @@ export const metadata: Metadata = {
       "Learn how Softworks Technologies designed Code Ninja — an advanced coding learning platform that empowers developers and students.",
     images: [`${weburl}/assets/Casestudies/Code-Ninja.png`],
   },
-  alternates: {
-    canonical: `${weburl}/case-studies/Code-ninja`,
-  },
-  metadataBase: new URL(weburl),
 };
 
 export default function Page() {
@@ -81,7 +77,7 @@ export default function Page() {
           "https://www.linkedin.com/company/softworks-technologies",
           "https://www.instagram.com/softworkstech19/",
           "https://x.com/softworkstech",
-          
+
         ],
         contactPoint: [
           {

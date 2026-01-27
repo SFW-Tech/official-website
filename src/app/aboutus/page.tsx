@@ -13,7 +13,7 @@ import Jointeamsection from "../components/Aboutuspage/Jointeamsection";
 const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 export const metadata: Metadata = {
-  title: "Softworks Technologies | Web, ERP, E-Commerce & Mobile App Experts",
+  title: "Web, ERP, E-Commerce & Mobile App Experts",
   description:
     "Learn about Softworks Technologies, a global leader in web, mobile app, ERP, AI, and cloud development. We specialize in Odoo, SAP, e-commerce, and staff augmentation solutions.",
   keywords: [
@@ -36,14 +36,14 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
-    url: `${weburl}/about`,
+    url: `${weburl}/aboutus`,
     title: "Softworks Technologies | Web, ERP, AI & Cloud Experts",
     description:
       "Softworks Technologies offers web, mobile app, ERP, Odoo, AI, SAP, and cloud development with offices in Coimbatore and Dubai.",
     siteName: "Softworks Technologies",
     images: [
       {
-        url: `${weburl}/assets/og-about.jpg`,
+        url: `${weburl}/assets/Sfw-Logo1.svg`,
         width: 1200,
         height: 630,
         alt: "Softworks Technologies About Us",
@@ -57,12 +57,8 @@ export const metadata: Metadata = {
     title: "Softworks Technologies | E-Commerce, AI & Cloud Experts",
     description:
       "Softworks Technologies delivers innovative solutions in web, mobile, ERP, Odoo, AI, SAP, and cloud technologies.",
-    images: [`${weburl}/assets/og-about.jpg`],
+    images: [`${weburl}/assets/Sfw-Logo1.svg`],
   },
-  alternates: {
-    canonical: `${weburl}/about`,
-  },
-  metadataBase: new URL(weburl),
 };
 
 export default function AboutPage() {
@@ -72,13 +68,13 @@ export default function AboutPage() {
 
       {
         "@type": "AboutPage",
-        "@id": `${weburl}/about#aboutpage`,
-        url: `${weburl}/about`,
+        "@id": `${weburl}/aboutus#aboutpage`,
+        url: `${weburl}/aboutus`,
         name: "About Softworks Technologies",
         headline: "About Softworks Technologies - Web, ERP, AI & Cloud Development Experts",
         description:
           "Softworks Technologies is a trusted technology partner offering web, mobile, ERP, Odoo, SAP, and AI-powered solutions for global businesses.",
-        image: `${weburl}/assets/og-about.jpg`,
+        image: `${weburl}/assets/Sfw-Logo1.svg`,
         inLanguage: "en",
         mainEntity: {
           "@type": "Organization",
@@ -165,7 +161,7 @@ export default function AboutPage() {
             "@type": "ListItem",
             position: 2,
             name: "About Us",
-            item: `${weburl}/about`
+            item: `${weburl}/aboutus`
           }
         ]
       }

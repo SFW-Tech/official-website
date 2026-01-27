@@ -6,7 +6,7 @@ import Content from "../../components/Casestudies/Application-system/Content";
 const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 export const metadata: Metadata = {
-  title: "Softworks Technologies | Application System Case Study",
+  title: "Application System Case Study",
   description:
     "Discover how Softworks Technologies developed a robust Application System to streamline workflows, automate processes, and boost operational efficiency for our client.",
   keywords: [
@@ -41,10 +41,6 @@ export const metadata: Metadata = {
       "Discover how Softworks Technologies developed a robust Application System to streamline workflows and boost operational efficiency.",
     images: [`${weburl}/assets/Casestudies/Application-development.png`],
   },
-  alternates: {
-    canonical: `${weburl}/case-studies/application-system`,
-  },
-  metadataBase: new URL(weburl),
 };
 
 export default function Page() {
@@ -84,7 +80,7 @@ export default function Page() {
           "https://www.linkedin.com/company/softworks-technologies",
           "https://www.instagram.com/softworkstech19/",
           "https://x.com/softworkstech",
-          
+
         ],
         contactPoint: [
           {
