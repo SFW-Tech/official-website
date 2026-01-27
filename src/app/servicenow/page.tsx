@@ -7,7 +7,7 @@ const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 // ✅ PAGE METADATA
 export const metadata: Metadata = {
-  title: "Softworks Technologies | ServiceNow Development Company in Coimbatore",
+  title: "ServiceNow Development Company in Coimbatore",
   description:
     "Softworks Technologies is a leading ServiceNow development company in Coimbatore offering ServiceNow implementation, integration, and workflow automation solutions for enterprises.",
   keywords: [
@@ -47,10 +47,6 @@ export const metadata: Metadata = {
       "Softworks Technologies delivers customized ServiceNow development and automation solutions for modern enterprises.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],
   },
-  alternates: {
-    canonical: `${weburl}/servicenow`,
-  },
-  metadataBase: new URL(weburl),
 };
 
 // ✅ PAGE COMPONENT

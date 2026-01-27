@@ -14,27 +14,27 @@ function CaseStudiesSection() {
 
     const images = [
         {
-            src: "/assets/Home/Casestudyassets/case study 1.png",
+            src: "/assets/Home/Casestudyassets/case-study-1.png",
             alt: "Digital Transformation",
             link: "/case-studies/Digital-transformation"
         },
         {
-            src: "/assets/Home/Casestudyassets/case study 2.png",
+            src: "/assets/Home/Casestudyassets/case-study-2.png",
             alt: "Field Service Management",
             link: "/case-studies/Field-Service-Management"
         },
         {
-            src: "/assets/Home/Casestudyassets/case study 3.png",
+            src: "/assets/Home/Casestudyassets/case-study-3.png",
             alt: "Appointment Booking System",
             link: "/case-studies/Appointment-booking"
         },
         {
-            src: "/assets/Home/Casestudyassets/case study 4.png",
+            src: "/assets/Home/Casestudyassets/case-study-4.png",
             alt: "Reverse Logistics Management",
             link: "/case-studies/Reverse-logistics"
         },
         {
-            src: "/assets/Home/Casestudyassets/case study 5.png",
+            src: "/assets/Home/Casestudyassets/case-study-5.png",
             alt: "Food Application",
             link: "/case-studies/Food-application"
         },
@@ -103,7 +103,7 @@ function CaseStudiesSection() {
 
                     {/* All Case Studies Option */}
                     <Link href={"/case-studies"}
-                        
+
                         className="w-full p-6 font-semibold cursor-pointer transition-all duration-300 
                             text-gray-700 hover:text-black
                              border-t-2 border-gray-100"
@@ -143,35 +143,35 @@ function CaseStudiesSection() {
                                         className="w-full h-full object-cover shadow-lg transition-all duration-500"
                                     />
                                     <motion.a
-    href={img.link}
-    className="absolute bottom-0 left-0 w-full 
+                                        href={img.link}
+                                        className="absolute bottom-0 left-0 w-full 
                bg-black/80 hover:bg-black/70 
                text-white py-3 
                flex items-center justify-center gap-2
                transition-all duration-300 cursor-pointer"
-    whileTap={{ scale: 0.97 }}
-    whileHover="hover"
-    transition={{ duration: 1 }}
->
-    {/* Text */}
-    <motion.span
-        className="font-semibold text-sm"
-        variants={{
-            hover: { x: 4, transition: { duration: 0.3, ease: "easeOut" } }
-        }}
-    >
-        View Case Study
-    </motion.span>
+                                        whileTap={{ scale: 0.97 }}
+                                        whileHover="hover"
+                                        transition={{ duration: 1 }}
+                                    >
+                                        {/* Text */}
+                                        <motion.span
+                                            className="font-semibold text-sm"
+                                            variants={{
+                                                hover: { x: 4, transition: { duration: 0.3, ease: "easeOut" } }
+                                            }}
+                                        >
+                                            View Case Study
+                                        </motion.span>
 
-    {/* Arrow */}
-    <motion.span
-        className="font-bold text-lg"
-        variants={{
-            hover: { x: 8, transition: { duration: 0.3, ease: "easeOut" } }
-        }}
-    >
-    </motion.span>
-</motion.a>
+                                        {/* Arrow */}
+                                        <motion.span
+                                            className="font-bold text-lg"
+                                            variants={{
+                                                hover: { x: 8, transition: { duration: 0.3, ease: "easeOut" } }
+                                            }}
+                                        >
+                                        </motion.span>
+                                    </motion.a>
                                 </div>
                             );
                         }

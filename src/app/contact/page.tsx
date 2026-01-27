@@ -8,7 +8,7 @@ import Footer from "../components/HomePage/Footer";
 const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 export const metadata: Metadata = {
-  title: "Softworks Technologies | Contact Us – Coimbatore & Dubai Offices",
+  title: "Contact Us – Coimbatore & Dubai Offices",
   description:
     "Get in touch with Softworks Technologies — leading IT company in Coimbatore and Dubai specializing in Web, ERP, Odoo, AI, and Cloud development solutions.",
   keywords: [
@@ -58,9 +58,6 @@ export const metadata: Metadata = {
     description:
       "Reach out to Softworks Technologies for IT, ERP, Odoo, and AI solutions in Coimbatore & Dubai. Visit our offices or send us a message online.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],
-  },
-  alternates: {
-    canonical: `${weburl}/contact`,
   },
 };
 
@@ -155,7 +152,7 @@ export default function ContactPage() {
       <Herosection />
       <Contactussection />
       <Map />
-      
+
     </>
   );
 }

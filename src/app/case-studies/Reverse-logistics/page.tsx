@@ -6,7 +6,7 @@ import Content from "@/app/components/Casestudies/Reverselogistics/Content";
 const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 export const metadata: Metadata = {
-  title: "Softworks Technologies | Reverse Logistics Case Study",
+  title: "Reverse Logistics Case Study",
   description:
     "Discover how Softworks Technologies improved supply chain efficiency through a smart reverse logistics system — optimizing returns, repairs, and sustainability.",
   keywords: [
@@ -41,10 +41,6 @@ export const metadata: Metadata = {
       "Explore how Softworks Technologies optimized supply chain operations through an automated reverse logistics solution.",
     images: [`${weburl}/assets/Casestudies/Reverse-Logistics.png`],
   },
-  alternates: {
-    canonical: `${weburl}/case-studies/Reverse-logistics`,
-  },
-  metadataBase: new URL(weburl),
 };
 
 export default function Page() {

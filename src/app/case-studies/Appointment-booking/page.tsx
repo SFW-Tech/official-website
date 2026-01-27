@@ -6,7 +6,7 @@ import Content from "@/app/components/Casestudies/Appointment-booking/Content";
 const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 export const metadata: Metadata = {
-  title: "Softworks Technologies | Appointment Booking System Case Study",
+  title: "Appointment Booking System Case Study",
   description:
     "Explore how Softworks Technologies developed an efficient Appointment Booking System that simplified scheduling, automated reminders, and improved client satisfaction.",
   keywords: [
@@ -41,10 +41,6 @@ export const metadata: Metadata = {
       "Learn how Softworks Technologies built a robust Appointment Booking System that improved scheduling efficiency and reduced manual tasks.",
     images: [`${weburl}/assets/Casestudies/Appointment-Booking.png`],
   },
-  alternates: {
-    canonical: `${weburl}/case-studies/Appointment-booking`,
-  },
-  metadataBase: new URL(weburl),
 };
 
 export default function Page() {
@@ -81,7 +77,7 @@ export default function Page() {
           "https://www.linkedin.com/company/softworks-technologies",
           "https://www.instagram.com/softworkstech19/",
           "https://x.com/softworkstech",
-         
+
         ],
         contactPoint: [
           {

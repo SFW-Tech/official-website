@@ -14,7 +14,7 @@ const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 //  PAGE METADATA
 export const metadata: Metadata = {
-  title: "Softworks Technologies | Staff Augmentation Company in Coimbatore",
+  title: "Staff Augmentation Company in Coimbatore",
   description:
     "Softworks Technologies offers top-notch staff augmentation services in Coimbatore, helping businesses hire skilled developers, designers, and IT professionals to scale efficiently.",
   keywords: [
@@ -54,10 +54,6 @@ export const metadata: Metadata = {
       "Softworks Technologies offers dedicated developers and IT professionals through flexible staff augmentation services.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],
   },
-  alternates: {
-    canonical: `${weburl}/staffaugmentation`,
-  },
-  metadataBase: new URL(weburl),
 };
 
 // ✅ PAGE COMPONENT

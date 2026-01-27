@@ -8,7 +8,7 @@ import Footer from "../components/HomePage/Footer";
 const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 export const metadata: Metadata = {
-  title: "Softworks Technologies | Careers – Join Our IT Team in Coimbatore & Dubai",
+  title: "Careers – Join Our IT Team in Coimbatore & Dubai",
   description:
     "Explore exciting career opportunities at Softworks Technologies. Join our expert team specializing in web, ERP, Odoo, AI, and cloud development across Coimbatore and Dubai.",
   keywords: [
@@ -86,9 +86,6 @@ export const metadata: Metadata = {
       "Build your future with Softworks Technologies — leading IT company in Coimbatore & Dubai specializing in Web, ERP, Odoo, AI, and Cloud solutions.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],
   },
-  alternates: {
-    canonical: `${weburl}/careers`,
-  },
 };
 
 export default function CareersPage() {
@@ -151,7 +148,7 @@ export default function CareersPage() {
       <Herosection />
       <Exploresection />
       <Jobsection />
-      
+
     </>
   );
 }

@@ -6,7 +6,7 @@ import Content from "@/app/components/Casestudies/Food-application/Content";
 const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 export const metadata: Metadata = {
-    title: "Softworks Technologies | Food Application Case Study",
+    title: "Food Application Case Study",
     description:
         "Discover how Softworks Technologies built a feature-rich food delivery application — enabling order tracking, restaurant management, and real-time delivery updates.",
     keywords: [
@@ -41,10 +41,6 @@ export const metadata: Metadata = {
             "Learn how Softworks Technologies created a full-featured food delivery app with order management, tracking, and payment integration.",
         images: [`${weburl}/assets/Casestudies/Food-Application/Food-app-model.png`],
     },
-    alternates: {
-        canonical: `${weburl}/case-studies/Food-application`,
-    },
-    metadataBase: new URL(weburl),
 };
 
 export default function Page() {
