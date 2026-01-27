@@ -39,7 +39,7 @@ const caseStudies = [
         id: 'Food-application',
         title: 'Food App Project',
         description: 'Mobile-first food delivery platform with seamless ordering and real-time tracking',
-        image: '/assets/Home/Casestudyassets/case study 5.png',
+        image: '/assets/Home/Casestudyassets/case-study-5.png',
         tags: ['Mobile', 'Food Tech', 'E-commerce']
     },
     {
@@ -67,7 +67,7 @@ const caseStudies = [
         id: 'Token-management',
         title: 'Token Management',
         description: 'Secure token-based authentication and access control system with advanced encryption',
-        image: '/assets/Casestudies/Token-Management.png',
+        image: '/assets/Casestudies/Token-management.png',
         tags: ['Security', 'Authentication', 'Backend']
     }
 ]

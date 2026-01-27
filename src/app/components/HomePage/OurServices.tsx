@@ -30,7 +30,7 @@ function OurServices() {
       title: "Web Applications",
       description:
         "The creation of application programs that reside on remote servers and are delivered to the user's device.",
-      icon: "/assets/Home/Ourservicesassets/service 1 icon.png",
+      icon: "/assets/Home/Ourservicesassets/service-1-icon.png",
       image: "/assets/Home/Ourservicesassets/services1.png",
       gradient: "bg-gradient-to-r from-[#FCF5F7] to-[#FCBFD0]",
       shadow: "shadow-[0_0_60px_20px_rgba(236,72,153,0.7)]",
@@ -43,7 +43,7 @@ function OurServices() {
       title: "Mobile Applications",
       description:
         "Mobile app is developed for Personal Digital Assistants, Enterprise Digital Assistants & mobile phones are Developed.",
-      icon: "/assets/Home/Ourservicesassets/service 2 icon.png",
+      icon: "/assets/Home/Ourservicesassets/service-2-icon.png",
       image: "/assets/Home/Ourservicesassets/services2.png",
       gradient: "bg-gradient-to-r from-violet-50 to-violet-200",
       shadow: "shadow-[0_0_60px_20px_rgba(139,92,246,0.7)]",
@@ -56,7 +56,7 @@ function OurServices() {
       title: "SAP",
       description:
         "Empower your business with seamless SAP solutions that streamline operations, enhance productivity, and drive intelligent decision-making.",
-      icon: "/assets/Home/Ourservicesassets/service 3 icon.png",
+      icon: "/assets/Home/Ourservicesassets/service-3-icon.png",
       image: "/assets/Home/Ourservicesassets/services3.png",
       gradient: "bg-gradient-to-r from-violet-50 to-violet-200",
       shadow: "shadow-[0_0_60px_20px_rgba(139,92,246,0.7)]",
@@ -82,7 +82,7 @@ function OurServices() {
       title: "Staff Augmentation",
       description:
         "Skilled developers and technical professionals to extend your team and accelerate project delivery.",
-      icon: "/assets/Home/Ourservicesassets/service 5 icon.png",
+      icon: "/assets/Home/Ourservicesassets/service-5-icon.png",
       image: "/assets/Home/Ourservicesassets/services5.png",
       gradient: "bg-gradient-to-r from-[#F8F0FC] to-[#D0BFFF]",
       shadow: "shadow-[0_0_60px_20px_rgba(147,51,234,0.7)]",
