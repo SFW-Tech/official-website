@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "staffaugmentation", priority: 0.8 },
     { path: "e-commerce", priority: 0.8 },
     { path: "servicenow", priority: 0.8 },
+    { path: "sap", priority: 0.8 },
   ];
 
   const caseStudies = [
@@ -37,13 +38,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...pages.map((page) => ({
       url: `${webUrl}/${page.path}`,
       lastModified: currentDate,
-      changeFrequency: 'weekly' as const, 
+      changeFrequency: 'weekly' as const,
       priority: page.priority,
     })),
     ...caseStudies.map((slug) => ({
       url: `${webUrl}/case-studies/${slug}`,
       lastModified: currentDate,
-      changeFrequency: 'weekly' as const, 
+      changeFrequency: 'weekly' as const,
       priority: 0.8,
     })),
   ];

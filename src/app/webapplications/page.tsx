@@ -8,7 +8,7 @@ const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 // ✅ PAGE METADATA
 export const metadata: Metadata = {
-  title: "Softworks Technologies | Web Application Development",
+  title: "Web Application Development",
   description:
     "Softworks Technologies offers high-performance, secure, and scalable web application development services using Next.js, React, Node.js, and MongoDB for businesses worldwide.",
   keywords: [
@@ -51,10 +51,6 @@ export const metadata: Metadata = {
       "Softworks Technologies creates robust and scalable web applications for global businesses using the latest tech stacks.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],
   },
-  alternates: {
-    canonical: `${weburl}/webapplications`,
-  },
-  metadataBase: new URL(weburl),
 };
 
 // ✅ PAGE COMPONENT

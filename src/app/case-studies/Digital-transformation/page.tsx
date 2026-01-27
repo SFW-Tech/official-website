@@ -6,7 +6,7 @@ import Content from "@/app/components/Casestudies/Digital-transformation-page/Co
 const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 export const metadata: Metadata = {
-  title: "Softworks Technologies | Digital Transformation Case Study",
+  title: "Digital Transformation Case Study",
   description:
     "Discover how Softworks Technologies helped a client achieve complete digital transformation — modernizing processes, automating workflows, and boosting overall business efficiency.",
   keywords: [
@@ -41,10 +41,6 @@ export const metadata: Metadata = {
       "Explore how Softworks Technologies led a client's digital transformation journey — from automation to innovation.",
     images: [`${weburl}/assets/Casestudies/Digital-Transformation.png`],
   },
-  alternates: {
-    canonical: `${weburl}/case-studies/Digital-transformation`,
-  },
-  metadataBase: new URL(weburl),
 };
 
 export default function Page() {
@@ -81,7 +77,7 @@ export default function Page() {
           "https://www.linkedin.com/company/softworks-technologies",
           "https://www.instagram.com/softworkstech19/",
           "https://x.com/softworkstech",
-          
+
         ],
         contactPoint: [
           {

@@ -6,7 +6,7 @@ import Content from "@/app/components/Casestudies/Kiosk/Content";
 const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 export const metadata: Metadata = {
-  title: "Softworks Technologies | Kiosk Application Case Study",
+  title: "Kiosk Application Case Study",
   description:
     "Explore how Softworks Technologies developed an interactive kiosk solution that enhanced customer engagement, streamlined operations, and improved service efficiency.",
   keywords: [
@@ -41,10 +41,6 @@ export const metadata: Metadata = {
       "Learn how Softworks Technologies implemented a custom kiosk software system for self-service operations and better user experience.",
     images: [`${weburl}/assets/Casestudies/Kiosk.jpg`],
   },
-  alternates: {
-    canonical: `${weburl}/case-studies/Kiosk`,
-  },
-  metadataBase: new URL(weburl),
 };
 
 export default function Page() {
@@ -81,7 +77,7 @@ export default function Page() {
           "https://www.linkedin.com/company/softworks-technologies",
           "https://www.instagram.com/softworkstech19/",
           "https://x.com/softworkstech",
-          
+
         ],
         contactPoint: [
           {

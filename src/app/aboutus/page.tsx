@@ -13,7 +13,7 @@ import Jointeamsection from "../components/Aboutuspage/Jointeamsection";
 const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 export const metadata: Metadata = {
-  title: "Softworks Technologies | Web, ERP, E-Commerce & Mobile App Experts",
+  title: "Web, ERP, E-Commerce & Mobile App Experts",
   description:
     "Learn about Softworks Technologies, a global leader in web, mobile app, ERP, AI, and cloud development. We specialize in Odoo, SAP, e-commerce, and staff augmentation solutions.",
   keywords: [
