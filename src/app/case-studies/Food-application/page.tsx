@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     openGraph: {
         type: "article",
         url: `${weburl}/case-studies/Food-application`,
-        title: "Softworks Technologies | Food Application Case Study",
+        title: "Food Application Case Study | SFW",
         description:
             "See how Softworks Technologies developed a scalable food application that improved restaurant operations and enhanced user experience.",
         siteName: "Softworks Technologies",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         site: "@softworkstech",
         creator: "@softworkstech",
-        title: "Food Application Case Study | Softworks Technologies",
+        title: "Food Application Case Study | SFW",
         description:
             "Learn how Softworks Technologies created a full-featured food delivery app with order management, tracking, and payment integration.",
         images: [`${weburl}/assets/Casestudies/Food-Application/Food-app-model.png`],

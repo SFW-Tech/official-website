@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     url: `${weburl}/case-studies/Kiosk`,
-    title: "Softworks Technologies | Kiosk Application Case Study",
+    title: "Kiosk Application Case Study | SFW",
     description:
       "See how Softworks Technologies built a kiosk application that simplified customer interactions and automated service delivery.",
     siteName: "Softworks Technologies",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title: "Kiosk Case Study | Softworks Technologies",
+    title: "Kiosk Application Case Study | SFW",
     description:
       "Learn how Softworks Technologies implemented a custom kiosk software system for self-service operations and better user experience.",
     images: [`${weburl}/assets/Casestudies/Kiosk.jpg`],

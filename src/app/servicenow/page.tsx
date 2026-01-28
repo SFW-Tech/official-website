@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${weburl}/servicenow`,
-    title: "Softworks Technologies | ServiceNow Development Company in Coimbatore",
+    title: "ServiceNow Development Company | SFW",
     description:
       "Softworks Technologies provides ServiceNow implementation, automation, and integration services to enhance enterprise workflow efficiency.",
     siteName: "Softworks Technologies",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title: "Softworks Technologies | ServiceNow Development Company in Coimbatore",
+    title: "ServiceNow Development Company | SFW",
     description:
       "Softworks Technologies delivers customized ServiceNow development and automation solutions for modern enterprises.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],

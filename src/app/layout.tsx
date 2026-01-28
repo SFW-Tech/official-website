@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   title: {
     default: "Softworks Technologies",
-    template: "%s | Softworks Technologies",
+    template: "%s | SFW",
   },
   description: "SoftWorks Technologies, Coimbatore-based leader in Web, Mobile App, AI, SAP, Odoo & Staff Augmentation.",
 };

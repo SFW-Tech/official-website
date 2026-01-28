@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     url: `${weburl}/case-studies/Appointment-booking`,
-    title: "Softworks Technologies | Appointment Booking System Case Study",
+    title: "Appointment Booking System | SFW",
     description:
       "Discover how Softworks Technologies designed a powerful Appointment Booking System that streamlined scheduling and enhanced customer experience.",
     siteName: "Softworks Technologies",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title: "Appointment Booking System Case Study | Softworks Technologies",
+    title: "Appointment Booking System | SFW",
     description:
       "Learn how Softworks Technologies built a robust Appointment Booking System that improved scheduling efficiency and reduced manual tasks.",
     images: [`${weburl}/assets/Casestudies/Appointment-Booking.png`],

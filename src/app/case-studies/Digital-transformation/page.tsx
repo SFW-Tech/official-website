@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     url: `${weburl}/case-studies/Digital-transformation`,
-    title: "Softworks Technologies | Digital Transformation Case Study",
+    title: "Digital Transformation | SFW",
     description:
       "Learn how Softworks Technologies delivered a successful digital transformation by integrating modern tools and automating legacy systems.",
     siteName: "Softworks Technologies",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title: "Digital Transformation Case Study | Softworks Technologies",
+    title: "Digital Transformation | SFW",
     description:
       "Explore how Softworks Technologies led a client's digital transformation journey — from automation to innovation.",
     images: [`${weburl}/assets/Casestudies/Digital-Transformation.png`],

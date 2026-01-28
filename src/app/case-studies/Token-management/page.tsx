@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     url: `${weburl}/case-studies/Token-management`,
-    title: "Softworks Technologies | Token Management System Case Study",
+    title: "Token Management System | SFW",
     description:
       "See how Softworks Technologies developed an intelligent token management system to streamline queues and improve operational efficiency.",
     siteName: "Softworks Technologies",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title: "Token Management System Case Study | Softworks Technologies",
+    title: "Token Management System | SFW",
     description:
       "Discover how Softworks Technologies automated customer queues using a smart token management system.",
     images: [`${weburl}/assets/Casestudies/Token-management.png`],

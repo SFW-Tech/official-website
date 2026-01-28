@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     url: `${weburl}/case-studies/Reverse-logistics`,
-    title: "Softworks Technologies | Reverse Logistics Case Study",
+    title: "Reverse Logistics Case Study | SFW",
     description:
       "Learn how Softworks Technologies streamlined return management and enhanced sustainability through reverse logistics automation.",
     siteName: "Softworks Technologies",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title: "Reverse Logistics Case Study | Softworks Technologies",
+    title: "Reverse Logistics Case Study | SFW",
     description:
       "Explore how Softworks Technologies optimized supply chain operations through an automated reverse logistics solution.",
     images: [`${weburl}/assets/Casestudies/Reverse-Logistics.png`],

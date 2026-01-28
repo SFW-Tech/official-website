@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${weburl}/webapplications`,
-    title: "Softworks Technologies | Web Application Development",
+    title: "Web Application Development | SFW",
     description:
       "We build responsive, scalable, and high-quality web applications with the latest technologies like React, Next.js, and Node.js.",
     siteName: "Softworks Technologies",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title: "Softworks Technologies | Web Application Development",
+    title: "Web Application Development | SFW",
     description:
       "Softworks Technologies creates robust and scalable web applications for global businesses using the latest tech stacks.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],

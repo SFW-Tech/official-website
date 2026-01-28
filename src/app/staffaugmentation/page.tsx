@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${weburl}/staffaugmentation`,
-    title: "Softworks Technologies | Staff Augmentation Company in Coimbatore",
+    title: "Staff Augmentation Company | SFW",
     description:
       "Softworks Technologies provides IT staff augmentation and dedicated developer hiring solutions for startups and enterprises worldwide.",
     siteName: "Softworks Technologies",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title: "Softworks Technologies | Staff Augmentation Company in Coimbatore",
+    title: "Staff Augmentation Company | SFW",
     description:
       "Softworks Technologies offers dedicated developers and IT professionals through flexible staff augmentation services.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],
