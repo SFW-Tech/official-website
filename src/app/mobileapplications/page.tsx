@@ -8,7 +8,7 @@ const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 // ✅ PAGE METADATA
 export const metadata: Metadata = {
-  title: "Mobile App Development Company in Coimbatore",
+  title: "Mobile App Development Coimbatore",
   description:
     "Softworks Technologies offers custom mobile app development services in Coimbatore. We build Android, iOS, and cross-platform apps with React Native and Flutter for businesses worldwide.",
   keywords: [

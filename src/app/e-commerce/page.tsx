@@ -10,7 +10,7 @@ const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 // ✅ PAGE METADATA
 export const metadata: Metadata = {
-  title: "E-commerce Development Company in Coimbatore",
+  title: "E-commerce Development Coimbatore",
   description:
     "Softworks Technologies builds powerful and scalable e-commerce websites and apps in Coimbatore. We specialize in custom online stores using Next.js, React, and Node.js with secure payment integration.",
   keywords: [

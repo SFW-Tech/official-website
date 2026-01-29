@@ -7,7 +7,7 @@ const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 // ✅ PAGE METADATA
 export const metadata: Metadata = {
-  title: "AI Development Company in Coimbatore",
+  title: "AI Development Coimbatore",
   description:
     "Softworks Technologies is a leading AI development company in Coimbatore offering AI-powered solutions, machine learning models, chatbots, automation, and predictive analytics for businesses.",
   keywords: [

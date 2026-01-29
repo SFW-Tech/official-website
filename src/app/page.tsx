@@ -131,7 +131,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: weburl,
-    title: "Softworks Technologies | Global IT, ERP, AI Solutions",
+    title: "Softworks Technologies | Global IT, ERP & AI Solutions",
     description:
       "SoftWorks Technologies, Coimbatore-based leader in Web, Mobile App, AI, SAP, Odoo & Staff Augmentation, delivering innovative solutions for business efficiency.",
     siteName: "Softworks Technologies",
@@ -148,8 +148,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title:
-      "Softworks Technologies | Global Web, ERP, AI Experts",
+    title: "Softworks Technologies |Global Web, ERP & AI Experts",
     description:
       "SoftWorks Technologies, Coimbatore-based leader in Web, Mobile App, AI, SAP, Odoo & Staff Augmentation, delivering innovative solutions for business efficiency.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],
