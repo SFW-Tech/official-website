@@ -48,14 +48,14 @@ function HeroSection() {
                         index === 0
                             ? "absolute top-24 md:top-24 lg:top-25 left-1/2 -translate-x-1/2 text-center w-full"
                             : index === 1
-                            ? "absolute top-24 md:top-24 lg:top-45 left-0 md:left-20 text-center md:text-left max-w-xl"
-                            : ""
+                                ? "absolute top-24 md:top-24 lg:top-45 left-0 md:left-20 text-center md:text-left max-w-xl"
+                                : ""
                     }
                 >
                     {/* Heading */}
-                    <h2 className="text-white font-bold text-2xl md:text-3xl lg:text-5xl">
+                    <h1 className="text-white font-bold text-2xl md:text-3xl lg:text-5xl">
                         Building Smart Solutions for a Digital-First Future
-                    </h2>
+                    </h1>
 
                     {/* Paragraph */}
                     <p className="text-white mt-4 text-sm md:text-base lg:text-lg">

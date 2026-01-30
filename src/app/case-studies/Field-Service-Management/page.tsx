@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     url: `${weburl}/case-studies/Field-Service-Management`,
-    title: "Softworks Technologies | Field Service Management Case Study",
+    title: "Field Service Management | SFW",
     description:
       "See how Softworks Technologies implemented a field service management solution that streamlined workforce operations and enhanced service delivery.",
     siteName: "Softworks Technologies",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title: "Field Service Management Case Study | Softworks Technologies",
+    title: "Field Service Management | SFW",
     description:
       "Learn how Softworks Technologies digitized field service operations with automation and real-time tracking.",
     images: [`${weburl}/assets/Casestudies/Field-Service-Management.png`],

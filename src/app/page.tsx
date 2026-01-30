@@ -13,7 +13,7 @@ import Latestposts from "./components/HomePage/Latestposts";
 const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 export const metadata: Metadata = {
-  title: "Global Experts in Web, ERP, AI & Cloud Solutions",
+  title: "Experts in Web, ERP, AI & Cloud Solutions",
   description:
     "SoftWorks Technologies is a leading Web, Mobile App, Odoo, Staff Augmentation & ERP Development Company based in Coimbatore, India, and Dubai, offering innovative solutions to boost business efficiency",
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     "Global IT Solutions Provider",
     "Web Development Company Coimbatore",
     "Website Designers in Coimbatore",
-    "Custom Web App Development",
+    "Case Studies | Web & App Success Stories",
     "Next.js Development Company",
     "React.js Developers Coimbatore",
     "Frontend Development Services",
@@ -131,7 +131,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: weburl,
-    title: "Softworks Technologies | Global IT, ERP, and AI Solutions Company",
+    title: "Softworks Technologies | Global IT, ERP & AI Solutions",
     description:
       "SoftWorks Technologies, Coimbatore-based leader in Web, Mobile App, AI, SAP, Odoo & Staff Augmentation, delivering innovative solutions for business efficiency.",
     siteName: "Softworks Technologies",
@@ -148,8 +148,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title:
-      "Softworks Technologies | Global Experts in Web, ERP, and AI Development",
+    title: "Softworks Technologies |Global Web, ERP & AI Experts",
     description:
       "SoftWorks Technologies, Coimbatore-based leader in Web, Mobile App, AI, SAP, Odoo & Staff Augmentation, delivering innovative solutions for business efficiency.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],

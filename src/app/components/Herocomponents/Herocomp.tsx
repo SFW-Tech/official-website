@@ -89,9 +89,9 @@ const Herocomp: React.FC<HeroProps> = ({ title, subtitle, rightImage }) => {
           <div className="flex justify-between items-center h-full ">
             {/* Left side text */}
             <div className="flex flex-col gap-1 md:gap-2 lg:gap-4 xl:gap-6">
-              <h2 className="inline-block leading-snug md:leading-[1.6] lg:leading-[1.4] xl:leading-[1.4] text-lg md:text-3xl lg:text-4xl xl:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-amber-50">
+              <h1 className="inline-block leading-snug md:leading-[1.6] lg:leading-[1.4] xl:leading-[1.4] text-lg md:text-3xl lg:text-4xl xl:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-amber-50">
                 {title}
-              </h2>
+              </h1>
               {subtitle && (
                 <p className="inline-block w-fit text-[8px] sm:text-xs md:text-sm lg:text-base px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 text-white rounded bg-gradient-to-r from-[#6F4124] via-[#6C1867] to-[#372C4B]">
                   {subtitle}

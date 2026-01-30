@@ -8,7 +8,7 @@ const weburl = process.env.NEXT_PUBLIC_webUrl!;
 //  PAGE METADATA
 export const metadata: Metadata = {
   title:
-    "Case Studies | Web & App Development Success Stories",
+    "Case Studies | Web & App Success Stories",
   description:
     "Explore how Softworks Technologies helps businesses through innovative web applications, mobile apps, AI, and enterprise software solutions.",
   keywords: [
@@ -25,8 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${weburl}/case-studies`,
-    title:
-      "Softworks Technologies | Case Studies | Web & App Development Success Stories",
+    title: "Case Studies | Success Stories | SFW",
     description:
       "Discover real-world case studies showcasing our expertise in web, mobile, and AI solutions for businesses worldwide.",
     siteName: "Softworks Technologies",
@@ -43,8 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title:
-      "Softworks Technologies | Case Studies | Web & App Development Success Stories",
+    title: "Case Studies | Success Stories | SFW",
     description:
       "Explore how Softworks Technologies delivered impactful solutions across multiple industries with modern technologies.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],
