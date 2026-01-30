@@ -8,7 +8,7 @@ import Footer from "../components/HomePage/Footer";
 const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 export const metadata: Metadata = {
-  title: "Careers – Join Our IT Team in Coimbatore & Dubai",
+  title: "Careers - Join Our IT Team",
   description:
     "Explore exciting career opportunities at Softworks Technologies. Join our expert team specializing in web, ERP, Odoo, AI, and cloud development across Coimbatore and Dubai.",
   keywords: [
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${weburl}/careers`,
-    title: "Softworks Technologies | Careers – Join Our IT Team in Coimbatore & Dubai",
+    title: "Careers | Softworks Technologies",
     description:
       "Build your future with Softworks Technologies — leading IT company in Coimbatore & Dubai specializing in Web, ERP, Odoo, AI, and Cloud solutions.",
     siteName: "Softworks Technologies",
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title: "Softworks Technologies | Careers – Join Our IT Team in Coimbatore & Dubai",
+    title: "Careers | Softworks Technologies",
     description:
       "Build your future with Softworks Technologies — leading IT company in Coimbatore & Dubai specializing in Web, ERP, Odoo, AI, and Cloud solutions.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],

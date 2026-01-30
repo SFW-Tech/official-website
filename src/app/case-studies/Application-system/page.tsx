@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     url: `${weburl}/case-studies/application-system`,
-    title: "Softworks Technologies | Application System Case Study",
+    title: "Application System | SFW",
     description:
       "Discover how Softworks Technologies developed a robust Application System to streamline workflows, automate processes, and boost operational efficiency for our client.",
     siteName: "Softworks Technologies",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title: "Application System Case Study | Softworks Technologies",
+    title: "Application System | SFW",
     description:
       "Discover how Softworks Technologies developed a robust Application System to streamline workflows and boost operational efficiency.",
     images: [`${weburl}/assets/Casestudies/Application-development.png`],

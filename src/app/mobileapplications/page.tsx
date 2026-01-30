@@ -8,7 +8,7 @@ const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 // ✅ PAGE METADATA
 export const metadata: Metadata = {
-  title: "Mobile App Development Company in Coimbatore",
+  title: "Mobile App Development Coimbatore",
   description:
     "Softworks Technologies offers custom mobile app development services in Coimbatore. We build Android, iOS, and cross-platform apps with React Native and Flutter for businesses worldwide.",
   keywords: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${weburl}/mobileapplications`,
-    title: "Softworks Technologies | Mobile App Development Company in Coimbatore",
+    title: "Mobile App Development Company | SFW",
     description:
       "Softworks Technologies specializes in mobile app development for Android, iOS, and cross-platform solutions using React Native and Flutter.",
     siteName: "Softworks Technologies",
@@ -45,8 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title:
-      "Softworks Technologies | Mobile App Development Company in Coimbatore",
+    title: "Mobile App Development Company | SFW",
     description:
       "Build powerful Android, iOS, and cross-platform mobile apps with Softworks Technologies — trusted app development company in Coimbatore.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],

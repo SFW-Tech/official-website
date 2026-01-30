@@ -91,7 +91,7 @@ const CareerHerosection: React.FC<HeroProps> = ({ title }) => {
 
         {/* Content wrapper */}
         <div className="h-full flex items-center justify-center relative z-10 px-6 md:px-12 lg:px-20 xl:px-36">
-          <h2 className="text-center leading-snug text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold space-y-2">
+          <h1 className="text-center leading-snug text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold space-y-2">
             {hasBuild ? (
               <>
                 <span className="block text-white">{firstLine}</span>
@@ -104,7 +104,7 @@ const CareerHerosection: React.FC<HeroProps> = ({ title }) => {
                 {title}
               </span>
             )}
-          </h2>
+          </h1>
         </div>
       </div>
     </div>

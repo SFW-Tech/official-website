@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     url: `${weburl}/case-studies/Code-ninja`,
-    title: "Softworks Technologies | Code Ninja Case Study",
+    title: "Code Ninja Case Study | SFW",
     description:
       "Discover how Softworks Technologies developed Code Ninja — a powerful coding platform for interactive learning and skill enhancement.",
     siteName: "Softworks Technologies",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title: "Code Ninja Case Study | Softworks Technologies",
+    title: "Code Ninja Case Study | SFW",
     description:
       "Learn how Softworks Technologies designed Code Ninja — an advanced coding learning platform that empowers developers and students.",
     images: [`${weburl}/assets/Casestudies/Code-Ninja.png`],

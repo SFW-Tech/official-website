@@ -7,7 +7,7 @@ const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 // ✅ PAGE METADATA
 export const metadata: Metadata = {
-  title: "AI Development Company in Coimbatore",
+  title: "AI Development Coimbatore",
   description:
     "Softworks Technologies is a leading AI development company in Coimbatore offering AI-powered solutions, machine learning models, chatbots, automation, and predictive analytics for businesses.",
   keywords: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${weburl}/ai`,
-    title: "Softworks Technologies | AI Development Company in Coimbatore",
+    title: "AI Development Company | SFW",
     description:
       "Softworks Technologies delivers intelligent AI and machine learning solutions that automate business processes and enhance decision-making.",
     siteName: "Softworks Technologies",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title: "Softworks Technologies | AI Development Company in Coimbatore",
+    title: "AI Development Company | SFW",
     description:
       "Softworks Technologies creates AI-driven business solutions including chatbots, ML models, and predictive analytics tools.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],

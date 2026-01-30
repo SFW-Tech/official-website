@@ -10,7 +10,7 @@ const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 // ✅ PAGE METADATA
 export const metadata: Metadata = {
-  title: "E-commerce Development Company in Coimbatore",
+  title: "E-commerce Development Coimbatore",
   description:
     "Softworks Technologies builds powerful and scalable e-commerce websites and apps in Coimbatore. We specialize in custom online stores using Next.js, React, and Node.js with secure payment integration.",
   keywords: [
@@ -30,8 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${weburl}/e-commerce`,
-    title:
-      "Softworks Technologies | E-commerce Development Company in Coimbatore",
+    title: "E-commerce Development Company | SFW",
     description:
       "Softworks Technologies creates responsive and high-performance e-commerce websites using React, Next.js, and Node.js.",
     siteName: "Softworks Technologies",
@@ -48,8 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title:
-      "Softworks Technologies | E-commerce Development Company in Coimbatore",
+    title: "E-commerce Development Company | SFW",
     description:
       "Softworks Technologies offers full-scale e-commerce development solutions for online stores with advanced features and modern UI/UX design.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],

@@ -11,7 +11,7 @@ const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 // ✅ PAGE METADATA
 export const metadata: Metadata = {
-  title: "Website Development Company in Coimbatore",
+  title: "Website Development Coimbatore",
   description:
     "Softworks Technologies provides custom website development services in Coimbatore. We build responsive, SEO-friendly, and high-performance websites using Next.js, React, and Node.js.",
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${weburl}/websitedevelopment`,
-    title: "Softworks Technologies | Website Development Company in Coimbatore",
+    title: "Website Development Company | SFW",
     description:
       "Softworks Technologies builds professional, SEO-optimized, and mobile-friendly websites tailored for your business growth.",
     siteName: "Softworks Technologies",
@@ -48,8 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title:
-      "Softworks Technologies | Website Development Company in Coimbatore",
+    title: "Website Development Company | SFW",
     description:
       "We specialize in building SEO-friendly, responsive, and scalable websites for businesses using React, Next.js, and Node.js.",
     images: [`${weburl}/assets/Logo1.png`],

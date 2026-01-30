@@ -8,7 +8,7 @@ const weburl = process.env.NEXT_PUBLIC_webUrl!;
 
 // ✅ PAGE METADATA
 export const metadata: Metadata = {
-  title: "Odoo ERP Development Company in Coimbatore",
+  title: "Odoo ERP Development Coimbatore",
   description:
     "Softworks Technologies is a leading Odoo ERP development company in Coimbatore providing customized Odoo implementation, integration, and support services for businesses of all sizes.",
   keywords: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${weburl}/odoo`,
-    title: "Softworks Technologies | Odoo ERP Development Company in Coimbatore",
+    title: "Odoo ERP Development Company | SFW",
     description:
       "Softworks Technologies offers professional Odoo ERP development, customization, and integration solutions to streamline your business operations.",
     siteName: "Softworks Technologies",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softworkstech",
     creator: "@softworkstech",
-    title: "Softworks Technologies | Odoo ERP Development Company in Coimbatore",
+    title: "Odoo ERP Development Company | SFW",
     description:
       "Softworks Technologies delivers end-to-end Odoo ERP implementation, integration, and customization services for efficient business management.",
     images: [`${weburl}/assets/Sfw-Logo1.svg`],
