@@ -133,14 +133,14 @@ function Navbar() {
                 </Link>
                 <CompanyDropdownMenu />
                 <Servicesdropdownmenu />
-                {/* <Link
+                <Link
                     href="/blog"
                     className={`cursor-pointer pt-3 px-5 pb-3 rounded-sm transition-colors duration-500 ease-in-out 
                   hover:bg-[#59d7f7] hover:text-black 
                       ${pathname === "/blog" ? "bg-[#59d7f7] text-black px-5 rounded-md" : ""}`}
                 >
                     Blog
-                </Link> */}
+                </Link>
                 <Link
                     href="/contact"
                     className={`cursor-pointer pt-3 px-5 pb-3 rounded-sm transition-colors duration-500 ease-in-out 
@@ -367,14 +367,14 @@ function Navbar() {
                                 </div>
 
                                 {/* Blog */}
-                                {/* <Link
+                                <Link
                                     href="/blog"
                                     className={`cursor-pointer py-2 hover:bg-white/10 transition rounded-md px-2 block ${pathname === "/blog" ? "bg-[#59d7f7] text-black font-semibold py-2" : ""
                                         }`}
                                     onClick={() => sethamburgerlist(false)}
                                 >
                                     Blog
-                                </Link> */}
+                                </Link>
 
                                 {/* Contact */}
                                 <Link
