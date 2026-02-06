@@ -104,7 +104,7 @@ const Herocomp: React.FC<HeroProps> = ({ title, subtitle, rightImage }) => {
               <img
                 src={rightImage}
                 alt="Right Side"
-                className="max-x-xs md:max-h-[400px] lg:max-h-[500px] xl:max-h-[600px] 2xl:max-h-[500px] object-contain"
+                className="max-x-xs md:max-h-[400px] lg:h-[300px] object-contain"
               />
             </div>
           </div>
